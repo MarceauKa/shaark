@@ -4,9 +4,11 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-12 col-md-8">
-            <link-form :link="{{ json_encode($link) }}"
-                       parse-url="{{ $parse }}"
+            <link-form parse-url="{{ $parse }}"
                        submit-url="{{ $submit }}"
+                       @if(isset($link))
+                       :link="{{ json_encode($link) }}"
+                       @endif
                        @if(isset($query))
                        query-url="{{ $query }}"
                        @endif

@@ -75,6 +75,7 @@ export default {
 <style scoped>
     .form-inline {
         position: relative;
+        margin-bottom: 0;
     }
     .results {
         z-index: 500;

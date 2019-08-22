@@ -86,7 +86,11 @@ export default {
             required: false,
             default: [],
         },
-        link: Object|String,
+        link: {
+            type: Object,
+            required: false,
+            default: () => {}
+        },
     },
 
     data() {
@@ -98,7 +102,7 @@ export default {
     },
 
     mounted() {
-        if (this.queryUrl && this.link.length === 0) {
+        if (this.queryUrl) {
             this.form.url = this.queryUrl;
         }
 

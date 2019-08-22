@@ -20,7 +20,6 @@ class LinkController extends Controller
             'parse' => route('api.link.parse'),
             'method' => 'POST',
             'query' => $request->query('url'),
-            'link' => new Link,
             'tags' => Tag::all()->pluck('name')->toJson(),
         ]);
     }
