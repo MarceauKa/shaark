@@ -1,6 +1,6 @@
 <template>
     <form class="form-inline w-100 px-3">
-        <input class="form-control w-100" type="search"
+        <input class="form-control w-100" type="search" ref="input"
                placeholder="Tapez / pour chercher" v-model="query">
 
         <div class="list-group results" :class="{'active': results.length > 0}" v-on-clickaway="hide">
@@ -37,6 +37,13 @@ export default {
     },
 
     mounted() {
+        document.addEventListener('keydown', (event) => {
+            if (event.keyCode === 191) {
+                event.preventDefault();
+                event.stopPropagation();
+                this.$refs.input.focus();
+            }
+        })
     },
 
     methods: {
