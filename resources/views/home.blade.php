@@ -63,9 +63,3 @@
     </div>
 </div>
 @endsection
-<script>
-    import ButtonDelete from "../js/components/ButtonDelete";
-    export default {
-        components: {ButtonDelete}
-    }
-</script>

@@ -12,10 +12,9 @@ class SearchController extends Controller
     public function search(Request $request)
     {
         $query = $request->get('query');
-
         $links = Link::search($query)
             ->query(function ($query) {
-                $query->withPrivate(auth()->check());
+                return $query->withPrivate(auth('api')->check());
             })
             ->take(5)
             ->get();
