@@ -54,4 +54,26 @@ class LinkController extends Controller
             'status' => 'created',
         ]);
     }
+
+    public function update(StoreLinkRequest $request, int $id)
+    {
+        $link = Link::findOrFail($id);
+        $data = collect($request->validated());
+
+        $link->fill($data->only('title', 'content', 'url')->toArray());
+        $link->is_private = $request->has('is_private');
+
+        if ($data['tags']) {
+            $link->syncTags($data['tags']);
+        }
+
+        if ($link->url) {
+            $link->findExtra();
+        }
+
+        return response()->json([
+            'id' => $link->id,
+            'status' => 'updated',
+        ]);
+    }
 }

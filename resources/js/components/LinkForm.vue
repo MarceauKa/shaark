@@ -98,8 +98,12 @@ export default {
     },
 
     mounted() {
-        if (this.queryUrl) {
+        if (this.queryUrl && this.link.length === 0) {
             this.form.url = this.queryUrl;
+        }
+
+        if (this.link) {
+            this.form = this.link;
         }
     },
 
@@ -133,11 +137,16 @@ export default {
                 url: this.submitUrl,
                 data: this.form
             }).then((response) => {
-                this.reset();
-                this.$toasted.success("Lien ajouté !");
+                if (this.link) {
+                    this.$toasted.success("Lien modifié !");
+                    this.loading = false;
+                } else {
+                    this.$toasted.success("Lien ajouté !");
+                    this.reset();
+                }
             }).catch((error) => {
                 this.loading = false;
-                this.$toasted.error("Impossible d'ajouter le lien.");
+                this.$toasted.error("Impossible d'enregistrer le lien.");
                 console.log(error);
             })
         },
@@ -156,7 +165,7 @@ export default {
 
     watch: {
         'form.url': _.debounce(function (value) {
-            if (value) {
+            if (value && ! this.link) {
                 this.parse(value)
             }
         }, 500),

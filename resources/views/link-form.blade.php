@@ -4,10 +4,12 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-12 col-md-8">
-            <link-form :link="{!! $link->toJson() !!}"
+            <link-form :link="{{ json_encode($link) }}"
                        parse-url="{{ $parse }}"
                        submit-url="{{ $submit }}"
+                       @if(isset($query))
                        query-url="{{ $query }}"
+                       @endif
                        method="{{ $method }}"
                        :tags="{{ $tags }}"
             ></link-form>
@@ -19,7 +21,7 @@
                     <p class="card-text">Glissez et déposez le bouton ci-dessous dans votre barre de favoris</p>
                     <p class="card-text">
                         <a class="btn btn-outline-primary"
-                           href="{{ $link->sharingBookmarkCode() }}"
+                           href="{{ \App\Link::sharingBookmarkCode() }}"
                         >Shaare</a>
                     </p>
                 </div>

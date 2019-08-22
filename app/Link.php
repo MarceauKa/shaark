@@ -61,7 +61,7 @@ class Link extends Model
         return $this;
     }
 
-    public function sharingBookmarkCode(): string
+    public static function sharingBookmarkCode(): string
     {
         return vsprintf("javascript:(function(){var url=location.href; window.open('%s?url=' + encodeURIComponent(url), '_blank', '%s');})();", [
             route('link.create'),
