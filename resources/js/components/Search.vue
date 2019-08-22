@@ -2,7 +2,7 @@
     <form class="form-inline w-100 px-3">
         <input class="form-control w-100" type="search"
                placeholder="Tapez / pour chercher" v-model="query">
-        <div class="list-group results" :class="{'active': results.length > 0}">
+        <div class="list-group results" :class="{'active': results.length > 0}" v-on-clickaway="hide">
             <a v-for="result in results"
                href="#" class="list-group-item list-group-item-action">
                 <p class="mb-0"><strong>{{ result.title }}</strong></p>
@@ -13,7 +13,13 @@
 </template>
 
 <script>
+import { directive as onClickaway } from 'vue-clickaway';
+
 export default {
+    directives: {
+        onClickaway: onClickaway,
+    },
+
     props: {
         url: {
             type: String,
@@ -48,6 +54,11 @@ export default {
                 this.loading = false;
                 console.log(error);
             });
+        },
+
+        hide() {
+            this.query = "";
+            this.results = [];
         }
     },
 
