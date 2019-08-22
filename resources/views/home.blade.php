@@ -7,7 +7,7 @@
         <div class="col-12">
             <div class="card-columns">
                 @foreach($links as $link)
-                <div class="card {{ $link->is_private ? ' bg-light' : '' }}">
+                <div class="card mb-3 {{ $link->is_private ? ' bg-light' : '' }}">
                     <div class="card-body">
                         <h5 class="card-title">
                             <a href="{{ $link->url }}" target="_blank" rel="nofollow">
