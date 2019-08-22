@@ -1,10 +1,23 @@
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css?family=Rubik:400,700&display=swap&subset=cyrillic,hebrew,latin-ext');
 @import 'variables';
 @import '~bootstrap/scss/bootstrap';
 @import '~vue-multiselect/dist/vue-multiselect.min.css';
 
+html,
+body {
+    min-height: 100%;
+    height: 100%;
+}
+
+body {
+    background-image: linear-gradient(to top, #9795f0 0%, #fbc8d4 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+nav.navbar,
 .card,
-.list-group,
-.navbar {
+.list-group {
+    background-color: rgba(255, 255, 255, .9);
     box-shadow: $box-shadow-sm;
 }
