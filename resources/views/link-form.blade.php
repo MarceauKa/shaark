@@ -9,6 +9,7 @@
                        submit-url="{{ $submit }}"
                        query-url="{{ $query }}"
                        method="{{ $method }}"
+                       :tags="{{ $tags }}"
             ></link-form>
 
             @if(empty($query))

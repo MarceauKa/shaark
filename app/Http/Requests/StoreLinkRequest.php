@@ -30,6 +30,15 @@ class StoreLinkRequest extends FormRequest
             'is_private' => [
                 'nullable',
             ],
+            'tags' => [
+                'nullable',
+                'array',
+                'max:10',
+            ],
+            'tags.*' => [
+                'min:1',
+                'max:30',
+            ],
         ];
     }
 }

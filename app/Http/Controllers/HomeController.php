@@ -10,7 +10,10 @@ class HomeController extends Controller
 {
     public function index(Request $request)
     {
-        $links = Link::latest()->withPrivate(auth()->check())->paginate(25);
+        $links = Link::latest()
+            ->withPrivate(auth()->check())
+            ->with('tags')
+            ->paginate(25);
 
         return view('home')->with([
             'links' => $links,

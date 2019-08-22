@@ -20,6 +20,12 @@
                         @if($link->extra)
                             {!! $link->extra !!}
                         @endif
+
+                        @if($link->tags->isNotEmpty())
+                            @foreach($link->tags as $tag)
+                                <span class="badge badge-secondary">{{ $tag->name }}</span>
+                            @endforeach
+                        @endif
                     </div>
 
                     <div class="card-footer">

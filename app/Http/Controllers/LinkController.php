@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Link;
 use Illuminate\Http\Request;
+use Spatie\Tags\Tag;
 
 class LinkController extends Controller
 {
@@ -20,6 +21,7 @@ class LinkController extends Controller
             'method' => 'POST',
             'query' => $request->query('url'),
             'link' => new Link,
+            'tags' => Tag::all()->pluck('name')->toJson(),
         ]);
     }
 }

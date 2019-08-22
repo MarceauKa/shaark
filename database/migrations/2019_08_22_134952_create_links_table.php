@@ -13,7 +13,7 @@ class CreateLinksTable extends Migration
             $table->string('title');
             $table->text('content')->nullable();
             $table->text('extra')->nullable();
-            $table->string('url');
+            $table->string('url')->nullable();
             $table->boolean('is_private')->default(false)->index();
             $table->timestamps();
         });

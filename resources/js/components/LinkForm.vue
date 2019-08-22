@@ -23,6 +23,20 @@
                     <label class="custom-control-label" for="is_private">Lien privé ?</label>
                 </div>
             </div>
+
+            <div class="form-group">
+                <multiselect v-model="form.tags"
+                             tag-placeholder="Créer le tag"
+                             selectLabel="Cliquez pour sélectionner"
+                             deselectLabel="Cliquez pour désectionner"
+                             noOptions="Aucun tag"
+                             placeholder="Cherchez ou tapez un tag"
+                             :options="tags"
+                             :multiple="true"
+                             :taggable="true"
+                             @tag="newTag"
+                ></multiselect>
+            </div>
         </div>
 
         <div class="card-footer">
@@ -32,16 +46,23 @@
 </template>
 
 <script>
+import Multiselect from 'vue-multiselect';
+
 let defaultLink = function () {
     return {
         url: null,
         title: null,
         content: null,
         is_private: false,
+        tags: [],
     };
 };
 
 export default {
+    components: {
+        'multiselect': Multiselect,
+    },
+
     props: {
         parseUrl: {
             type: String,
@@ -60,17 +81,17 @@ export default {
             required: false,
             default: 'POST'
         },
+        tags: {
+            type: Array,
+            required: false,
+            default: [],
+        },
         link: Object|String,
     },
 
     data() {
         return {
-            form: {
-                url: null,
-                title: null,
-                content: null,
-                is_private: false,
-            },
+            form: defaultLink(),
             parsing: false,
             loading: false,
         }
@@ -126,6 +147,10 @@ export default {
             this.parsing = false;
             this.form = defaultLink();
         },
+
+        newTag(value) {
+            this.tags.push(value);
+        }
     },
 
     watch: {

@@ -31,9 +31,23 @@ class LinkController extends Controller
 
     public function store(StoreLinkRequest $request)
     {
-        $data = $request->validated();
-        $link = Link::create($data);
-        $link->findExtra();
+        $data = collect($request->validated());
+
+        /** @var Link $link */
+        $link = Link::create($data->only([
+            'title',
+            'content',
+            'url',
+            'is_private'
+        ])->toArray());
+
+        if ($data['tags']) {
+            $link->syncTags($data['tags']);
+        }
+
+        if ($link->url) {
+            $link->findExtra();
+        }
 
         return response()->json([
             'id' => $link->id,
