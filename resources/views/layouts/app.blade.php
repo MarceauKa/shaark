@@ -25,7 +25,9 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto">
+                    <search url="{{ route('api.search') }}"></search>
+
+                    <ul class="navbar-nav">
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>

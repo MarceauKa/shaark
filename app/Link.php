@@ -5,11 +5,13 @@ namespace App;
 use App\Services\ExtraContent\ExtraContent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 use Spatie\Tags\HasTags;
 
 class Link extends Model
 {
-    use HasTags;
+    use HasTags,
+        Searchable;
 
     protected $fillable = [
         'title',
