@@ -20,7 +20,10 @@ class ProviderSoundcloud extends BaseProvider
             return null;
         }
 
-        return $content->html;
+        return str_replace(
+            ['visual=true', 'show_artwork=true', 'height="400"'],
+            ['visual=false', 'show_artwork=false', 'height="140"'],
+            $content->html);
     }
 
 }
