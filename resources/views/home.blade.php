@@ -39,12 +39,14 @@
         </div>
         @else
         <div class="col-12 col-md-8">
-            <div class="alert alert-info">
-                {{ __("Aucun lien.") }}
-                @if(auth()->user())
-                    <a href="{{ route('link.create') }}" class="alert-link">Ajouter le premier lien</a>
-                @endif
-            </div>
+            <p class="text-center lead">
+                Ooops ! Aucun contenu !
+            </p>
+
+            <p class="text-center">
+                <a href="{{ route('link.create') }}" class="btn btn-outline-primary">Ajouter un lien</a>
+                <a href="{{ route('link.create') }}" class="btn btn-outline-primary">Ajouter une story</a>
+            </p>
         </div>
         @endif
     </div>
