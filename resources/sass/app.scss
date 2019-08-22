@@ -2,3 +2,8 @@
 @import 'variables';
 @import '~bootstrap/scss/bootstrap';
 @import '~vue-multiselect/dist/vue-multiselect.min.css';
+
+.card,
+.navbar {
+    box-shadow: $box-shadow-lg;
+}

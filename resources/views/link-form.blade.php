@@ -13,10 +13,10 @@
             ></link-form>
 
             @if(empty($query))
-            <div class="card mt-3">
+            <div class="card border-info mt-3">
                 <div class="card-body">
                     <h5 class="card-title">Ajout rapide</h5>
-                    <p class="card-text">Glissez et déposez ce bouton dans votre barre de favoris</p>
+                    <p class="card-text">Glissez et déposez le bouton ci-dessous dans votre barre de favoris</p>
                     <p class="card-text">
                         <a class="btn btn-outline-primary"
                            href="{{ $link->sharingBookmarkCode() }}"

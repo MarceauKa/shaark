@@ -150,6 +150,7 @@ export default {
 
         newTag(value) {
             this.tags.push(value);
+            this.form.tags.push(value);
         }
     },
 
