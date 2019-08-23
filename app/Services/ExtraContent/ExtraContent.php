@@ -8,6 +8,8 @@ class ExtraContent
     public $providers = [
         ProviderYoutube::class,
         ProviderSoundcloud::class,
+        ProviderImgur::class,
+        ProviderVideo::class,
     ];
     /** @var string $url */
     public $url;

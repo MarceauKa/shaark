@@ -31,6 +31,10 @@ class WebParser
             $curl = curl_init();
             curl_setopt($curl, CURLOPT_URL, trim($this->url));
             curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($curl, CURLOPT_TIMEOUT, 5);
+            curl_setopt($curl, CURLOPT_HTTPHEADER, [
+                'Accept: text/*; application/*',
+            ]);
             $this->raw = curl_exec($curl);
             curl_close($curl);
         } catch (\Exception $e) {
@@ -50,7 +54,7 @@ class WebParser
 
     private function grepTitle(): string
     {
-        if (preg_match('/<meta name=(?:"|\')og:title(?:"|\') content=(?:"|\')(.*)(?:"|\')(?:\s?\/?)>/', $this->raw, $matches)) {
+        if (preg_match('/<meta (?:name|property)=(?:"|\')og:title(?:"|\') content=(?:"|\')(.*)(?:"|\')(?:\s?\/?)>/', $this->raw, $matches)) {
             $this->title = strip_tags($matches[1]);
             return $this->title;
         }
