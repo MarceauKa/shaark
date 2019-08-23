@@ -23,18 +23,25 @@ nav.navbar,
     box-shadow: $box-shadow-sm;
 }
 
-#app > main {
-    min-height: 80vh;
-}
+#app {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100%;
 
-#app > footer {
-    width: 100%;
-    background-color: rgba(255, 255, 255, .9);
-    border-top: 1px solid $indigo;
-    padding: 1rem 0;
+    > main {
+        flex-grow: 2;
+    }
 
-    p {
-        margin-bottom: 0;
+    > footer {
+        width: 100%;
+        background-color: rgba(255, 255, 255, .9);
+        border-top: 1px solid $indigo;
+        padding: 1rem 0;
+
+        p {
+            margin-bottom: 0;
+        }
     }
 }
 

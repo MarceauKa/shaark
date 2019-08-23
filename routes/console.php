@@ -18,7 +18,9 @@ Artisan::command('shaarli:install', function () {
     $email = $this->ask('User email?', 'admin@example.com');
     $pass = $this->secret('User pass? (secret)', 'secret');
 
-    $user = \App\User::firstOrNew([
+    $user = \App\User::count() ? \App\User::first() : new \App\User();
+
+    $user->fill([
         'name' => $name,
         'email' => $email,
         'password' => \Illuminate\Support\Facades\Hash::make('pass'),

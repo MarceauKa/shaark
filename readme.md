@@ -6,7 +6,7 @@
 - Apache or nginx
 - MySQL >= 5.7 or SQLite >= 3
 
-### Installation
+## Installation
 
 ```
 git clone https://github.com/MarceauKa/laravel-shaarli && cd laravel-shaarli
@@ -18,7 +18,7 @@ npm install && npm run prod
 Then run `php artisan shaarli:install` (for interactive installation) or `php artisan migrate --seed` (with default data).
 Default user is `admin@example.fr` with password `secret`.
 
-### Update
+## Update
 
 Update the application by running `php artisan shaarli:self-update` or manually:
 
@@ -37,7 +37,7 @@ npm run prod
 php artisan up
 ```
 
-### Features
+## Features
 
 - [x] External links
 - [x] Internal links
@@ -51,3 +51,13 @@ php artisan up
 - [ ] Export
 - [ ] Stories
 - [ ] i18n
+
+## Screenshots
+
+![Homepage](/resources/screenshots/homepage.png?raw=true "Homepage")
+![Form](/resources/screenshots/form.png?raw=true "Add link")
+![Import](/resources/screenshots/import.png?raw=true "Import")
+
+## Licence
+
+MIT
