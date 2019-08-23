@@ -8,7 +8,8 @@ Route::auth([
     'verify' => false,
 ]);
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'BrowseController@index')->name('home');
+Route::get('/tag/{tag}', 'BrowseController@tag')->name('tag');
 
 Route::get('lien/ajouter', 'LinkController@create')->name('link.create');
 Route::get('lien/modifier/{id}', 'LinkController@edit')->name('link.edit');
