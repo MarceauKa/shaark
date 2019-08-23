@@ -15,7 +15,7 @@ class ImportController extends Controller
 
     public function form(Request $request)
     {
-        return view('import');
+        return view('import')->with(['page_title' => 'Importer']);
     }
 
     public function store(ImportRequest $request)

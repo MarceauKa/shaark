@@ -16,6 +16,7 @@ class LinkController extends Controller
     public function create(Request $request)
     {
         return view('link-form')->with([
+            'page_title' => 'Ajouter un lien',
             'submit' => route('api.link.store'),
             'parse' => route('api.link.parse'),
             'method' => 'POST',
@@ -30,6 +31,7 @@ class LinkController extends Controller
         $link = \App\Http\Resources\Link::make($link)->toArray($request);
 
         return view('link-form')->with([
+            'page_title' => 'Modifier un lien',
             'submit' => route('api.link.update', $id),
             'parse' => route('api.link.parse'),
             'method' => 'PUT',

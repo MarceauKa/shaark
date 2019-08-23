@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@push('meta')
+    <meta name="description" content="{{ $page_title }}">
+@endpush
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

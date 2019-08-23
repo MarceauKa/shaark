@@ -1,5 +1,13 @@
 @extends('layouts.app')
 
+@push('meta')
+    <meta name="description" content="{{ Str::limit($link->content, 130) }}">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="{{ $link->title }}">
+    <meta property="og:url" content="{{ $link->permalink }}">
+    <meta property="og:description" content="{{ Str::limit($link->content, 130) }}">
+@endpush
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
