@@ -51,12 +51,12 @@ class WebParser
     private function grepTitle(): string
     {
         if (preg_match('/<meta name=(?:"|\')og:title(?:"|\') content=(?:"|\')(.*)(?:"|\')(?:\s?\/?)>/', $this->raw, $matches)) {
-            $this->title = $matches[1];
+            $this->title = strip_tags($matches[1]);
             return $this->title;
         }
 
         if (preg_match('/<title>(.*)<\/title>/', $this->raw, $matches)) {
-            $this->title = $matches[1];
+            $this->title = strip_tags($matches[1]);
             return $this->title;
         }
 
@@ -66,7 +66,7 @@ class WebParser
     private function grepContent(): string
     {
         if (preg_match('/<meta name=(?:"|\')(?:og\:)?description(?:"|\') content=(?:"|\')(.*)(?:"|\')(?:\s?\/?)>/', $this->raw, $matches)) {
-            $this->content = $matches[1];
+            $this->content = strip_tags($matches[1]);
             return $this->content;
         }
 

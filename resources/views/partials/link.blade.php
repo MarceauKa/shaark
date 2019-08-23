@@ -28,6 +28,7 @@
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <a class="dropdown-item" href="{{ $link->permalink }}">Lien permenant</a>
                 @if(auth()->check())
+                <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="{{ route('link.edit', $link->id) }}">Modifier</a>
                 <a class="dropdown-item" href="{{ route('link.delete', [$link->id, csrf_token()]) }}">Supprimer</a>
                 @endif
