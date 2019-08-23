@@ -18,7 +18,7 @@ class Link extends JsonResource
             'title' => $this->title,
             'content' => $this->content,
             'tags' => $this->tags->pluck('name')->toArray(),
-            'url' => $this->url,
+            'url' => $this->permalink,
             'created_at' => $this->created_at,
         ];
     }

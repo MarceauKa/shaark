@@ -21,6 +21,10 @@ class Link extends Model
         'is_private',
     ];
 
+    protected $appends = [
+        'permalink',
+    ];
+
     protected $casts = [
         'is_private' => 'bool',
     ];

@@ -5,11 +5,11 @@
 
         <div class="list-group results" :class="{'active': results.length > 0}" v-on-clickaway="hide">
             <a v-for="result in results"
-               href="#" class="list-group-item list-group-item-action">
+               :href="result.url" class="list-group-item list-group-item-action">
                 <p class="mb-0"><strong>{{ result.title }}</strong></p>
                 <p class="mb-0">{{ result.content }}</p>
                 <p class="mb-0 text-right" v-if="result.tags.length > 0">
-                    <span class="badge badge-secondary" v-for="tag in result.tags">{{ tag }}</span>
+                    <span class="badge badge-secondary mr-1" v-for="tag in result.tags">{{ tag }}</span>
                 </p>
             </a>
         </div>
