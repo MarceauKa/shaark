@@ -30,6 +30,11 @@ class Link extends Model
         return hashid_encode($this->id);
     }
 
+    public function getPermalinkAttribute(): string
+    {
+        return route('link.view', $this->hash_id);
+    }
+
     public function scopeHashIdIs(Builder $query, string $hash): Builder
     {
         return $query->where('id', hashid_decode($hash));

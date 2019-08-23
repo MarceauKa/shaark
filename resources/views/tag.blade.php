@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-12">
-            <h2>Tag : {{ $tag->name }}</h2>
+            <h2 class="mb-4">Tag : {{ $tag->name }}</h2>
 
             <div class="card-columns">
                 @foreach($links as $link)

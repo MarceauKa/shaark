@@ -20,6 +20,18 @@ class BrowseController extends Controller
         ]);
     }
 
+    public function link(Request $request, string $hash)
+    {
+        $link = Link::withPrivate(auth()->check())
+                ->with('tags')
+                ->hashIdIs($hash)
+                ->firstOrFail();
+
+        return view('link')->with([
+            'link' => $link,
+        ]);
+    }
+
     public function tag(Request $request, string $tag)
     {
         $locale = app()->getLocale();
