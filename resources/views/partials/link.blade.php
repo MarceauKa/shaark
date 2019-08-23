@@ -1,9 +1,7 @@
 <div class="card {{ $link->is_private ? 'bg-light' : '' }} mb-4">
     <div class="card-body">
         <h5 class="card-title">
-            <a href="{{ $link->url }}" target="_blank" rel="nofollow">
-                {{ $link->title }}
-            </a>
+            <a href="{{ $link->url }}">{{ $link->title }}</a>
         </h5>
 
         <p class="card-text">

@@ -102,7 +102,7 @@ class Import
                     $new_tags = explode(' ', $item['tags']);
 
                     foreach ($new_tags as $tag) {
-                        $this->tags->push($tag);
+                        $this->tags->push(Str::slug($tag));
                     }
                 }
 

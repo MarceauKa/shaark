@@ -39,6 +39,15 @@ class Link extends Model
         return route('link.view', $this->hash_id);
     }
 
+    public function getUrlAttribute(): string
+    {
+        if (empty($this->attributes['url'])) {
+            return $this->permalink;
+        }
+
+        return $this->attributes['url'];
+    }
+
     public function scopeHashIdIs(Builder $query, string $hash): Builder
     {
         return $query->where('id', hashid_decode($hash));
