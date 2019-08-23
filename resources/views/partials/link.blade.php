@@ -5,11 +5,15 @@
                 {{ $link->title }}
             </a>
         </h5>
+
         <p class="card-text">
             {!! $link->content !!}
         </p>
+
         @if($link->extra)
+        <div class="card-extra">
             {!! $link->extra !!}
+        </div>
         @endif
 
         @if($link->tags->isNotEmpty())
@@ -28,8 +32,9 @@
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <a class="dropdown-item" href="{{ $link->permalink }}">Lien permenant</a>
                 @if(auth()->check())
-                <div class="dropdown-divider"></div>
+                <h6 class="dropdown-header">Gestion</h6>
                 <a class="dropdown-item" href="{{ route('link.edit', $link->id) }}">Modifier</a>
+                <a class="dropdown-item" href="{{ route('link.refresh', [$link->id, csrf_token()]) }}">Rafraîchir</a>
                 <a class="dropdown-item" href="{{ route('link.delete', [$link->id, csrf_token()]) }}">Supprimer</a>
                 @endif
             </div>

@@ -38,15 +38,31 @@ class LinkController extends Controller
         ]);
     }
 
+    public function refresh(Request $request, int $id, string $hash)
+    {
+        if ($hash !== csrf_token()) {
+            abort(403);
+        }
+
+        /** @var Link $link */
+        $link = Link::findOrFail($id);
+        $link->findExtra();
+
+        $this->flash(sprintf('Le lien "%s" a été rafraîchit !', $link->title), 'success');
+        return redirect()->back();
+    }
+
     public function delete(Request $request, int $id, string $hash)
     {
         if ($hash !== csrf_token()) {
             abort(403);
         }
 
+        /** @var Link $link */
         $link = Link::findOrFail($id);
         $link->delete();
 
+        $this->flash(sprintf('Le lien "%s" a été supprimé !', $link->title), 'success');
         return redirect()->back();
     }
 }
