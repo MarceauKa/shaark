@@ -8,6 +8,9 @@
                href="#" class="list-group-item list-group-item-action">
                 <p class="mb-0"><strong>{{ result.title }}</strong></p>
                 <p class="mb-0">{{ result.content }}</p>
+                <p class="mb-0 text-right" v-if="result.tags.length > 0">
+                    <span class="badge badge-secondary" v-for="tag in result.tags">{{ tag }}</span>
+                </p>
             </a>
         </div>
     </form>
@@ -89,7 +92,7 @@ export default {
         z-index: 500;
         position: absolute;
         top: 40px;
-        width: auto;
+        width: calc(100% - 2rem);
         display: none;
     }
     .results.active {
