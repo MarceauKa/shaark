@@ -83,7 +83,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss">
     .form-inline {
         position: relative;
         margin-bottom: 0;
@@ -94,8 +94,13 @@ export default {
         top: 40px;
         width: calc(100% - 2rem);
         display: none;
+        &.active {
+            display: block;
+        }
     }
-    .results.active {
-        display: block;
+    .multiselect__tags,
+    .multiselect__content-wrapper {
+        border-radius: 0;
+        border-color: #ced4da;
     }
 </style>
