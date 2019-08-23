@@ -58,6 +58,48 @@ php artisan up
 ![Form](/resources/screenshots/form.png?raw=true "Add link")
 ![Import](/resources/screenshots/import.png?raw=true "Import")
 
+## Going live
+
+## Deploying
+
+Check these options before going live.
+
+**Composer flags**
+
+```composer install --no-dev -o```
+
+**.env options**
+
+```
+APP_ENV=production
+APP_DEBUG=false
+APP_URL=http://{your_url}
+CACHE_DRIVER=file # or redis
+SESSION_DRIVER=file # or redis
+QUEUE_DRIVER=sync # or redis
+MAIL_DRIVER=smtp
+MAIL_FROM_NAME={your_name}
+MAIL_FROM_ADDRESS={your_email}
+```
+
+**Compiling assets**
+```
+npm run prod
+```
+
+**Artisan routines**
+```
+php artisan cache:clear
+php artisan route:cache
+php artisan config:cache
+```
+
+## Tests
+
+1. Be sure to have a testing database with `touch database/testing.sqlite` and have composer `require-dev` dependencies installer.
+2. Run testing server `php artisan serve --env=testing`.
+3. Run tests ```php artisan dusk --env=testing```
+
 ## Licence
 
 MIT
