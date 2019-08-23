@@ -9,6 +9,7 @@
         <meta name="api-token" content="{{ auth()->user()->api_token }}">
     @endif
     @stack('meta')
+    @include('feed::links')
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
@@ -68,6 +69,7 @@
         <footer>
             <p class="text-center">
                 {{ config('app.name') }} -
+                <a href="{{ route('feeds.main') }}">Flux RSS</a> -
                 <a href="https://github.com/MarceauKa/laravel-shaarli">Code source</a>
             </p>
         </footer>

@@ -15,6 +15,7 @@
         "laravel/framework": "5.8.*",
         "laravel/scout": "^7.1",
         "laravel/tinker": "^1.0",
+        "spatie/laravel-feed": "^2.3",
         "spatie/laravel-tags": "^2.4",
         "teamtnt/laravel-scout-tntsearch-driver": "^7.1"
     },

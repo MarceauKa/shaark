@@ -8,6 +8,8 @@ Route::auth([
     'verify' => false,
 ]);
 
+Route::feeds();
+
 Route::get('/', 'BrowseController@index')->name('home');
 Route::get('/tag/{tag}', 'BrowseController@tag')->name('tag');
 

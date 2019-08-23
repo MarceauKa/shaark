@@ -47,7 +47,7 @@ php artisan up
 - [x] Tag system
 - [x] Search
 - [x] Original Shaarli import
-- [ ] RSS feeds
+- [x] RSS feed
 - [ ] Export
 - [ ] Stories
 - [ ] i18n

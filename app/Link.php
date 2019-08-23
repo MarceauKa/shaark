@@ -5,10 +5,13 @@ namespace App;
 use App\Services\ExtraContent\ExtraContent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 use Laravel\Scout\Searchable;
+use Spatie\Feed\Feedable;
+use Spatie\Feed\FeedItem;
 use Spatie\Tags\HasTags;
 
-class Link extends Model
+class Link extends Model implements Feedable
 {
     use HasTags,
         Searchable;
@@ -79,11 +82,20 @@ class Link extends Model
         return $this;
     }
 
-    public static function sharingBookmarkCode(): string
+    public function toFeedItem()
     {
-        return vsprintf("javascript:(function(){var url=location.href; window.open('%s?url=' + encodeURIComponent(url), '_blank', '%s');})();", [
-            route('link.create'),
-            'menubar=no,height=390,width=600,toolbar=no,scrollbars=no,status=no,dialog=1'
+        return FeedItem::create([
+            'id' => $this->id,
+            'title' => $this->title,
+            'summary' => Str::limit($this->content, 130) ?? 'N.C',
+            'updated' => $this->updated_at,
+            'link' => $this->permalink,
+            'author' => config('app.name'),
         ]);
+    }
+
+    public static function getFeedItems()
+    {
+        return Link::latest()->withPrivate(false)->get();
     }
 }
