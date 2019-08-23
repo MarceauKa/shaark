@@ -18,18 +18,8 @@
         </div>
 
         @if(empty($query))
-        <div class="col-12 col-sm-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Ajout rapide</h5>
-                    <p class="card-text">Glissez et déposez le bouton ci-dessous dans votre barre de favoris</p>
-                    <p class="card-text">
-                        <a class="btn btn-outline-primary"
-                           href="{{ \App\Link::sharingBookmarkCode() }}"
-                        >Shaare</a>
-                    </p>
-                </div>
-            </div>
+        <div class="col-12 col-md-4">
+            <sharer url="{{ route('link.create') }}"></sharer>
         </div>
         @endif
     </div>
