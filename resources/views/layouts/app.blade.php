@@ -27,7 +27,7 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <search url="{{ route('api.search') }}"></search>
+                    <search url="{{ route('api.search') }}" id="search"></search>
 
                     <ul class="navbar-nav">
                         @guest

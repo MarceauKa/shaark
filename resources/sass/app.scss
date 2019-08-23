@@ -29,6 +29,30 @@ nav.navbar,
     justify-content: space-between;
     min-height: 100%;
 
+    > nav.navbar {
+        #search {
+            width: 100%;
+            padding-left: 1rem;
+            padding-right: 1rem;
+
+            @include media-breakpoint-down(sm) {
+                margin-top: 10px;
+                padding-left: 0;
+                padding-right: 0;
+
+                .results {
+                    width: 100%;
+                }
+            }
+        }
+
+        @include media-breakpoint-down(sm) {
+            ul.navbar-nav li.dropdown > a {
+                text-align: right;
+            }
+        }
+    }
+
     > main {
         flex-grow: 2;
     }

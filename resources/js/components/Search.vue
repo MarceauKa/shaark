@@ -1,5 +1,5 @@
 <template>
-    <form class="form-inline w-100 px-3">
+    <form class="form-inline">
         <input class="form-control w-100" type="search" ref="input"
                placeholder="Tapez / pour chercher" v-model="query">
 

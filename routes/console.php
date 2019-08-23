@@ -16,14 +16,14 @@ Artisan::command('shaarli:install', function () {
 
     $name = $this->ask('User name?', 'Admin');
     $email = $this->ask('User email?', 'admin@example.com');
-    $pass = $this->secret('User pass? (secret)', 'secret');
+    $pass = $this->ask('User pass?', 'secret');
 
     $user = \App\User::count() ? \App\User::first() : new \App\User();
 
     $user->fill([
         'name' => $name,
         'email' => $email,
-        'password' => \Illuminate\Support\Facades\Hash::make('pass'),
+        'password' => \Illuminate\Support\Facades\Hash::make($pass),
         'api_token' => $pass === 'secret' ? 'api-token-secret' : \App\User::generateApiToken(),
     ]);
 
