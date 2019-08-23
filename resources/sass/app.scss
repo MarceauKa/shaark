@@ -23,6 +23,21 @@ nav.navbar,
     box-shadow: $box-shadow-sm;
 }
 
+#app > main {
+    min-height: 80vh;
+}
+
+#app > footer {
+    width: 100%;
+    background-color: rgba(255, 255, 255, .9);
+    border-top: 1px solid $indigo;
+    padding: 1rem 0;
+
+    p {
+        margin-bottom: 0;
+    }
+}
+
 .card-extra {
     iframe {
         display: inline-block;

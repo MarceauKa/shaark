@@ -65,6 +65,13 @@
             @yield('content')
         </main>
 
+        <footer>
+            <p class="text-center">
+                {{ config('app.name') }} -
+                <a href="https://github.com/MarceauKa/laravel-shaarli">Code source</a>
+            </p>
+        </footer>
+
         @include('partials.flash')
     </div>
 
