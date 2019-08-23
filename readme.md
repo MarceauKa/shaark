@@ -17,3 +17,17 @@ php artisan migrate --seed
 ```
 
 The default user is `admin@example.fr` with password `secret`.
+
+### Features
+
+- [x] External links
+- [x] Internal links
+- [x] Private links
+- [x] Shared content (Youtube, Soundcloud, Imgur, Videos)
+- [x] Tags
+- [x] Search
+- [x] Original Shaarli import
+- [ ] RSS feeds
+- [ ] Export
+- [ ] Stories
+- [ ] i18n
