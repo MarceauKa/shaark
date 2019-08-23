@@ -1,0 +1,1 @@
+<flash message="{{ session()->get('alert') }}" type="{{ session()->get('level', 'success') }}"></flash>
