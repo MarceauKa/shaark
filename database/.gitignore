@@ -1,3 +1,2 @@
 *.sqlite
 *.sqlite-journal
-!testing.sqlite
