@@ -13,11 +13,15 @@ Route::feeds();
 Route::get('/', 'BrowseController@index')->name('home');
 Route::get('/tag/{tag}', 'BrowseController@tag')->name('tag');
 
-Route::get('lien/ajouter', 'LinkController@create')->name('link.create');
-Route::get('lien/{link}', 'BrowseController@link')->name('link.view');
-Route::get('lien/modifier/{id}', 'LinkController@edit')->name('link.edit');
-Route::get('lien/rafraichir/{id}/{hash}', 'LinkController@refresh')->name('link.refresh');
-Route::get('lien/supprimer/{id}/{hash}', 'LinkController@delete')->name('link.delete');
+Route::get('link/create', 'LinkController@create')->name('link.create');
+Route::get('link/edit/{id}', 'LinkController@edit')->name('link.edit');
+Route::get('link/refresh/{id}/{hash}', 'LinkController@refresh')->name('link.refresh');
+Route::get('link/delete/{id}/{hash}', 'LinkController@delete')->name('link.delete');
 
-Route::get('importer', 'ImportController@form')->name('import');
-Route::post('importer', 'ImportController@store');
+Route::get('link/{link}', 'BrowseController@link')->name('link.view');
+
+Route::get('account', 'AccountController@form')->name('account');
+Route::post('account', 'AccountController@store');
+Route::post('account/password', 'AccountController@storePassword')->name('account.password');
+Route::get('import', 'ImportController@form')->name('import');
+Route::post('import', 'ImportController@store');

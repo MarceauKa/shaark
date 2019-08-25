@@ -25,15 +25,15 @@
         <span>{{ $link->created_at->diffForHumans() }}</span>
         <div class="dropdown">
             <button class="btn btn-outline-dark btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Plus
+                {{ __('More') }}
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="{{ $link->permalink }}">Lien permenant</a>
+                <a class="dropdown-item" href="{{ $link->permalink }}">{{ __('Permalink') }}</a>
                 @if(auth()->check())
-                <h6 class="dropdown-header">Gestion</h6>
-                <a class="dropdown-item" href="{{ route('link.edit', $link->id) }}">Modifier</a>
-                <a class="dropdown-item" href="{{ route('link.refresh', [$link->id, csrf_token()]) }}">Rafraîchir</a>
-                <a class="dropdown-item" href="{{ route('link.delete', [$link->id, csrf_token()]) }}">Supprimer</a>
+                <h6 class="dropdown-header">{{ __('Manage') }}</h6>
+                <a class="dropdown-item" href="{{ route('link.edit', $link->id) }}">{{ __('Edit') }}</a>
+                <a class="dropdown-item" href="{{ route('link.refresh', [$link->id, csrf_token()]) }}">{{ __('Refresh') }}</a>
+                <a class="dropdown-item" href="{{ route('link.delete', [$link->id, csrf_token()]) }}">{{ __('Delete') }}</a>
                 @endif
             </div>
         </div>

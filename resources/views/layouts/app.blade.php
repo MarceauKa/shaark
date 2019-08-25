@@ -41,10 +41,12 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <h6 class="dropdown-header">Gestion</h6>
-                                    <a class="dropdown-item" href="{{ route('link.create') }}">{{ __('Ajouter lien') }}</a>
-                                    <a class="dropdown-item" href="{{ route('import') }}">{{ __('Importer') }}</a>
-                                    <h6 class="dropdown-header">Session</h6>
+                                    <h6 class="dropdown-header">{{ __('Contents') }}</h6>
+                                    <a class="dropdown-item" href="{{ route('link.create') }}">{{ __('Add link') }}</a>
+                                    <h6 class="dropdown-header">{{ __('Manage') }}</h6>
+                                    <a class="dropdown-item" href="{{ route('account') }}">{{ __('Compte') }}</a>
+                                    <a class="dropdown-item" href="{{ route('import') }}">{{ __('Import') }}</a>
+                                    <h6 class="dropdown-header">{{ __('Session') }}</h6>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -69,8 +71,8 @@
         <footer>
             <p class="text-center">
                 {{ config('app.name') }} -
-                <a href="{{ route('feeds.main') }}">Flux RSS</a> -
-                <a href="https://github.com/MarceauKa/laravel-shaarli">Code source</a>
+                <a href="{{ route('feeds.main') }}">{{ __('RSS Feed') }}</a> -
+                <a href="https://github.com/MarceauKa/laravel-shaarli">{{ __('Source code') }}</a>
             </p>
         </footer>
 
