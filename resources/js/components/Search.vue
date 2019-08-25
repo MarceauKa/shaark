@@ -6,8 +6,8 @@
         <div class="list-group results" :class="{'active': hasResults}" v-on-clickaway="hide">
             <li class="list-group-item" v-if="hasTagsResults">
                 Tags :
-                <a v-for="result in results.tags" v-if="hasTagsResults" :href="result.url">
-                    <span class="badge badge-secondary mr-1">{{ result.name }}</span>
+                <a v-for="result in results.tags" class="btn btn-primary btn-sm" v-if="hasTagsResults" :href="result.url">
+                    {{ result.name }} <span class="badge badge-light">{{ result.count }}</span>
                 </a>
             </li>
 
@@ -16,7 +16,7 @@
                 <p class="mb-0"><strong>{{ result.title }}</strong></p>
                 <p class="mb-0">{{ result.content }}</p>
                 <p class="mb-0 text-right" v-if="result.tags.length > 0">
-                    <span class="badge badge-secondary mr-1" v-for="tag in result.tags">{{ tag }}</span>
+                    <span class="badge badge-secondary" v-for="tag in result.tags">{{ tag }}</span>
                 </p>
             </a>
         </div>
