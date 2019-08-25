@@ -3,8 +3,15 @@
         <input class="form-control w-100" type="search" ref="input"
                placeholder="Tapez / pour chercher" v-model="query">
 
-        <div class="list-group results" :class="{'active': results.length > 0}" v-on-clickaway="hide">
-            <a v-for="result in results"
+        <div class="list-group results" :class="{'active': hasResults}" v-on-clickaway="hide">
+            <li class="list-group-item" v-if="hasTagsResults">
+                Tags :
+                <a v-for="result in results.tags" v-if="hasTagsResults" :href="result.url">
+                    <span class="badge badge-secondary mr-1">{{ result.name }}</span>
+                </a>
+            </li>
+
+            <a v-for="result in results.links" v-if="hasLinksResults"
                :href="result.url" class="list-group-item list-group-item-action">
                 <p class="mb-0"><strong>{{ result.title }}</strong></p>
                 <p class="mb-0">{{ result.content }}</p>
@@ -34,7 +41,7 @@ export default {
     data() {
         return {
             query: null,
-            results: [],
+            results: {},
             loading: false,
         }
     },
@@ -59,7 +66,7 @@ export default {
                 this.loading = false;
 
                 if (response.status === 200) {
-                    this.results = response.data.data;
+                    this.results = response.data;
                 }
             }).catch((error) => {
                 this.loading = false;
@@ -69,7 +76,24 @@ export default {
 
         hide() {
             this.query = "";
-            this.results = [];
+            this.results = {};
+        }
+    },
+
+    computed: {
+        hasResults() {
+            return this.hasTagsResults
+                || this.hasLinksResults
+        },
+
+        hasTagsResults() {
+            return this.results.hasOwnProperty('tags')
+                && this.results.tags.length > 0;
+        },
+
+        hasLinksResults() {
+            return this.results.hasOwnProperty('links')
+                && this.results.links.length > 0;
         }
     },
 

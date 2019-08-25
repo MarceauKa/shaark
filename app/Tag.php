@@ -6,9 +6,12 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Support\Str;
+use Laravel\Scout\Searchable;
 
 class Tag extends Model
 {
+    use Searchable;
+
     protected $fillable = [
         'name',
     ];

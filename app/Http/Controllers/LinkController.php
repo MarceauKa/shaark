@@ -28,7 +28,7 @@ class LinkController extends Controller
     public function edit(Request $request, int $id)
     {
         $link = Link::with('tags')->findOrFail($id);
-        $link = \App\Http\Resources\Link::make($link)->toArray($request);
+        $link = \App\Http\Resources\LinkResource::make($link)->toArray($request);
 
         return view('link-form')->with([
             'page_title' => 'Modifier un lien',
