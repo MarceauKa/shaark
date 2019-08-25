@@ -3,10 +3,10 @@
 namespace App\Services;
 
 use App\Link;
+use App\Tag;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
-use Spatie\Tags\Tag;
 
 class Import
 {
@@ -128,10 +128,10 @@ class Import
                     return empty($tag) || strlen(Str::slug($tag)) < 2;
                 })
                 ->transform(function ($tag) {
-                    return Tag::findOrCreate($tag);
+                    return Tag::findNamedOrCreate($tag);
                 })
                 ->keyBy
-                ->slug;
+                ->name;
         } catch (\Exception $e) {
             throw new \Exception("Unable to create tags models: " . $e->getMessage());
         }

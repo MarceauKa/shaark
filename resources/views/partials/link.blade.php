@@ -16,7 +16,7 @@
 
         @if($link->tags->isNotEmpty())
             @foreach($link->tags as $tag)
-                <a class="badge badge-secondary" href="{{ route('tag', $tag->slug) }}">{{ $tag->name }}</a>
+                <a class="badge badge-secondary" href="{{ $tag->url }}">{{ $tag->name }}</a>
             @endforeach
         @endif
     </div>

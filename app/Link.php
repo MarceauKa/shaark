@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Concerns\Models\HasTags;
 use App\Services\ExtraContent\ExtraContent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
@@ -9,7 +10,6 @@ use Illuminate\Support\Str;
 use Laravel\Scout\Searchable;
 use Spatie\Feed\Feedable;
 use Spatie\Feed\FeedItem;
-use Spatie\Tags\HasTags;
 
 class Link extends Model implements Feedable
 {

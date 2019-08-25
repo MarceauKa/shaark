@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Link;
+use App\Tag;
 use Illuminate\Http\Request;
-use Spatie\Tags\Tag;
+use Illuminate\Support\Facades\DB;
 
 class BrowseController extends Controller
 {
@@ -36,11 +37,10 @@ class BrowseController extends Controller
 
     public function tag(Request $request, string $tag)
     {
-        $locale = app()->getLocale();
-        $tag = Tag::where("slug->{$locale}", $tag)->firstOrFail();
+        $tag = Tag::named($tag)->firstOrFail();
 
         $links = Link::latest()
-            ->withAnyTags([$tag])
+            ->withAllTags($tag)
             ->withPrivate(auth()->check())
             ->with('tags')
             ->paginate(25);

@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Link;
+use App\Tag;
 use Illuminate\Http\Request;
-use Spatie\Tags\Tag;
 
 class LinkController extends Controller
 {

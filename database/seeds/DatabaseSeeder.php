@@ -2,7 +2,6 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 
@@ -43,13 +42,8 @@ class DatabaseSeeder extends Seeder
             ]),
         ];
 
-        $tags = [
-            \Spatie\Tags\Tag::findOrcreate('Web'),
-            \Spatie\Tags\Tag::findOrcreate('Musique'),
-        ];
-
-        $links[0]->attachTag($tags[0]);
-        $links[1]->attachTag($tags[1]);
-        $links[2]->attachTag($tags[1]);
+        $links[0]->attachTag('Web');
+        $links[1]->attachTag('Musique');
+        $links[2]->attachTag('Musique');
     }
 }
