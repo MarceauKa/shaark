@@ -26,6 +26,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
+                @can('restricted')
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <search url="{{ route('api.search') }}" id="search"></search>
 
@@ -62,6 +63,7 @@
                         @endguest
                     </ul>
                 </div>
+                @endcan
             </div>
         </nav>
 

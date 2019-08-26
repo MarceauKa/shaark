@@ -16,7 +16,7 @@ to **share your stories** and **manage your web accounts**. All of your content 
 - [ ] Chests : to save your web accounts
 - [x] Rapid sharing through bookmark extension
 - [x] Tagging system, search and RSS feeds
-- [x] Private content
+- [x] Private content or entirely private
 - [x] Original Shaarli import
 - [x] RSS feed
 - [ ] Export
@@ -40,6 +40,10 @@ npm install && npm run prod
 Then run `php artisan shaarli:install` (for interactive installation) or `php artisan migrate --seed` (with default data).
 Default user is `admin@example.fr` with password `secret`.
 
+## System-wide private content
+
+If you don't want your content being publicy accessible, update the `.env` file and set `APP_PRIVATE` to `true`. 
+
 ## Update
 
 Update the application by running `php artisan shaarli:self-update` or manually:
@@ -60,8 +64,6 @@ php artisan up
 ```
 
 ## Going live
-
-## Deploying
 
 Check these options before going live.
 
