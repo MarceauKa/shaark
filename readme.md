@@ -1,10 +1,32 @@
 # Laravel Shaarli
 
+It's a **free and open source platform** to host by yourself. **Shaarli** allows you to **save your web links** (websites, youtube videos, ...), 
+to **share your stories** and **manage your web accounts**. All of your content can be **private or public** and can be browsed by **tags** or **all-in-one search**.
+
 ## Requirements
 
 - PHP >= 7.1
 - Apache or nginx
 - MySQL >= 5.7 or SQLite >= 3
+
+## Features
+
+- [x] Links : to save a web content such a website or a youtube video
+- [x] Stories : posts with markdown content
+- [ ] Chests : to save your web accounts
+- [x] Rapid sharing through bookmark extension
+- [x] Tagging system, search and RSS feeds
+- [x] Private content
+- [x] Original Shaarli import
+- [x] RSS feed
+- [ ] Export
+- [ ] i18n
+
+## Screenshots
+
+![Homepage](/resources/screenshots/homepage.png?raw=true "Homepage")
+![Link](/resources/screenshots/link.png?raw=true "Add link")
+![Story](/resources/screenshots/story.png?raw=true "Add story")
 
 ## Installation
 
@@ -36,27 +58,6 @@ npm install
 npm run prod
 php artisan up
 ```
-
-## Features
-
-- [x] External links
-- [x] Internal links
-- [x] Private links
-- [x] Shared content (Youtube, Soundcloud, Imgur, Videos)
-- [x] Rapid sharint through bookmark extension
-- [x] Tag system
-- [x] Search
-- [x] Original Shaarli import
-- [x] RSS feed
-- [ ] Export
-- [ ] Stories
-- [ ] i18n
-
-## Screenshots
-
-![Homepage](/resources/screenshots/homepage.png?raw=true "Homepage")
-![Form](/resources/screenshots/form.png?raw=true "Add link")
-![Import](/resources/screenshots/import.png?raw=true "Import")
 
 ## Going live
 
