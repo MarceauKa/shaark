@@ -9,15 +9,19 @@
     <div class="row justify-content-center">
         <div class="col-12">
             <h2>Tag : {{ $tag->name }}</h2>
-            <p class="text-muted">{{ $links->total() }} {{ Str::plural('élément', $links->total()) }}</p>
+            <p class="text-muted">{{ $posts->total() }} {{ Str::plural('élément', $posts->total()) }}</p>
 
             <div class="card-columns mt-4">
-                @foreach($links as $link)
-                    @include('partials.link', ['link' => $link])
+                @foreach($posts as $post)
+                    @if($post->postable instanceof \App\Link)
+                        @include('partials.link', ['link' => $post->postable, 'post' => $post, 'index' => true])
+                    @elseif($post->postable instanceof \App\Story)
+                        @include('partials.story', ['story' => $post->postable, 'post' => $post, 'index' => true])
+                    @endif
                 @endforeach
             </div>
 
-            {{ $links->links() }}
+            {{ $posts->links() }}
         </div>
     </div>
 </div>

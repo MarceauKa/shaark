@@ -3,35 +3,51 @@
 namespace App\Http\Controllers;
 
 use App\Link;
+use App\Post;
+use App\Story;
 use App\Tag;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class BrowseController extends Controller
 {
     public function index(Request $request)
     {
-        $links = Link::latest()
-            ->withPrivate(auth()->check())
-            ->with('tags')
-            ->paginate(25);
+        $posts = Post::with('tags', 'postable')
+            ->withPrivate($request)
+            ->latest()
+            ->paginate(20);
 
         return view('home')->with([
-            'page_title' => $request->input('page', 1) > 1 ? 'Page n°' . $request->input('page', 1) : 'Accueil',
-            'links' => $links,
+            'page_title' => config('app.name'),
+            'posts' => $posts,
         ]);
     }
 
     public function link(Request $request, string $hash)
     {
-        $link = Link::withPrivate(auth()->check())
-                ->with('tags')
+        $link = Link::withPrivate($request)
+                ->with('post.tags')
                 ->hashIdIs($hash)
                 ->firstOrFail();
 
         return view('link')->with([
             'page_title' => sprintf('%s - #%s', $link->title, $link->hash_id),
             'link' => $link,
+            'post' => $link->post,
+        ]);
+    }
+
+    public function story(Request $request, string $slug)
+    {
+        $story = Story::withPrivate($request)
+            ->with('post.tags')
+            ->slugIs($slug)
+            ->firstOrFail();
+
+        return view('story')->with([
+            'page_title' => sprintf('%s', $story->title),
+            'story' => $story,
+            'post' => $story->post,
         ]);
     }
 
@@ -39,18 +55,17 @@ class BrowseController extends Controller
     {
         $tag = Tag::named($tag)->firstOrFail();
 
-        $links = Link::latest()
-            ->withAllTags($tag)
-            ->withPrivate(auth()->check())
-            ->with('tags')
-            ->paginate(25);
+        $posts = Post::withPrivate($request)
+                ->with('postable', 'tags')
+                ->withAllTags($tag)
+                ->paginate(20);
 
-        abort_if($links->isEmpty(), 404);
+        abort_if($posts->isEmpty(), 404);
 
         return view('tag')->with([
             'page_title' => sprintf('Taggé %s - Page n°%d', $tag->name, $request->input('page', 1)),
             'tag' => $tag,
-            'links' => $links,
+            'posts' => $posts,
         ]);
     }
 }

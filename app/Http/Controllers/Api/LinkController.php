@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreLinkRequest;
 use App\Link;
+use App\Post;
 use App\Services\WebParser;
 use Illuminate\Http\Request;
 
@@ -38,11 +39,14 @@ class LinkController extends Controller
             'title',
             'content',
             'url',
-            'is_private'
         ])->toArray());
 
+        $post = new Post();
+        $post->is_private = $data->get('is_private', 0);
+        $post->postable()->associate($link)->save();
+
         if ($data['tags']) {
-            $link->syncTags($data['tags']);
+            $post->syncTags($data['tags']);
         }
 
         if ($link->url) {
@@ -61,15 +65,18 @@ class LinkController extends Controller
         $data = collect($request->validated());
 
         $link->fill($data->only('title', 'content', 'url')->toArray());
-        $link->is_private = $request->has('is_private');
+        $link->post->is_private = $data->get('is_private', $link->post->is_private);
+        $link->post->save();
 
         if ($data['tags']) {
-            $link->syncTags($data['tags']);
+            $link->post->syncTags($data['tags']);
         }
 
         if ($link->url) {
             $link->findExtra();
         }
+
+        $link->save();
 
         return response()->json([
             'id' => $link->id,

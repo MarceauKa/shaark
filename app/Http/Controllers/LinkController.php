@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Link;
-use App\Tag;
 use Illuminate\Http\Request;
 
 class LinkController extends Controller
@@ -15,28 +14,25 @@ class LinkController extends Controller
 
     public function create(Request $request)
     {
-        return view('link-form')->with([
+        return view('form-link')->with([
             'page_title' => 'Ajouter un lien',
             'submit' => route('api.link.store'),
             'parse' => route('api.link.parse'),
             'method' => 'POST',
-            'query' => $request->query('url'),
-            'tags' => Tag::all()->pluck('name')->toJson(),
+            'query' => $request->query('url')
         ]);
     }
 
     public function edit(Request $request, int $id)
     {
-        $link = Link::with('tags')->findOrFail($id);
-        $link = \App\Http\Resources\LinkResource::make($link)->toArray($request);
+        $link = Link::with('post.tags')->findOrFail($id);
 
-        return view('link-form')->with([
+        return view('form-link')->with([
             'page_title' => 'Modifier un lien',
             'submit' => route('api.link.update', $id),
             'parse' => route('api.link.parse'),
             'method' => 'PUT',
             'link' => $link,
-            'tags' => Tag::all()->pluck('name')->toJson(),
         ]);
     }
 
@@ -61,8 +57,10 @@ class LinkController extends Controller
         }
 
         /** @var Link $link */
-        $link = Link::findOrFail($id);
+        $link = Link::with('post')->findOrFail($id);
+
         $link->delete();
+        $link->post->delete();
 
         $this->flash(sprintf('Le lien "%s" a été supprimé !', $link->title), 'success');
         return redirect()->back();

@@ -18,7 +18,12 @@ Route::get('link/edit/{id}', 'LinkController@edit')->name('link.edit');
 Route::get('link/refresh/{id}/{hash}', 'LinkController@refresh')->name('link.refresh');
 Route::get('link/delete/{id}/{hash}', 'LinkController@delete')->name('link.delete');
 
+Route::get('story/create', 'StoryController@create')->name('story.create');
+Route::get('story/edit/{id}', 'StoryController@edit')->name('story.edit');
+Route::get('story/delete/{id}/{hash}', 'StoryController@delete')->name('story.delete');
+
 Route::get('link/{link}', 'BrowseController@link')->name('link.view');
+Route::get('story/{story}', 'BrowseController@story')->name('story.view');
 
 Route::get('account', 'AccountController@form')->name('account');
 Route::post('account', 'AccountController@store');

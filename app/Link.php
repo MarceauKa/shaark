@@ -2,34 +2,27 @@
 
 namespace App;
 
-use App\Concerns\Models\HasTags;
+use App\Concerns\Models\Postable;
 use App\Services\ExtraContent\ExtraContent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
-use Laravel\Scout\Searchable;
 use Spatie\Feed\Feedable;
 use Spatie\Feed\FeedItem;
 
 class Link extends Model implements Feedable
 {
-    use HasTags,
-        Searchable;
+    use Postable;
 
     protected $fillable = [
         'title',
         'content',
         'extra',
         'url',
-        'is_private',
     ];
 
     protected $appends = [
         'permalink',
-    ];
-
-    protected $casts = [
-        'is_private' => 'bool',
     ];
 
     public function getHashIdAttribute(): string
@@ -54,20 +47,6 @@ class Link extends Model implements Feedable
     public function scopeHashIdIs(Builder $query, string $hash): Builder
     {
         return $query->where('id', hashid_decode($hash));
-    }
-
-    public function scopeWithPrivate(Builder $query, bool $private = false): Builder
-    {
-        if ($private === false) {
-            return $query->where('is_private', 0);
-        }
-
-        return $query;
-    }
-
-    public function scopeIsPrivate(Builder $query): void
-    {
-        $query->where('is_private', true);
     }
 
     public function findExtra(): self

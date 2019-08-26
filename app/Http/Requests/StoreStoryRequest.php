@@ -3,8 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
-class StoreLinkRequest extends FormRequest
+class StoreStoryRequest extends FormRequest
 {
     public function authorize()
     {
@@ -13,19 +14,25 @@ class StoreLinkRequest extends FormRequest
 
     public function rules()
     {
+        $unique = Rule::unique('stories');
+
+        if ($this->route('id')) {
+            $unique->ignore($this->route('id'), 'id');
+        }
+
         return [
             'title' => [
                 'required',
                 'min:2',
                 'max:255',
             ],
+            'slug' => [
+                'required',
+                $unique,
+                'max:255',
+            ],
             'content' => [
                 'nullable',
-                'max:10000',
-            ],
-            'url' => [
-                'required',
-                'url',
             ],
             'is_private' => [
                 'nullable',

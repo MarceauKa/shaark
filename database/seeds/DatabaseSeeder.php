@@ -24,7 +24,12 @@ class DatabaseSeeder extends Seeder
             'created_at' => now()->toDateTimeString(),
         ]);
 
-        $links = [
+        $items = [
+            \App\Story::create([
+                'title' => '21 Behaviors That Will Make You Brilliant',
+                'slug' => '21-behaviors-that-will-make-you-brilliant',
+                'content' => "When you see things from multiple perspectives, you realize you can achieve almost anything you want in far less time than you imagined.   Yet most people have fixed and limited views about themselves and what they can accomplish.  They have fixed and limited views about the resources available to them.",
+            ]),
             \App\Link::create([
                 'title' => 'The PHP Framework for Web Artisans',
                 'content' => 'Laravel is a web application framework with expressive, elegant syntax. We’ve already laid the foundation — freeing you to create without sweating the small things.',
@@ -42,8 +47,13 @@ class DatabaseSeeder extends Seeder
             ]),
         ];
 
-        $links[0]->attachTag('Web');
-        $links[1]->attachTag('Musique');
-        $links[2]->attachTag('Musique');
+        foreach ($items as $item) {
+            $item->post()->save(new \App\Post());
+        }
+
+        $items[0]->post->attachTag('Web');
+        $items[1]->post->attachTag('Web');
+        $items[2]->post->attachTag('Musique');
+        $items[3]->post->attachTag('Musique');
     }
 }

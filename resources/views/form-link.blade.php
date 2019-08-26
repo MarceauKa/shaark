@@ -7,13 +7,12 @@
             <link-form parse-url="{{ $parse }}"
                        submit-url="{{ $submit }}"
                        @if(isset($link))
-                       :link="{{ json_encode($link) }}"
+                       :link="{{ json_encode(\App\Http\Resources\LinkResource::make($link)) }}"
                        @endif
                        @if(isset($query))
                        query-url="{{ $query }}"
                        @endif
                        method="{{ $method }}"
-                       :tags="{{ $tags }}"
             ></link-form>
         </div>
 

@@ -16,9 +16,9 @@ class Tag extends Model
         'name',
     ];
 
-    public function links(): MorphToMany
+    public function posts(): MorphToMany
     {
-        return $this->morphedByMany(Link::class, 'taggable');
+        return $this->morphedByMany(Post::class, 'taggable');
     }
 
     public static function findNamedOrCreate(string $name)

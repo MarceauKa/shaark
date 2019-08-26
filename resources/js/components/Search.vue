@@ -7,11 +7,11 @@
             <li class="list-group-item" v-if="hasTagsResults">
                 Tags :
                 <a v-for="result in results.tags" class="btn btn-primary btn-sm" v-if="hasTagsResults" :href="result.url">
-                    {{ result.name }} <span class="badge badge-light">{{ result.count }}</span>
+                    {{ result.name }}
                 </a>
             </li>
 
-            <a v-for="result in results.links" v-if="hasLinksResults"
+            <a v-for="result in results.posts" v-if="hasPostsResults"
                :href="result.url" class="list-group-item list-group-item-action">
                 <p class="mb-0"><strong>{{ result.title }}</strong></p>
                 <p class="mb-0">{{ result.content }}</p>
@@ -48,7 +48,12 @@ export default {
 
     mounted() {
         document.addEventListener('keydown', (event) => {
-            if (event.keyCode === 191) {
+            let isEventSafe = (event) => {
+                return event.target.tagName != 'INPUT'
+                    && event.target.tagName != 'TEXTAREA';
+            };
+
+            if (event.keyCode === 191 && isEventSafe(event)) {
                 event.preventDefault();
                 event.stopPropagation();
                 this.$refs.input.focus();
@@ -83,7 +88,7 @@ export default {
     computed: {
         hasResults() {
             return this.hasTagsResults
-                || this.hasLinksResults
+                || this.hasPostsResults
         },
 
         hasTagsResults() {
@@ -91,9 +96,9 @@ export default {
                 && this.results.tags.length > 0;
         },
 
-        hasLinksResults() {
-            return this.results.hasOwnProperty('links')
-                && this.results.links.length > 0;
+        hasPostsResults() {
+            return this.results.hasOwnProperty('posts')
+                && this.results.posts.length > 0;
         }
     },
 

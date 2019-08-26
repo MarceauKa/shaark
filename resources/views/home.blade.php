@@ -7,31 +7,33 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        @if($links->isNotEmpty())
+        @if($posts->isNotEmpty())
         <div class="col-12">
             <div class="card-columns">
-                @foreach($links as $link)
-                    @include('partials.link', ['link' => $link])
+                @foreach($posts as $post)
+                    @if($post->postable instanceof \App\Link)
+                        @include('partials.link', ['link' => $post->postable, 'post' => $post, 'index' => true])
+                    @elseif($post->postable instanceof \App\Story)
+                        @include('partials.story', ['story' => $post->postable, 'post' => $post, 'index' => true])
+                    @endif
                 @endforeach
             </div>
-
-            {{ $links->links() }}
         </div>
         @else
-        <div class="col-12 col-md-auto">
-            <div class="card">
-                <div class="card-body">
-                    <p class="text-center lead">
-                        Ooops ! Aucun contenu !
-                    </p>
+            <div class="col-12 col-md-auto">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="text-center lead">
+                            Ooops ! Aucun contenu !
+                        </p>
 
-                    <p class="text-center">
-                        <a href="{{ route('link.create') }}" class="btn btn-outline-primary">Ajouter un lien</a>
-                        <a href="{{ route('link.create') }}" class="btn btn-outline-primary">Ajouter une story</a>
-                    </p>
+                        <p class="text-center">
+                            <a href="{{ route('link.create') }}" class="btn btn-outline-primary">Ajouter un lien</a>
+                            <a href="{{ route('link.create') }}" class="btn btn-outline-primary">Ajouter une story</a>
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
         @endif
     </div>
 </div>

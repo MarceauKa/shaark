@@ -25,17 +25,7 @@
             </div>
 
             <div class="form-group">
-                <multiselect v-model="form.tags"
-                             tag-placeholder="Créer le tag"
-                             selectLabel="Cliquez pour sélectionner"
-                             deselectLabel="Cliquez pour désectionner"
-                             noOptions="Aucun tag"
-                             placeholder="Cherchez ou tapez un tag"
-                             :options="tags"
-                             :multiple="true"
-                             :taggable="true"
-                             @tag="newTag"
-                ></multiselect>
+                <tags v-model="form.tags"></tags>
             </div>
         </div>
 
@@ -46,8 +36,6 @@
 </template>
 
 <script>
-import Multiselect from 'vue-multiselect';
-
 let defaultLink = function () {
     return {
         url: null,
@@ -59,10 +47,6 @@ let defaultLink = function () {
 };
 
 export default {
-    components: {
-        'multiselect': Multiselect,
-    },
-
     props: {
         parseUrl: {
             type: String,
@@ -80,11 +64,6 @@ export default {
             type: String,
             required: false,
             default: 'POST'
-        },
-        tags: {
-            type: Array,
-            required: false,
-            default: [],
         },
         link: {
             type: Object,

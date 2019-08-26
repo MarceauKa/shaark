@@ -24,6 +24,9 @@ if (apiToken) {
 
 window.Vue = require('vue');
 
+import VueMarkdown from 'vue-markdown'
+Vue.component('vue-markdown', VueMarkdown);
+
 import Toasted from 'vue-toasted';
 Vue.use(Toasted, {
     position: 'top-center',
