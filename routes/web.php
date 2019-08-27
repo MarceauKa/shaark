@@ -33,5 +33,8 @@ Route::get('chest/{chest}', 'BrowseController@chest')->name('chest.view');
 Route::get('account', 'AccountController@form')->name('account');
 Route::post('account', 'AccountController@store');
 Route::post('account/password', 'AccountController@storePassword')->name('account.password');
-Route::get('import', 'ImportController@form')->name('import');
-Route::post('import', 'ImportController@store');
+
+Route::get('manage/import', 'ManageController@importForm')->name('manage.import');
+Route::post('manage/import', 'ManageController@importStore');
+Route::get('manage/tags', 'ManageController@tags')->name('manage.tags');
+Route::get('manage/tags/delete/{tag}/{hash}', 'ManageController@deleteTag')->name('manage.tags.delete');

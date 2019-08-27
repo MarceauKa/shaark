@@ -23,6 +23,10 @@ nav.navbar,
   box-shadow: $box-shadow-sm;
 }
 
+.card {
+  box-shadow: $box-shadow-sm;
+}
+
 #app {
   display: flex;
   flex-direction: column;

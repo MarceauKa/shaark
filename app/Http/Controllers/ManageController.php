@@ -4,21 +4,49 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ImportRequest;
 use App\Services\Import;
+use App\Tag;
 use Illuminate\Http\Request;
 
-class ImportController extends Controller
+class ManageController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-    public function form(Request $request)
+    public function tags()
     {
-        return view('import')->with(['page_title' => 'Importer']);
+        $tags = Tag::withCount('posts')
+            ->orderByDesc('posts_count')
+            ->get();
+
+        return view('manage.tags')->with([
+            'page_title' => __('Tags'),
+            'tags' => $tags,
+        ]);
     }
 
-    public function store(ImportRequest $request)
+    public function deleteTag(Request $request, string $tag, string $hash)
+    {
+        if ($hash != csrf_token()) {
+            abort(403);
+        }
+
+        $tag = Tag::findNamedOrCreate($tag);
+        $tag->delete();
+
+        $this->flash("Le tag \"{$tag->name}\" a été supprimé !", 'success');
+        return redirect()->back();
+    }
+
+    public function importForm(Request $request)
+    {
+        return view('manage.import')->with([
+            'page_title' => __('Import')
+        ]);
+    }
+
+    public function importStore(ImportRequest $request)
     {
         try {
             $import = new Import(
