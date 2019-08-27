@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Chest;
 use App\Link;
 use App\Post;
 use App\Story;
@@ -48,6 +49,20 @@ class BrowseController extends Controller
             'page_title' => sprintf('%s', $story->title),
             'story' => $story,
             'post' => $story->post,
+        ]);
+    }
+
+    public function chest(Request $request, string $hash)
+    {
+        $chest = Chest::withPrivate($request)
+            ->with('post.tags')
+            ->hashIdIs($hash)
+            ->firstOrFail();
+
+        return view('chest')->with([
+            'page_title' => sprintf('%s - #%s', $chest->title, $chest->hash_id),
+            'chest' => $chest,
+            'post' => $chest->post,
         ]);
     }
 

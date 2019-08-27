@@ -13,7 +13,7 @@ to **share your stories** and **manage your web accounts**. All of your content 
 
 - [x] Links : to save a web content such a website or a youtube video
 - [x] Stories : posts with markdown content
-- [ ] Chests : to save your web accounts
+- [x] Chests : to save your web accounts
 - [x] Rapid sharing through bookmark extension
 - [x] Tagging system, search and RSS feeds
 - [x] Private content or entirely private

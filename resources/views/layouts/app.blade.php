@@ -45,6 +45,7 @@
                                     <h6 class="dropdown-header">{{ __('Contents') }}</h6>
                                     <a class="dropdown-item" href="{{ route('link.create') }}">{{ __('Add link') }}</a>
                                     <a class="dropdown-item" href="{{ route('story.create') }}">{{ __('Add story') }}</a>
+                                    <a class="dropdown-item" href="{{ route('chest.create') }}">{{ __('Add chest') }}</a>
                                     <h6 class="dropdown-header">{{ __('Manage') }}</h6>
                                     <a class="dropdown-item" href="{{ route('account') }}">{{ __('Compte') }}</a>
                                     <a class="dropdown-item" href="{{ route('import') }}">{{ __('Import') }}</a>

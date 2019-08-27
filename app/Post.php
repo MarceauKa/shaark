@@ -51,11 +51,9 @@ class Post extends Model
 
     public function toSearchableArray()
     {
-        return [
+        return array_merge([
             'id' => $this->id,
-            'post_title' => $this->postable->title,
-            'post_content' => optional($this->postable)->content,
-            'post_date' => $this->created_at->toDateTimeString(),
-        ];
+            'date' => $this->created_at->toDateTimeString(),
+        ], $this->postable->toSearchableArray());
     }
 }

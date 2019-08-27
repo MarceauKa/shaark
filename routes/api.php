@@ -13,3 +13,6 @@ Route::put('link/{id}', 'LinkController@update')->name('link.update');
 
 Route::post('story', 'StoryController@store')->name('story.store');
 Route::put('story/{id}', 'StoryController@update')->name('story.update');
+
+Route::post('chest', 'ChestController@store')->name('chest.store');
+Route::put('chest/{id}', 'ChestController@update')->name('chest.update');

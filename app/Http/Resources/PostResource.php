@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Chest;
 use App\Link;
 use App\Story;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -23,6 +24,11 @@ class PostResource extends JsonResource
                 'slug' => $this->postable->slug,
                 'content' => $this->postable->content,
                 'type' => 'story',
+            ];
+        } elseif ($this->resource->postable instanceof Chest) {
+            $content = [
+                'title' => $this->postable->title,
+                'type' => 'chest',
             ];
         }
 

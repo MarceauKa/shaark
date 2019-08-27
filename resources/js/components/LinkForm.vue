@@ -25,6 +25,7 @@
             </div>
 
             <div class="form-group">
+                <label>Tags</label>
                 <tags v-model="form.tags"></tags>
             </div>
         </div>

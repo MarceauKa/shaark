@@ -1,11 +1,11 @@
-<div class="card card--story {{ $post->is_private ? 'border-dark' : '' }} {{ isset($index) && $index ? 'card-index' : 'card-single' }} mb-4">
+<div class="card card--chest {{ $post->is_private ? 'border-dark' : '' }} {{ isset($index) && $index ? 'card-index' : 'card-single' }} mb-4">
     <div class="card-body">
         <h5 class="card-title">
-            <span>{{ __('Story') }}</span> &mdash; <a href="{{ $story->url }}">{{ $story->title }}</a>
+            <span>{{ __('Chest') }}</span> &mdash; <a href="{{ $chest->permalink }}">{{ $chest->title }}</a>
         </h5>
 
-        <div class="card-text card-reduce">
-            <vue-markdown>{{ $story->content }}</vue-markdown>
+        <div class="card-reduce">
+            <chest-lines :preview="{{ json_encode($chest->content) }}"></chest-lines>
         </div>
 
         @if($post->tags->isNotEmpty())
@@ -22,11 +22,11 @@
                 {{ __('More') }}
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="{{ $story->url }}">{{ __('Permalink') }}</a>
+                <a class="dropdown-item" href="{{ $chest->permalink }}">{{ __('Permalink') }}</a>
                 @if(auth()->check())
                 <h6 class="dropdown-header">{{ __('Manage') }}</h6>
-                <a class="dropdown-item" href="{{ route('story.edit', $story->id) }}">{{ __('Edit') }}</a>
-                <a class="dropdown-item" href="{{ route('story.delete', [$story->id, csrf_token()]) }}">{{ __('Delete') }}</a>
+                <a class="dropdown-item" href="{{ route('chest.edit', $chest->id) }}">{{ __('Edit') }}</a>
+                <a class="dropdown-item" href="{{ route('chest.delete', [$chest->id, csrf_token()]) }}">{{ __('Delete') }}</a>
                 @endif
             </div>
         </div>

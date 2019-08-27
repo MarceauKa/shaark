@@ -45,6 +45,15 @@ class DatabaseSeeder extends Seeder
                 'url' => 'https://www.youtube.com/watch?v=uQbUzL0VE7w',
                 'extra' => '<iframe width="100%" src="https://www.youtube.com/embed/uQbUzL0VE7w" frameborder="0" allowfullscreen></iframe>'
             ]),
+            \App\Chest::create([
+                'title' => config('app.name'),
+                'content' => [
+                    ['type' => 'url', 'name' => 'URL', 'value' => route('login')],
+                    ['type' => 'text', 'name' => 'Email', 'value' => 'admin@example.fr'],
+                    ['type' => 'password', 'name' => 'Mot de passe', 'value' => Str::random(12)],
+                    ['type' => 'code', 'name' => 'Code', 'value' => "<?php\n\nnamespace App\\Service;\n\nclass Foobar {\n\n\n}\n"],
+                ]
+            ]),
         ];
 
         foreach ($items as $item) {
@@ -55,5 +64,6 @@ class DatabaseSeeder extends Seeder
         $items[1]->post->attachTag('Web');
         $items[2]->post->attachTag('Musique');
         $items[3]->post->attachTag('Musique');
+        $items[4]->post->attachTag('Compte');
     }
 }

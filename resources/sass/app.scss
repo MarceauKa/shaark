@@ -84,7 +84,8 @@ nav.navbar,
 }
 
 .card--link,
-.card--story {
+.card--story,
+.card--chest {
   h5.card-title {
     span {
       text-transform: uppercase;
@@ -96,6 +97,7 @@ nav.navbar,
       position: relative;
       max-height: 250px;
       overflow-y: hidden;
+      overflow-x: hidden;
 
       &::after {
         content: "";

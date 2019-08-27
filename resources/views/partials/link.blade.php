@@ -1,7 +1,7 @@
 <div class="card card--link {{ $post->is_private ? 'border-dark' : '' }} {{ isset($index) && $index ? 'card-index' : 'card-single' }} mb-4">
     <div class="card-body">
         <h5 class="card-title">
-            <span>Lien</span> &mdash; <a href="{{ $link->url }}">{{ $link->title }}</a>
+            <span>{{ __('Link') }}</span> &mdash; <a href="{{ $link->url }}">{{ $link->title }}</a>
         </h5>
 
         <p class="card-text card-reduce">

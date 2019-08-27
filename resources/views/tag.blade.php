@@ -17,6 +17,8 @@
                         @include('partials.link', ['link' => $post->postable, 'post' => $post, 'index' => true])
                     @elseif($post->postable instanceof \App\Story)
                         @include('partials.story', ['story' => $post->postable, 'post' => $post, 'index' => true])
+                    @elseif($post->postable instanceof \App\Chest)
+                        @include('partials.chest', ['chest' => $post->postable, 'post' => $post, 'index' => true])
                     @endif
                 @endforeach
             </div>

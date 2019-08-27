@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Http\Request;
 
 /**
+ * @property string $title
+ * @property string $content
  * @method Builder withPrivate(bool|User|Request $private)
  */
 trait Postable
@@ -35,5 +37,13 @@ trait Postable
         }
 
         return $query;
+    }
+
+    public function toSearchableArray()
+    {
+        return [
+            'title' => $this->title,
+            'content' => $this->content,
+        ];
     }
 }
