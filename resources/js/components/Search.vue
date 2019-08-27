@@ -127,9 +127,4 @@ export default {
             display: block;
         }
     }
-    .multiselect__tags,
-    .multiselect__content-wrapper {
-        border-radius: 0;
-        border-color: #ced4da;
-    }
 </style>

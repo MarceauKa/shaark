@@ -11,6 +11,7 @@ class ChestResource extends JsonResource
         return [
             'title' => $this->title,
             'content' => $this->content,
+            'url' => $this->permalink,
             'permalink' => $this->permalink,
             'is_private' => true,
             'tags' => $this->post->tags->pluck('name')->toArray()

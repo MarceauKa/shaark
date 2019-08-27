@@ -15,7 +15,7 @@ class PostResource extends JsonResource
             $content = [
                 'title' => $this->postable->title,
                 'content' => $this->postable->content,
-                'url' => $this->postable->url,
+                'url' => $this->postable->permalink,
                 'type' => 'link',
             ];
         } elseif ($this->resource->postable instanceof Story) {
@@ -23,11 +23,13 @@ class PostResource extends JsonResource
                 'title' => $this->postable->title,
                 'slug' => $this->postable->slug,
                 'content' => $this->postable->content,
+                'url' => $this->postable->url,
                 'type' => 'story',
             ];
         } elseif ($this->resource->postable instanceof Chest) {
             $content = [
                 'title' => $this->postable->title,
+                'url' => $this->postable->permalink,
                 'type' => 'chest',
             ];
         }
