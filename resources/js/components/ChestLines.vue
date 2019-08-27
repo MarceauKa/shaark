@@ -47,7 +47,7 @@
                     <div class="col-12 col-md-8">
                         <div class="input-group">
                             <textarea class="form-control" rows="5" v-model="line.value" placeholder="Contenu" v-if="line.type === 'code'"></textarea>
-                            <input type="text" class="form-control" v-model="line.value" placeholder="Contenu" v-else>
+                            <input type="text" class="form-control" v-model="line.value" placeholder="Contenu" @keydown.enter="addLine" v-else>
 
                             <div class="input-group-append">
                                 <button class="btn btn-outline-secondary" type="button" @click.prevent="addLine">Ajouter</button>

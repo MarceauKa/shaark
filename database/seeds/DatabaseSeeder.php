@@ -1,5 +1,6 @@
 <?php
 
+use App\Chest;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -57,7 +58,8 @@ class DatabaseSeeder extends Seeder
         ];
 
         foreach ($items as $item) {
-            $item->post()->save(new \App\Post());
+            $post = new App\Post(['is_private' => get_class($item) === Chest::class]);
+            $item->post()->save($post);
         }
 
         $items[0]->post->attachTag('Web');
