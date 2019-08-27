@@ -11,12 +11,15 @@
                 <div class="row">
                     <div class="col-12 col-md-4">
                         <div class="list-group">
-                            <a href="{{ route('manage.import') }}"
-                               class="list-group-item list-group-item-action{{ request()->is('manage/import') ? ' active' : '' }}"
-                            >{{ __('Import') }}</a>
                             <a href="{{ route('manage.tags') }}"
                                class="list-group-item list-group-item-action{{ request()->is('manage/tags') ? ' active' : '' }}"
                             >{{ __('Tags') }}</a>
+                            <a href="{{ route('manage.export') }}"
+                               class="list-group-item list-group-item-action{{ request()->is('manage/export') ? ' active' : '' }}"
+                            >{{ __('Export') }}</a>
+                            <a href="{{ route('manage.import') }}"
+                               class="list-group-item list-group-item-action{{ request()->is('manage/import') ? ' active' : '' }}"
+                            >{{ __('Import') }}</a>
                         </div>
                     </div>
                     <div class="col-12 col-md-8">

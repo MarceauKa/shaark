@@ -15,6 +15,7 @@
         "laravel/framework": "5.8.*",
         "laravel/scout": "^7.1",
         "laravel/tinker": "^1.0",
+        "maatwebsite/excel": "^3.1",
         "spatie/laravel-feed": "^2.3",
         "teamtnt/laravel-scout-tntsearch-driver": "^7.1"
     },

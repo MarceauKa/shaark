@@ -57,7 +57,7 @@
                     </div>
 
 
-                    <button type="submit" class="btn btn-primary">{{ __('Importer') }}</button>
+                    <button type="submit" class="btn btn-primary">{{ __('Import') }}</button>
                 </form>
             </div>
         </div>

@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ChestsExport;
+use App\Exports\LinksExport;
+use App\Exports\StoriesExport;
 use App\Http\Requests\ImportRequest;
 use App\Services\Import;
 use App\Tag;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ManageController extends Controller
 {
@@ -65,5 +69,40 @@ class ManageController extends Controller
         $result = $import->result();
         $this->flash("Import terminé avec {$result['links_count']} liens et {$result['tags_count']} tags.", 'success');
         return redirect()->back();
+    }
+
+    public function exportForm(Request $request)
+    {
+        return view('manage.export')->with([
+            'page_title' => __('Export')
+        ]);
+    }
+
+    public function export(Request $request)
+    {
+        $format = $request->get('format');
+        $formats = ['xlsx', 'csv'];
+
+        $type = $request->get('type');
+        $types = [
+            'links' => LinksExport::class,
+            'chests' => ChestsExport::class,
+            'stories' => StoriesExport::class,
+        ];
+
+        if (false === array_key_exists($type, $types)
+            || false === in_array($format, $formats)
+        ) {
+            $this->flash("Type d'export ou format non-reconnu.", 'error');
+            return redirect()->back();
+        }
+
+        $class = $types[$type];
+
+        return Excel::download(
+            new $class,
+            "{$type}.{$format}",
+            $format == 'csv' ? \Maatwebsite\Excel\Excel::CSV : \Maatwebsite\Excel\Excel::XLSX
+        );
     }
 }

@@ -36,5 +36,7 @@ Route::post('account/password', 'AccountController@storePassword')->name('accoun
 
 Route::get('manage/import', 'ManageController@importForm')->name('manage.import');
 Route::post('manage/import', 'ManageController@importStore');
+Route::get('manage/export', 'ManageController@exportForm')->name('manage.export');
+Route::post('manage/export', 'ManageController@export')->name('manage.export');
 Route::get('manage/tags', 'ManageController@tags')->name('manage.tags');
 Route::get('manage/tags/delete/{tag}/{hash}', 'ManageController@deleteTag')->name('manage.tags.delete');
