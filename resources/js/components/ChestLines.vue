@@ -11,6 +11,17 @@
 
                             <input type="text" class="form-control" v-model="item.name" placeholder="Nom" />
                         </div>
+
+                        <p class="text-right small mb-0">
+                            <button class="btn btn-sm btn-link"
+                                    @click.prevent="moveUp(item)"
+                                    v-if="canMoveUp(item)"
+                            >haut &uparrow;</button>
+                            <button class="btn btn-sm btn-link"
+                                    @click.prevent="moveDown(item)"
+                                    v-if="canMoveDown(item)"
+                            >bas &downarrow;</button>
+                        </p>
                     </div>
 
                     <div class="col-12 col-md-8">
@@ -178,6 +189,26 @@ export default {
             const el = document.getElementById(`input-${key}`);
             el.type = el.type === 'password' ? 'text' : 'password';
             $event.target.innerHTML = el.type === 'password' ? 'Afficher' : 'Cacher';
+        },
+
+        canMoveUp(item) {
+            return this.lines.indexOf(item) > 0;
+        },
+
+        canMoveDown(item) {
+            return this.lines.indexOf(item) < (this.lines.length - 1);
+        },
+
+        moveUp(item) {
+            let index = this.lines.indexOf(item);
+            this.lines.splice(index, 1);
+            this.lines.splice(index - 1, 0, item);
+        },
+
+        moveDown(item) {
+            let index = this.lines.indexOf(item);
+            this.lines.splice(index, 1);
+            this.lines.splice(index + 1, 0, item);
         },
     },
 
