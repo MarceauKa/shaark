@@ -14,11 +14,15 @@ class CheckForGlobalPrivacy
 
     public function handle($request, Closure $next)
     {
-        if (
-            $request->user()
-            || false === $this->globalPrivacyEnabled()
-            || $this->inExceptArray($request)
-        ) {
+        $user = null;
+
+        foreach (['web', 'api'] as $guard) {
+            if (! $user) {
+                $user = auth($guard)->user();
+            }
+        }
+
+        if ($user || false === $this->globalPrivacyEnabled() || $this->inExceptArray($request)) {
             return $next($request);
         }
 
