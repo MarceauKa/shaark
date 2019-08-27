@@ -60,11 +60,11 @@
 
         <section class="my-3" v-else>
             <div class="row mb-3" v-for="(line, key) in preview">
-                <div class="col-12 col-md-3">
+                <div class="col-12">
                     <strong>{{ line.name }}</strong>
                 </div>
 
-                <div class="col-12 col-md-9">
+                <div class="col-12">
                     <a :href="line.value" target="_blank" v-if="line.type === 'url'">{{ line.value }}</a>
 
                     <div class="input-group input-group-sm" v-else-if="line.type === 'password'">
