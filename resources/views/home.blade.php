@@ -20,6 +20,8 @@
                     @endif
                 @endforeach
             </div>
+
+            {{ $posts->links() }}
         </div>
         @else
             <div class="col-12 col-md-auto">

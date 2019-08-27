@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Link;
+use App\Post;
 use App\Tag;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
@@ -86,7 +87,7 @@ class Import
     protected function createLinkModels(): self
     {
         $this->tags = collect();
-        Link::disableSearchSyncing();
+        Post::disableSearchSyncing();
 
         try {
             $this->content = $this->content->transform(function ($item) {
@@ -94,9 +95,14 @@ class Import
                 $model->title = $item['title'];
                 $model->url = $item['url'];
                 $model->content = $item['description'];
-                $model->is_private = $item['private'];
                 $model->created_at = Carbon::createFromFormat('Ymd_His', $item['linkdate']);
                 $model->save();
+
+                $post = new Post([
+                    'is_private' => $item['private'],
+                    'created_at' => $model->created_at,
+                ]);
+                $model->post()->save($post);
 
                 if (!empty($item['tags'])) {
                     $new_tags = explode(' ', $item['tags']);
@@ -149,7 +155,7 @@ class Import
                 ->map(function ($link) {
                     foreach ($link['new_tags'] as $tag) {
                         if ($this->tags->has($tag)) {
-                            $link['model']->attachTag($this->tags[$tag]);
+                            $link['model']->post->attachTag($this->tags[$tag]);
                         }
                     }
                 });
@@ -185,7 +191,7 @@ class Import
     {
         try {
             $this->content->each(function ($model) {
-                $model->searchable();
+                $model->post->searchable();
             });
         } catch (\Exception $e) {
             throw new \Exception("Unable to update search index: " . $e->getMessage());

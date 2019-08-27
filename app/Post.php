@@ -21,6 +21,7 @@ class Post extends Model
         'postable_type',
         'postable_id',
         'is_private',
+        'created_at',
     ];
 
     protected $casts = [
