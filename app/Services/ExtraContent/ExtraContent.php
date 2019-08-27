@@ -9,6 +9,7 @@ class ExtraContent
         ProviderYoutube::class,
         ProviderSoundcloud::class,
         ProviderImgur::class,
+        ProviderImage::class,
         ProviderVideo::class,
     ];
     /** @var string $url */

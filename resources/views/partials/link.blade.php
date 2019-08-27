@@ -9,7 +9,7 @@
         </p>
 
         @if($link->extra)
-        <div class="card-extra">
+        <div class="card-extra card-reduce mb-3">
             {!! $link->extra !!}
         </div>
         @endif
