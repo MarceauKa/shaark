@@ -24,7 +24,7 @@ class SearchController extends Controller
                 return $query->with('tags', 'postable')
                             ->withPrivate(auth('api')->check());
             })
-            ->take(5)
+            ->take(10)
             ->get();
 
         return [

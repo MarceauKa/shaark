@@ -13,11 +13,13 @@
 
             <a v-for="result in results.posts" v-if="hasPostsResults"
                :href="result.url" class="list-group-item list-group-item-action">
-                <p class="mb-0"><strong>{{ result.title }}</strong></p>
-                <p class="mb-0">{{ result.content }}</p>
-                <p class="mb-0 text-right" v-if="result.tags.length > 0">
+                <div>
+                    <span>{{ result.type }}</span> &mdash;
+                    <strong>{{ result.title }}</strong>
+                </div>
+                <div v-if="result.tags.length > 0">
                     <span class="badge badge-secondary" v-for="tag in result.tags">{{ tag }}</span>
-                </p>
+                </div>
             </a>
         </div>
     </form>
@@ -125,6 +127,15 @@ export default {
         display: none;
         &.active {
             display: block;
+        }
+        .list-group-item {
+            display: flex;
+            justify-content: space-between;
+            div:first-child {
+                > span {
+                    text-transform: uppercase;
+                }
+            }
         }
     }
 </style>
