@@ -33,7 +33,8 @@
 
                         <p class="text-center">
                             <a href="{{ route('link.create') }}" class="btn btn-outline-primary">Ajouter un lien</a>
-                            <a href="{{ route('link.create') }}" class="btn btn-outline-primary">Ajouter une story</a>
+                            <a href="{{ route('story.create') }}" class="btn btn-outline-primary">Ajouter une story</a>
+                            <a href="{{ route('chest.create') }}" class="btn btn-outline-primary">Ajouter un coffre</a>
                         </p>
                     </div>
                 </div>

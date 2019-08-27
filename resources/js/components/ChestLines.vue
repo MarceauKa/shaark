@@ -131,6 +131,10 @@ export default {
 
         setLineType(type) {
             this.line.type = type;
+
+            if (this.line.name.length === 0) {
+                this.line.name = this.types[this.line.type];
+            }
         },
 
         copyToClipboard($event, value) {

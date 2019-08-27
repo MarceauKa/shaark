@@ -30,6 +30,7 @@ Vue.component('vue-markdown', VueMarkdown);
 import Toasted from 'vue-toasted';
 Vue.use(Toasted, {
     position: 'top-center',
+    duration: 2000,
 });
 
 const files = require.context('./', true, /\.vue$/i);
