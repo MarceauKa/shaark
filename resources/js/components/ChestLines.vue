@@ -34,7 +34,7 @@
                                         </div>
                                     </div>
 
-                                    <input type="text" class="form-control" name="name" v-model="item.name" placeholder="Nom" />
+                                    <input type="text" class="form-control" name="name" v-model="item.name" :placeholder="__('Name')" />
                                 </div>
                             </div>
 
@@ -55,7 +55,7 @@
             </draggable>
 
             <div class="form-group text-right">
-                <button type="button" v-for="(type, key) in types" class="btn btn-outline-secondary mr-1" @click.prevent="addLine(key)">Ajouter {{ type }}</button>
+                <button type="button" v-for="(type, key) in types" class="btn btn-outline-secondary mr-1" @click.prevent="addLine(key)">{{ __('Add') }} {{ type }}</button>
             </div>
         </section>
 
@@ -72,8 +72,8 @@
                         <input type="password" class="form-control" :value="line.value">
 
                         <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button" @click="toggleShowPassword($event, key)">Afficher</button>
-                            <button class="btn btn-outline-secondary" type="button" @click="copyToClipboard($event, line.value)">Copier</button>
+                            <button class="btn btn-outline-secondary" type="button" @click="toggleShowPassword($event, key)">{{ __('Show') }}</button>
+                            <button class="btn btn-outline-secondary" type="button" @click="copyToClipboard($event, line.value)">{{ __('Copy') }}</button>
                         </div>
                     </div>
 
@@ -114,10 +114,10 @@ export default {
         return {
             lines: [],
             types: {
-                'url': 'URL',
-                'text': 'Texte',
-                'password': 'Secret',
-                'code': 'Code',
+                'url': this.__('URL'),
+                'text': this.__('Texte'),
+                'password': this.__('Secret'),
+                'code': this.__('Code'),
             },
             line: defaultLine(),
             drag: false,
@@ -148,7 +148,7 @@ export default {
 
         copyToClipboard($event, value) {
             let original = $event.target.innerHTML;
-            $event.target.innerHTML = 'Copié !';
+            $event.target.innerHTML = this.__('Copied');
 
             let timeout = setTimeout(() => {
                 $event.target.innerHTML = original;
@@ -186,7 +186,7 @@ export default {
         toggleShowPassword($event, key) {
             const el = $event.target.parentNode.parentNode.firstChild;
             el.type = el.type === 'password' ? 'text' : 'password';
-            $event.target.innerHTML = el.type === 'password' ? 'Afficher' : 'Cacher';
+            $event.target.innerHTML = el.type === 'password' ? this.__('Show') : this.__('Hide');
         },
     },
 

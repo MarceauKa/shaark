@@ -23,6 +23,7 @@ if (apiToken) {
 }
 
 window.Vue = require('vue');
+Vue.mixin(require('./i18n'));
 
 import VueMarkdown from 'vue-markdown'
 Vue.component('vue-markdown', VueMarkdown);

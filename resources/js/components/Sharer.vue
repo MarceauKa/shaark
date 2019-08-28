@@ -1,34 +1,32 @@
 <template>
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Ajout rapide</h5>
+            <h5 class="card-title">{{ __('Rapid share') }}</h5>
 
-            <p class="card-text">
-                Configurez votre bouton d'ajout rapide et faite le glisser dans votre barre de favoris.
-            </p>
+            <p class="card-text">{{ __("Configure your rapid share button and drag it to your bookmarks menu.") }}</p>
 
             <div class="form-group">
-                <label for="name">Nom</label>
+                <label for="name">{{ __('Name') }}</label>
                 <input type="text" class="form-control" id="name" v-model="name" maxlength="40">
             </div>
 
             <div class="row">
                 <div class="col-12 col-sm-6">
                     <div class="form-group">
-                        <label for="width">Largeur</label>
+                        <label for="width">{{ __('Width') }}</label>
                         <input type="number" class="form-control" id="width" v-model="width">
                     </div>
                 </div>
                 <div class="col-12 col-sm-6">
                     <div class="form-group">
-                        <label for="height">Hauteur</label>
+                        <label for="height">{{ __('Height') }}</label>
                         <input type="number" class="form-control" id="height" v-model="height">
                     </div>
                 </div>
             </div>
 
             <div class="form-group">
-                <label>Bouton à mettre en favoris</label><br>
+                <label>{{ __('Share button') }}</label><br>
                 <a class="btn btn-outline-primary" :href="script" v-text="name"></a>
             </div>
         </div>

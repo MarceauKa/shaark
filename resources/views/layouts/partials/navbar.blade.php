@@ -31,8 +31,8 @@
 
                                 <h6 class="dropdown-header">{{ __('Manage') }}</h6>
 
-                                <a class="dropdown-item" href="{{ route('account') }}">{{ __('Compte') }}</a>
-                                <a class="dropdown-item" href="{{ route('manage.tags') }}">{{ __('Données') }}</a>
+                                <a class="dropdown-item" href="{{ route('account') }}">{{ __('Account') }}</a>
+                                <a class="dropdown-item" href="{{ route('manage.tags') }}">{{ __('Data') }}</a>
 
                                 <h6 class="dropdown-header">{{ __('Session') }}</h6>
 

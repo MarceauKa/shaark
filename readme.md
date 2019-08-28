@@ -24,7 +24,7 @@ It's ready to use for **production**. **Laravel Shaarli** is inspired by [Shaarl
 - [x] Original Shaarli import
 - [x] RSS feed
 - [x] Export
-- [ ] i18n
+- [x] i18n
 
 ## Screenshots
 
@@ -80,7 +80,7 @@ Check these options before going live.
 ```
 APP_ENV=production
 APP_DEBUG=false
-APP_URL=http://{your_url}
+APP_URL=https://{your_url}
 CACHE_DRIVER=file # or redis
 SESSION_DRIVER=file # or redis
 QUEUE_DRIVER=sync # or redis

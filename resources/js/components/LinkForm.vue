@@ -2,36 +2,36 @@
     <div class="card">
         <div class="card-body">
             <div class="form-group">
-                <label for="url">URL</label>
+                <label for="url">{{ __('URL') }}</label>
                 <input type="text" class="form-control" id="url" v-model="form.url" :disabled="loading">
-                <small class="form-text text-muted" v-if="parsing">Récupération des informations...</small>
+                <small class="form-text text-muted" v-if="parsing">{{ __('Retrieving URL informations...') }}</small>
             </div>
 
             <div class="form-group">
-                <label for="title">Titre</label>
+                <label for="title">{{ __('Title') }}</label>
                 <input type="text" class="form-control" id="title" v-model="form.title" :disabled="loading">
             </div>
 
             <div class="form-group">
-                <label for="content">Contenu</label>
+                <label for="content">{{ __('Content') }}</label>
                 <textarea id="content" class="form-control" v-model="form.content" :disabled="loading"></textarea>
             </div>
 
             <div class="form-group">
                 <div class="custom-control custom-switch">
                     <input type="checkbox" class="custom-control-input" id="is_private" v-model="form.is_private" :disabled="loading">
-                    <label class="custom-control-label" for="is_private">Lien privé ?</label>
+                    <label class="custom-control-label" for="is_private">{{ __('Private link?') }}</label>
                 </div>
             </div>
 
             <div class="form-group">
-                <label>Tags</label>
+                <label>{{ __('Tags') }}</label>
                 <tags v-model="form.tags"></tags>
             </div>
         </div>
 
         <div class="card-footer">
-            <button class="btn btn-primary" @click.prevent="submit" :disabled="loading">Enregistrer</button>
+            <button class="btn btn-primary" @click.prevent="submit" :disabled="loading">{{ __('Save') }}</button>
         </div>
     </div>
 </template>
@@ -122,15 +122,15 @@ export default {
                 data: this.form
             }).then((response) => {
                 if (this.link) {
-                    this.$toasted.success("Lien modifié !");
+                    this.$toasted.success(this.__('Link updated'));
                     this.loading = false;
                 } else {
-                    this.$toasted.success("Lien ajouté !");
+                    this.$toasted.success(this.__('Link created'));
                     this.reset();
                 }
             }).catch((error) => {
                 this.loading = false;
-                this.$toasted.error("Impossible d'enregistrer le lien.");
+                this.$toasted.error(this.__('Unable to save link'));
                 console.log(error);
             })
         },

@@ -1,10 +1,10 @@
 <template>
     <multiselect :value="$attrs.value"
-                 tag-placeholder="Créer le tag"
-                 selectLabel="Cliquez pour sélectionner"
-                 deselectLabel="Cliquez pour désectionner"
-                 noOptions="Aucun tag"
-                 placeholder="Cherchez ou tapez un tag"
+                 :tag-placeholder="__('Create tag')"
+                 :selectLabel="__('Click to select')"
+                 :deselectLabel="__('Click to select')"
+                 :noOptions="__('No tag')"
+                 :placeholder="__('Search or type a tag')"
                  open-direction="bottom"
                  :options="options"
                  :multiple="true"
@@ -44,7 +44,7 @@ export default {
                 this.options = response.data;
             }).catch((error) => {
                 this.loading = false;
-                this.$toasted.error("Impossible de récupérer les tags.");
+                this.$toasted.error(this.__("Can't fetch tags"));
                 console.log(error);
             })
         },

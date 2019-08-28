@@ -39,7 +39,7 @@ class ManageController extends Controller
         $tag = Tag::findNamedOrCreate($tag);
         $tag->delete();
 
-        $this->flash("Le tag \"{$tag->name}\" a été supprimé !", 'success');
+        $this->flash(__('Tag :name has been deleted', ['name' => $tag->name]), 'success');
         return redirect()->back();
     }
 
@@ -93,7 +93,7 @@ class ManageController extends Controller
         if (false === array_key_exists($type, $types)
             || false === in_array($format, $formats)
         ) {
-            $this->flash("Type d'export ou format non-reconnu.", 'error');
+            $this->flash(__('Export type or format not recognized'), 'error');
             return redirect()->back();
         }
 

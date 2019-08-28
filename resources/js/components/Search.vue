@@ -3,7 +3,7 @@
         <input class="form-control w-100"
                type="search"
                ref="input"
-               placeholder="Tapez / pour chercher"
+               :placeholder="__('Type / to search')"
                v-model="query"
                @keydown.down.stop="move('down')"
                @keydown.up.stop="move('up')"
@@ -34,11 +34,11 @@
                :class="{'active': selected === result}"
             >
                 <div>
-                    <span>{{ result.type }}</span> &mdash;
+                    <span>{{ result.type }} &mdash;</span>
                     <strong>{{ result.title }}</strong>
                 </div>
                 <div v-if="result.tags.length > 0">
-                    <span class="badge badge-secondary" v-for="tag in result.tags">{{ tag }}</span>
+                    <span class="badge badge-secondary pr-1" v-for="tag in result.tags">{{ tag }}</span>
                 </div>
             </a>
         </div>

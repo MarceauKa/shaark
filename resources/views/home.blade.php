@@ -28,13 +28,13 @@
                 <div class="card">
                     <div class="card-body">
                         <p class="text-center lead">
-                            Ooops ! Aucun contenu !
+                            {{ __('Whoops!') }}
                         </p>
 
                         <p class="text-center">
-                            <a href="{{ route('link.create') }}" class="btn btn-outline-primary">Ajouter un lien</a>
-                            <a href="{{ route('story.create') }}" class="btn btn-outline-primary">Ajouter une story</a>
-                            <a href="{{ route('chest.create') }}" class="btn btn-outline-primary">Ajouter un coffre</a>
+                            <a href="{{ route('link.create') }}" class="btn btn-outline-primary">{{ __('Add link') }}</a>
+                            <a href="{{ route('story.create') }}" class="btn btn-outline-primary">{{ __('Add story') }}</a>
+                            <a href="{{ route('chest.create') }}" class="btn btn-outline-primary">{{ __('Add chest') }}</a>
                         </p>
                     </div>
                 </div>

@@ -2,13 +2,13 @@
     <div class="card">
         <div class="card-body">
             <div class="form-group">
-                <label for="title">Titre</label>
+                <label for="title">{{ __('Title') }}</label>
                 <input type="text" class="form-control" id="title" v-model="form.title" :disabled="loading">
                 <p class="text-muted"><small>{{ fullUrl }}</small></p>
             </div>
 
             <div class="form-group">
-                <label for="content">Contenu</label>
+                <label for="content">{{ __('Content') }}</label>
                 <mavon-editor id="content"
                               language="fr"
                               :boxShadow="false"
@@ -19,18 +19,18 @@
             <div class="form-group">
                 <div class="custom-control custom-switch">
                     <input type="checkbox" class="custom-control-input" id="is_private" v-model="form.is_private" :disabled="loading">
-                    <label class="custom-control-label" for="is_private">Story privée ?</label>
+                    <label class="custom-control-label" for="is_private">{{ __('Private story?') }}</label>
                 </div>
             </div>
 
             <div class="form-group">
-                <label>Tags</label>
+                <label>{{ __('Tags') }}</label>
                 <tags v-model="form.tags"></tags>
             </div>
         </div>
 
         <div class="card-footer">
-            <button class="btn btn-primary" @click.prevent="submit" :disabled="loading">Enregistrer</button>
+            <button class="btn btn-primary" @click.prevent="submit" :disabled="loading">{{ __('Save') }}</button>
         </div>
     </div>
 </template>
@@ -125,15 +125,15 @@ export default {
                 data: this.form
             }).then((response) => {
                 if (this.story) {
-                    this.$toasted.success("Story modifiée !");
+                    this.$toasted.success(this.__("Story updated !"));
                     this.loading = false;
                 } else {
-                    this.$toasted.success("Story ajoutée !");
+                    this.$toasted.success(this.__("Story created !"));
                     this.reset();
                 }
             }).catch((error) => {
                 this.loading = false;
-                this.$toasted.error("Impossible d'enregistrer la story.");
+                this.$toasted.error(this.__("Unable to save story"));
                 console.log(error);
             })
         },

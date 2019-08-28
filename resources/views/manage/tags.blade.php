@@ -4,17 +4,17 @@
 <div class="row justify-content-center">
     <div class="col-12">
         <div class="card">
-            <div class="card-header">{{ __('Import') }}</div>
+            <div class="card-header">{{ __('Tags') }}</div>
 
             <div class="card-body">
                 @if($tags->isEmpty())
-                    <div class="alert alert-info">Aucun tag.</div>
+                    <div class="alert alert-info">{{ __('No tag') }}</div>
                 @else
                 <table class="table">
                     <thead>
                     <tr>
-                        <td>Nom</td>
-                        <td>Posts</td>
+                        <td>{{ __('Name') }}</td>
+                        <td>{{ __('Posts') }}</td>
                         <td class="text-right">#</td>
                     </tr>
                     </thead>

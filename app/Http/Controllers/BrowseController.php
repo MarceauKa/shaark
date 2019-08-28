@@ -21,6 +21,7 @@ class BrowseController extends Controller
         return view('home')->with([
             'page_title' => config('app.name'),
             'posts' => $posts,
+            'lang' => "{lang:fr}",
         ]);
     }
 
@@ -78,7 +79,12 @@ class BrowseController extends Controller
         abort_if($posts->isEmpty(), 404);
 
         return view('tag')->with([
-            'page_title' => sprintf('Taggé %s - Page n°%d', $tag->name, $request->input('page', 1)),
+            'page_title' => vsprintf('%s %s - %s n°%d', [
+                __('Tagged'),
+                $tag->name,
+                __('Page'),
+                $request->input('page', 1),
+            ]),
             'tag' => $tag,
             'posts' => $posts,
         ]);

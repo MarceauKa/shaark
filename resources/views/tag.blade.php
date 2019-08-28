@@ -8,7 +8,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-12">
-            <h2>Tag : {{ $tag->name }}</h2>
+            <h2>{{ __('Tag') }} : {{ $tag->name }}</h2>
             <p class="text-muted">{{ $posts->total() }} {{ Str::plural('élément', $posts->total()) }}</p>
 
             <div class="card-columns mt-4">

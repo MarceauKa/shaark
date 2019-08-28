@@ -15,7 +15,7 @@ class ChestController extends Controller
     public function create(Request $request)
     {
         return view('form-chest')->with([
-            'page_title' => 'Ajouter une coffre',
+            'page_title' => __('Add chest'),
             'submit' => route('api.chest.store'),
             'method' => 'POST',
         ]);
@@ -26,7 +26,7 @@ class ChestController extends Controller
         $chest = Chest::with('post.tags')->findOrFail($id);
 
         return view('form-chest')->with([
-            'page_title' => 'Modifier un coffre',
+            'page_title' => __('Update chest'),
             'submit' => route('api.chest.update', $id),
             'method' => 'PUT',
             'chest' => $chest,
@@ -45,7 +45,7 @@ class ChestController extends Controller
         $chest->post->delete();
         $chest->delete();
 
-        $this->flash(sprintf('Le coffre "%s" a été supprimée !', $chest->title), 'success');
+        $this->flash(__('Chest :name has been deleted', ['name' => $chest->title]), 'success');
         return redirect()->back();
     }
 }

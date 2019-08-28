@@ -15,7 +15,7 @@ class LinkController extends Controller
     public function create(Request $request)
     {
         return view('form-link')->with([
-            'page_title' => 'Ajouter un lien',
+            'page_title' => __('Add link'),
             'submit' => route('api.link.store'),
             'parse' => route('api.link.parse'),
             'method' => 'POST',
@@ -28,7 +28,7 @@ class LinkController extends Controller
         $link = Link::with('post.tags')->findOrFail($id);
 
         return view('form-link')->with([
-            'page_title' => 'Modifier un lien',
+            'page_title' => __('Update link'),
             'submit' => route('api.link.update', $id),
             'parse' => route('api.link.parse'),
             'method' => 'PUT',
@@ -46,7 +46,7 @@ class LinkController extends Controller
         $link = Link::findOrFail($id);
         $link->findExtra();
 
-        $this->flash(sprintf('Le lien "%s" a été rafraîchit !', $link->title), 'success');
+        $this->flash(__('Link :name has been refreshed', ['name' => $link->title]), 'success');
         return redirect()->back();
     }
 
@@ -62,7 +62,7 @@ class LinkController extends Controller
         $link->delete();
         $link->post->delete();
 
-        $this->flash(sprintf('Le lien "%s" a été supprimé !', $link->title), 'success');
+        $this->flash(__('Link :name has been deleted', ['name' => $link->title]), 'success');
         return redirect()->back();
     }
 }
