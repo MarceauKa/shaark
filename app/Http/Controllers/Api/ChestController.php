@@ -32,6 +32,8 @@ class ChestController extends Controller
             $post->syncTags($data['tags']);
         }
 
+        $post->save();
+
         return response()->json([
             'id' => $chest->id,
             'status' => 'created',
@@ -50,6 +52,7 @@ class ChestController extends Controller
         }
 
         $chest->save();
+        $chest->post->save();
 
         return response()->json([
             'id' => $chest->id,

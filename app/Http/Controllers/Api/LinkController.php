@@ -53,6 +53,8 @@ class LinkController extends Controller
             $link->findExtra();
         }
 
+        $post->save();
+
         return response()->json([
             'id' => $link->id,
             'status' => 'created',
@@ -77,6 +79,7 @@ class LinkController extends Controller
         }
 
         $link->save();
+        $link->post->save();
 
         return response()->json([
             'id' => $link->id,

@@ -34,6 +34,8 @@ class StoryController extends Controller
             $post->syncTags($data['tags']);
         }
 
+        $post->save();
+
         return response()->json([
             'id' => $story->id,
             'status' => 'created',
@@ -47,13 +49,13 @@ class StoryController extends Controller
 
         $story->fill($data->only('title', 'slug', 'content')->toArray());
         $story->post->is_private = $data->get('is_private', $story->post->is_private);
-        $story->post->save();
 
         if ($data['tags']) {
             $story->post->syncTags($data['tags']);
         }
 
         $story->save();
+        $story->post->save();
 
         return response()->json([
             'id' => $story->id,
