@@ -26,7 +26,7 @@
                             </td>
                             <td>{{ $tag->posts_count }}</td>
                             <td class="text-right">
-                                <a href="{{ route('manage.tags.delete', [$tag->name, csrf_token()]) }}" class="btn btn-danger btn-sm">Supprimer</a>
+                                <confirm tag="button" class="btn btn-danger btn-sm" text="{{ __('Delete') }}" text-confirm="{{ __('Confirm') }}" href="{{ route('manage.tags.delete', [$tag->name, csrf_token()]) }}"></confirm>
                             </td>
                         </tr>
                     @endforeach

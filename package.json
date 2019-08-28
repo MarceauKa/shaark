@@ -28,6 +28,7 @@
     "vue-markdown": "^2.2.4",
     "vue-multiselect": "^2.1.6",
     "vue-template-compiler": "^2.6.10",
-    "vue-toasted": "^1.1.27"
+    "vue-toasted": "^1.1.27",
+    "vuedraggable": "^2.23.0"
   }
 }

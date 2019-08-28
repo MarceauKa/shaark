@@ -1,71 +1,61 @@
 <template>
     <div>
-        <section class="border p-3" v-if="!preview">
-            <div class="form-group" v-for="item in lines">
-                <div class="row">
-                    <div class="col-12 col-md-4">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">{{ types[item.type] }}</span>
-                            </div>
+        <section v-if="!preview">
+            <draggable v-model="lines"
+                       group="lines"
+                       v-bind="dragOptions"
+                       @start="drag=true"
+                       @end="drag=false"
+                       handle=".handle-order"
+            >
+                <transition-group
+                        type="transition"
+                        tag="div"
+                        :name="!drag ? 'flip-list' : null"
+                >
+                    <div class="form-group"
+                         v-for="(item, key) in lines"
+                         :key="`item-${key}`"
+                    >
+                        <div class="row">
+                            <div class="col-12 col-md-4">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <button class="btn btn-outline-secondary dropdown-toggle" type="button"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                        >{{ types[item.type] }}</button>
 
-                            <input type="text" class="form-control" v-model="item.name" placeholder="Nom" />
-                        </div>
+                                        <div class="dropdown-menu">
+                                            <a v-for="(type, key) in types"
+                                               class="dropdown-item"
+                                               :class="{'active': key === line.type}"
+                                               @click.prevent="item.type = key"
+                                            >{{ type }}</a>
+                                        </div>
+                                    </div>
 
-                        <p class="text-right small mb-0">
-                            <button class="btn btn-sm btn-link"
-                                    @click.prevent="moveUp(item)"
-                                    v-if="canMoveUp(item)"
-                            >haut &uparrow;</button>
-                            <button class="btn btn-sm btn-link"
-                                    @click.prevent="moveDown(item)"
-                                    v-if="canMoveDown(item)"
-                            >bas &downarrow;</button>
-                        </p>
-                    </div>
-
-                    <div class="col-12 col-md-8">
-                        <div class="input-group">
-                            <textarea class="form-control" rows="5" v-model="item.value" v-if="item.type === 'code'"></textarea>
-                            <input type="text" class="form-control" v-model="item.value" v-else>
-
-                            <div class="input-group-append">
-                                <button class="btn btn-outline-secondary" type="button" @click.prevent="deleteLine(item)">Supprimer</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-12 col-md-4">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <button class="btn btn-outline-secondary dropdown-toggle" type="button"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                                >{{ types[line.type] }}</button>
-
-                                <div class="dropdown-menu">
-                                    <a v-for="(type, key) in types" class="dropdown-item" :class="{'active': key === line.type}" @click.prevent="setLineType(key)">{{ type }}</a>
+                                    <input type="text" class="form-control" v-model="item.name" placeholder="Nom" />
                                 </div>
                             </div>
 
-                            <input type="text" id="name" class="form-control" v-model="line.name" placeholder="Nom" />
-                        </div>
-                    </div>
+                            <div class="col-12 col-md-8">
+                                <div class="input-group">
+                                    <textarea class="form-control" rows="5" v-model="item.value" v-if="item.type === 'code'"></textarea>
+                                    <input type="text" class="form-control" v-model="item.value" v-else>
 
-                    <div class="col-12 col-md-8">
-                        <div class="input-group">
-                            <textarea class="form-control" rows="5" v-model="line.value" placeholder="Contenu" v-if="line.type === 'code'"></textarea>
-                            <input type="text" class="form-control" v-model="line.value" placeholder="Contenu" @keydown.enter="addLine" v-else>
-
-                            <div class="input-group-append">
-                                <button class="btn btn-outline-secondary" type="button" @click.prevent="addLine">Ajouter</button>
+                                    <div class="input-group-append">
+                                        <confirm tag="button" class="btn btn-outline-secondary" @confirmed="deleteLine(item)" text="&times;" text-confirm="&#10003;"></confirm>
+                                        <button class="btn btn-outline-secondary handle-order" type="button" @click.prevent="deleteLine(item)">&uarr;&darr;</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </transition-group>
+            </draggable>
+
+            <div class="form-group text-right">
+                <button type="button" v-for="(type, key) in types" class="btn btn-outline-secondary mr-1" @click.prevent="addLine(key)">Ajouter {{ type }}</button>
             </div>
         </section>
 
@@ -105,7 +95,13 @@ let defaultLine = function () {
     }
 };
 
+import draggable from 'vuedraggable'
+
 export default {
+    components: {
+        draggable,
+    },
+
     props: {
         preview: {
             type: Object|null,
@@ -124,6 +120,13 @@ export default {
                 'code': 'Code',
             },
             line: defaultLine(),
+            drag: false,
+            dragOptions: {
+                animation: 200,
+                group: "lines",
+                disabled: false,
+                ghostClass: "ghost"
+            },
         }
     },
 
@@ -131,21 +134,14 @@ export default {
     },
 
     methods: {
-        addLine() {
+        addLine(type) {
+            this.line.type = type;
             this.lines.push(this.line);
             this.line = defaultLine();
         },
 
         deleteLine(line) {
             this.lines.splice(this.lines.indexOf(line), 1);
-        },
-
-        setLineType(type) {
-            this.line.type = type;
-
-            if (this.line.name.length === 0) {
-                this.line.name = this.types[this.line.type];
-            }
         },
 
         copyToClipboard($event, value) {
@@ -190,26 +186,6 @@ export default {
             el.type = el.type === 'password' ? 'text' : 'password';
             $event.target.innerHTML = el.type === 'password' ? 'Afficher' : 'Cacher';
         },
-
-        canMoveUp(item) {
-            return this.lines.indexOf(item) > 0;
-        },
-
-        canMoveDown(item) {
-            return this.lines.indexOf(item) < (this.lines.length - 1);
-        },
-
-        moveUp(item) {
-            let index = this.lines.indexOf(item);
-            this.lines.splice(index, 1);
-            this.lines.splice(index - 1, 0, item);
-        },
-
-        moveDown(item) {
-            let index = this.lines.indexOf(item);
-            this.lines.splice(index, 1);
-            this.lines.splice(index + 1, 0, item);
-        },
     },
 
     watch: {
@@ -225,5 +201,14 @@ export default {
 </script>
 
 <style>
-
+    .flip-list-move {
+        transition: transform 0.5s;
+    }
+    .no-move {
+        transition: transform 0s;
+    }
+    .ghost {
+        opacity: 0.5;
+        background: #c8ebfb;
+    }
 </style>

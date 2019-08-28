@@ -34,7 +34,7 @@
                 <h6 class="dropdown-header">{{ __('Manage') }}</h6>
                 <a class="dropdown-item" href="{{ route('link.edit', $link->id) }}">{{ __('Edit') }}</a>
                 <a class="dropdown-item" href="{{ route('link.refresh', [$link->id, csrf_token()]) }}">{{ __('Refresh') }}</a>
-                <a class="dropdown-item" href="{{ route('link.delete', [$link->id, csrf_token()]) }}">{{ __('Delete') }}</a>
+                <confirm class="dropdown-item" text="{{ __('Delete') }}" text-confirm="{{ __('Confirm') }}" href="{{ route('link.delete', [$link->id, csrf_token()]) }}"></confirm>
                 @endif
             </div>
         </div>

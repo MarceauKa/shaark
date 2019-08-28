@@ -27,7 +27,7 @@
                 @if(auth()->check())
                 <h6 class="dropdown-header">{{ __('Manage') }}</h6>
                 <a class="dropdown-item" href="{{ route('chest.edit', $chest->id) }}">{{ __('Edit') }}</a>
-                <a class="dropdown-item" href="{{ route('chest.delete', [$chest->id, csrf_token()]) }}">{{ __('Delete') }}</a>
+                <confirm class="dropdown-item" text="{{ __('Delete') }}" text-confirm="{{ __('Confirm') }}" href="{{ route('chest.delete', [$chest->id, csrf_token()]) }}"></confirm>
                 @endif
             </div>
         </div>
