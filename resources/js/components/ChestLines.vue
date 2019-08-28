@@ -1,6 +1,6 @@
 <template>
     <div>
-        <section v-if="!preview">
+        <section v-if="!preview" ref="form">
             <draggable v-model="lines"
                        group="lines"
                        v-bind="dragOptions"
@@ -17,7 +17,7 @@
                          v-for="(item, key) in lines"
                          :key="`item-${key}`"
                     >
-                        <div class="row">
+                        <div class="row row-line">
                             <div class="col-12 col-md-4">
                                 <div class="input-group">
                                     <div class="input-group-prepend">
@@ -34,7 +34,7 @@
                                         </div>
                                     </div>
 
-                                    <input type="text" class="form-control" v-model="item.name" placeholder="Nom" />
+                                    <input type="text" class="form-control" name="name" v-model="item.name" placeholder="Nom" />
                                 </div>
                             </div>
 
@@ -59,7 +59,7 @@
             </div>
         </section>
 
-        <section class="my-3" v-else>
+        <section class="my-3" ref="preview" v-else>
             <div class="row mb-3" v-for="(line, key) in preview">
                 <div class="col-12">
                     <strong>{{ line.name }}</strong>
@@ -69,7 +69,7 @@
                     <a :href="line.value" target="_blank" v-if="line.type === 'url'">{{ line.value }}</a>
 
                     <div class="input-group input-group-sm" v-else-if="line.type === 'password'">
-                        <input type="password" class="form-control" :id="`input-${key}`" :value="line.value">
+                        <input type="password" class="form-control" :value="line.value">
 
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary" type="button" @click="toggleShowPassword($event, key)">Afficher</button>
@@ -130,14 +130,16 @@ export default {
         }
     },
 
-    mounted() {
-    },
-
     methods: {
         addLine(type) {
             this.line.type = type;
             this.lines.push(this.line);
             this.line = defaultLine();
+
+            this.$nextTick(() => {
+                let inputs = this.$refs.form.querySelectorAll('.row-line input[name="name"]');
+                inputs[inputs.length - 1].focus();
+            });
         },
 
         deleteLine(line) {
@@ -182,7 +184,7 @@ export default {
         },
 
         toggleShowPassword($event, key) {
-            const el = document.getElementById(`input-${key}`);
+            const el = $event.target.parentNode.parentNode.firstChild;
             el.type = el.type === 'password' ? 'text' : 'password';
             $event.target.innerHTML = el.type === 'password' ? 'Afficher' : 'Cacher';
         },
