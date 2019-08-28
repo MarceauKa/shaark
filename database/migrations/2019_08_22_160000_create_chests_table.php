@@ -10,7 +10,7 @@ class CreateChestsTable extends Migration
     {
         Schema::create('chests', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title')->unique();
+            $table->string('title');
             $table->text('content')->nullable();
             $table->timestamps();
         });

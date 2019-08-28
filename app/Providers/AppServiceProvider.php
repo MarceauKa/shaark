@@ -9,7 +9,9 @@ class AppServiceProvider extends ServiceProvider
 {
     public function register()
     {
-        //
+        if ($this->app->environment('production')) {
+            $this->app['request']->server->set('HTTPS', true);
+        }
     }
 
     public function boot()
