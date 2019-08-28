@@ -1,4 +1,4 @@
-<div class="card card--story {{ $post->is_private ? 'border-dark' : '' }} {{ isset($index) && $index ? 'card-index' : 'card-single' }} mb-4">
+<div class="card card--story {{ isset($index) && $index ? 'card-index' : 'card-single' }} mb-4">
     <div class="card-body">
         <h5 class="card-title">
             <span>{{ __('Story') }}</span> &mdash; <a href="{{ $story->url }}">{{ $story->title }}</a>
@@ -16,7 +16,8 @@
     </div>
 
     <div class="card-footer d-flex justify-content-between">
-        <span>{{ $post->created_at->diffForHumans() }}</span>
+        <span>{{ $post->is_private ? '🔒 ' : '' }}{{ $post->created_at->diffForHumans() }}</span>
+
         <div class="dropdown">
             <button class="btn btn-outline-dark btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 {{ __('More') }}
