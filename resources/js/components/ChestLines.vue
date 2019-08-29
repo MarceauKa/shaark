@@ -40,8 +40,8 @@
 
                             <div class="col-12 col-md-8">
                                 <div class="input-group">
-                                    <textarea class="form-control" rows="5" v-model="item.value" v-if="item.type === 'code'"></textarea>
-                                    <input type="text" class="form-control" v-model="item.value" v-else>
+                                    <textarea class="form-control" rows="5" name="value" v-model="item.value" v-if="item.type === 'code'"></textarea>
+                                    <input type="text" class="form-control" name="value" v-model="item.value" v-else>
 
                                     <div class="input-group-append">
                                         <confirm tag="button" class="btn btn-outline-secondary" @confirmed="deleteLine(item)" text="&times;" text-confirm="&#10003;"></confirm>
@@ -137,7 +137,7 @@ export default {
             this.line = defaultLine();
 
             this.$nextTick(() => {
-                let inputs = this.$refs.form.querySelectorAll('.row-line input[name="name"]');
+                let inputs = this.$refs.form.querySelectorAll('.row-line input[name="value"]');
                 inputs[inputs.length - 1].focus();
             });
         },
