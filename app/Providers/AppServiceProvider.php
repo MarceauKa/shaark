@@ -23,6 +23,8 @@ class AppServiceProvider extends ServiceProvider
 
     public function boot()
     {
+        $this->app->setLocale(app('shaarli')->getLocale());
+
         View::composer('layouts.partials.scripts', function (\Illuminate\View\View $view) {
             $locale = config('app.locale');
 

@@ -25,6 +25,7 @@ but built with [Laravel](https://github.com/laravel/laravel) and [Vue.js](https:
 - [x] Original Shaarli import
 - [x] RSS feed
 - [x] Export
+- [x] Dark mode
 - [x] i18n (english and french)
 
 ## Screenshots

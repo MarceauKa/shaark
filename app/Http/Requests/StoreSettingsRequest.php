@@ -19,6 +19,10 @@ class StoreSettingsRequest extends FormRequest
                 'min:2',
                 'max:100',
             ],
+            'locale' => [
+                'required',
+                'in:fr,en',
+            ],
             'is_private' => [
                 'nullable',
                 'in:on,off',
