@@ -30,9 +30,8 @@ but built with [Laravel](https://github.com/laravel/laravel) and [Vue.js](https:
 
 ## Screenshots
 
-![Homepage](/resources/screenshots/homepage.png?raw=true "Homepage")
-![Link](/resources/screenshots/link.png?raw=true "Add link")
-![Story](/resources/screenshots/story.png?raw=true "Add story")
+![Homepage](/resources/screenshots/home-light.png?raw=true "Homepage")
+![Homepage Dark Mode](/resources/screenshots/home-dark.png?raw=true "Homepage Dark Mode")
 
 ## Installation
 

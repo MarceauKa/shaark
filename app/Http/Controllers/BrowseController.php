@@ -19,7 +19,7 @@ class BrowseController extends Controller
             ->paginate(20);
 
         return view('home')->with([
-            'page_title' => config('app.name'),
+            'page_title' => app('shaarli')->getName(),
             'posts' => $posts,
             'lang' => "{lang:fr}",
         ]);
