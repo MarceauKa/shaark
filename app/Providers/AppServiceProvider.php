@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Services\Shaarli\Shaarli;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -12,6 +13,12 @@ class AppServiceProvider extends ServiceProvider
         if ($this->app->environment('production')) {
             $this->app['request']->server->set('HTTPS', true);
         }
+
+        $this->app->singleton(Shaarli::class, function ($app) {
+            return new Shaarli($app);
+        });
+
+        $this->app->alias(Shaarli::class, 'shaarli');
     }
 
     public function boot()

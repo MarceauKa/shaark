@@ -3,6 +3,7 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~vue-multiselect/dist/vue-multiselect.min.css';
 @import '~mavon-editor/dist/css/index.css';
+@import "dark";
 
 html,
 body {
@@ -11,7 +12,7 @@ body {
 }
 
 body {
-    background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+    background-image: linear-gradient(to top, #dad4ec 0%, #dad4ec 1%, #f3e7e9 100%);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -116,3 +117,4 @@ nav.navbar,
         }
     }
 }
+

@@ -6,7 +6,9 @@ use App\Exports\ChestsExport;
 use App\Exports\LinksExport;
 use App\Exports\StoriesExport;
 use App\Http\Requests\ImportRequest;
+use App\Http\Requests\StoreSettingsRequest;
 use App\Services\Import;
+use App\Services\Shaarli\Shaarli;
 use App\Tag;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
@@ -104,5 +106,22 @@ class ManageController extends Controller
             "{$type}.{$format}",
             $format == 'csv' ? \Maatwebsite\Excel\Excel::CSV : \Maatwebsite\Excel\Excel::XLSX
         );
+    }
+
+    public function settingsForm(Request $request)
+    {
+        return view('manage.settings')->with([
+            'page_title' => __('Settings'),
+            'settings' => app('shaarli')->getSettings(),
+        ]);
+    }
+
+    public function settingsStore(StoreSettingsRequest $request, Shaarli $shaarli)
+    {
+        $validated = collect($request->validated());
+        $shaarli->setSettings($validated);
+
+        $this->flash(__('Settings updated!'), 'success');
+        return redirect()->back();
     }
 }

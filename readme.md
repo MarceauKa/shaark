@@ -2,10 +2,11 @@
 
 It's a **free and open source platform** to host by yourself.
 
-**Shaarli** allows you to **save your web links** (websites, youtube videos, ...), to **share your stories** and **manage your web accounts**. 
-All of your content can be **private or public** and can be browsed by **tags** or **all-in-one search**.
+**Shaarli** allows you to **save your web links** (websites, youtube videos, ...), to **share your stories** and 
+**manage your web accounts**. All of your content can be **private or public** and can be browsed by **tags** or **all-in-one search**.
 
-It's ready to use for **production**. **Laravel Shaarli** is inspired by [Shaarli](https://github.com/shaarli/Shaarli) but built with [Laravel](https://github.com/laravel/laravel).
+It's ready to use for **production**. **Laravel Shaarli** is inspired by [Shaarli](https://github.com/shaarli/Shaarli) 
+but built with [Laravel](https://github.com/laravel/laravel) and [Vue.js](https://vuejs.org/).
 
 ## Requirements
 
@@ -24,7 +25,7 @@ It's ready to use for **production**. **Laravel Shaarli** is inspired by [Shaarl
 - [x] Original Shaarli import
 - [x] RSS feed
 - [x] Export
-- [x] i18n
+- [x] i18n (english and french)
 
 ## Screenshots
 

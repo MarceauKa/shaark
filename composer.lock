@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "47e960a2a94937000a0a01f6dcc47e10",
+    "content-hash": "69dc31c906fede8ca4998f7d3ce078f8",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -2210,6 +2210,59 @@
                 "spatie"
             ],
             "time": "2019-08-22T07:12:25+00:00"
+        },
+        {
+            "name": "spatie/valuestore",
+            "version": "1.2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/valuestore.git",
+                "reference": "798897f7d571aa0a62786ae531d573d3c6af55d0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/valuestore/zipball/798897f7d571aa0a62786ae531d573d3c6af55d0",
+                "reference": "798897f7d571aa0a62786ae531d573d3c6af55d0",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\Valuestore\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "role": "Developer",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be"
+                },
+                {
+                    "name": "Jolita Grazyte",
+                    "role": "Developer",
+                    "email": "jolita@spatie.be",
+                    "homepage": "https://spatie.be"
+                }
+            ],
+            "description": "Easily store some values",
+            "homepage": "https://github.com/spatie/valuestore",
+            "keywords": [
+                "json",
+                "spatie",
+                "valuestore"
+            ],
+            "time": "2019-02-15T10:56:05+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",

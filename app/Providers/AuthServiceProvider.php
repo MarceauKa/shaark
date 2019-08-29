@@ -27,7 +27,7 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         Gate::define('restricted', function (?User $user) {
-            if (config('app.private') === false) {
+            if (app('shaarli')->getIsPrivate() === false) {
                 return true;
             }
 
