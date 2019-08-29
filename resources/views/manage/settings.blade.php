@@ -19,6 +19,14 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="locale">{{ __('Language') }}</label>
+                        <select name="locale" id="locale" class="form-control">
+                            <option value="fr"{{ $settings['locale'] == 'fr' ? ' selected' : '' }}>FR</option>
+                            <option value="en"{{ $settings['locale'] == 'en' ? ' selected' : '' }}>EN</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
                         <div class="custom-control custom-switch">
                             <input type="checkbox" class="custom-control-input" name="is_private" id="is_private" {{ $settings['is_private'] ? ' checked' : '' }}>
                             <label class="custom-control-label" for="is_private">{{ __('Private content (all content is private and login is required)') }}</label>

@@ -49,6 +49,7 @@ Default user is `admin@example.fr` with password `secret`.
 ## System-wide private content
 
 If you don't want your content being publicy accessible, update the `.env` file and set `APP_PRIVATE` to `true`. 
+Alternatively, you can update this preference once application is installed from settings section. 
 
 ## Update
 

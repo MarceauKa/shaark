@@ -82,6 +82,7 @@ class Shaarli
     public function setSettings(Collection $settings): void
     {
         $this->settings->put('name', $settings->get('name'));
+        $this->settings->put('locale', $settings->get('locale'));
         $this->settings->put('is_private', $settings->get('is_private') == 'on');
         $this->settings->put('is_dark', $settings->get('is_dark') == 'on');
     }
