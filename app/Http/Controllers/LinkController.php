@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\LinkArchiveRequested;
 use App\Link;
 use Illuminate\Http\Request;
 
@@ -34,20 +35,6 @@ class LinkController extends Controller
             'method' => 'PUT',
             'link' => $link,
         ]);
-    }
-
-    public function refresh(Request $request, int $id, string $hash)
-    {
-        if ($hash !== csrf_token()) {
-            abort(403);
-        }
-
-        /** @var Link $link */
-        $link = Link::findOrFail($id);
-        $link->findExtra();
-
-        $this->flash(__('Link :name has been refreshed', ['name' => $link->title]), 'success');
-        return redirect()->back();
     }
 
     public function delete(Request $request, int $id, string $hash)

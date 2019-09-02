@@ -85,7 +85,7 @@ APP_DEBUG=false
 APP_URL=https://{your_url}
 CACHE_DRIVER=file # or redis
 SESSION_DRIVER=file # or redis
-QUEUE_DRIVER=sync # or redis
+QUEUE_CONNECTION=sync # or redis, database
 MAIL_DRIVER=smtp
 MAIL_FROM_NAME={your_name}
 MAIL_FROM_ADDRESS={your_email}
@@ -102,6 +102,15 @@ php artisan cache:clear
 php artisan route:cache
 php artisan config:cache
 ```
+
+## Archiving
+
+**This feature is under active development.**
+
+Each link you share can be archived. Shaarli will detect the best way to archive your link:
+- [youtube-dl](https://github.com/ytdl-org/youtube-dl/) when available on your system, will be used to download media
+from youtube, soundcloud, vimeo and [few more sites](http://ytdl-org.github.io/youtube-dl/supportedsites.html).
+- [Puppeteer](https://github.com/GoogleChrome/puppeteer) will be used by default to save the webpage as a PDF.
 
 ## Tests
 

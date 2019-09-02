@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\ExtraContent;
+namespace App\Services\LinkContent;
 
 abstract class BaseProvider
 {
@@ -10,6 +10,20 @@ abstract class BaseProvider
     public function __construct(string $url)
     {
         $this->url = $url;
+    }
+
+    abstract public function canPreview(): bool;
+
+    abstract public function getPreview(): ?string;
+
+    public function canArchive(): bool
+    {
+        return false;
+    }
+
+    public function makeArchive(): ?string
+    {
+        throw new \RuntimeException("This provider doesn't support archiving.");
     }
 
     public function makeRequest(?string $url): ?string
@@ -32,8 +46,4 @@ abstract class BaseProvider
 
         return null;
     }
-
-    abstract public function check(): bool;
-
-    abstract public function get(): ?string;
 }

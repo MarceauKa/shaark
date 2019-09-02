@@ -8,9 +8,9 @@
             {!! $link->content !!}
         </p>
 
-        @if($link->extra)
-        <div class="card-extra card-reduce mb-3">
-            {!! $link->extra !!}
+        @if($link->preview)
+        <div class="card-preview card-reduce mb-3">
+            {!! $link->preview !!}
         </div>
         @endif
 
@@ -30,10 +30,19 @@
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <a class="dropdown-item" href="{{ $link->permalink }}">{{ __('Permalink') }}</a>
+                @if($link->archive)
+                    <a class="dropdown-item" href="{{ route('link.download-archive', [$link->id, csrf_token()]) }}">{{ __('Archive') }}</a>
+                @endif
                 @if(auth()->check())
+                <h6 class="dropdown-header">{{ __('Actions') }}</h6>
+                <a class="dropdown-item"
+                   href="{{ route('link.create-archive', [$link->id, csrf_token()]) }}"
+                >{{ __('Create archive') }}</a>
+                <a class="dropdown-item"
+                   href="{{ route('link.update-preview', [$link->id, csrf_token()]) }}"
+                >{{ __('Update preview') }}</a>
                 <h6 class="dropdown-header">{{ __('Manage') }}</h6>
                 <a class="dropdown-item" href="{{ route('link.edit', $link->id) }}">{{ __('Edit') }}</a>
-                <a class="dropdown-item" href="{{ route('link.refresh', [$link->id, csrf_token()]) }}">{{ __('Refresh') }}</a>
                 <confirm class="dropdown-item" text="{{ __('Delete') }}" text-confirm="{{ __('Confirm') }}" href="{{ route('link.delete', [$link->id, csrf_token()]) }}"></confirm>
                 @endif
             </div>

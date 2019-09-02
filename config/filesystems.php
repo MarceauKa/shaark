@@ -9,6 +9,11 @@ return [
             'driver' => 'local',
             'root' => storage_path('app'),
         ],
+        'archives' => [
+            'driver' => 'local',
+            'root' => storage_path('app/archives'),
+            'visibility' => 'hidden',
+        ],
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),

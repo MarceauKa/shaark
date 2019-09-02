@@ -30,8 +30,9 @@
             </div>
         </div>
 
-        <div class="card-footer">
+        <div class="card-footer d-flex justify-content-between">
             <button class="btn btn-primary" @click.prevent="submit" :disabled="loading">{{ __('Save') }}</button>
+            <slot name="actions"></slot>
         </div>
     </div>
 </template>

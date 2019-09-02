@@ -15,8 +15,10 @@ Route::get('/tag/{tag}', 'BrowseController@tag')->name('tag');
 
 Route::get('link/create', 'LinkController@create')->name('link.create');
 Route::get('link/edit/{id}', 'LinkController@edit')->name('link.edit');
-Route::get('link/refresh/{id}/{hash}', 'LinkController@refresh')->name('link.refresh');
 Route::get('link/delete/{id}/{hash}', 'LinkController@delete')->name('link.delete');
+Route::get('link/update-preview/{id}/{hash}', 'LinkActionsController@updatePreview')->name('link.update-preview');
+Route::get('link/create-archive/{id}/{hash}', 'LinkActionsController@createArchive')->name('link.create-archive');
+Route::get('link/download-archive/{id}/{hash}', 'LinkActionsController@downloadArchive')->name('link.download-archive');
 
 Route::get('story/create', 'StoryController@create')->name('story.create');
 Route::get('story/edit/{id}', 'StoryController@edit')->name('story.edit');

@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Services\ExtraContent;
+namespace App\Services\LinkContent;
 
 class ProviderYoutube extends BaseProvider
 {
     /** @var string $regex */
     public $regex = '/(?:https:\/\/)?(?:www\.)?(?:youtube.com|youtu.be)(?:\/watch\?v\=|\/embed\/|\/)([a-z0-9\-]+)/i';
 
-    public function check(): bool
+    public function canPreview(): bool
     {
         return preg_match($this->regex, $this->url) != false;
     }
 
-    public function get(): ?string
+    public function getPreview(): ?string
     {
         preg_match($this->regex, $this->url, $matches);
         $id = $matches[1];
@@ -23,5 +23,4 @@ class ProviderYoutube extends BaseProvider
 
         return null;
     }
-
 }

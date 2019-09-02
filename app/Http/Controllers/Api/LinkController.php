@@ -41,16 +41,14 @@ class LinkController extends Controller
             'url',
         ])->toArray());
 
+        $link->updatePreview();
+
         $post = new Post();
         $post->is_private = $data->get('is_private', 0);
         $post->postable()->associate($link)->save();
 
         if ($data['tags']) {
             $post->syncTags($data['tags']);
-        }
-
-        if ($link->url) {
-            $link->findExtra();
         }
 
         $post->save();
@@ -63,19 +61,18 @@ class LinkController extends Controller
 
     public function update(StoreLinkRequest $request, int $id)
     {
+        /** @var Link $link */
         $link = Link::findOrFail($id);
         $data = collect($request->validated());
 
         $link->fill($data->only('title', 'content', 'url')->toArray());
+        $link->updatePreview();
+
         $link->post->is_private = $data->get('is_private', $link->post->is_private);
         $link->post->save();
 
         if ($data['tags']) {
             $link->post->syncTags($data['tags']);
-        }
-
-        if ($link->url) {
-            $link->findExtra();
         }
 
         $link->save();

@@ -39,12 +39,12 @@ class DatabaseSeeder extends Seeder
             \App\Link::create([
                 'title' => "Pandrezz X L'indécis X j'san - Belleville EP",
                 'url' => 'https://soundcloud.com/pandrezz/pandrezz-x-lindecis-x-jsan-belleville-ep',
-                'extra' => '<iframe width="100%" height="140" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?visual=false&url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F563826981&show_artwork=false"></iframe>',
+                'preview' => '<iframe width="100%" height="140" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?visual=false&url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F563826981&show_artwork=false"></iframe>',
             ]),
             \App\Link::create([
                 'title' => 'Morten Granau - Scope (Official Audio)',
                 'url' => 'https://www.youtube.com/watch?v=uQbUzL0VE7w',
-                'extra' => '<iframe width="100%" src="https://www.youtube.com/embed/uQbUzL0VE7w" frameborder="0" allowfullscreen></iframe>'
+                'preview' => '<iframe width="100%" src="https://www.youtube.com/embed/uQbUzL0VE7w" frameborder="0" allowfullscreen></iframe>'
             ]),
             \App\Chest::create([
                 'title' => config('app.name'),

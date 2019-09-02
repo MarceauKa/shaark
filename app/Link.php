@@ -3,9 +3,10 @@
 namespace App;
 
 use App\Concerns\Models\Postable;
-use App\Services\ExtraContent\ExtraContent;
+use App\Services\LinkContent\LinkContent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Spatie\Feed\Feedable;
 use Spatie\Feed\FeedItem;
@@ -17,10 +18,10 @@ class Link extends Model implements Feedable
     protected $fillable = [
         'title',
         'content',
-        'extra',
+        'preview',
+        'archive',
         'url',
     ];
-
     protected $appends = [
         'permalink',
     ];
@@ -49,16 +50,33 @@ class Link extends Model implements Feedable
         return $query->where('id', hashid_decode($hash));
     }
 
-    public function findExtra(): self
+    public function updatePreview(): self
     {
-        $extra = ExtraContent::get($this->url);
+        $preview = LinkContent::preview($this->url);
 
-        if ($extra) {
-            $this->attributes['extra'] = $extra;
+        if ($preview) {
+            $this->attributes['preview'] = $preview;
             $this->save();
         }
 
         return $this;
+    }
+
+    public function createArchive(): self
+    {
+        $file = LinkContent::archive($this->url);
+
+        if (Storage::disk('archives')->exists($file)) {
+            $this->attributes['archive'] = $file;
+            $this->save();
+        }
+
+        return $this;
+    }
+
+    public function hasArchive(): bool
+    {
+        return !empty($this->archive);
     }
 
     public function toFeedItem()
