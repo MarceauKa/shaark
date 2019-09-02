@@ -3,6 +3,7 @@
 ## Added
 
 - Loader on LinkForm, StoryForm and ChestForm
+- Add original URL to card-link
 
 # 1.1.1
 

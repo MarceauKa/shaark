@@ -9,16 +9,20 @@
         </p>
 
         @if($link->preview)
-        <div class="card-preview card-reduce mb-3">
+        <div class="card-preview card-reduce mb-1">
             {!! $link->preview !!}
         </div>
         @endif
 
         @if($post->tags->isNotEmpty())
-            @foreach($post->tags as $tag)
-                <a class="badge badge-secondary" href="{{ $tag->url }}">{{ $tag->name }}</a>
-            @endforeach
+            <p class="card-text mb-1">
+                @foreach($post->tags as $tag)
+                    <a class="badge badge-secondary" href="{{ $tag->url }}">{{ $tag->name }}</a>
+                @endforeach
+            </p>
         @endif
+
+        <p class="card-text text-muted small my-0">{{ $link->url }}</p>
     </div>
 
     <div class="card-footer d-flex justify-content-between">

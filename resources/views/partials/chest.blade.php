@@ -9,9 +9,11 @@
         </div>
 
         @if($post->tags->isNotEmpty())
-            @foreach($post->tags as $tag)
-                <a class="badge badge-secondary" href="{{ $tag->url }}">{{ $tag->name }}</a>
-            @endforeach
+            <p class="card-text mt-1">
+                @foreach($post->tags as $tag)
+                    <a class="badge badge-secondary" href="{{ $tag->url }}">{{ $tag->name }}</a>
+                @endforeach
+            </p>
         @endif
     </div>
 
