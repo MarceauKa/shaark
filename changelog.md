@@ -1,4 +1,10 @@
-# 1.1.0
+# Unreleased
+
+## Added
+
+- Loader on LinkForm, StoryForm and ChestForm
+
+# 1.1.1
 
 ## Fixed
 

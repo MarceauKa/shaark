@@ -3,7 +3,7 @@
         <div class="card-body">
             <div class="form-group">
                 <label for="url">{{ __('URL') }}</label>
-                <input type="text" class="form-control" id="url" v-model="form.url" :disabled="loading">
+                <input type="text" class="form-control" ref="url" id="url" v-model="form.url">
                 <small class="form-text text-muted" v-if="parsing">{{ __('Retrieving URL informations...') }}</small>
             </div>
 
@@ -31,7 +31,10 @@
         </div>
 
         <div class="card-footer d-flex justify-content-between">
-            <button class="btn btn-primary" @click.prevent="submit" :disabled="loading">{{ __('Save') }}</button>
+            <button class="btn btn-primary" @click.prevent="submit" :disabled="loading">
+                <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true" v-if="loading"></span>
+                {{ __('Save') }}
+            </button>
             <slot name="actions"></slot>
         </div>
     </div>

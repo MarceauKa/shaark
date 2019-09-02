@@ -30,7 +30,10 @@
         </div>
 
         <div class="card-footer">
-            <button class="btn btn-primary" @click.prevent="submit" :disabled="loading">{{ __('Save') }}</button>
+            <button class="btn btn-primary" @click.prevent="submit" :disabled="loading">
+                <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true" v-if="loading"></span>
+                {{ __('Save') }}
+            </button>
         </div>
     </div>
 </template>
