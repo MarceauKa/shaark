@@ -5,4 +5,9 @@ return [
     'locale' => env('APP_LANG'),
     'is_private' => false,
     'is_dark' => false,
+    'private_archive' => false,
+    'link_archive_pdf' => true,
+    'link_archive_media' => true,
+    'node_bin' => '/usr/bin/node',
+    'youtube_dl_bin' => '/usr/bin/youtube-dl',
 ];

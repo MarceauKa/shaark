@@ -83,8 +83,13 @@ class Shaarli
     {
         $this->settings->put('name', $settings->get('name'));
         $this->settings->put('locale', $settings->get('locale'));
-        $this->settings->put('is_private', $settings->get('is_private') == 'on');
-        $this->settings->put('is_dark', $settings->get('is_dark') == 'on');
+        $this->settings->put('is_private', $settings->get('is_private', 'off') == 'on');
+        $this->settings->put('is_dark', $settings->get('is_dark', 'off') == 'on');
+        $this->settings->put('private_archive', $settings->get('private_archive', 'off') == 'on');
+        $this->settings->put('link_archive_pdf', $settings->get('link_archive_pdf', 'off') == 'on');
+        $this->settings->put('link_archive_media', $settings->get('link_archive_media', 'off') == 'on');
+        $this->settings->put('youtube_dl_bin', $settings->get('youtube_dl_bin'));
+        $this->settings->put('node_bin', $settings->get('node_bin'));
     }
 
     public function __call($name, $arguments)

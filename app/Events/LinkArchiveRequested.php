@@ -17,9 +17,12 @@ class LinkArchiveRequested
 
     /** @var Link $link */
     public $link;
+    /** @var string $provider */
+    public $provider;
 
-    public function __construct(Link $link)
+    public function __construct(Link $link, string $provider)
     {
         $this->link = $link;
+        $this->provider = $provider;
     }
 }

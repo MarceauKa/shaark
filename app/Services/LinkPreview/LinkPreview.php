@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Services\LinkContent;
+namespace App\Services\LinkPreview;
 
-class LinkContent
+class LinkPreview
 {
     /** @var array $providers */
     public $providers = [
@@ -11,7 +11,6 @@ class LinkContent
         ProviderImgur::class,
         ProviderImage::class,
         ProviderVideo::class,
-        FallbackProvider::class,
     ];
     /** @var string $url */
     public $url;
@@ -23,7 +22,7 @@ class LinkContent
 
     public static function preview(string $url): ?string
     {
-        $provider = (new static($url))->getProviderForPreview();
+        $provider = (new static($url))->getProvider();
 
         if ($provider) {
             return $provider->getPreview();
@@ -32,18 +31,7 @@ class LinkContent
         return null;
     }
 
-    public static function archive(string $url): ?string
-    {
-        $provider = (new static($url))->getProviderForArchive();
-
-        if ($provider && $provider->canArchive()) {
-            return $provider->makeArchive();
-        }
-
-        return null;
-    }
-
-    public function getProviderForPreview(): ?BaseProvider
+    public function getProvider(): ?BaseProvider
     {
         foreach ($this->providers as $provider)
         {
@@ -51,21 +39,6 @@ class LinkContent
             $provider = new $provider($this->url);
 
             if ($provider->canPreview()) {
-                return $provider;
-            }
-        }
-
-        return null;
-    }
-
-    public function getProviderForArchive(): ?BaseProvider
-    {
-        foreach ($this->providers as $provider)
-        {
-            /** @var BaseProvider $provider */
-            $provider = new $provider($this->url);
-
-            if ($provider->canArchive()) {
                 return $provider;
             }
         }

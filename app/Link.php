@@ -3,7 +3,7 @@
 namespace App;
 
 use App\Concerns\Models\Postable;
-use App\Services\LinkContent\LinkContent;
+use App\Services\LinkPreview\LinkPreview;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
@@ -52,7 +52,7 @@ class Link extends Model implements Feedable
 
     public function updatePreview(): self
     {
-        $preview = LinkContent::preview($this->url);
+        $preview = LinkPreview::preview($this->url);
 
         if ($preview) {
             $this->attributes['preview'] = $preview;
@@ -62,21 +62,22 @@ class Link extends Model implements Feedable
         return $this;
     }
 
-    public function createArchive(): self
-    {
-        $file = LinkContent::archive($this->url);
-
-        if (Storage::disk('archives')->exists($file)) {
-            $this->attributes['archive'] = $file;
-            $this->save();
-        }
-
-        return $this;
-    }
-
     public function hasArchive(): bool
     {
-        return !empty($this->archive);
+        return !empty($this->archive) && Storage::disk('archives')->exists($this->archive);
+    }
+
+    public function canDownloadArchive(): bool
+    {
+        if (false === $this->hasArchive()) {
+            return false;
+        }
+
+        if (app('shaarli')->getPrivateArchive() === true && auth()->check() === false) {
+            return false;
+        }
+
+        return true;
     }
 
     public function toFeedItem()

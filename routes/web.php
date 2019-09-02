@@ -17,8 +17,10 @@ Route::get('link/create', 'LinkController@create')->name('link.create');
 Route::get('link/edit/{id}', 'LinkController@edit')->name('link.edit');
 Route::get('link/delete/{id}/{hash}', 'LinkController@delete')->name('link.delete');
 Route::get('link/update-preview/{id}/{hash}', 'LinkActionsController@updatePreview')->name('link.update-preview');
-Route::get('link/create-archive/{id}/{hash}', 'LinkActionsController@createArchive')->name('link.create-archive');
-Route::get('link/download-archive/{id}/{hash}', 'LinkActionsController@downloadArchive')->name('link.download-archive');
+Route::get('link/archive/{id}', 'LinkActionsController@archiveForm')->name('link.archive-form');
+Route::post('link/archive/{id}', 'LinkActionsController@archiveStore');
+Route::post('link/delete-archive/{id}', 'LinkActionsController@archiveDelete')->name('link.archive-delete');
+Route::get('link/download-archive/{id}/{hash}', 'LinkActionsController@archiveDownload')->name('link.archive-download');
 
 Route::get('story/create', 'StoryController@create')->name('story.create');
 Route::get('story/edit/{id}', 'StoryController@edit')->name('story.edit');

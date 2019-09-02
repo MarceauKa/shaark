@@ -30,7 +30,25 @@ class StoreSettingsRequest extends FormRequest
             'is_dark' => [
                 'nullable',
                 'in:on,off',
-            ]
+            ],
+            'private_archive' => [
+                'nullable',
+                'in:on,off',
+            ],
+            'link_archive_media' => [
+                'nullable',
+                'in:on,off',
+            ],
+            'link_archive_pdf' => [
+                'nullable',
+                'in:on,off',
+            ],
+            'youtube_dl_bin' => [
+                'required',
+            ],
+            'node_bin' => [
+                'required',
+            ],
         ];
     }
 }

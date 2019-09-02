@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "add9d45f146020fdc1af884f48c2d111",
+    "content-hash": "3409478791a949e3db34ddac0f8bc355",
     "packages": [
         {
             "name": "clue/socket-raw",
@@ -1896,6 +1896,57 @@
             "time": "2019-09-01T07:51:21+00:00"
         },
         {
+            "name": "norkunas/youtube-dl-php",
+            "version": "v1.3.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/norkunas/youtube-dl-php.git",
+                "reference": "5858d4b06440d76cad7abea92c16b091bfe0e321"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/norkunas/youtube-dl-php/zipball/5858d4b06440d76cad7abea92c16b091bfe0e321",
+                "reference": "5858d4b06440d76cad7abea92c16b091bfe0e321",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": ">=7.0.8",
+                "symfony/options-resolver": "^3.3|^4.0",
+                "symfony/process": "^3.3|^4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "YoutubeDl\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tomas Norkūnas",
+                    "email": "norkunas.tom@gmail.com"
+                }
+            ],
+            "description": "youtube-dl wrapper for php",
+            "keywords": [
+                "youtube",
+                "youtube-dl"
+            ],
+            "time": "2019-06-28T11:29:36+00:00"
+        },
+        {
             "name": "opis/closure",
             "version": "3.3.1",
             "source": {
@@ -3337,6 +3388,60 @@
                 "mime-type"
             ],
             "time": "2019-08-22T08:16:11+00:00"
+        },
+        {
+            "name": "symfony/options-resolver",
+            "version": "v4.3.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/options-resolver.git",
+                "reference": "81c2e120522a42f623233968244baebd6b36cb6a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/options-resolver/zipball/81c2e120522a42f623233968244baebd6b36cb6a",
+                "reference": "81c2e120522a42f623233968244baebd6b36cb6a",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.3-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\OptionsResolver\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony OptionsResolver Component",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "config",
+                "configuration",
+                "options"
+            ],
+            "time": "2019-08-08T09:29:19+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",

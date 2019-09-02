@@ -3,10 +3,25 @@
 It's a **free and open source platform** to host by yourself.
 
 **Shaarli** allows you to **save your web links** (websites, youtube videos, ...), to **share your stories** and 
-**manage your web accounts**. All of your content can be **private or public** and can be browsed by **tags** or **all-in-one search**.
+**manage your web accounts**. 
+
+All of your content can be **private or public** and can be browsed by **tags** or **all-in-one search**.
 
 It's ready to use for **production**. **Laravel Shaarli** is inspired by [Shaarli](https://github.com/shaarli/Shaarli) 
 but built with [Laravel](https://github.com/laravel/laravel) and [Vue.js](https://vuejs.org/).
+
+## Summary
+
+- [Requirements](#requirements)
+- [Features](#features)
+- [Screenshots](#screenshots)
+- [Installation](#installation)
+- [Global privacy](#global-privacy)
+- [Archiving](#archiving)
+- [Update](#update)
+- [Going live](#going-live)
+- [Tests](#tests)
+- [Licence](#licence)
 
 ## Requirements
 
@@ -27,6 +42,7 @@ but built with [Laravel](https://github.com/laravel/laravel) and [Vue.js](https:
 - [x] Export
 - [x] Dark mode
 - [x] i18n (english and french)
+- [x] **NEW** Archiving
 
 ## Screenshots
 
@@ -45,10 +61,21 @@ npm install && npm run prod
 Then run `php artisan shaarli:install` (for interactive installation) or `php artisan migrate --seed` (with default data).
 Default user is `admin@example.fr` with password `secret`.
 
-## System-wide private content
+## Global privacy
 
 If you don't want your content being publicy accessible, update the `.env` file and set `APP_PRIVATE` to `true`. 
-Alternatively, you can update this preference once application is installed from settings section. 
+Alternatively, you can update this preference once application is installed from settings section.
+
+## Archiving
+
+Each link you share can be archived the way you want:
+
+- [youtube-dl](https://github.com/ytdl-org/youtube-dl/) when available on your system, will be used to download media
+from youtube, soundcloud, vimeo and [few more sites](http://ytdl-org.github.io/youtube-dl/supportedsites.html).
+
+- [Puppeteer](https://github.com/GoogleChrome/puppeteer) will be used by default to save the webpage as a PDF.
+
+You can adjust archiving configuration in the settings section. 
 
 ## Update
 
@@ -66,6 +93,7 @@ php artisan route:cache
 php artisan view:clear
 npm install
 npm run prod
+php artisan queue:restart # if you're using queue
 php artisan up
 ```
 
@@ -102,15 +130,6 @@ php artisan cache:clear
 php artisan route:cache
 php artisan config:cache
 ```
-
-## Archiving
-
-**This feature is under active development.**
-
-Each link you share can be archived. Shaarli will detect the best way to archive your link:
-- [youtube-dl](https://github.com/ytdl-org/youtube-dl/) when available on your system, will be used to download media
-from youtube, soundcloud, vimeo and [few more sites](http://ytdl-org.github.io/youtube-dl/supportedsites.html).
-- [Puppeteer](https://github.com/GoogleChrome/puppeteer) will be used by default to save the webpage as a PDF.
 
 ## Tests
 

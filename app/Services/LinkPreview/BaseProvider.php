@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\LinkContent;
+namespace App\Services\LinkPreview;
 
 abstract class BaseProvider
 {
@@ -15,16 +15,6 @@ abstract class BaseProvider
     abstract public function canPreview(): bool;
 
     abstract public function getPreview(): ?string;
-
-    public function canArchive(): bool
-    {
-        return false;
-    }
-
-    public function makeArchive(): ?string
-    {
-        throw new \RuntimeException("This provider doesn't support archiving.");
-    }
 
     public function makeRequest(?string $url): ?string
     {

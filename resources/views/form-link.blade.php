@@ -16,26 +16,7 @@
             >
                 @if(isset($link) && $link)
                 <template #actions>
-                    <div class="dropdown">
-                        <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{ __('More') }}
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="{{ $link->permalink }}">{{ __('Permalink') }}</a>
-                            @if($link->archive)
-                                <a class="dropdown-item" href="{{ route('link.download-archive', [$link->id, csrf_token()]) }}">{{ __('Archive') }}</a>
-                            @endif
-                            <h6 class="dropdown-header">{{ __('Actions') }}</h6>
-                            <a class="dropdown-item"
-                               href="{{ route('link.create-archive', [$link->id, csrf_token()]) }}"
-                            >{{ __('Create archive') }}</a>
-                            <a class="dropdown-item"
-                               href="{{ route('link.update-preview', [$link->id, csrf_token()]) }}"
-                            >{{ __('Update preview') }}</a>
-                            <h6 class="dropdown-header">{{ __('Manage') }}</h6>
-                            <confirm class="dropdown-item" text="{{ __('Delete') }}" text-confirm="{{ __('Confirm') }}" href="{{ route('link.delete', [$link->id, csrf_token()]) }}"></confirm>
-                        </div>
-                    </div>
+                    @include('partials.link-menu')
                 </template>
                 @endif
             </link-form>

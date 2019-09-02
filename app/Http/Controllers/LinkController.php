@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Events\LinkArchiveRequested;
 use App\Link;
 use Illuminate\Http\Request;
 

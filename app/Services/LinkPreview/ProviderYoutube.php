@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\LinkContent;
+namespace App\Services\LinkPreview;
 
 class ProviderYoutube extends BaseProvider
 {

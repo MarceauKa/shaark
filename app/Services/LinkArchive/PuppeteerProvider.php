@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Services\LinkContent;
+namespace App\Services\LinkArchive;
 
 use Nesk\Puphpeteer\Puppeteer;
 
-class FallbackProvider extends BaseProvider
+class PuppeteerProvider extends BaseProvider
 {
     public function makeArchive(): ?string
     {
@@ -12,7 +12,10 @@ class FallbackProvider extends BaseProvider
         $filename = sprintf('app/archives/%s', $name);
 
         try {
-            $puppeteer = new Puppeteer();
+            $puppeteer = new Puppeteer([
+                'executable_path' => app('shaarli')->getNodeBin()
+            ]);
+
             $browser = $puppeteer->launch([
                 'ignoreHTTPSErrors' => true,
             ]);
@@ -37,24 +40,19 @@ class FallbackProvider extends BaseProvider
 
             $browser->close();
         } catch (\Exception $e) {
-            throw new \RuntimeException("Unable to create link archive", 0, $e);
+            throw new \RuntimeException("Unable to create link pdf archive", 0, $e);
         }
 
         return $name;
     }
 
+    public function isEnabled(): bool
+    {
+        return app('shaarli')->getLinkArchivePdf() === true;
+    }
+
     public function canArchive(): bool
     {
         return true;
-    }
-
-    public function canPreview(): bool
-    {
-        return false;
-    }
-
-    public function getPreview(): ?string
-    {
-        return null;
     }
 }
