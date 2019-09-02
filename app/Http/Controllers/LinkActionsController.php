@@ -62,7 +62,7 @@ class LinkActionsController extends Controller
         /** @var Link $link */
         $link = Link::findOrFail($id);
 
-        if (empty($request->user()) && $link->post->is_private) {
+        if (false === $link->canDownloadArchive()) {
             abort(404);
         }
 

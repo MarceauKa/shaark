@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Link;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class LinkController extends Controller
 {
@@ -44,6 +45,10 @@ class LinkController extends Controller
 
         /** @var Link $link */
         $link = Link::with('post')->findOrFail($id);
+
+        if ($link->hasArchive()) {
+            Storage::disk('archives')->delete($link->archive);
+        }
 
         $link->delete();
         $link->post->delete();

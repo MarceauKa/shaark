@@ -73,7 +73,13 @@ class Link extends Model implements Feedable
             return false;
         }
 
-        if (app('shaarli')->getPrivateArchive() === true && auth()->check() === false) {
+        if ($this->post->is_private
+            && auth()->check() === false) {
+            return false;
+        }
+
+        if (app('shaarli')->getPrivateArchive() === true
+            && auth()->check() === false) {
             return false;
         }
 
