@@ -10,6 +10,7 @@
 
 - Laravel 6.0
 - Simplified Hashid
+- Chests can now be searched from their non-sensitive content
 
 ## Deleted
 
