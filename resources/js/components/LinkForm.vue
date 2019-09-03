@@ -31,10 +31,17 @@
         </div>
 
         <div class="card-footer d-flex justify-content-between">
-            <button class="btn btn-primary" @click.prevent="submit" :disabled="loading">
-                <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true" v-if="loading"></span>
-                {{ __('Save') }}
-            </button>
+            <div>
+                <button class="btn btn-primary" @click.prevent="submit" :disabled="loading">
+                    <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true" v-if="loading"></span>
+                    {{ __('Save') }}
+                </button>
+                <button class="btn btn-outline-primary" @click.prevent="submit(true)" :disabled="loading">
+                    <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true" v-if="loading"></span>
+                    {{ __('Save then archive') }}
+                </button>
+            </div>
+
             <slot name="actions"></slot>
         </div>
     </div>
@@ -47,7 +54,7 @@ let defaultLink = function () {
         title: null,
         content: null,
         is_private: false,
-        tags: [],
+        tags: []
     };
 };
 
@@ -74,7 +81,7 @@ export default {
             type: Object,
             required: false,
             default: () => {}
-        },
+        }
     },
 
     data() {
@@ -117,7 +124,7 @@ export default {
             });
         },
 
-        submit() {
+        submit(redirectToArchive = false) {
             this.loading = true;
 
             axios.request({
@@ -131,6 +138,10 @@ export default {
                 } else {
                     this.$toasted.success(this.__('Link created'));
                     this.reset();
+                }
+
+                if (redirectToArchive) {
+                    window.location = `/link/archive/${response.data.id}`;
                 }
             }).catch((error) => {
                 this.loading = false;

@@ -4,6 +4,7 @@
 
 - Loader on LinkForm, StoryForm and ChestForm
 - Add original URL to card-link
+- Ability to "Save and archive" a link
 
 # 1.1.1
 
