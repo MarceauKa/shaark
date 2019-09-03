@@ -15,7 +15,7 @@ use Spatie\Valuestore\Valuestore;
 class Shaarli
 {
     /** @var string VERSION */
-    public const VERSION = '1.1.1';
+    public const VERSION = '1.2.0';
     /** @var Application $app */
     protected $app;
     /** @var Valuestore $settings */

@@ -10,4 +10,8 @@ return [
     'link_archive_media' => true,
     'node_bin' => '/usr/bin/node',
     'youtube_dl_bin' => '/usr/bin/youtube-dl',
+    'hashids' => [
+        'salt' => env('HASHIDS_SALT', 'default-salt'),
+        'min' => env('HASHIDS_MIN_LENGTH', 10),
+    ],
 ];

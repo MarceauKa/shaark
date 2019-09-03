@@ -25,9 +25,12 @@ but built with [Laravel](https://github.com/laravel/laravel) and [Vue.js](https:
 
 ## Requirements
 
-- PHP >= 7.1
-- Apache or nginx
-- MySQL >= 5.7 or SQLite >= 3
+- Linux or macOS env
+- PHP >= 7.2
+- MySQL >= 5.7 (or SQLite >= 3)
+- Node.js >= 6
+- (Optional) Redis
+- (Optional) [youtube-dl](https://github.com/ytdl-org/youtube-dl)
 
 ## Features
 

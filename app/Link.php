@@ -7,11 +7,8 @@ use App\Services\LinkPreview\LinkPreview;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
-use Spatie\Feed\Feedable;
-use Spatie\Feed\FeedItem;
 
-class Link extends Model implements Feedable
+class Link extends Model
 {
     use Postable;
 
@@ -28,7 +25,7 @@ class Link extends Model implements Feedable
 
     public function getHashIdAttribute(): string
     {
-        return hashid_encode($this->id);
+        return app('hashid')->encode($this->id);
     }
 
     public function getPermalinkAttribute(): string
@@ -47,7 +44,7 @@ class Link extends Model implements Feedable
 
     public function scopeHashIdIs(Builder $query, string $hash): Builder
     {
-        return $query->where('id', hashid_decode($hash));
+        return $query->where('id', app('hashid')->decode($hash));
     }
 
     public function updatePreview(): self
@@ -84,22 +81,5 @@ class Link extends Model implements Feedable
         }
 
         return true;
-    }
-
-    public function toFeedItem()
-    {
-        return FeedItem::create([
-            'id' => $this->id,
-            'title' => $this->title,
-            'summary' => Str::limit($this->content, 130) ?? 'N.C',
-            'updated' => $this->updated_at,
-            'link' => $this->permalink,
-            'author' => config('app.name'),
-        ]);
-    }
-
-    public static function getFeedItems()
-    {
-        return Link::latest()->withPrivate(false)->get();
     }
 }

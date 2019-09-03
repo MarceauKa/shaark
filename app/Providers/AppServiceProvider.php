@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Services\Hashid;
 use App\Services\Shaarli\Shaarli;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -19,6 +20,12 @@ class AppServiceProvider extends ServiceProvider
         });
 
         $this->app->alias(Shaarli::class, 'shaarli');
+
+        $this->app->singleton(Hashid::class, function ($app) {
+            return new Hashid($app['config']->get('shaarli.hashids'));
+        });
+
+        $this->app->alias(Hashid::class, 'hashid');
     }
 
     public function boot()

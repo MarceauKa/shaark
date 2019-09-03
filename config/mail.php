@@ -1,7 +1,7 @@
 <?php
 
 return [
-    // Supported: "smtp", "sendmail", "mandrill", "ses",
+    // Supported: "smtp", "sendmail", "ses",
     // "postmark", "log", "array"
     'driver' => env('MAIL_DRIVER', 'smtp'),
     'host' => env('MAIL_HOST', 'smtp.mailgun.org'),

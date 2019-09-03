@@ -36,7 +36,7 @@
                             <table class="table table-condensed table-bordered">
                                 @if(in_array('media', $providers))
                                     <tr>
-                                        <td>{{ __('Archive media') }}</td>
+                                        <td>{{ __('Archive as Media') }}</td>
                                         <td class="text-right">
                                             <button type="submit" class="btn btn-sm btn-primary btn-block" name="type" value="media">{{ __('Choose') }}</button>
                                         </td>
@@ -45,7 +45,7 @@
 
                                 @if(in_array('pdf', $providers))
                                     <tr>
-                                        <td>{{ __('Archive PDF') }}</td>
+                                        <td>{{ __('Archive as PDF') }}</td>
                                         <td class="text-right">
                                             <button type="submit" class="btn btn-sm btn-primary btn-block" name="type" value="pdf">{{ __('Choose') }}</button>
                                         </td>
