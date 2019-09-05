@@ -122,11 +122,6 @@ MAIL_FROM_NAME={your_name}
 MAIL_FROM_ADDRESS={your_email}
 ```
 
-**Compiling assets**
-```
-npm run prod
-```
-
 **Artisan routines**
 ```
 php artisan cache:clear

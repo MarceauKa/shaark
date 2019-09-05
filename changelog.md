@@ -1,8 +1,13 @@
 # 1.2.1
 
+## Added
+
+- Assets are now staged preventing new compilation on each deployment
+
 ## Fixed
 
 - Display newlines in links content
+- Save button on LinkForm doesn't redirect to archiving
 
 # 1.2.0
 

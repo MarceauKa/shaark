@@ -140,7 +140,7 @@ export default {
                     this.reset();
                 }
 
-                if (redirectToArchive) {
+                if (redirectToArchive === true) {
                     window.location = `/link/archive/${response.data.id}`;
                 }
             }).catch((error) => {
