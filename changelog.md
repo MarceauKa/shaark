@@ -1,3 +1,9 @@
+# 1.2.1
+
+## Fixed
+
+- Display newlines in links content
+
 # 1.2.0
 
 ## Added

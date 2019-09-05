@@ -5,7 +5,7 @@
         </h5>
 
         <p class="card-text card-reduce">
-            {!! $link->content !!}
+            {!! nl2br($link->content) !!}
         </p>
 
         @if($link->preview)
