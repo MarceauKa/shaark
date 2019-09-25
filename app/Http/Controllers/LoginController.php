@@ -17,7 +17,7 @@ class LoginController extends Controller
 
     public function form()
     {
-        return view('auth.login');
+        return view('login');
     }
 
     public function check(Request $request)
