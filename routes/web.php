@@ -2,11 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::auth([
-    'register' => false,
-    'reset' => true,
-    'verify' => false,
-]);
+Route::get('login', 'LoginController@form')->name('login');
+Route::post('login', 'LoginController@check')->name('login.check');
+Route::get('login/secure/{token}', 'SecureLoginForm@form')->name('login.secure');
+Route::post('login/secure/{token}', 'SecureLoginForm@check')->name('login.secure.check');
+Route::post('logout', 'LoginController@logout')->name('logout');
 
 Route::get('/', 'BrowseController@index')->name('home');
 Route::get('/tag/{tag}', 'BrowseController@tag')->name('tag');
