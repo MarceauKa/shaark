@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Notifications\SecureLoginCode;
+use App\SecureLogin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
@@ -30,11 +32,20 @@ class LoginController extends Controller
         if (Auth::guard()->attempt($validated, $request->filled('remember'))) {
             $request->session()->regenerate();
 
+            if (true === app('shaarli')->getSecureLogin()) {
+                $user = Auth::guard()->user();
+                $secure = SecureLogin::createForUser($user);
+                $user->notify(new SecureLoginCode($secure));
+                Auth::logout();
+
+                return redirect()->route('login.secure', $secure);
+            }
+
             return redirect()->intended('/');
         }
 
         throw ValidationException::withMessages([
-            'email' => [trans('auth.failed')],
+            'email' => [__("Invalid credentials")],
         ]);
     }
 

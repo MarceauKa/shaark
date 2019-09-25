@@ -1,3 +1,17 @@
+# 1.2.2
+
+## Added
+
+- 2-FA with email
+
+## Changed
+
+- Refactored Login
+
+## Deleted
+
+- Password resets, register and verify email logic
+
 # 1.2.1
 
 ## Added

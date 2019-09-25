@@ -31,9 +31,21 @@ class StoreSettingsRequest extends FormRequest
                 'nullable',
                 'in:on,off',
             ],
-            'private_archive' => [
+            'secure_login' => [
                 'nullable',
                 'in:on,off',
+            ],
+            'secure_code_expires' => [
+                'required',
+                'numeric',
+                'min:5',
+                'max:300',
+            ],
+            'secure_code_length' => [
+                'required',
+                'numeric',
+                'min:4',
+                'max:12',
             ],
             'link_archive_media' => [
                 'nullable',

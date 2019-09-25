@@ -45,6 +45,37 @@
                     </fieldset>
 
                     <fieldset>
+                        <legend>{{ __('Secure login') }}</legend>
+
+                        <div class="form-group">
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" name="secure_login" id="secure_login" {{ $settings['secure_login'] ? ' checked' : '' }}>
+                                <label class="custom-control-label" for="secure_login">{{ __("2-FA login (requires a code sent by email)") }}</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name">{{ __('Secure code expiration (in minutes)') }}</label>
+                            <input type="number" class="form-control {{ $errors->has('secure_code_expires') ? ' is-invalid' : '' }}" step="5"
+                                   name="secure_code_expires" id="secure_code_expires" value="{{ $settings['secure_code_expires'] }}">
+
+                            @error('secure_code_expires')
+                            <span class="invalid-feedback" role="alert">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name">{{ __('Secure code length') }}</label>
+                            <input type="number" class="form-control {{ $errors->has('secure_code_length') ? ' is-invalid' : '' }}" step="1"
+                                   name="secure_code_length" id="secure_code_length" value="{{ $settings['secure_code_length'] }}">
+
+                            @error('secure_code_length')
+                            <span class="invalid-feedback" role="alert">{{ $message }}</span>
+                            @enderror
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
                         <legend>{{ __('Archiving') }}</legend>
 
                         <div class="form-group">
