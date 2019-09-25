@@ -32,25 +32,3 @@ Artisan::command('shaarli:install', function () {
 
     $this->comment('Installation done');
 });
-
-Artisan::command('shaarli:self-update', function () {
-    $this->comment('Down artisan');
-    $this->callSilent('down');
-    $this->comment('Git update.');
-    exec('git reset --hard >> /dev/null 2>&1');
-    exec('git pull origin master >> /dev/null 2>&1');
-    $this->comment('Composer update.');
-    exec('composer install >> /dev/null 2>&1');
-    $this->comment('Migrations');
-    exec('php artisan migrate --force -n >> /dev/null 2>&1');
-    $this->comment('Routines');
-    $this->callSilent('cache:clear');
-    $this->callSilent('config:cache');
-    $this->callSilent('route:cache');
-    $this->callSilent('view:clear');
-    $this->comment('Assets');
-    exec('npm install >> /dev/null 2>&1');
-    exec('npm run prod >> /dev/null 2>&1');
-    $this->comment('Up artisan');
-    $this->callSilent('up');
-})->describe('Self update');

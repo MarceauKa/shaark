@@ -11,6 +11,7 @@
 ## Deleted
 
 - Password resets, register and verify email logic
+- `shaarli:self-update` command
 
 # 1.2.1
 

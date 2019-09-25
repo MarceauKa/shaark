@@ -18,6 +18,7 @@ but built with [Laravel](https://github.com/laravel/laravel) and [Vue.js](https:
 - [Installation](#installation)
 - [Global privacy](#global-privacy)
 - [Archiving](#archiving)
+- [2-FA](#2-fa)
 - [Update](#update)
 - [Going live](#going-live)
 - [Tests](#tests)
@@ -46,11 +47,11 @@ but built with [Laravel](https://github.com/laravel/laravel) and [Vue.js](https:
 - [x] Dark mode
 - [x] i18n (english and french)
 - [x] **NEW** Archiving
+- [x] **NEW** 2-FA with email
 
 ## Screenshots
 
 ![Homepage](/resources/screenshots/home-light.png?raw=true "Homepage")
-![Homepage Dark Mode](/resources/screenshots/home-dark.png?raw=true "Homepage Dark Mode")
 
 ## Installation
 
@@ -78,25 +79,28 @@ from youtube, soundcloud, vimeo and [few more sites](http://ytdl-org.github.io/y
 
 - [Puppeteer](https://github.com/GoogleChrome/puppeteer) will be used by default to save the webpage as a PDF.
 
-You can adjust archiving configuration in the settings section. 
+You can adjust archiving configuration in the settings section.
+
+## 2-FA
+
+You're able to active 2-FA (2 factors authentication). By default 2-FA is disabled but you can update it from your app settings. 
+Code length and code expiration are also configurable. **Test if you application can send emails before enabling this feature**. 
 
 ## Update
 
-Update the application by running `php artisan shaarli:self-update` or manually:
+Update the application by running:
 
 ```bash
 php artisan down
 git reset --hard
 git pull origin master
-composer install
+composer install --no-dev -o
 php artisan migrate --force -n
 php artisan cache:clear
 php artisan config:cache
 php artisan route:cache
 php artisan view:clear
-npm install
-npm run prod
-php artisan queue:restart # if you're using queue
+php artisan queue:restart # if you're using queues
 php artisan up
 ```
 

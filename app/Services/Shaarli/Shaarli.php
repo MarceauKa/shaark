@@ -15,7 +15,7 @@ use Spatie\Valuestore\Valuestore;
 class Shaarli
 {
     /** @var string VERSION */
-    public const VERSION = '1.2.1';
+    public const VERSION = '1.2.2';
     /** @var Application $app */
     protected $app;
     /** @var Valuestore $settings */
@@ -58,7 +58,9 @@ class Shaarli
     {
         $excepts = [
             'login',
+            'login/secure/*',
             'password/*',
+            'logout',
         ];
 
         foreach ($excepts as $except) {
