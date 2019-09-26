@@ -1,13 +1,27 @@
 {
     "name": "marceauka/laravel-shaarli",
     "type": "project",
-    "description": "Shaarli made with Laravel.",
+    "description": "Your place to archive your links, stories, passwords and archive your content.",
     "keywords": [
         "laravel",
         "shaarli",
         "links"
     ],
     "license": "MIT",
+    "homepage": "https://github.com/MarceauKa/laravel-shaarli/",
+    "readme": "readme.md",
+    "authors": [
+        {
+            "name": "Marceau Casals",
+            "email": "marceau@404lab.fr",
+            "homepage": "https://www.404lab.fr",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "email": "web@404lab.fr",
+        "issues": "https://github.com/MarceauKa/laravel-shaarli/issues"
+    },
     "require": {
         "php": "^7.2",
         "doctrine/dbal": "^2.9",

@@ -9,6 +9,11 @@
 - Typo in secure login page title
 - Redirection when already logged
 
+## Changed
+
+- Composer definition
+- Documentation about security
+
 # 1.2.2
 
 ## Added

@@ -16,9 +16,8 @@ but built with [Laravel](https://github.com/laravel/laravel) and [Vue.js](https:
 - [Features](#features)
 - [Screenshots](#screenshots)
 - [Installation](#installation)
-- [Global privacy](#global-privacy)
 - [Archiving](#archiving)
-- [2-FA](#2-fa)
+- [Security](#security)
 - [Update](#update)
 - [Going live](#going-live)
 - [Tests](#tests)
@@ -42,12 +41,12 @@ but built with [Laravel](https://github.com/laravel/laravel) and [Vue.js](https:
 - [x] Tagging system, search and RSS feeds
 - [x] Private content or entirely private
 - [x] Original Shaarli import
-- [x] RSS feed
 - [x] Export
 - [x] Dark mode
 - [x] i18n (english and french)
 - [x] **NEW** Archiving
 - [x] **NEW** 2-FA with email
+- [ ] RSS feed
 
 ## Screenshots
 
@@ -65,11 +64,6 @@ npm install && npm run prod
 Then run `php artisan shaarli:install` (for interactive installation) or `php artisan migrate --seed` (with default data).
 Default user is `admin@example.fr` with password `secret`.
 
-## Global privacy
-
-If you don't want your content being publicy accessible, update the `.env` file and set `APP_PRIVATE` to `true`. 
-Alternatively, you can update this preference once application is installed from settings section.
-
 ## Archiving
 
 Each link you share can be archived the way you want:
@@ -81,10 +75,21 @@ from youtube, soundcloud, vimeo and [few more sites](http://ytdl-org.github.io/y
 
 You can adjust archiving configuration in the settings section.
 
-## 2-FA
+## Security
+
+### Global privacy
+
+If you don't want your content being publicy accessible, update the `.env` file and set `APP_PRIVATE` to `true`. 
+Alternatively, you can update this preference once application is installed from settings section.
+
+### 2-FA
 
 You're able to active 2-FA (2 factors authentication). By default 2-FA is disabled but you can update it from your app settings. 
-Code length and code expiration are also configurable. **Test if you application can send emails before enabling this feature**. 
+Code length and code expiration are also configurable. **Test if you application can send emails before enabling this feature**.
+
+### Auths monitoring
+
+Shaarli logs all successful and failed auths with their associated devices.
 
 ## Update
 
