@@ -61,6 +61,7 @@
     "Contents": "Contenus",
     "Session": "Session",
     "Account": "Compte",
+    "Logins": "Connexions",
     "Import": "Importer",
     "Export": "Exporter",
     "More": "Plus",
@@ -149,6 +150,15 @@
     "Media archiving (Youtube, Soundcloud, ...)": "Archiver les médias (Youtube, Soundcloud, ...)",
     "Youtube-dl binary": "Éxécutable Youtube-dl",
     "Settings updated!": "Paramètres mis à jour !",
+
+    "No logins": "Aucune connexion",
+    "IP address": "Adresse IP",
+    "System": "Système",
+    "Date": "Date",
+    "Status": "Statut",
+    "Succeeded": "Réussie",
+    "Locked": "Bloquée",
+    "Failed": "Échouée",
 
     "Update account": "Modifier le compte",
     "Your account has been updated!": "Votre compte a été mis à jour !",

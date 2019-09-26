@@ -10,7 +10,9 @@ use App\Http\Requests\StoreSettingsRequest;
 use App\Services\Import;
 use App\Services\Shaarli\Shaarli;
 use App\Tag;
+use App\User;
 use Illuminate\Http\Request;
+use Lab404\AuthChecker\Models\Login;
 use Maatwebsite\Excel\Facades\Excel;
 
 class ManageController extends Controller
@@ -123,5 +125,17 @@ class ManageController extends Controller
 
         $this->flash(__('Settings updated!'), 'success');
         return redirect()->back();
+    }
+
+    public function logins(Request $request)
+    {
+        /** @var User $user */
+        $user = $request->user();
+        $logins = Login::where('user_id', $user->id)->latest()->paginate(25);
+
+        return view('manage.logins')->with([
+            'logins' => $logins,
+            'page_title' => __('Logins'),
+        ]);
     }
 }

@@ -2,12 +2,12 @@
     <ul class="pagination justify-content-center" role="navigation">
         {{-- Previous Page Link --}}
         @if ($paginator->onFirstPage())
-            <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.previous')">
+            <li class="page-item disabled" aria-disabled="true" aria-label="previous">
                 <span class="page-link" aria-hidden="true">&lsaquo;</span>
             </li>
         @else
             <li class="page-item">
-                <a class="page-link" href="{{ $paginator->previousPageUrl() }}" rel="prev" aria-label="@lang('pagination.previous')">&lsaquo;</a>
+                <a class="page-link" href="{{ $paginator->previousPageUrl() }}" rel="prev" aria-label="previous">&lsaquo;</a>
             </li>
         @endif
 
@@ -33,10 +33,10 @@
         {{-- Next Page Link --}}
         @if ($paginator->hasMorePages())
             <li class="page-item">
-                <a class="page-link" href="{{ $paginator->nextPageUrl() }}" rel="next" aria-label="@lang('pagination.next')">&rsaquo;</a>
+                <a class="page-link" href="{{ $paginator->nextPageUrl() }}" rel="next" aria-label="next">&rsaquo;</a>
             </li>
         @else
-            <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.next')">
+            <li class="page-item disabled" aria-disabled="true" aria-label="next">
                 <span class="page-link" aria-hidden="true">&rsaquo;</span>
             </li>
         @endif

@@ -1,3 +1,14 @@
+# 1.2.3
+
+## Added
+
+- Log all logins and associated devices with new section in settings
+
+## Fixed
+
+- Typo in secure login page title
+- Redirection when already logged
+
 # 1.2.2
 
 ## Added

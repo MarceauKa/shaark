@@ -5,10 +5,13 @@ namespace App;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
+use Lab404\AuthChecker\Interfaces\HasLoginsAndDevicesInterface;
+use Lab404\AuthChecker\Models\HasLoginsAndDevices;
 
-class User extends Authenticatable
+class User extends Authenticatable implements HasLoginsAndDevicesInterface
 {
-    use Notifiable;
+    use Notifiable,
+        HasLoginsAndDevices;
 
     protected $fillable = [
         'name',

@@ -12,16 +12,17 @@
         "php": "^7.2",
         "doctrine/dbal": "^2.9",
         "fideloper/proxy": "^4.0",
+        "hashids/hashids": "^2.0.4|~3.0",
+        "lab404/laravel-auth-checker": "^1.4",
         "laravel/framework": "^6.0",
         "laravel/scout": "^7.1",
         "laravel/tinker": "^1.0",
         "maatwebsite/excel": "^3.1",
+        "marceauka/laravel-scout-tntsearch-driver": "^7.2",
         "nesk/puphpeteer": "^1.6",
         "norkunas/youtube-dl-php": "^1.3",
         "predis/predis": "^1.1",
-        "spatie/valuestore": "^1.2",
-        "hashids/hashids": "^2.0.4|~3.0",
-        "marceauka/laravel-scout-tntsearch-driver": "^7.2"
+        "spatie/valuestore": "^1.2"
     },
     "require-dev": {
         "facade/ignition": "^1.4",
