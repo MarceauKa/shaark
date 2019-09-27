@@ -5,6 +5,7 @@
 - LoginController throttles request
 - AuthChecker now handles 2FA
 - Secure login email notification CTA and message
+- Assets are now versionned
 
 ## Fixed
 
