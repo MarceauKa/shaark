@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -33,7 +34,11 @@ class SecureLogin extends Model
         return 'token';
     }
 
-    public static function createForUser(User $user): self
+    /**
+     * @param Authenticatable|User $user
+     * @return static
+     */
+    public static function createForUser($user): self
     {
         $code_length = app('shaarli')->getSecureCodeLength();
         $expire_minutes = app('shaarli')->getSecureCodeExpires();

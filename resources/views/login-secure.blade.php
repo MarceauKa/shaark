@@ -19,7 +19,7 @@
                             <label for="code" class="col-md-4 col-form-label text-md-right">{{ __('Secure code') }}</label>
 
                             <div class="col-md-6">
-                                <input id="code" type="text" class="form-control @error('code') is-invalid @enderror" name="code" value="{{ request('code') }}" required autofocus>
+                                <input id="code" type="text" class="form-control @error('code') is-invalid @enderror" name="code" value="{{ request()->input('code') }}" required autofocus>
 
                                 @error('code')
                                     <span class="invalid-feedback" role="alert">

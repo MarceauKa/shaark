@@ -1,5 +1,7 @@
 <?php
 
+use App\Login;
+
 return [
 
     /*
@@ -60,7 +62,7 @@ return [
         # Ex: App\Models\Device (default: Lab404\AuthChecker\Models\Device)
         'device' => null,
         # Ex: App\Models\Login (default: Lab404\AuthChecker\Models\Login)
-        'login' => null,
+        'login' => Login::class,
     ]
 
 ];

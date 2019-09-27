@@ -41,11 +41,13 @@
                                 </td>
                                 <td class="align-middle">{{ $login->created_at->diffForHumans() }}</td>
                                 <td class="align-middle">
-                                    @if($login->type === \Lab404\AuthChecker\Models\Login::TYPE_LOGIN)
+                                    @if($login->type === App\Login::TYPE_LOGIN)
                                         <span class="badge badge-success">{{ __('Succeeded') }}</span>
-                                    @elseif($login->type === \Lab404\AuthChecker\Models\Login::TYPE_LOCKOUT)
+                                    @elseif($login->type === App\Login::TYPE_2FA)
+                                        <span class="badge badge-warning">{{ __('2FA') }}</span>
+                                    @elseif($login->type === App\Login::TYPE_LOCKOUT)
                                         <span class="badge badge-danger">{{ __('Locked') }}</span>
-                                    @else
+                                    @elseif($login->type === App\Login::TYPE_FAILED)
                                         <span class="badge badge-danger">{{ __('Failed') }}</span>
                                     @endif
                                 </td>

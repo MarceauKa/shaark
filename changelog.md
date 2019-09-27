@@ -1,3 +1,17 @@
+# 1.2.4
+
+## Changed
+
+- LoginController throttles request
+- AuthChecker now handles 2FA
+- Secure login email notification CTA and message
+
+## Fixed
+
+- Secure Login don't log failed attempts
+- Use `request()->input('code')` instead of `request('code')` in secure login form
+- Story form confirm message i18n
+
 # 1.2.3
 
 ## Added
