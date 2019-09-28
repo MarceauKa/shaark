@@ -3,10 +3,11 @@
 ## Added
 
 - Alternative homepage
+- Ability to customize background image
 
 ## Changed
 
-- Settings UI
+- Refactored settings (back and front)
 - Card dropdown menu is not right aligned
 
 # 1.2.4

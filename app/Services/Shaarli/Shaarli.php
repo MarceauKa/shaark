@@ -76,6 +76,72 @@ class Shaarli
         return false;
     }
 
+    public function getSettingsConfig(): array
+    {
+        return [
+            'name' => [
+                'default' => env('APP_NAME'),
+                'rules' => ['required', 'min:2', 'max:100']
+            ],
+            'locale' => [
+                'default' => env('APP_LANG'),
+                'rules' => ['required', 'in:fr,en']
+            ],
+            'is_private' => [
+                'default' => false,
+                'rules' => ['nullable', 'in:on,off']
+            ],
+            'is_dark' => [
+                'default' => false,
+                'rules' => ['nullable', 'in:on,off']
+            ],
+            'homepage_alt' => [
+                'default' => false,
+                'rules' => ['nullable', 'in:on,off']
+            ],
+            'custom_background' => [
+                'default' => null,
+                'rules' => ['nullable', 'url']
+            ],
+            'custom_background_encoded' => [
+                'default' => null,
+                'rules' => ['nullable']
+            ],
+            'private_archive' => [
+                'default' => false,
+                'rules' => ['nullable', 'in:on,off']
+            ],
+            'secure_login' => [
+                'default' => false,
+                'rules' => ['nullable', 'in:on,off']
+            ],
+            'secure_code_expires' => [
+                'default' => 30,
+                'rules' => ['required', 'numeric', 'min:5', 'max:300']
+            ],
+            'secure_code_length' => [
+                'default' => 8,
+                'rules' => ['required', 'numeric', 'min:4', 'max:12']
+            ],
+            'link_archive_pdf' => [
+                'default' => true,
+                'rules' => ['nullable', 'in:on,off']
+            ],
+            'link_archive_media' => [
+                'default' => true,
+                'rules' => ['nullable', 'in:on,off']
+            ],
+            'node_bin' => [
+                'default' => '/usr/bin/node',
+                'rules' => ['required']
+            ],
+            'youtube_dl_bin' => [
+                'default' => '/usr/bin/youtube-dl',
+                'rules' => ['required']
+            ],
+        ];
+    }
+
     public function getSettings(): array
     {
         return $this->settings->all();
@@ -83,19 +149,37 @@ class Shaarli
 
     public function setSettings(Collection $settings): void
     {
-        $this->settings->put('name', $settings->get('name'));
-        $this->settings->put('locale', $settings->get('locale'));
-        $this->settings->put('is_private', $settings->get('is_private', 'off') == 'on');
-        $this->settings->put('is_dark', $settings->get('is_dark', 'off') == 'on');
-        $this->settings->put('homepage_alt', $settings->get('homepage_alt', 'off') == 'on');
-        $this->settings->put('secure_login', $settings->get('secure_login', 'off') == 'on');
-        $this->settings->put('secure_code_expires', $settings->get('secure_code_expires'));
-        $this->settings->put('secure_code_length', $settings->get('secure_code_length'));
-        $this->settings->put('private_archive', $settings->get('private_archive', 'off') == 'on');
-        $this->settings->put('link_archive_pdf', $settings->get('link_archive_pdf', 'off') == 'on');
-        $this->settings->put('link_archive_media', $settings->get('link_archive_media', 'off') == 'on');
-        $this->settings->put('youtube_dl_bin', $settings->get('youtube_dl_bin'));
-        $this->settings->put('node_bin', $settings->get('node_bin'));
+        foreach ($this->getSettingsConfig() as $key => $item) {
+            if (is_bool($item['default'])) {
+                $this->settings->put($key, $settings->get($key, 'off') == 'on');
+
+                continue;
+            }
+
+            if ($key === 'custom_background' || $key === 'custom_background_encoded') {
+                if ($this->getCustomBackground() != $settings->get('custom_background')) {
+                    $url = $settings->get('custom_background');
+
+                    if (empty($url)) {
+                        $this->settings->put('custom_background', null);
+                        $this->settings->put('custom_background_encoded', null);
+
+                        continue;
+                    }
+
+                    $type = last(explode('.', $url));
+                    $value = base64_encode(file_get_contents($url));
+                    $encoded = 'data:image/'.$type.';base64,'.$value;
+
+                    $this->settings->put('custom_background', $url);
+                    $this->settings->put('custom_background_encoded', $encoded);
+                }
+
+                continue;
+            }
+
+            $this->settings->put($key, $settings->get($key, $item['default']));
+        }
     }
 
     public function __call($name, $arguments)
