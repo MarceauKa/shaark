@@ -51,7 +51,6 @@ but built with [Laravel](https://github.com/laravel/laravel) and [Vue.js](https:
 ## Screenshots
 
 ![Homepage](/resources/screenshots/home.png?raw=true "Homepage")
-![Homepage alt](/resources/screenshots/home-alt.png?raw=true "Homepage alt")
 
 ## Installation
 
