@@ -1,3 +1,9 @@
+# Unreleased
+
+## Fixed
+
+- Missing translations (custom background images)
+
 # 1.2.6
 
 ## Fixed
