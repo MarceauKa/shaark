@@ -1,4 +1,8 @@
-# Unreleased
+# 1.2.6
+
+## Fixed
+
+- Default settings
 
 ## Changed
 

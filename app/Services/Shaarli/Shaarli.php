@@ -15,7 +15,7 @@ use Spatie\Valuestore\Valuestore;
 class Shaarli
 {
     /** @var string VERSION */
-    public const VERSION = '1.2.5';
+    public const VERSION = '1.2.6';
     /** @var Application $app */
     protected $app;
     /** @var Valuestore $settings */
@@ -191,8 +191,8 @@ class Shaarli
                 return $this->settings->get($key);
             }
 
-            if (array_key_exists($key, config('shaarli'))) {
-                $this->settings->put($key, config('shaarli')[$key]);
+            if (array_key_exists($key, $this->getSettingsConfig())) {
+                $this->settings->put($key, $this->getSettingsConfig()[$key]['default']);
                 return $this->settings->get($key);
             }
         }
