@@ -1,4 +1,4 @@
-# 1.2.5 [unreleased]
+# 1.2.5
 
 ## Added
 
@@ -9,6 +9,8 @@
 
 - Refactored settings (back and front)
 - Card dropdown menu is not right aligned
+- Assets are now versionned
+- Screenshots in readme
 
 # 1.2.4
 

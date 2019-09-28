@@ -15,7 +15,7 @@ use Spatie\Valuestore\Valuestore;
 class Shaarli
 {
     /** @var string VERSION */
-    public const VERSION = '1.2.4';
+    public const VERSION = '1.2.5';
     /** @var Application $app */
     protected $app;
     /** @var Valuestore $settings */
@@ -80,11 +80,11 @@ class Shaarli
     {
         return [
             'name' => [
-                'default' => env('APP_NAME'),
+                'default' => config('app.name'),
                 'rules' => ['required', 'min:2', 'max:100']
             ],
             'locale' => [
-                'default' => env('APP_LANG'),
+                'default' => config('app.locale'),
                 'rules' => ['required', 'in:fr,en']
             ],
             'is_private' => [
