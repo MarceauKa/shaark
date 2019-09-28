@@ -78,6 +78,14 @@ nav.navbar,
     }
 }
 
+.home {
+    &.alt {
+        .card-columns {
+            column-count: 2 !important;
+        }
+    }
+}
+
 .card-preview {
     iframe {
         display: inline-block;

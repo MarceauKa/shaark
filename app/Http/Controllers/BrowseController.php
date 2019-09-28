@@ -13,6 +13,24 @@ class BrowseController extends Controller
 {
     public function index(Request $request)
     {
+        if (true === app('shaarli')->getHomepageAlt()) {
+            $posts = Post::with('tags', 'postable')
+                ->withoutChests()
+                ->withPrivate($request)
+                ->latest()
+                ->paginate(20);
+
+            $tags = Tag::withCount('posts')
+                    ->orderBy('posts_count', 'desc')
+                    ->get();
+
+            return view('home-alt')->with([
+                'page_title' => app('shaarli')->getName(),
+                'posts' => $posts,
+                'tags' => $tags,
+            ]);
+        }
+
         $posts = Post::with('tags', 'postable')
             ->withPrivate($request)
             ->latest()
@@ -21,7 +39,6 @@ class BrowseController extends Controller
         return view('home')->with([
             'page_title' => app('shaarli')->getName(),
             'posts' => $posts,
-            'lang' => "{lang:fr}",
         ]);
     }
 

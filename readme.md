@@ -50,7 +50,8 @@ but built with [Laravel](https://github.com/laravel/laravel) and [Vue.js](https:
 
 ## Screenshots
 
-![Homepage](/resources/screenshots/home-light.png?raw=true "Homepage")
+![Homepage](/resources/screenshots/home.png?raw=true "Homepage")
+![Homepage alt](/resources/screenshots/home-alt.png?raw=true "Homepage alt")
 
 ## Installation
 
@@ -58,7 +59,6 @@ but built with [Laravel](https://github.com/laravel/laravel) and [Vue.js](https:
 git clone https://github.com/MarceauKa/laravel-shaarli && cd laravel-shaarli
 cp .env.example .env # Then edit it
 composer install
-npm install && npm run prod
 ```
 
 Then run `php artisan shaarli:install` (for interactive installation) or `php artisan migrate --seed` (with default data).
@@ -79,8 +79,7 @@ You can adjust archiving configuration in the settings section.
 
 ### Global privacy
 
-If you don't want your content being publicy accessible, update the `.env` file and set `APP_PRIVATE` to `true`. 
-Alternatively, you can update this preference once application is installed from settings section.
+If you don't want your content being publicy accessible, you can update this preference once application is installed from settings section.
 
 ### 2-FA
 

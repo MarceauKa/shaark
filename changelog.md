@@ -1,3 +1,17 @@
+# 1.2.5
+
+## Added
+
+- Alternative homepage
+- Ability to customize background image
+
+## Changed
+
+- Refactored settings (back and front)
+- Card dropdown menu is not right aligned
+- Assets are now versionned
+- Screenshots in readme
+
 # 1.2.4
 
 ## Changed
