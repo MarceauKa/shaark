@@ -10,7 +10,8 @@ use Illuminate\Http\Request;
 use Laravel\Scout\Searchable;
 
 /**
- * @method Builder withPrivate(bool|User|Request $private)
+ * @method Builder|Post withPrivate(bool|User|Request $private)
+ * @method Builder|Post withoutChests()
  */
 class Post extends Model
 {
@@ -48,6 +49,23 @@ class Post extends Model
         }
 
         return $query;
+    }
+
+    public function scopeWithoutChests(Builder $query): Builder
+    {
+        return $query->where('postable_type', '!=', Chest::class);
+    }
+
+    public function scopeOnlyLinks(Builder $query): Builder
+    {
+        return $query->where('postable_type', '=', Link::class);
+    }
+
+    public function scopeLinksWithArchive(Builder $query): Builder
+    {
+        return $query->whereHasMorph('postable', Link::class, function (Builder $query) {
+            return $query->whereNotNull('archive');
+        });
     }
 
     public function toSearchableArray()

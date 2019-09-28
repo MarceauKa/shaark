@@ -9,6 +9,8 @@ return [
     'is_private' => false,
     // Dark mode
     'is_dark' => false,
+    // Alternative homepage
+    'homepage_alt' => false,
     // Makes link archive private
     'private_archive' => false,
     // Requires email verification after login

@@ -1,3 +1,14 @@
+# 1.2.5 [unreleased]
+
+## Added
+
+- Alternative homepage
+
+## Changed
+
+- Settings UI
+- Card dropdown menu is not right aligned
+
 # 1.2.4
 
 ## Changed

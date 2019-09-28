@@ -5,23 +5,32 @@
 @endpush
 
 @section('content')
-<div class="container home">
+<div class="container home alt">
     <div class="row justify-content-center">
         @if($posts->isNotEmpty())
-        <div class="col-12">
+        <div class="col-12 col-sm-9">
             <div class="card-columns">
                 @foreach($posts as $post)
                     @if($post->postable instanceof \App\Link)
                         @include('partials.link', ['link' => $post->postable, 'post' => $post, 'index' => true])
                     @elseif($post->postable instanceof \App\Story)
                         @include('partials.story', ['story' => $post->postable, 'post' => $post, 'index' => true])
-                    @elseif($post->postable instanceof \App\Chest)
-                        @include('partials.chest', ['chest' => $post->postable, 'post' => $post, 'index' => true])
                     @endif
                 @endforeach
             </div>
 
             {{ $posts->links() }}
+        </div>
+
+        <div class="col-12 col-sm-3">
+            <div class="list-group">
+                @foreach($tags as $tag)
+                    <a href="{{ $tag->url }}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                        {{ $tag->name }}
+                        <span class="badge badge-pill badge-primary">{{ $tag->posts_count }}</span>
+                    </a>
+                @endforeach
+            </div>
         </div>
         @else
             <div class="col-12 col-md-auto">

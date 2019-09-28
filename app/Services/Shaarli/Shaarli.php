@@ -87,6 +87,7 @@ class Shaarli
         $this->settings->put('locale', $settings->get('locale'));
         $this->settings->put('is_private', $settings->get('is_private', 'off') == 'on');
         $this->settings->put('is_dark', $settings->get('is_dark', 'off') == 'on');
+        $this->settings->put('homepage_alt', $settings->get('homepage_alt', 'off') == 'on');
         $this->settings->put('secure_login', $settings->get('secure_login', 'off') == 'on');
         $this->settings->put('secure_code_expires', $settings->get('secure_code_expires'));
         $this->settings->put('secure_code_length', $settings->get('secure_code_length'));

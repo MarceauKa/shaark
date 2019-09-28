@@ -31,6 +31,10 @@ class StoreSettingsRequest extends FormRequest
                 'nullable',
                 'in:on,off',
             ],
+            'homepage_alt' => [
+                'nullable',
+                'in:on,off',
+            ],
             'secure_login' => [
                 'nullable',
                 'in:on,off',
