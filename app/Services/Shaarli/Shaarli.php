@@ -144,7 +144,18 @@ class Shaarli
 
     public function getSettings(): array
     {
-        return $this->settings->all();
+        return array_merge(
+            collect($this->getSettingsConfig())
+                ->transform(function ($item, $key) {
+                    return [
+                        'key' => $key,
+                        'default' => $item['default'],
+                    ];
+                })
+                ->pluck('default', 'key')
+                ->toArray(),
+            $this->settings->all()
+        );
     }
 
     public function setSettings(Collection $settings): void
