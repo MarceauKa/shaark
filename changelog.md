@@ -3,6 +3,7 @@
 ## Fixed
 
 - Default settings
+- Custom background in dark mode
 
 ## Changed
 

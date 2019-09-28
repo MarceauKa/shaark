@@ -12,8 +12,9 @@
 @stack('css')
 @if(app('shaarli')->getCustomBackgroundEncoded())
 <style>
-    body {
-        background-image: url('{{ app('shaarli')->getCustomBackgroundEncoded() }}');
+    body,
+    body.dark {
+        background-image: url('{{ app('shaarli')->getCustomBackgroundEncoded() }}') !important;
         background-repeat: no-repeat;
         background-position: center center;
         background-size: cover;
