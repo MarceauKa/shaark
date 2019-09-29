@@ -1,5 +1,14 @@
 # Unreleased
 
+## Added
+
+- Move tagged posts to another tag
+- Loader vue component
+
+## Changed
+
+- Refactored managing tags 
+
 ## Fixed
 
 - Missing translations (custom background images)

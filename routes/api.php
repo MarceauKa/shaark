@@ -16,3 +16,14 @@ Route::put('story/{id}', 'StoryController@update')->name('story.update');
 
 Route::post('chest', 'ChestController@store')->name('chest.store');
 Route::put('chest/{id}', 'ChestController@update')->name('chest.update');
+
+Route::group([
+    'as' => 'manage.',
+    'prefix' => 'manage',
+    'middleware' => 'auth:api',
+    'namespace' => 'Manage',
+], function (\Illuminate\Routing\Router $router) {
+    $router->get('tags', 'TagsController@all')->name('all');
+    $router->delete('tags/{tag}', 'TagsController@delete')->name('delete');
+    $router->post('tags/{from}/move/{to}', 'TagsController@move')->name('move');
+});

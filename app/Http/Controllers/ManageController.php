@@ -22,31 +22,6 @@ class ManageController extends Controller
         $this->middleware('auth');
     }
 
-    public function tags()
-    {
-        $tags = Tag::withCount('posts')
-            ->orderByDesc('posts_count')
-            ->get();
-
-        return view('manage.tags')->with([
-            'page_title' => __('Tags'),
-            'tags' => $tags,
-        ]);
-    }
-
-    public function deleteTag(Request $request, string $tag, string $hash)
-    {
-        if ($hash != csrf_token()) {
-            abort(403);
-        }
-
-        $tag = Tag::findNamedOrCreate($tag);
-        $tag->delete();
-
-        $this->flash(__('Tag :name has been deleted', ['name' => $tag->name]), 'success');
-        return redirect()->back();
-    }
-
     public function importForm(Request $request)
     {
         return view('manage.import')->with([
@@ -136,6 +111,13 @@ class ManageController extends Controller
         return view('manage.logins')->with([
             'logins' => $logins,
             'page_title' => __('Logins'),
+        ]);
+    }
+
+    public function tags()
+    {
+        return view('manage.tags')->with([
+            'page_title' => __('Tags'),
         ]);
     }
 }

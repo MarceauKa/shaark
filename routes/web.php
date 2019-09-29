@@ -41,7 +41,6 @@ Route::post('manage/import', 'ManageController@importStore');
 Route::get('manage/export', 'ManageController@exportForm')->name('manage.export');
 Route::post('manage/export', 'ManageController@export');
 Route::get('manage/tags', 'ManageController@tags')->name('manage.tags');
-Route::get('manage/tags/delete/{tag}/{hash}', 'ManageController@deleteTag')->name('manage.tags.delete');
 Route::get('manage/logins', 'ManageController@logins')->name('manage.logins');
 Route::get('manage/settings', 'ManageController@settingsForm')->name('manage.settings');
 Route::post('manage/settings', 'ManageController@settingsStore');

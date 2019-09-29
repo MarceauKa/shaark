@@ -65,6 +65,7 @@
     "Logins": "Connexions",
     "Import": "Importer",
     "Export": "Exporter",
+    "Actions": "Actions",
     "More": "Plus",
     "Update preview": "Actualiser la prévisualisation",
     "Manage archive": "Gestion de l'archive",
@@ -76,12 +77,14 @@
     "Save": "Enregistrer",
     "Save then archive": "Enregistrer puis archiver",
     "Add": "Ajouter",
+    "Move": "Déplacer",
     "Show": "Afficher",
     "Hide": "Cacher",
     "Copy": "Copier",
     "Copied": "Copié",
     "Choose": "Choisir",
     "Reset": "Réinitialiser",
+    "Loading": "Chargement",
 
     "Type / to search": "Tapez / pour chercher",
 
@@ -129,6 +132,8 @@
     "Search or type a tag": "Cherchez ou tapez un tag",
     "Can't fetch tags": "Impossible de récupérer les tags",
     "Tag :name has been deleted": "Le tag :name a été supprimé",
+    "All elements tagged :from will be moved to :to. Selected tag will be deleted. Are you sure?": "Tous les éléments taggés :from seront déplacés vers :to. Le tag sera également supprimé. Êtes-vous sûr ?",
+    "Elements tagged :from have been moved to :to.": "Les éléments taggés :from ont été déplacés vers :to.",
 
     "Rapid share": "Ajout rapide",
     "Configure your rapid share button and drag it to your bookmarks menu.": "Configurez votre bouton d'ajout rapide et faite le glisser dans votre barre de favoris.",
