@@ -64,7 +64,7 @@ export default {
 
             axios.request({
                 method: this.chest ? 'PUT' : 'POST',
-                url: this.chest ? this.chest.update_url : '/api/chest',
+                url: this.chest ? this.chest.url_update : '/api/chest',
                 data: this.form
             }).then((response) => {
                 if (this.chest) {

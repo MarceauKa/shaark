@@ -14,7 +14,7 @@
             <div class="card-columns mt-4">
                 @foreach($posts as $post)
                     @if($post->postable instanceof \App\Link)
-                        @include('partials.link', ['link' => $post->postable, 'post' => $post, 'index' => true])
+                        <link-card :single="false" :link="{{ json_encode(\App\Http\Resources\LinkResource::make($post->postable)) }}"></link-card>
                     @elseif($post->postable instanceof \App\Story)
                         <story-card :single="false" :story="{{ json_encode(\App\Http\Resources\StoryResource::make($post->postable)) }}"></story-card>
                     @elseif($post->postable instanceof \App\Chest)

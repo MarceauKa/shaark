@@ -19,10 +19,10 @@ class ChestResource extends JsonResource
             'tags' => $this->post->tags->pluck('name')->toArray(),
             $this->mergeWhen(Auth::check(), [
                 'editable' => true,
-                'store_url' => route('api.chest.store'),
-                'edit_url' => route('chest.edit', $this->id),
-                'update_url' => route('api.chest.update', $this->id),
-                'delete_url' => route('api.chest.delete', $this->id),
+                'url_store' => route('api.chest.store'),
+                'url_edit' => route('chest.edit', $this->id),
+                'url_update' => route('api.chest.update', $this->id),
+                'url_delete' => route('api.chest.delete', $this->id),
             ])
         ];
     }

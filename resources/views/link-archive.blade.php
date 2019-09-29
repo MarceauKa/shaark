@@ -9,11 +9,11 @@
                     <div class="card-header">{{ __('Current archive') }}</div>
 
                     <div class="card-body">
-                        <form action="{{ route('link.archive-delete', $link->id) }}" method="POST">
+                        <form action="{{ route('link.archive.delete', $link->id) }}" method="POST">
                             @csrf
 
-                            <a href="{{ route('link.archive-download', [$link->id, csrf_token()]) }}" class="btn btn-sm btn-primary">{{ __('Download archive') }}</a>
-                            <button type="submit" class="btn btn-sm btn-danger" name="type" value="pdf">{{ __('Delete archive') }}</button>
+                            <a href="{{ route('link.archive.download', [$link->id, csrf_token()]) }}" class="btn btn-sm btn-primary">{{ __('Download archive') }}</a>
+                            <button type="submit" class="btn btn-sm btn-danger">{{ __('Delete archive') }}</button>
                         </form>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
                     @else
                         <p class="card-text">{!! __("Choose preferred method to archive this link: <a href=':link' target='_blank'>:link</a>", ['link' => $link->url]) !!}</p>
 
-                        <form action="{{ route('link.archive-form', $link->id) }}" method="POST">
+                        <form action="{{ route('link.archive.form', $link->id) }}" method="POST">
                             @csrf
 
                             <table class="table table-condensed table-bordered">

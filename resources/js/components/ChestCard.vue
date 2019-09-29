@@ -24,7 +24,7 @@
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" :href="chest.permalink">{{ __('Permalink') }}</a>
                     <h6 class="dropdown-header" v-if="chest.editable">{{ __('Manage') }}</h6>
-                    <a class="dropdown-item" :href="chest.edit_url" v-if="chest.editable">{{ __('Edit') }}</a>
+                    <a class="dropdown-item" :href="chest.url_edit" v-if="chest.editable">{{ __('Edit') }}</a>
                     <confirm class="dropdown-item" :text="__('Delete')" :text-confirm="__('Confirm')" @confirmed="remove" v-if="chest.editable"></confirm>
                 </div>
             </div>
@@ -50,7 +50,7 @@ export default {
 
     methods: {
         remove() {
-            axios.delete(this.chest.delete_url)
+            axios.delete(this.chest.url_delete)
                 .then(response => {
                     this.$toasted.success(this.__("Chest :name has been deleted", {'name': this.chest.title}));
 

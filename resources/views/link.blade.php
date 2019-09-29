@@ -12,7 +12,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-12 col-md-8">
-            @include('partials.link', ['link' => $link])
+            <link-card :single="true" :link="{{ json_encode(\App\Http\Resources\LinkResource::make($link)) }}"></link-card>
         </div>
     </div>
 </div>

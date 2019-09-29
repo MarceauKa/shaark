@@ -8,6 +8,7 @@ use App\Link;
 use App\Post;
 use App\Services\WebParser;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class LinkController extends Controller
 {
@@ -27,6 +28,18 @@ class LinkController extends Controller
         return response()->json([
             'title' => $parser->title,
             'content' => $parser->content,
+        ]);
+    }
+
+    public function preview(Request $request, int $id)
+    {
+        /** @var Link $link */
+        $link = Link::findOrFail($id);
+        $link->updatePreview();
+
+        return response()->json([
+            'id' => $link->id,
+            'status' => 'previewed',
         ]);
     }
 
@@ -81,6 +94,24 @@ class LinkController extends Controller
         return response()->json([
             'id' => $link->id,
             'status' => 'updated',
+        ]);
+    }
+
+    public function delete(Request $request, int $id)
+    {
+        /** @var Link $link */
+        $link = Link::with('post')->findOrFail($id);
+
+        if ($link->hasArchive()) {
+            Storage::disk('archives')->delete($link->archive);
+        }
+
+        $link->delete();
+        $link->post->delete();
+
+        return response()->json([
+            'id' => $link->id,
+            'status' => 'deleted',
         ]);
     }
 }

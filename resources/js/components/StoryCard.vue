@@ -1,5 +1,5 @@
 <template>
-    <div class="card card--chest mb-4" :class="{'card-single': single, 'card-index': !single}">
+    <div class="card card--story mb-4" :class="{'card-single': single, 'card-index': !single}">
         <div class="card-body">
             <h5 class="card-title">
                 <span>{{ __('Story') }}</span> &mdash; <a :href="story.url">{{ story.title }}</a>
@@ -24,7 +24,7 @@
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" :href="story.url">{{ __('Permalink') }}</a>
                     <h6 class="dropdown-header" v-if="story.editable">{{ __('Manage') }}</h6>
-                    <a class="dropdown-item" :href="story.edit_url" v-if="story.editable">{{ __('Edit') }}</a>
+                    <a class="dropdown-item" :href="story.url_edit" v-if="story.editable">{{ __('Edit') }}</a>
                     <confirm class="dropdown-item" :text="__('Delete')" :text-confirm="__('Confirm')" @confirmed="remove" v-if="story.editable"></confirm>
                 </div>
             </div>
@@ -50,7 +50,7 @@ export default {
 
     methods: {
         remove() {
-            axios.delete(this.story.delete_url)
+            axios.delete(this.story.url_delete)
                 .then(response => {
                     this.$toasted.success(this.__("Story :name has been deleted", {'name': this.story.title}));
 

@@ -40,6 +40,7 @@
                     <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true" v-if="loading"></span>
                     {{ __('Save then archive') }}
                 </button>
+                <a :href="link.permalink" class="btn btn-outline-primary" v-if="link">{{ __('View')}}</a>
             </div>
 
             <slot name="actions"></slot>
@@ -60,22 +61,9 @@ let defaultLink = function () {
 
 export default {
     props: {
-        parseUrl: {
-            type: String,
-            required: true
-        },
-        submitUrl: {
-            type: String,
-            required: true
-        },
         queryUrl: {
             type: String,
             required: false
-        },
-        method: {
-            type: String,
-            required: false,
-            default: 'POST'
         },
         link: {
             type: Object,
@@ -107,7 +95,7 @@ export default {
             this.loading = true;
             this.parsing = true;
 
-            axios.post(this.parseUrl, {
+            axios.post('/api/link/parse', {
                 url: this.form.url
             }).then((response) => {
                 this.loading = false;
@@ -128,8 +116,8 @@ export default {
             this.loading = true;
 
             axios.request({
-                method: this.method,
-                url: this.submitUrl,
+                method: this.link ? 'PUT' : 'POST',
+                url: this.link ? this.link.url_update : '/api/link',
                 data: this.form
             }).then((response) => {
                 if (this.link) {

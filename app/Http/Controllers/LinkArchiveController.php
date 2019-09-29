@@ -9,29 +9,15 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
-class LinkActionsController extends Controller
+class LinkArchiveController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth')
-            ->except('downloadArchive');
+            ->except('download');
     }
 
-    public function updatePreview(Request $request, int $id, string $hash)
-    {
-        if ($hash !== csrf_token()) {
-            abort(403);
-        }
-
-        /** @var Link $link */
-        $link = Link::findOrFail($id);
-        $link->updatePreview();
-
-        $this->flash(__('Link preview has been updated', ['name' => $link->title]), 'success');
-        return redirect()->back();
-    }
-
-    public function archiveForm(Request $request, int $id)
+    public function form(Request $request, int $id)
     {
         /** @var Link $link */
         $link = Link::findOrFail($id);
@@ -43,7 +29,7 @@ class LinkActionsController extends Controller
         ]);
     }
 
-    public function archiveStore(Request $request, int $id)
+    public function store(Request $request, int $id)
     {
         /** @var Link $link */
         $link = Link::findOrFail($id);
@@ -53,7 +39,7 @@ class LinkActionsController extends Controller
         return redirect()->away($link->permalink);
     }
 
-    public function archiveDownload(Request $request, int $id, string $hash)
+    public function download(Request $request, int $id, string $hash)
     {
         if ($hash !== csrf_token()) {
             abort(403);
@@ -76,7 +62,7 @@ class LinkActionsController extends Controller
         return redirect()->back();
     }
 
-    public function archiveDelete(Request $request, int $id)
+    public function delete(Request $request, int $id)
     {
         /** @var Link $link */
         $link = Link::findOrFail($id);

@@ -96,7 +96,9 @@
     "Link created": "Lien ajouté",
     "Link updated": "Lien modifié",
     "Unable to save link": "Impossible d'enregistrer le lien",
+    "Unable to delete link": "Impossible de supprimer le lien",
     "Link preview has been updated": "La prévisualisation du lien a été mise à jour",
+    "Unable to update link preview": "Impossible d'actualiser la prévisualisation du lien",
     "Link :name has been deleted": "Le lien :name a été modifié",
 
     "Link is being archived": "Le lien est en cours d'archive",

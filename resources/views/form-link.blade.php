@@ -4,21 +4,8 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-12 col-md-8 mb-3">
-            <link-form parse-url="{{ $parse }}"
-                       submit-url="{{ $submit }}"
-                       @if(isset($link))
-                       :link="{{ json_encode(\App\Http\Resources\LinkResource::make($link)) }}"
-                       @endif
-                       @if(isset($query))
-                       query-url="{{ $query }}"
-                       @endif
-                       method="{{ $method }}"
-            >
-                @if(isset($link) && $link)
-                <template #actions>
-                    @include('partials.link-menu')
-                </template>
-                @endif
+            <link-form @if(isset($link)):link="{{ json_encode(\App\Http\Resources\LinkResource::make($link)) }}" @endif
+                       @if(isset($query))query-url="{{ $query }}" @endif>
             </link-form>
         </div>
 

@@ -116,7 +116,7 @@ export default {
 
             axios.request({
                 method: this.story ? 'PUT' : 'POST',
-                url: this.story ? this.story.update_url : '/api/story',
+                url: this.story ? this.story.url_update : '/api/story',
                 data: this.form
             }).then((response) => {
                 if (this.story) {

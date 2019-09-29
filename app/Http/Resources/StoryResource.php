@@ -19,10 +19,10 @@ class StoryResource extends JsonResource
             'tags' => $this->post->tags->pluck('name')->toArray(),
             $this->mergeWhen(Auth::check(), [
                 'editable' => true,
-                'store_url' => route('api.story.store'),
-                'edit_url' => route('story.edit', $this->id),
-                'update_url' => route('api.story.update', $this->id),
-                'delete_url' => route('api.story.delete', $this->id),
+                'url_store' => route('api.story.store'),
+                'url_edit' => route('story.edit', $this->id),
+                'url_update' => route('api.story.update', $this->id),
+                'url_delete' => route('api.story.delete', $this->id),
             ])
         ];
     }

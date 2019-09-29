@@ -2,8 +2,10 @@
 
 ## Changed
 
+- Refactored link view to LinkCard, updated LinkForm
 - Refactored chest view to ChestCard, updated ChestForm
 - Refactored story view to StoryCard, updated StoryForm
+- LinkActionsController to LinkArchiveController
 
 # 1.2.7
 
