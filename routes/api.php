@@ -16,6 +16,7 @@ Route::put('story/{id}', 'StoryController@update')->name('story.update');
 
 Route::post('chest', 'ChestController@store')->name('chest.store');
 Route::put('chest/{id}', 'ChestController@update')->name('chest.update');
+Route::delete('chest/{id}', 'ChestController@delete')->name('chest.delete');
 
 Route::group([
     'as' => 'manage.',

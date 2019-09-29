@@ -14,10 +14,14 @@ class Chest extends Model
         'title',
         'content',
     ];
-
     protected $casts = [
         'content' => 'json',
     ];
+
+    public function getCreatedAtFormatedAttribute(): string
+    {
+        return $this->created_at->diffForHumans();
+    }
 
     public function getHashIdAttribute(): string
     {

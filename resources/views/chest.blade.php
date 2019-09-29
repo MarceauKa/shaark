@@ -10,7 +10,9 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-12 col-md-8">
-            @include('partials.chest', ['post' => $chest->post, 'chest' => $chest])
+            <chest-card :single="true"
+                        :chest="{{ json_encode(\App\Http\Resources\ChestResource::make($chest)) }}"
+            ></chest-card>
         </div>
     </div>
 </div>

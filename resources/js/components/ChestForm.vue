@@ -22,6 +22,7 @@
                 <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true" v-if="loading"></span>
                 {{ __('Save') }}
             </button>
+            <a :href="chest.permalink" class="btn btn-outline-primary" v-if="chest">{{ __('View')}}</a>
         </div>
     </div>
 </template>
@@ -37,15 +38,6 @@ let defaultChest = function () {
 
 export default {
     props: {
-        submitUrl: {
-            type: String,
-            required: true
-        },
-        method: {
-            type: String,
-            required: false,
-            default: 'POST'
-        },
         chest: {
             type: Object,
             required: false,
@@ -71,8 +63,8 @@ export default {
             this.loading = true;
 
             axios.request({
-                method: this.method,
-                url: this.submitUrl,
+                method: this.chest ? 'PUT' : 'POST',
+                url: this.chest ? this.chest.update_url : '/api/chest',
                 data: this.form
             }).then((response) => {
                 if (this.chest) {

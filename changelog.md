@@ -1,3 +1,9 @@
+# Unreleased
+
+## Changed
+
+- Refactored chest view to ChestCard, updated ChestForm
+
 # 1.2.7
 
 ## Added

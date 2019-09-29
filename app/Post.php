@@ -24,7 +24,6 @@ class Post extends Model
         'is_private',
         'created_at',
     ];
-
     protected $casts = [
         'is_private' => 'bool',
     ];
@@ -32,6 +31,11 @@ class Post extends Model
     public function postable(): MorphTo
     {
         return $this->morphTo();
+    }
+
+    public function getCreatedAtFormatedAttribute(): string
+    {
+        return $this->created_at->diffForHumans();
     }
 
     public function scopeWithPrivate(Builder $query, $private = false): Builder

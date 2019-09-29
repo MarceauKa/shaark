@@ -76,6 +76,7 @@
     "Confirm": "Confirmer",
     "Save": "Enregistrer",
     "Save then archive": "Enregistrer puis archiver",
+    "View": "Voir",
     "Add": "Ajouter",
     "Move": "Déplacer",
     "Show": "Afficher",
@@ -123,6 +124,7 @@
     "Chest created": "Coffre ajouté",
     "Chest updated": "Coffre modifié",
     "Unable to save chest": "Impossible de créer le coffre",
+    "Unable to delete chest": "Impossible de supprimer le coffre",
     "Chest :name has been deleted": "Le coffre :name a été modifié",
 
     "Create tag": "Créer le tag",

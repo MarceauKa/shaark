@@ -59,4 +59,18 @@ class ChestController extends Controller
             'status' => 'updated',
         ]);
     }
+
+    public function delete(Request $request, int $id)
+    {
+        /** @var Chest $link */
+        $chest = Chest::with('post')->findOrFail($id);
+
+        $chest->post->delete();
+        $chest->delete();
+
+        return response()->json([
+            'id' => $chest->id,
+            'status' => 'deleted',
+        ]);
+    }
 }

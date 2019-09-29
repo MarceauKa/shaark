@@ -25,8 +25,7 @@ Route::get('story/edit/{id}', 'StoryController@edit')->name('story.edit');
 Route::get('story/delete/{id}/{hash}', 'StoryController@delete')->name('story.delete');
 
 Route::get('chest/create', 'ChestController@create')->name('chest.create');
-Route::get('chest/edit/{id}', 'ChestController@edit')->name('chest.edit');
-Route::get('chest/delete/{id}/{hash}', 'ChestController@delete')->name('chest.delete');
+Route::get('chest/{id}/edit', 'ChestController@edit')->name('chest.edit');
 
 Route::get('link/{link}', 'BrowseController@link')->name('link.view');
 Route::get('story/{story}', 'BrowseController@story')->name('story.view');

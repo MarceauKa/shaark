@@ -18,7 +18,7 @@
                     @elseif($post->postable instanceof \App\Story)
                         @include('partials.story', ['story' => $post->postable, 'post' => $post, 'index' => true])
                     @elseif($post->postable instanceof \App\Chest)
-                        @include('partials.chest', ['chest' => $post->postable, 'post' => $post, 'index' => true])
+                        <chest-card :single="false" :chest="{{ json_encode(\App\Http\Resources\ChestResource::make($post->postable)) }}"></chest-card>
                     @endif
                 @endforeach
             </div>

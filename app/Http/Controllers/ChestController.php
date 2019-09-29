@@ -27,25 +27,7 @@ class ChestController extends Controller
 
         return view('form-chest')->with([
             'page_title' => __('Update chest'),
-            'submit' => route('api.chest.update', $id),
-            'method' => 'PUT',
             'chest' => $chest,
         ]);
-    }
-
-    public function delete(Request $request, int $id, string $hash)
-    {
-        if ($hash !== csrf_token()) {
-            abort(403);
-        }
-
-        /** @var Chest $link */
-        $chest = Chest::with('post')->findOrFail($id);
-
-        $chest->post->delete();
-        $chest->delete();
-
-        $this->flash(__('Chest :name has been deleted', ['name' => $chest->title]), 'success');
-        return redirect()->back();
     }
 }
