@@ -62,4 +62,18 @@ class StoryController extends Controller
             'status' => 'updated',
         ]);
     }
+
+    public function delete(Request $request, int $id)
+    {
+        /** @var Story $link */
+        $story = Story::with('post')->findOrFail($id);
+
+        $story->post->delete();
+        $story->delete();
+
+        return response()->json([
+            'id' => $story->id,
+            'status' => 'deleted',
+        ]);
+    }
 }

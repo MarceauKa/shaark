@@ -16,8 +16,6 @@ class ChestController extends Controller
     {
         return view('form-chest')->with([
             'page_title' => __('Add chest'),
-            'submit' => route('api.chest.store'),
-            'method' => 'POST',
         ]);
     }
 

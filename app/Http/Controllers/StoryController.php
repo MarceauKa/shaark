@@ -16,8 +16,6 @@ class StoryController extends Controller
     {
         return view('form-story')->with([
             'page_title' => __('Add story'),
-            'submit' => route('api.story.store'),
-            'method' => 'POST',
         ]);
     }
 
@@ -27,25 +25,7 @@ class StoryController extends Controller
 
         return view('form-story')->with([
             'page_title' => __('Update story'),
-            'submit' => route('api.story.update', $id),
-            'method' => 'PUT',
             'story' => $story,
         ]);
-    }
-
-    public function delete(Request $request, int $id, string $hash)
-    {
-        if ($hash !== csrf_token()) {
-            abort(403);
-        }
-
-        /** @var Story $link */
-        $story = Story::with('post')->findOrFail($id);
-
-        $story->post->delete();
-        $story->delete();
-
-        $this->flash(__('Story :name has been deleted', ['name' => $story->title]), 'success');
-        return redirect()->back();
     }
 }

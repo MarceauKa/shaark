@@ -14,7 +14,7 @@
                     @if($post->postable instanceof \App\Link)
                         @include('partials.link', ['link' => $post->postable, 'post' => $post, 'index' => true])
                     @elseif($post->postable instanceof \App\Story)
-                        @include('partials.story', ['story' => $post->postable, 'post' => $post, 'index' => true])
+                        <story-card :single="false" :story="{{ json_encode(\App\Http\Resources\StoryResource::make($post->postable)) }}"></story-card>
                     @endif
                 @endforeach
             </div>

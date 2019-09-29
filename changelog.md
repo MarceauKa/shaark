@@ -3,6 +3,7 @@
 ## Changed
 
 - Refactored chest view to ChestCard, updated ChestForm
+- Refactored story view to StoryCard, updated StoryForm
 
 # 1.2.7
 

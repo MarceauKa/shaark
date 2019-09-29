@@ -21,8 +21,7 @@ Route::post('link/delete-archive/{id}', 'LinkActionsController@archiveDelete')->
 Route::get('link/download-archive/{id}/{hash}', 'LinkActionsController@archiveDownload')->name('link.archive-download');
 
 Route::get('story/create', 'StoryController@create')->name('story.create');
-Route::get('story/edit/{id}', 'StoryController@edit')->name('story.edit');
-Route::get('story/delete/{id}/{hash}', 'StoryController@delete')->name('story.delete');
+Route::get('story/{id}/edit', 'StoryController@edit')->name('story.edit');
 
 Route::get('chest/create', 'ChestController@create')->name('chest.create');
 Route::get('chest/{id}/edit', 'ChestController@edit')->name('chest.edit');

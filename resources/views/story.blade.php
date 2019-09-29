@@ -12,7 +12,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-12 col-md-8">
-            @include('partials.story', ['story' => $story])
+            <story-card :single="true" :story="{{ json_encode(\App\Http\Resources\StoryResource::make($story)) }}"></story-card>
         </div>
     </div>
 </div>

@@ -34,6 +34,7 @@
                 <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true" v-if="loading"></span>
                 {{ __('Save') }}
             </button>
+            <a :href="story.url" class="btn btn-outline-primary" v-if="story">{{ __('View')}}</a>
         </div>
     </div>
 </template>
@@ -58,15 +59,6 @@ export default {
     },
 
     props: {
-        submitUrl: {
-            type: String,
-            required: true
-        },
-        method: {
-            type: String,
-            required: false,
-            default: 'POST'
-        },
         story: {
             type: Object,
             required: false,
@@ -123,8 +115,8 @@ export default {
             this.loading = true;
 
             axios.request({
-                method: this.method,
-                url: this.submitUrl,
+                method: this.story ? 'PUT' : 'POST',
+                url: this.story ? this.story.update_url : '/api/story',
                 data: this.form
             }).then((response) => {
                 if (this.story) {
