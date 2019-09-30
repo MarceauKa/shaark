@@ -25,12 +25,6 @@ class Shaarli
     {
         $this->app = $app;
         $this->settings = Valuestore::make(storage_path('settings.json'));
-
-        foreach ($this->app['config']->get('shaarli') as $key => $item) {
-            if ($this->settings->has($key) === false) {
-                $this->settings->put($key, $item);
-            }
-        }
     }
 
     public function authorizeFromRequest(Request $request): bool

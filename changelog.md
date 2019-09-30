@@ -1,3 +1,15 @@
+# Unreleased
+
+## Changed
+
+- Chests are now encrypted in database
+
+## Fixed
+
+- Settings will not merge shaarli config anymore
+- Chest Export with non-encrypted values
+- Typos in readme
+
 # 1.2.8
 
 ## Changed

@@ -20,6 +20,7 @@ but built with [Laravel](https://github.com/laravel/laravel) and [Vue.js](https:
 - [Security](#security)
 - [Update](#update)
 - [Going live](#going-live)
+- [Artisan commands](#artisan-commands)
 - [Tests](#tests)
 - [Licence](#licence)
 
@@ -85,7 +86,7 @@ If you don't want your content being publicy accessible, you can update this pre
 You're able to active 2-FA (2 factors authentication). By default 2-FA is disabled but you can update it from your app settings. 
 Code length and code expiration are also configurable. **Test if you application can send emails before enabling this feature**.
 
-### Auths monitoring
+### Auth monitoring
 
 Shaarli logs all successful and failed auths with their associated devices.
 
@@ -99,9 +100,7 @@ git reset --hard
 git pull origin master
 composer install --no-dev -o
 php artisan migrate --force -n
-php artisan cache:clear
-php artisan config:cache
-php artisan route:cache
+php artisan optimize
 php artisan view:clear
 php artisan queue:restart # if you're using queues
 php artisan up
@@ -131,10 +130,13 @@ MAIL_FROM_ADDRESS={your_email}
 
 **Artisan routines**
 ```
-php artisan cache:clear
-php artisan route:cache
-php artisan config:cache
+php artisan optimize
+php artisan view:clear
 ```
+
+## Artisan commands
+
+__TO DO__
 
 ## Tests
 

@@ -43,10 +43,10 @@ class ChestsExport implements FromCollection, WithMapping, WithHeadings
         $output = '';
 
         foreach ($content as $line) {
-            if ($line['type'] === 'code') {
-                $output .= $line['name'] . " :\n" . $line['value'] . "\n";
+            if ($line->type === 'code') {
+                $output .= $line->name . " :\n" . $line->value . "\n";
             } else {
-                $output .= $line['name'] . " : " . $line['value'] . "\n";
+                $output .= $line->name . " : " . $line->value . "\n";
             }
         }
 

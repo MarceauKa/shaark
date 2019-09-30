@@ -14,9 +14,6 @@ class Chest extends Model
         'title',
         'content',
     ];
-    protected $casts = [
-        'content' => 'json',
-    ];
 
     public function getCreatedAtFormatedAttribute(): string
     {
@@ -38,13 +35,35 @@ class Chest extends Model
         return $query->where('id', app('hashid')->decode($hash));
     }
 
+    public function getContentAttribute($value)
+    {
+        try {
+            $content = decrypt($value, false);
+        } catch (\Exception $e) {
+            $content = $value;
+        }
+
+        return json_decode($content);
+    }
+
+    public function setContentAttribute($value)
+    {
+        try {
+            $content = encrypt(json_encode($value), false);
+        } catch (\Exception $e) {
+            $content = json_encode($value);
+        }
+
+        $this->attributes['content'] = $content;
+    }
+
     public function toSearchableArray()
     {
         return [
             'title' => $this->title,
             'content' => collect($this->content)
                 ->reject(function ($item) {
-                    return false === in_array($item['type'], ['url', 'text']);
+                    return false === in_array($item->type, ['url', 'text']);
                 })
                 ->pluck('value')
                 ->implode("\n"),
