@@ -90,6 +90,10 @@ Code length and code expiration are also configurable. **Test if you application
 
 Shaarli logs all successful and failed auths with their associated devices.
 
+### Chests encryption
+
+Since `1.2.9`, all chests data are encrypted in your database using AES-256-CBC and your app key.  
+
 ## Update
 
 Update the application by running:
@@ -136,7 +140,16 @@ php artisan view:clear
 
 ## Artisan commands
 
-__TO DO__
+### Install command
+
+`php artisan shaarli:install`
+
+This command will install default data (seeder) or ask you for the default user.
+
+### Encrypt and decrypt
+
+Encryption is made on the fly for your chests, but you can manually encrypt or decrypt them 
+by running `php artisan shaarli:chests:encrypt` or `php artisan shaarli:chests:decrypt`.
 
 ## Tests
 

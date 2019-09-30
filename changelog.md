@@ -1,8 +1,13 @@
 # Unreleased
 
+## Added
+
+- `shaarli:chests:encrypt` and `shaarli:chests:decrypt` commands
+
 ## Changed
 
-- Chests are now encrypted in database
+- Chests are now encrypted in database using AES-256-CBC
+- Install command is now a class
 
 ## Fixed
 
