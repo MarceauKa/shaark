@@ -1,5 +1,9 @@
 # Unreleased
 
+## Added
+
+- Ability to purge login history
+
 ## Fixed
 
 - Alternative homepage responsive

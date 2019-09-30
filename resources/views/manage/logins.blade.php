@@ -4,7 +4,12 @@
 <div class="row justify-content-center">
     <div class="col-12">
         <div class="card">
-            <div class="card-header">{{ __('Logins') }}</div>
+            <div class="card-header d-flex justify-content-between align-items-center">
+                {{ __('Logins') }}
+                @if($logins->isNotEmpty())
+                <purge-logins class="btn btn-danger btn-sm text-white"></purge-logins>
+                @endif
+            </div>
 
             <div class="card-body">
                 @if($logins->isEmpty())

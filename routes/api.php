@@ -30,4 +30,6 @@ Route::group([
     $router->get('tags', 'TagsController@all')->name('all');
     $router->delete('tags/{tag}', 'TagsController@delete')->name('delete');
     $router->post('tags/{from}/move/{to}', 'TagsController@move')->name('move');
+
+    $router->post('logins/purge', 'LoginsController@purge')->name('purge');
 });
