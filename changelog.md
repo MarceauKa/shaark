@@ -1,3 +1,9 @@
+# 1.2.10
+
+## Fixed
+
+- SecureLogin will now work with remember
+
 # 1.2.9
 
 ## Added

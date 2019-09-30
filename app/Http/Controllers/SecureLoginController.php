@@ -30,7 +30,8 @@ class SecureLoginController extends Controller
 
         if ($secure->code === $validated['code']) {
             $request->session()->regenerate();
-            Auth::login($secure->user);
+
+            Auth::login($secure->user, $request->filled('remember'));
             SecureLogin::where('user_id', $secure->user_id)->delete();
 
             return redirect('/');
