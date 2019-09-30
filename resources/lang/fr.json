@@ -177,6 +177,9 @@
     "2FA": "2FA",
     "Locked": "Bloquée",
     "Failed": "Échouée",
+    "Logout from other devices": "Déconnecter les autres connexions",
+    "Other sessions have been logged out": "Les autres sessions ont été déconnectés",
+    "Type your current password to logout from all other sessions.": "Entrez votre mot de passe pour vous déconnecter de toutes les autres sessions.",
 
     "Update account": "Modifier le compte",
     "Your account has been updated!": "Votre compte a été mis à jour !",

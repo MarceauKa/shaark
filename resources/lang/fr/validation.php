@@ -115,6 +115,7 @@ return [
     'uploaded'             => "Le fichier du champ :attribute n'a pu être téléversé.",
     'url'                  => "Le format de l'URL de :attribute n'est pas valide.",
     'uuid'                 => 'Le champ :attribute doit être un UUID valide',
+    'current_password' => 'Le champ :attribute doit être votre mot de passe actuel.',
 
     /*
     |--------------------------------------------------------------------------

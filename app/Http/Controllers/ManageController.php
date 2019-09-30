@@ -9,9 +9,9 @@ use App\Http\Requests\ImportRequest;
 use App\Http\Requests\StoreSettingsRequest;
 use App\Services\Import;
 use App\Services\Shaarli\Shaarli;
-use App\Tag;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Lab404\AuthChecker\Models\Login;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -112,6 +112,22 @@ class ManageController extends Controller
             'logins' => $logins,
             'page_title' => __('Logins'),
         ]);
+    }
+
+    public function logoutDevices(Request $request)
+    {
+        $validated = $request->validate([
+            'password' => ['required', 'current_password'],
+        ]);
+
+        Auth::guard('web')->logoutOtherDevices($validated['password']);
+
+        $user = $request->user();
+        $user->api_token = User::generateApiToken();
+        $user->save();
+
+        $this->flash(__("Other sessions have been logged out"), 'success');
+        return redirect()->back();
     }
 
     public function tags()

@@ -3,6 +3,11 @@
 ## Fixed
 
 - SecureLogin will now work with remember
+- Ability to logout other devices
+
+## Added
+
+- `current_password` validation rule
 
 # 1.2.9
 
