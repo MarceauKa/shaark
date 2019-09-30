@@ -1,3 +1,9 @@
+# Unreleased
+
+## Fixed
+
+- Alternative homepage responsive
+
 # 1.2.10
 
 ## Fixed

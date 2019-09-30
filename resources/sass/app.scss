@@ -81,7 +81,11 @@ nav.navbar,
 .home {
     &.alt {
         .card-columns {
-            column-count: 2 !important;
+            column-count: 2;
+
+            @include media-breakpoint-down(sm) {
+                column-count: 1;
+            }
         }
     }
 }
