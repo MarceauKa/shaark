@@ -4,6 +4,10 @@
 
 - Alternative homepage responsive
 
+## Changed
+
+- Moved `marceauka/laravel-scout-tntsearch-driver` to `teamtnt/laravel-scout-tntsearch-driver`
+
 # 1.2.10
 
 ## Fixed
