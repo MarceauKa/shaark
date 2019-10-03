@@ -79,7 +79,7 @@ class Shaarli
             ],
             'locale' => [
                 'default' => config('app.locale'),
-                'rules' => ['required', 'in:fr,en']
+                'rules' => ['required', 'in:fr,en,de']
             ],
             'is_private' => [
                 'default' => false,
