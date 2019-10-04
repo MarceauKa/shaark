@@ -1,8 +1,9 @@
-# Unreleased
+# 1.2.11
 
 ## Added
 
 - Ability to purge login history
+- German translation (thanks to [kayschima](https://github.com/kayschima))
 - Documentation for configuration, php and js dependencies
 - Documentation for contribution
 
