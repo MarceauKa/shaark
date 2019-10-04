@@ -4,6 +4,7 @@
 
 - Ability to purge login history
 - Documentation for configuration, php and js dependencies
+- Documentation for contribution
 
 ## Fixed
 

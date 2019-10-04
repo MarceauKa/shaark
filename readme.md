@@ -22,6 +22,7 @@ but built with [Laravel](https://github.com/laravel/laravel) and [Vue.js](https:
 - [Going live](#going-live)
 - [Artisan commands](#artisan-commands)
 - [Dependencies](#dependencies)
+- [Contribute](#contribute)
 - [Tests](#tests)
 - [Licence](#licence)
 
@@ -182,6 +183,11 @@ Our dependencies with link to their documentation and why we use it.
 - [vue-toasted](https://github.com/shakee93/vue-toasted) is used for in app notifications
 - [vuedraggable](https://www.npmjs.org/package/vuedraggable) is used to reorder items in chests
 - [vue-clickaway](https://github.com/simplesmiler/vue-clickaway) is used to close search bar when clicked away
+
+## Contribute
+
+All contribution are welcome! Please use the `dev` branch for you pull requests.  
+If you make changes to JS, don't compile assets in production, I'll manually compile them when merging for security reasons.
 
 ## Tests
 
