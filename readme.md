@@ -21,6 +21,7 @@ but built with [Laravel](https://github.com/laravel/laravel) and [Vue.js](https:
 - [Update](#update)
 - [Going live](#going-live)
 - [Artisan commands](#artisan-commands)
+- [Packages](#packages)
 - [Tests](#tests)
 - [Licence](#licence)
 
@@ -63,6 +64,14 @@ composer install
 
 Then run `php artisan shaarli:install` (for interactive installation) or `php artisan migrate --seed` (with default data).
 Default user is `admin@example.fr` with password `secret`.
+
+### Additional configuration
+
+Laravel Shaarli is built with [Laravel 6](https://laravel.com/docs/6.x/installation). There's many ways to configuration database, session, mail and queue:
+- Database can use MySQL (default), SQLite or Postgre SQL (see [database configuration](https://laravel.com/docs/6.x/database))
+- Session can use file (default), cookie, database or redis (see [session configuration](https://laravel.com/docs/6.x/session))
+- Mail can use sendmail (default), smtp, mailgun, postmark or amazon ses (see [mail configuration](https://laravel.com/docs/6.x/mail#driver-prerequisites))
+- Queue (optional) can use sync (default), redis, database, beanstalkd, amazon sqs (see [queue configuration](https://laravel.com/docs/6.x/queues))   
 
 ## Archiving
 
@@ -115,11 +124,9 @@ php artisan up
 Check these options before going live.
 
 **Composer flags**
-
 ```composer install --no-dev -o```
 
 **.env options**
-
 ```
 APP_ENV=production
 APP_DEBUG=false
@@ -150,6 +157,31 @@ This command will install default data (seeder) or ask you for the default user.
 
 Encryption is made on the fly for your chests, but you can manually encrypt or decrypt them 
 by running `php artisan shaarli:chests:encrypt` or `php artisan shaarli:chests:decrypt`.
+
+## Dependencies
+
+Our dependencies with link to their documentation and why we use it.
+
+### PHP
+
+- [laravel-auth-checker](https://github.com/404labfr/laravel-auth-checker) is used to keep a trace of auth attempts
+- [scout](https://laravel.com/docs/6.x/scout) is used for full-text search in database
+- [excel](https://github.com/Maatwebsite/Laravel-Excel) is used to generate exports as xlsx or csv
+- [valuestore](https://github.com/spatie/valuestore) is used for application settings
+- [puphpeteer](https://github.com/nesk/puphpeteer/) is used to save your links as PDF using a chrome browser
+- [youtube-dl-php](https://github.com/norkunas/youtube-dl-php) is a bridge to youtube-dl to save you links (youtube, soundcloud, ...) as a local copy
+
+### JS
+
+- [bootstrap](http://getbootstrap.com) is used as CSS framework
+- [vue](https://github.com/vuejs/vue) is used as JS framework 
+- [axios](https://github.com/axios/axios) is for http requests
+- [mavon-editor](https://github.com/hinesboy/mavonEditor) is used as markdown editor for stories
+- [vue-markdown](https://github.com/miaolz123/vue-markdown) is used as markdown parser for stories
+- [vue-multiselect](https://vue-multiselect.js.org/) is used for the tags system
+- [vue-toasted](https://github.com/shakee93/vue-toasted) is used for in app notifications
+- [vuedraggable](https://www.npmjs.org/package/vuedraggable) is used to reorder items in chests
+- [vue-clickaway](https://github.com/simplesmiler/vue-clickaway) is used to close search bar when clicked away
 
 ## Tests
 

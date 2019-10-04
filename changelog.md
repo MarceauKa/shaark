@@ -3,6 +3,7 @@
 ## Added
 
 - Ability to purge login history
+- Documentation for configuration, php and js dependencies
 
 ## Fixed
 
