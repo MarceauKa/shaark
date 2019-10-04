@@ -21,7 +21,7 @@ but built with [Laravel](https://github.com/laravel/laravel) and [Vue.js](https:
 - [Update](#update)
 - [Going live](#going-live)
 - [Artisan commands](#artisan-commands)
-- [Packages](#packages)
+- [Dependencies](#dependencies)
 - [Tests](#tests)
 - [Licence](#licence)
 
