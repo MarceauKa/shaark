@@ -20,6 +20,13 @@ class ManageController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+
+        $this->middleware('demo')->except([
+            'importForm',
+            'exportForm',
+            'settingsForm',
+            'tags',
+        ]);
     }
 
     public function importForm(Request $request)

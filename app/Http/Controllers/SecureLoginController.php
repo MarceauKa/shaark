@@ -12,6 +12,8 @@ class SecureLoginController extends Controller
     public function __construct()
     {
         $this->middleware('throttle:5,1')->only('check');
+
+        $this->middleware('demo')->except('form');
     }
 
     public function form(Request $request, SecureLogin $secure)

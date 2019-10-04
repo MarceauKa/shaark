@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\DB;
 
 class LoginsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('demo');
+    }
+
     public function purge(Request $request)
     {
         DB::table('logins')->truncate();

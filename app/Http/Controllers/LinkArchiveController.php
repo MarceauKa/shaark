@@ -15,6 +15,9 @@ class LinkArchiveController extends Controller
     {
         $this->middleware('auth')
             ->except('download');
+
+        $this->middleware('demo')
+            ->except('form');
     }
 
     public function form(Request $request, int $id)

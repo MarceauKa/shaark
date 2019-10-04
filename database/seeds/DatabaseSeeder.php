@@ -18,8 +18,8 @@ class DatabaseSeeder extends Seeder
         Mail::fake();
 
         DB::table('users')->insert([
-            'name' => 'Marceau Ka',
-            'email' => 'admin@example.fr',
+            'name' => 'Admin',
+            'email' => 'admin@example.com',
             'password' => Hash::make('secret'),
             'api_token' => 'api-token-secret',
             'created_at' => now()->toDateTimeString(),

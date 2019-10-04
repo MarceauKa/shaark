@@ -1,3 +1,9 @@
+# 1.2.12
+
+## Added
+
+- Demo mode
+
 # 1.2.11
 
 ## Added

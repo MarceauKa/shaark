@@ -1,9 +1,7 @@
 # Laravel Shaarli
 
-It's a **free and open source platform** to host by yourself.
-
-**Shaarli** allows you to **save your web links** (websites, youtube videos, ...), to **share your stories** and 
-**manage your web accounts**. 
+It's a **free and open source platform** to host by yourself. **Shaarli** allows you to **save your web links** 
+(websites, youtube videos, ...), to **share your stories** and **manage your web accounts**. 
 
 All of your content can be **private or public** and can be browsed by **tags** or **all-in-one search**.
 
@@ -14,7 +12,7 @@ but built with [Laravel](https://github.com/laravel/laravel) and [Vue.js](https:
 
 - [Requirements](#requirements)
 - [Features](#features)
-- [Screenshots](#screenshots)
+- [Demo](#demo)
 - [Installation](#installation)
 - [Archiving](#archiving)
 - [Security](#security)
@@ -51,9 +49,12 @@ but built with [Laravel](https://github.com/laravel/laravel) and [Vue.js](https:
 - [x] **NEW** 2-FA with email
 - [ ] RSS feed
 
-## Screenshots
+## Demo
 
 ![Homepage](/resources/screenshots/home.png?raw=true "Homepage")
+
+A public demo is available at [https://shaarli.mka.ovh](https://shaarli.mka.ovh). Credentials are **admin@example.com** and **secret**. 
+This demo is resetted hourly.
 
 ## Installation
 
@@ -64,7 +65,7 @@ composer install
 ```
 
 Then run `php artisan shaarli:install` (for interactive installation) or `php artisan migrate --seed` (with default data).
-Default user is `admin@example.fr` with password `secret`.
+Default user is `admin@example.com` with password `secret`.
 
 ### Additional configuration
 

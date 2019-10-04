@@ -13,6 +13,7 @@ class AccountController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('demo')->except('form');
     }
 
     public function form(Request $request)
