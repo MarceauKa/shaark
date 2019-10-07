@@ -10,7 +10,10 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         \App\Events\LinkArchiveRequested::class => [
             \App\Listeners\MakeLinkArchive::class
-        ]
+        ],
+        \Illuminate\Database\Events\MigrationEnded::class => [
+            \App\Listeners\UpdateDatabase::class
+        ],
     ];
 
     public function boot()

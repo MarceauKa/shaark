@@ -1,3 +1,15 @@
+# Unreleased
+
+⚠️ Run migrations when updating
+
+## Added
+
+- Multi-users
+
+## Changed
+
+- Logins history and logout other devices moved to account instead of manage
+
 # 1.2.12
 
 ## Added
@@ -115,6 +127,8 @@
 
 # 1.2.3
 
+⚠️ Run migrations when updating
+
 ## Added
 
 - Log all logins and associated devices with new section in settings
@@ -130,6 +144,8 @@
 - Documentation about security
 
 # 1.2.2
+
+⚠️ Run migrations when updating
 
 ## Added
 
