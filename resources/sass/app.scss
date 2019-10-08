@@ -129,4 +129,14 @@ nav.navbar,
         }
     }
 }
-
+.mode {
+    span {
+        color: #000;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    
+    .active {
+        color: #6574cd;
+    }
+}

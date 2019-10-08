@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light mb-3">
+<nav class="navbar navbar-expand-md navbar-light">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
             {{ app('shaarli')->getName() }}

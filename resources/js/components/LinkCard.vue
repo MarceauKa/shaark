@@ -5,12 +5,13 @@
                 <span>{{ __('Link') }}</span> &mdash; <a :href="link.url">{{ link.title }}</a>
             </h5>
 
-            <p class="card-text card-reduce" v-html="link.content"></p>
-
-            <div class="card-preview card-reduce mb-1" v-html="link.preview" v-if="link.preview"></div>
+            <div class="card-reduce" v-if="previewLayout">
+                <p class="card-text" v-html="link.content"></p>
+                <div class="card-preview mb-1" v-html="link.preview" v-if="link.preview"></div>
+            </div>
 
             <p class="card-text mt-1" v-if="link.tags.length > 0">
-                <a v-for="tag in link.tags" class="badge badge-secondary" :href="`/tag/${tag}`">{{ tag }}</a>
+                <a v-for="tag in link.tags" :key="tag.id" class="badge badge-secondary" :href="`/tag/${tag}`">{{ tag }}</a>
             </p>
         </div>
 
@@ -50,6 +51,13 @@ export default {
             default: () => {}
         },
     },
+
+    computed: {
+        previewLayout() {
+            return localStorage.getItem('layout') !== 'simple';
+        }
+    },
+
 
     methods: {
         remove() {

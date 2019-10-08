@@ -5,12 +5,12 @@
                 <span>{{ __('Story') }}</span> &mdash; <a :href="story.url">{{ story.title }}</a>
             </h5>
 
-            <div class="card-text card-reduce">
+            <div class="card-text card-reduce" v-if="previewLayout">
                 <vue-markdown>{{ story.content }}</vue-markdown>
             </div>
 
             <p class="card-text mt-1" v-if="story.tags.length > 0">
-                <a v-for="tag in story.tags" class="badge badge-secondary" :href="`/tag/${tag}`">{{ tag }}</a>
+                <a v-for="tag in story.tags" :key="tag.id" class="badge badge-secondary" :href="`/tag/${tag}`">{{ tag }}</a>
             </p>
         </div>
 
@@ -46,6 +46,12 @@ export default {
             required: true,
             default: () => {}
         },
+    },
+
+    computed: {
+        previewLayout() {
+            return localStorage.getItem('layout') !== 'simple';
+        }
     },
 
     methods: {

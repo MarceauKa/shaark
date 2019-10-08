@@ -8,6 +8,7 @@
 <div class="container home alt">
     <div class="row justify-content-center">
         @if($posts->isNotEmpty())
+        <switch-layout></switch-layout>
         <div class="col-12 col-sm-9">
             <div class="card-columns">
                 @foreach($posts as $post)

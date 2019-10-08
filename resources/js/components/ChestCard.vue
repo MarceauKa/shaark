@@ -5,12 +5,12 @@
                 <span>{{ __('Chest') }}</span> &mdash; <a :href="chest.permalink">{{ chest.title }}</a>
             </h5>
 
-            <div class="card-reduce">
+            <div class="card-reduce" v-if="previewLayout">
                 <chest-lines :preview="chest.content"></chest-lines>
             </div>
 
             <p class="card-text mt-1" v-if="chest.tags.length > 0">
-                <a v-for="tag in chest.tags" class="badge badge-secondary" :href="`/tag/${tag}`">{{ tag }}</a>
+                <a v-for="tag in chest.tags" :key="tag.id" class="badge badge-secondary" :href="`/tag/${tag}`">{{ tag }}</a>
             </p>
         </div>
 
@@ -46,6 +46,12 @@ export default {
             required: true,
             default: () => {}
         },
+    },
+
+    computed: {
+        previewLayout() {
+            return localStorage.getItem('layout') !== 'simple';
+        }
     },
 
     methods: {

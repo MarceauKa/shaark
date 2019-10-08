@@ -10778,3 +10778,13 @@ nav.navbar,
   background-repeat: repeat;
 }
 
+.mode span {
+  color: #000;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.mode .active {
+  color: #6574cd;
+}
+
