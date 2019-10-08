@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreLinkRequest;
+use App\Http\Requests\UpdateLinkRequest;
 use App\Link;
 use App\Post;
 use App\Services\WebParser;
@@ -72,7 +73,7 @@ class LinkController extends Controller
         ]);
     }
 
-    public function update(StoreLinkRequest $request, int $id)
+    public function update(UpdateLinkRequest $request, int $id)
     {
         /** @var Link $link */
         $link = Link::findOrFail($id);

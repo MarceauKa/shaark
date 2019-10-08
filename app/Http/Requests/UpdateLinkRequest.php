@@ -4,13 +4,23 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreLinkRequest extends FormRequest
+class UpdateLinkRequest extends FormRequest
 {
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
     public function authorize()
     {
         return auth()->check();
     }
 
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
     public function rules()
     {
         return [
@@ -26,7 +36,7 @@ class StoreLinkRequest extends FormRequest
             'url' => [
                 'required',
                 'url',
-                'unique:links',
+                'unique:links,url,'.$this->id,
             ],
             'is_private' => [
                 'nullable',
