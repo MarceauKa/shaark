@@ -10778,3 +10778,7 @@ nav.navbar,
   background-repeat: repeat;
 }
 
+.text-error {
+  color: red;
+}
+

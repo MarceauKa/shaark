@@ -5,16 +5,19 @@
                 <label for="url">{{ __('URL') }}</label>
                 <input type="text" class="form-control" ref="url" id="url" v-model="form.url">
                 <small class="form-text text-muted" v-if="parsing">{{ __('Retrieving URL informations...') }}</small>
+                <error :error="errors.url" />
             </div>
 
             <div class="form-group">
                 <label for="title">{{ __('Title') }}</label>
                 <input type="text" class="form-control" id="title" v-model="form.title" :disabled="loading">
+                <error :error="errors.title" />
             </div>
 
             <div class="form-group">
                 <label for="content">{{ __('Content') }}</label>
                 <textarea id="content" class="form-control" v-model="form.content" :disabled="loading"></textarea>
+                <error :error="errors.content" />
             </div>
 
             <div class="form-group">
@@ -27,6 +30,7 @@
             <div class="form-group">
                 <label>{{ __('Tags') }}</label>
                 <tags v-model="form.tags"></tags>
+                <error :error="errors.tags" />
             </div>
         </div>
 
@@ -49,6 +53,8 @@
 </template>
 
 <script>
+import Error from './Error'
+
 let defaultLink = function () {
     return {
         url: null,
@@ -72,11 +78,16 @@ export default {
         }
     },
 
+    components: {
+        Error
+    },
+
     data() {
         return {
             form: defaultLink(),
             parsing: false,
             loading: false,
+            errors: {},
         }
     },
 
@@ -104,11 +115,14 @@ export default {
                 if (response.status === 200) {
                     this.form.title = response.data.title;
                     this.form.content = response.data.content;
+                    this.errors = {};
                 }
             }).catch((error) => {
                 this.loading = false;
                 this.parsing = false;
-                console.log(error);
+                if(error.response.status === 422) {
+                    this.errors = error.response.data.errors;
+                }
             });
         },
 
@@ -128,13 +142,17 @@ export default {
                     this.reset();
                 }
 
+                this.errors = {};
+
                 if (redirectToArchive === true) {
                     window.location = `/link/archive/${response.data.id}`;
                 }
             }).catch((error) => {
                 this.loading = false;
                 this.$toasted.error(this.__('Unable to save link'));
-                console.log(error);
+                if(error.response.status === 422) {
+                    this.errors = error.response.data.errors;
+                }
             })
         },
 

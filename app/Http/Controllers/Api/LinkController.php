@@ -21,7 +21,7 @@ class LinkController extends Controller
     public function parse(Request $request)
     {
         $this->validate($request, [
-            'url' => 'required|url',
+            'url' => 'required|url|unique:links',
         ]);
 
         $parser = WebParser::parse($request->get('url'));
