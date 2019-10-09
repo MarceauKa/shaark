@@ -11,6 +11,10 @@
 - Manage section controllers
 - Logins history and logout other devices moved to account instead of manage
 
+## Fixed
+
+- Pagination will now wrap
+
 # 1.2.12
 
 ## Added
