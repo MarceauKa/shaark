@@ -7,6 +7,8 @@ Route::post('search', 'SearchController@search')->name('search');
 
 Route::get('tags', 'TagsController@all')->name('tags');
 
+Route::post('account/logins/purge', 'AccountController@purge')->name('account.logins.purge');
+
 Route::post('link/parse', 'LinkController@parse')->name('link.parse');
 Route::post('link', 'LinkController@store')->name('link.store');
 Route::put('link/{id}', 'LinkController@update')->name('link.update');
@@ -30,6 +32,4 @@ Route::group([
     $router->get('tags', 'TagsController@all')->name('all');
     $router->delete('tags/{tag}', 'TagsController@delete')->name('delete');
     $router->post('tags/{from}/move/{to}', 'TagsController@move')->name('move');
-
-    $router->post('logins/purge', 'LoginsController@purge')->name('purge');
 });

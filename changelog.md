@@ -8,6 +8,7 @@
 
 ## Changed
 
+- Manage section controllers
 - Logins history and logout other devices moved to account instead of manage
 
 # 1.2.12

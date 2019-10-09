@@ -31,14 +31,16 @@ Route::get('chest/{chest}', 'BrowseController@chest')->name('chest.view');
 
 Route::get('account', 'AccountController@form')->name('account');
 Route::post('account', 'AccountController@store');
-Route::post('account/password', 'AccountController@storePassword')->name('account.password');
+Route::get('account/password', 'AccountController@formPassword')->name('account.password');
+Route::post('account/password', 'AccountController@storePassword');
+Route::get('account/logins', 'AccountController@viewLogins')->name('account.logins');
+Route::post('account/logins/logout', 'AccountController@logoutDevices')->name('account.logins.logout');
 
-Route::get('manage/import', 'ManageController@importForm')->name('manage.import');
-Route::post('manage/import', 'ManageController@importStore');
-Route::get('manage/export', 'ManageController@exportForm')->name('manage.export');
-Route::post('manage/export', 'ManageController@export');
-Route::get('manage/tags', 'ManageController@tags')->name('manage.tags');
-Route::get('manage/logins', 'ManageController@logins')->name('manage.logins');
-Route::post('manage/logins/logout', 'ManageController@logoutDevices')->name('manage.logins.logout');
-Route::get('manage/settings', 'ManageController@settingsForm')->name('manage.settings');
-Route::post('manage/settings', 'ManageController@settingsStore');
+Route::get('manage/import', 'Manage\ImportController@form')->name('manage.import');
+Route::post('manage/import', 'Manage\ImportController@import');
+Route::get('manage/export', 'Manage\ExportController@form')->name('manage.export');
+Route::post('manage/export', 'Manage\ExportController@export');
+Route::get('manage/tags', 'Manage\TagsController@view')->name('manage.tags');
+Route::get('manage/settings', 'Manage\SettingsController@form')->name('manage.settings');
+Route::post('manage/settings', 'Manage\SettingsController@store');
+
