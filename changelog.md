@@ -5,6 +5,7 @@
 ## Added
 
 - Multi-users
+- Non-admin users can't access settings section
 
 ## Changed
 

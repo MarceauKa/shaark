@@ -36,12 +36,19 @@ Route::post('account/password', 'AccountController@storePassword');
 Route::get('account/logins', 'AccountController@viewLogins')->name('account.logins');
 Route::post('account/logins/logout', 'AccountController@logoutDevices')->name('account.logins.logout');
 
-Route::get('manage/import', 'Manage\ImportController@form')->name('manage.import');
-Route::post('manage/import', 'Manage\ImportController@import');
-Route::get('manage/export', 'Manage\ExportController@form')->name('manage.export');
-Route::post('manage/export', 'Manage\ExportController@export');
-Route::get('manage/users', 'Manage\UsersController@all')->name('manage.users');
-Route::get('manage/tags', 'Manage\TagsController@view')->name('manage.tags');
-Route::get('manage/settings', 'Manage\SettingsController@form')->name('manage.settings');
-Route::post('manage/settings', 'Manage\SettingsController@store');
+Route::group([
+    'as' => 'manage.',
+    'prefix' => 'manage',
+    'middleware' => ['auth', 'manage'],
+    'namespace' => 'Manage',
+], function (\Illuminate\Routing\Router $router) {
+    $router->get('import', 'ImportController@form')->name('import');
+    $router->post('import', 'ImportController@import');
+    $router->get('export', 'ExportController@form')->name('export');
+    $router->post('export', 'ExportController@export');
+    $router->get('users', 'UsersController@all')->name('users');
+    $router->get('tags', 'TagsController@view')->name('tags');
+    $router->get('settings', 'SettingsController@form')->name('settings');
+    $router->post('settings', 'SettingsController@store');
+});
 

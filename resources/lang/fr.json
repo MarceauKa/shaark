@@ -212,6 +212,7 @@
     "Export type or format not recognized": "Type d'export ou format non-reconnu",
 
     "This action is not available in demo mode": "Cette action n'est pas disponible en mode démonstration",
+    "You can't access settings section": "Vous n'avez pas accès aux paramètres",
 
     "Source code": "Code source"
 }

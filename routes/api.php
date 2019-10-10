@@ -26,7 +26,7 @@ Route::delete('chest/{id}', 'ChestController@delete')->name('chest.delete');
 Route::group([
     'as' => 'manage.',
     'prefix' => 'manage',
-    'middleware' => 'auth:api',
+    'middleware' => ['auth:api', 'manage'],
     'namespace' => 'Manage',
 ], function (\Illuminate\Routing\Router $router) {
     $router->get('tags', 'TagsController@all')->name('tags.all');
