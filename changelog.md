@@ -8,8 +8,9 @@
 
 ## Changed
 
-- Manage section controllers
+- Manage section in separate controllers
 - Logins history and logout other devices moved to account instead of manage
+- Improvements on api http and form errors
 
 ## Fixed
 

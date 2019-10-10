@@ -48,7 +48,13 @@
 </template>
 
 <script>
+import httpErrors from "../mixins/httpErrors";
+
 export default {
+    mixins: [
+        httpErrors
+    ],
+
     data() {
         return {
             tags: [],
@@ -70,8 +76,8 @@ export default {
                     this.loading = false;
                 })
                 .catch(error => {
-                    console.log(error);
-                    this.$toasted.error(this.__("Can't fetch tags"));
+                    this.setHttpError(error);
+                    this.toastHttpError(this.__("Can't fetch tags"));
                 })
         },
 

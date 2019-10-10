@@ -98,6 +98,7 @@
     "Private link?": "Lien privé ?",
     "Link created": "Lien ajouté",
     "Link updated": "Lien modifié",
+    "Unable to parse link": "Impossible de récupérer les informations de l'URL",
     "Unable to save link": "Impossible d'enregistrer le lien",
     "Unable to delete link": "Impossible de supprimer le lien",
     "Link preview has been updated": "La prévisualisation du lien a été mise à jour",

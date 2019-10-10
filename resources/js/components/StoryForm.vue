@@ -3,7 +3,8 @@
         <div class="card-body">
             <div class="form-group">
                 <label for="title">{{ __('Title') }}</label>
-                <input type="text" class="form-control" id="title" v-model="form.title" :disabled="loading">
+                <input type="text" class="form-control" :class="{'is-invalid': hasFormError('title')}" id="title" v-model="form.title" :disabled="loading">
+                <span class="invalid-feedback" v-if="hasFormError('title')">{{ firstFormError('title') }}</span>
                 <p class="text-muted"><small>{{ fullUrl }}</small></p>
             </div>
 
@@ -50,10 +51,17 @@ let defaultStory = function () {
     };
 };
 
+import formErrors from "../mixins/formErrors";
+import httpErrors from "../mixins/httpErrors";
 import Editor from 'mavon-editor';
 Vue.use(Editor);
 
 export default {
+    mixins: [
+        formErrors,
+        httpErrors,
+    ],
+
     components: {
         Editor
     },
@@ -118,7 +126,7 @@ export default {
                 method: this.story ? 'PUT' : 'POST',
                 url: this.story ? this.story.url_update : '/api/story',
                 data: this.form
-            }).then((response) => {
+            }).then(response => {
                 if (this.story) {
                     this.$toasted.success(this.__("Story updated"));
                     this.loading = false;
@@ -126,16 +134,18 @@ export default {
                     this.$toasted.success(this.__("Story created"));
                     this.reset();
                 }
-            }).catch((error) => {
+            }).catch(error => {
                 this.loading = false;
-                this.$toasted.error(this.__("Unable to save story"));
-                console.log(error);
+                this.setFormError(error);
+                this.setHttpError(error);
+                this.toastHttpError(this.__("Unable to save story"));
             })
         },
 
         reset() {
             this.loading = false;
             this.form = defaultStory();
+            this.resetFormError();
         },
     },
 

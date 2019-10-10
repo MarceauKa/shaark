@@ -4,16 +4,16 @@
             <div class="col-xs-12 col-sm-6">
                 <div class="form-group">
                     <label for="name">{{ __('Name') }}</label>
-                    <input type="text" class="form-control" :class="{'is-invalid': hasError('name')}" id="name" v-model="form.name" :disabled="loading">
-                    <span class="invalid-feedback" v-if="hasError('name')">{{ firstError('name') }}</span>
+                    <input type="text" class="form-control" :class="{'is-invalid': hasFormError('name')}" id="name" v-model="form.name" :disabled="loading">
+                    <span class="invalid-feedback" v-if="hasFormError('name')">{{ firstFormError('name') }}</span>
                 </div>
             </div>
 
             <div class="col-xs-12 col-sm-6">
                 <div class="form-group">
                     <label for="email">{{ __('E-Mail Address') }}</label>
-                    <input type="text" class="form-control" :class="{'is-invalid': hasError('email')}" id="email" v-model="form.email" :disabled="loading">
-                    <span class="invalid-feedback" v-if="hasError('email')">{{ firstError('email') }}</span>
+                    <input type="text" class="form-control" :class="{'is-invalid': hasFormError('email')}" id="email" v-model="form.email" :disabled="loading">
+                    <span class="invalid-feedback" v-if="hasFormError('email')">{{ firstFormError('email') }}</span>
                 </div>
             </div>
         </div>
@@ -22,8 +22,8 @@
             <div class="col-xs-12 col-sm-6">
                 <div class="form-group">
                     <label for="password">{{ __('Password') }}</label>
-                    <input type="password" class="form-control" :class="{'is-invalid': hasError('password')}" id="password" v-model="form.password" :disabled="loading">
-                    <span class="invalid-feedback" v-if="hasError('password')">{{ firstError('password') }}</span>
+                    <input type="password" class="form-control" :class="{'is-invalid': hasFormError('password')}" id="password" v-model="form.password" :disabled="loading">
+                    <span class="invalid-feedback" v-if="hasFormError('password')">{{ firstFormError('password') }}</span>
                 </div>
             </div>
 
@@ -37,7 +37,7 @@
 
         <div class="form-group">
             <div class="custom-control custom-switch">
-                <input type="checkbox" class="custom-control-input" :class="{'is-invalid': hasError('is_admin')}" id="is_admin" v-model="form.is_admin" :disabled="loading">
+                <input type="checkbox" class="custom-control-input" :class="{'is-invalid': hasFormError('is_admin')}" id="is_admin" v-model="form.is_admin" :disabled="loading">
                 <label class="custom-control-label" for="is_admin">{{ __('Is admin?') }}</label>
             </div>
 
@@ -62,11 +62,11 @@ let defaultUser = function () {
     };
 };
 
-import errors from '../mixins/errors';
+import formErrors from '../mixins/formErrors';
 
 export default {
     mixins: [
-        errors,
+        formErrors,
     ],
 
     props: {
@@ -106,6 +106,8 @@ export default {
                     this.$toasted.success(this.__("User created"));
                     this.form = defaultUser();
                 }
+
+                this.resetFormError();
                 this.$emit('submited');
             }).catch(error => {
                 if (error.response.data.status === 'error') {
@@ -114,13 +116,14 @@ export default {
                     this.$toasted.error(this.__("Unable to save user"));
                 }
 
-                this.setErrors(error.response.data.errors);
+                this.setFormError(error);
                 this.loading = false;
             })
         },
 
         setUser(user) {
             this.form = defaultUser();
+            this.resetFormError();
 
             if (user) {
                 this.form.name = user.name;

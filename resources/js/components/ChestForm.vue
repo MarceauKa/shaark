@@ -3,7 +3,8 @@
         <div class="card-body">
             <div class="form-group">
                 <label for="title">{{ __('Title') }}</label>
-                <input type="text" class="form-control" id="title" v-model="form.title" :disabled="loading">
+                <input type="text" class="form-control" :class="{'is-invalid': hasFormError('title')}" id="title" v-model="form.title" :disabled="loading">
+                <span class="invalid-feedback" v-if="hasFormError('title')">{{ firstFormError('title') }}</span>
             </div>
 
             <div class="form-group">
@@ -36,7 +37,15 @@ let defaultChest = function () {
     };
 };
 
+import httpErrors from "../mixins/httpErrors";
+import formErrors from "../mixins/formErrors";
+
 export default {
+    mixins: [
+        formErrors,
+        httpErrors,
+    ],
+
     props: {
         chest: {
             type: Object,
@@ -66,7 +75,7 @@ export default {
                 method: this.chest ? 'PUT' : 'POST',
                 url: this.chest ? this.chest.url_update : '/api/chest',
                 data: this.form
-            }).then((response) => {
+            }).then(response => {
                 if (this.chest) {
                     this.$toasted.success(this.__('Chest updated'));
                     this.loading = false;
@@ -74,16 +83,18 @@ export default {
                     this.$toasted.success(this.__('Chest created'));
                     this.reset();
                 }
-            }).catch((error) => {
+            }).catch(error => {
                 this.loading = false;
-                this.$toasted.error(this.__('Unable to save chest'));
-                console.log(error);
+                this.setFormError(error);
+                this.setHttpError(error);
+                this.toastHttpError(this.__('Unable to save chest'));
             })
         },
 
         reset() {
             this.loading = false;
             this.form = defaultChest();
+            this.resetFormError();
         },
     }
 }

@@ -3,18 +3,21 @@
         <div class="card-body">
             <div class="form-group">
                 <label for="url">{{ __('URL') }}</label>
-                <input type="text" class="form-control" ref="url" id="url" v-model="form.url">
+                <input type="text" class="form-control" :class="{'is-invalid': hasFormError('url')}" ref="url" id="url" v-model="form.url">
+                <span class="invalid-feedback" v-if="hasFormError('url')">{{ firstFormError('url') }}</span>
                 <small class="form-text text-muted" v-if="parsing">{{ __('Retrieving URL informations...') }}</small>
             </div>
 
             <div class="form-group">
                 <label for="title">{{ __('Title') }}</label>
-                <input type="text" class="form-control" id="title" v-model="form.title" :disabled="loading">
+                <input type="text" class="form-control" :class="{'is-invalid': hasFormError('title')}" id="title" v-model="form.title" :disabled="loading">
+                <span class="invalid-feedback" v-if="hasFormError('title')">{{ firstFormError('title') }}</span>
             </div>
 
             <div class="form-group">
                 <label for="content">{{ __('Content') }}</label>
-                <textarea id="content" class="form-control" v-model="form.content" :disabled="loading"></textarea>
+                <textarea id="content" class="form-control" :class="{'is-invalid': hasFormError('content')}" v-model="form.content" :disabled="loading"></textarea>
+                <span class="invalid-feedback" v-if="hasFormError('content')">{{ firstFormError('content') }}</span>
             </div>
 
             <div class="form-group">
@@ -59,7 +62,15 @@ let defaultLink = function () {
     };
 };
 
+import formErrors from "../mixins/formErrors";
+import httpErrors from "../mixins/httpErrors";
+
 export default {
+    mixins: [
+        formErrors,
+        httpErrors,
+    ],
+
     props: {
         queryUrl: {
             type: String,
@@ -97,7 +108,7 @@ export default {
 
             axios.post('/api/link/parse', {
                 url: this.form.url
-            }).then((response) => {
+            }).then(response => {
                 this.loading = false;
                 this.parsing = false;
 
@@ -105,10 +116,12 @@ export default {
                     this.form.title = response.data.title;
                     this.form.content = response.data.content;
                 }
-            }).catch((error) => {
+            }).catch(error => {
                 this.loading = false;
                 this.parsing = false;
-                console.log(error);
+
+                this.setHttpError(error);
+                this.toastHttpError(__("Unable to parse link"));
             });
         },
 
@@ -119,7 +132,7 @@ export default {
                 method: this.link ? 'PUT' : 'POST',
                 url: this.link ? this.link.url_update : '/api/link',
                 data: this.form
-            }).then((response) => {
+            }).then(response => {
                 if (this.link) {
                     this.$toasted.success(this.__('Link updated'));
                     this.loading = false;
@@ -131,10 +144,11 @@ export default {
                 if (redirectToArchive === true) {
                     window.location = `/link/archive/${response.data.id}`;
                 }
-            }).catch((error) => {
+            }).catch(error => {
                 this.loading = false;
-                this.$toasted.error(this.__('Unable to save link'));
-                console.log(error);
+                this.setFormError(error);
+                this.setHttpError(error);
+                this.toastHttpError(this.__('Unable to save link'));
             })
         },
 
@@ -142,6 +156,7 @@ export default {
             this.loading = false;
             this.parsing = false;
             this.form = defaultLink();
+            this.resetFormError();
         },
 
         newTag(value) {
