@@ -1,3 +1,14 @@
+# Unreleased
+
+## Added
+
+- More tests !
+
+## Fixed
+
+- StoryFactory
+- Migrations compatible with SQLite
+
 # 1.2.13
 
 ⚠️ Run migrations when updating

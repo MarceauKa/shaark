@@ -2,6 +2,7 @@
 
 namespace Tests;
 
+use App\Services\Shaarli\Shaarli;
 use Laravel\Dusk\TestCase as BaseTestCase;
 use Facebook\WebDriver\Chrome\ChromeOptions;
 use Facebook\WebDriver\Remote\RemoteWebDriver;
@@ -11,22 +12,22 @@ abstract class DuskTestCase extends BaseTestCase
 {
     use CreatesApplication;
 
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->shaarli()->setLocale('en');
+        $this->shaarli()->setSecureLogin(false);
+    }
+
     /**
-     * Prepare for Dusk test execution.
-     *
      * @beforeClass
-     * @return void
      */
     public static function prepare()
     {
         static::startChromeDriver();
     }
 
-    /**
-     * Create the RemoteWebDriver instance.
-     *
-     * @return \Facebook\WebDriver\Remote\RemoteWebDriver
-     */
     protected function driver()
     {
         $options = (new ChromeOptions)->addArguments([
@@ -40,5 +41,10 @@ abstract class DuskTestCase extends BaseTestCase
                 ChromeOptions::CAPABILITY, $options
             )
         );
+    }
+
+    protected function shaarli(): Shaarli
+    {
+        return app(Shaarli::class);
     }
 }

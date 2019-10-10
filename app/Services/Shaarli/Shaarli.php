@@ -202,6 +202,15 @@ class Shaarli
             }
         }
 
+        if (substr($name, 0, 3) === 'set') {
+            $key = Str::snake(substr($name, 3));
+
+            if (array_key_exists($key, $this->getSettingsConfig())) {
+                $this->settings->put($key, $arguments[0]);
+                return $this;
+            }
+        }
+
         throw new \BadMethodCallException("Method {$name} does not exists.");
     }
 }
