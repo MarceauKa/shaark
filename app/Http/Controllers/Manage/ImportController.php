@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Manage;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\ImportRequest;
+use App\Http\Requests\Manage\ImportRequest;
 use App\Services\Import;
 use Illuminate\Http\Request;
 

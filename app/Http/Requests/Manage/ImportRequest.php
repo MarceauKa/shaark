@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Manage;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -8,7 +8,7 @@ class ImportRequest extends FormRequest
 {
     public function authorize()
     {
-        return auth()->check();
+        return auth()->check() && auth()->user()->is_admin;
     }
 
     public function rules()

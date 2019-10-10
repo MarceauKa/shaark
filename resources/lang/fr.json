@@ -23,6 +23,8 @@
     "Unauthorized": "Non autorisé",
     "Whoops!": "Oups !",
     "Whoops, something went wrong on our servers.": "Oups, quelque chose s'est mal passé sur nos serveurs.",
+    "Yes": "Oui",
+    "No": "Non",
 
     "Login": "Connexion",
     "Logout": "Déconnexion",
@@ -185,6 +187,17 @@
     "Unable to purge logins history": "Impossible de supprimer l'historique des connexions",
 
     "Users": "Utilisateurs",
+    "Add user": "Ajouter utilisateur",
+    "Update user": "Modifier utilisateur",
+    "Is admin?": "Administrateur ?",
+    "Admin users can access settings": "Les utilisateurs admin peuvent accéder aux paramètres",
+    "Unable to load users": "Impossible de charger les utilisateurs",
+    "Unable to save user": "Impossible d'enregistrer l'utilisateur",
+    "User created": "L'utilisateur a été créé",
+    "User updated": "L'utilisateur a été modifié",
+    "User :name has been deleted": "L'utilisateur :name a été supprimé",
+    "Unable to delete user": "Impossible de supprimer l'utilisateur",
+    "Can't delete the user you're logged in": "Impossible de supprimer l'utilisateur courant",
 
     "Update account": "Modifier le compte",
     "Your account has been updated!": "Votre compte a été mis à jour !",

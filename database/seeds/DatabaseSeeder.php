@@ -8,11 +8,6 @@ use Illuminate\Support\Facades\Mail;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     *
-     * @return void
-     */
     public function run()
     {
         Mail::fake();
@@ -22,6 +17,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@example.com',
             'password' => Hash::make('secret'),
             'api_token' => 'api-token-secret',
+            'is_admin' => 1,
             'created_at' => now()->toDateTimeString(),
         ]);
 

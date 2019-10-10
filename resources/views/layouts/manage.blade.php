@@ -17,6 +17,9 @@
                             <a href="{{ route('manage.tags') }}"
                                class="list-group-item list-group-item-action{{ request()->is('manage/tags') ? ' active' : '' }}"
                             >{{ __('Tags') }}</a>
+                            <a href="{{ route('manage.users') }}"
+                               class="list-group-item list-group-item-action{{ request()->is('manage/users') ? ' active' : '' }}"
+                            >{{ __('Users') }}</a>
                             <a href="{{ route('manage.export') }}"
                                class="list-group-item list-group-item-action{{ request()->is('manage/export') ? ' active' : '' }}"
                             >{{ __('Export') }}</a>

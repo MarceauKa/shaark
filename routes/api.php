@@ -29,7 +29,13 @@ Route::group([
     'middleware' => 'auth:api',
     'namespace' => 'Manage',
 ], function (\Illuminate\Routing\Router $router) {
-    $router->get('tags', 'TagsController@all')->name('all');
-    $router->delete('tags/{tag}', 'TagsController@delete')->name('delete');
-    $router->post('tags/{from}/move/{to}', 'TagsController@move')->name('move');
+    $router->get('tags', 'TagsController@all')->name('tags.all');
+    $router->delete('tags/{tag}', 'TagsController@delete')->name('tags.delete');
+    $router->post('tags/{from}/move/{to}', 'TagsController@move')->name('tags.move');
+
+    $router->get('users', 'UsersController@all')->name('users.all');
+    $router->post('users', 'UsersController@store')->name('users.store');
+    $router->get('users/{id}', 'UsersController@get')->name('users.get');
+    $router->put('users/{id}', 'UsersController@update')->name('users.update');
+    $router->delete('users/{id}', 'UsersController@delete')->name('users.delete');
 });

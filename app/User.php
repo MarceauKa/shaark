@@ -18,6 +18,7 @@ class User extends Authenticatable implements HasLoginsAndDevicesInterface
         'email',
         'password',
         'api_token',
+        'is_admin',
     ];
 
     protected $hidden = [
@@ -27,6 +28,7 @@ class User extends Authenticatable implements HasLoginsAndDevicesInterface
 
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'is_admin' => 'bool',
     ];
 
     public static function generateApiToken(): string

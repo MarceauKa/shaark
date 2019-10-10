@@ -40,6 +40,7 @@ Route::get('manage/import', 'Manage\ImportController@form')->name('manage.import
 Route::post('manage/import', 'Manage\ImportController@import');
 Route::get('manage/export', 'Manage\ExportController@form')->name('manage.export');
 Route::post('manage/export', 'Manage\ExportController@export');
+Route::get('manage/users', 'Manage\UsersController@all')->name('manage.users');
 Route::get('manage/tags', 'Manage\TagsController@view')->name('manage.tags');
 Route::get('manage/settings', 'Manage\SettingsController@form')->name('manage.settings');
 Route::post('manage/settings', 'Manage\SettingsController@store');

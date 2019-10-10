@@ -11,6 +11,7 @@ class UpdateDatabase
     /** @var array $updaters */
     protected $updaters = [
         \AddUserToPostsTable::class => 'addDefaultUserToPosts',
+        \AddIsAdminToUsersTable::class => 'setIsAdminToFirstUser',
     ];
 
     public function handle(MigrationEnded $event)
@@ -36,6 +37,19 @@ class UpdateDatabase
 
         DB::table('posts')->update([
             'user_id' => $user->id,
+        ]);
+    }
+
+    protected function setIsAdminToFirstUser()
+    {
+        $user = User::first();
+
+        if (empty($user)) {
+            return;
+        }
+
+        DB::table('users')->update([
+            'is_admin' => 1,
         ]);
     }
 }
