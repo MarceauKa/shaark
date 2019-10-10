@@ -18,7 +18,7 @@
             </div>
         </div>
 
-        <div class="row" v-if="! user">
+        <div class="row">
             <div class="col-xs-12 col-sm-6">
                 <div class="form-group">
                     <label for="password">{{ __('Password') }}</label>
@@ -41,7 +41,7 @@
                 <label class="custom-control-label" for="is_admin">{{ __('Is admin?') }}</label>
             </div>
 
-            <span class="text-muted">{{ __("Admin users can access settings") }}</span>
+            <span class="text-muted">{{ __("Admin users can access settings and other users private content") }}</span>
         </div>
 
         <button class="btn btn-primary" @click.prevent="submit" :disabled="loading">

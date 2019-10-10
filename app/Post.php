@@ -5,6 +5,7 @@ namespace App;
 use App\Concerns\Models\HasTags;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Http\Request;
 use Laravel\Scout\Searchable;
@@ -22,6 +23,7 @@ class Post extends Model
         'postable_type',
         'postable_id',
         'is_private',
+        'user_id',
         'created_at',
     ];
     protected $casts = [
@@ -33,6 +35,11 @@ class Post extends Model
         return $this->morphTo();
     }
 
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function getCreatedAtFormatedAttribute(): string
     {
         return $this->created_at->diffForHumans();
@@ -40,16 +47,26 @@ class Post extends Model
 
     public function scopeWithPrivate(Builder $query, $private = false): Builder
     {
+        $user = null;
+
         if ($private instanceof Request) {
-            $private = $private->user() instanceof User;
+            $user = $private->user();
+        } else if ($private instanceof User) {
+            $user = $private;
         }
 
-        if ($private instanceof User) {
-            $private = true;
-        }
-
-        if ($private === false) {
+        if (! $user) {
             return $query->where('is_private', 0);
+        }
+
+        if ($user->is_admin === false) {
+            return $query
+                ->where('is_private', 0)
+                ->orWhere(function ($query) use ($user) {
+                    return $query
+                        ->where('is_private', 1)
+                        ->where('user_id', $user->id);
+                });
         }
 
         return $query;

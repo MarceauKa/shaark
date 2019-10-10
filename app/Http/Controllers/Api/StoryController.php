@@ -28,6 +28,7 @@ class StoryController extends Controller
 
         $post = new Post();
         $post->is_private = $data->get('is_private', 0);
+        $post->user_id = $request->user()->id;
         $post->postable()->associate($story)->save();
 
         if ($data['tags']) {

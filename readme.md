@@ -45,8 +45,9 @@ but built with [Laravel](https://github.com/laravel/laravel) and [Vue.js](https:
 - [x] Export
 - [x] Dark mode
 - [x] i18n (english and french)
-- [x] **NEW** Archiving
-- [x] **NEW** 2-FA with email
+- [x] Archiving
+- [x] 2-FA with email
+- [x] **NEW** Multi-users
 - [ ] RSS feed
 
 ## Demo
@@ -103,7 +104,12 @@ Shaarli logs all successful and failed auths with their associated devices.
 
 ### Chests encryption
 
-Since `1.2.9`, all chests data are encrypted in your database using AES-256-CBC and your app key.  
+Since `1.2.9`, all chests data are encrypted in your database using AES-256-CBC and your app key.
+
+### Multi-users
+
+Others users can be admin or non-admin. Admin users are like the main user and have an access to the entire content. 
+Non-admin users can't access the settings section and can only see their own private content.
 
 ## Update
 

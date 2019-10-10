@@ -191,7 +191,7 @@
     "Add user": "Ajouter utilisateur",
     "Update user": "Modifier utilisateur",
     "Is admin?": "Administrateur ?",
-    "Admin users can access settings": "Les utilisateurs admin peuvent accéder aux paramètres",
+    "Admin users can access settings and other users private content": "Les utilisateurs admin peuvent accéder aux paramètres et contenu privé des autres utilisateurs",
     "Unable to load users": "Impossible de charger les utilisateurs",
     "Unable to save user": "Impossible d'enregistrer l'utilisateur",
     "User created": "L'utilisateur a été créé",

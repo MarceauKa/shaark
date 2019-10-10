@@ -25,7 +25,7 @@ class ChestController extends Controller
             'content',
         ])->toArray());
 
-        $post = new Post(['is_private' => true]);
+        $post = new Post(['is_private' => true, 'user_id' => $request->user()->id]);
         $post->postable()->associate($chest)->save();
 
         if ($data['tags']) {

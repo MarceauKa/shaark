@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\Manage;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Manage\StoreUserRequest;
+use App\Http\Requests\Manage\UpdateUserRequest;
 use App\Http\Resources\UserResource;
 use App\Post;
 use App\User;
@@ -37,6 +38,28 @@ class UsersController extends Controller
         ]);
     }
 
+    public function update(UpdateUserRequest $request, int $id)
+    {
+        $validated = collect($request->validated());
+        $user = User::findOrFail($id);
+
+        $user->fill($validated->only('name', 'email')->toArray());
+
+        $user->is_admin = $validated->get('is_admin', 0) == 1;
+
+        if ($validated->get('password')) {
+            $user->password = Hash::make($validated->get('password'));
+            $user->api_token = User::generateApiToken();
+        }
+
+        $user->save();
+
+        return response()->json([
+            'status' => 'updated',
+            'id' => $user->id,
+        ]);
+    }
+
     public function delete(Request $request, int $id)
     {
         if ($request->user()->id == $id) {
@@ -49,7 +72,13 @@ class UsersController extends Controller
         $user = User::findOrFail($id);
         $user->delete();
 
-        Post::where('user_id', $id)->delete();
+        $admin = User::isAdmin()->first();
+
+        if ($admin) {
+            Post::where('user_id', $id)->update('user_id', $admin->id);
+        } else {
+            Post::where('user_id', $id)->update('user_id', null);
+        }
 
         return response()->json([
             'status' => 'deleted',
