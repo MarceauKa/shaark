@@ -193,7 +193,7 @@ Our dependencies with link to their documentation and why we use it.
 
 ## Contribute
 
-All contribution are welcome! Please use the `dev` branch for you pull requests.  
+All contribution are welcome! Please use the `dev` branch for your pull requests.  
 If you make changes to JS, don't compile assets in production, I'll manually compile them when merging for security reasons.
 
 ## Tests
