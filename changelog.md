@@ -2,10 +2,13 @@
 
 ## Added
 
+- Search can use operators such as: `-`, `and`, `or`, ...
 - More tests !
 
 ## Fixed
 
+- Search private content
+- Postable `withPrivate` scope
 - StoryFactory
 - Migrations compatible with SQLite
 

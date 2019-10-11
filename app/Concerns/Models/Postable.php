@@ -20,23 +20,11 @@ trait Postable
         return $this->morphOne(Post::class, 'postable');
     }
 
-    public function scopeWithPrivate(Builder $query, $private = false): Builder
+    public function scopeWithPrivate(Builder $query, $user = null): Builder
     {
-        if ($private instanceof Request) {
-            $private = $private->user() instanceof User;
-        }
-
-        if ($private instanceof User) {
-            $private = true;
-        }
-
-        if ($private === false) {
-            return $query->whereHas('post', function (Builder $query) {
-                $query->where('is_private', 0);
-            });
-        }
-
-        return $query;
+        return $query->whereHas('post', function ($query) use ($user) {
+            return $query->withPrivate($user);
+        });
     }
 
     public function toSearchableArray()

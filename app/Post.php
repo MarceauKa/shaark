@@ -45,17 +45,13 @@ class Post extends Model
         return $this->created_at->diffForHumans();
     }
 
-    public function scopeWithPrivate(Builder $query, $private = false): Builder
+    public function scopeWithPrivate(Builder $query, $user = null): Builder
     {
-        $user = null;
-
-        if ($private instanceof Request) {
-            $user = $private->user();
-        } else if ($private instanceof User) {
-            $user = $private;
+        if ($user instanceof Request) {
+            $user = $user->user();
         }
 
-        if (! $user) {
+        if (empty($user)) {
             return $query->where('is_private', 0);
         }
 

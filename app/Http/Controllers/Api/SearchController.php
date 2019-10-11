@@ -22,7 +22,7 @@ class SearchController extends Controller
         $posts = Post::search($query)
             ->query(function ($query) {
                 return $query->with('tags', 'postable')
-                            ->withPrivate(auth('api')->check());
+                            ->withPrivate(auth('api')->user());
             })
             ->take(10)
             ->get();

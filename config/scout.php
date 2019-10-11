@@ -1,7 +1,7 @@
 <?php
 
 return [
-    // Supported: "algolia", "null"
+    // Supported: "algolia", "tntsearch", "null"
     'driver' => env('SCOUT_DRIVER', 'algolia'),
     'prefix' => env('SCOUT_PREFIX', ''),
     'queue' => env('SCOUT_QUEUE', false),
@@ -18,11 +18,11 @@ return [
         'storage'  => storage_path(),
         'fuzziness' => env('TNTSEARCH_FUZZINESS', true),
         'fuzzy' => [
-            'prefix_length' => 2,
-            'max_expansions' => 100,
-            'distance' => 4
+            'prefix_length' => 4,
+            'max_expansions' => 200,
+            'distance' => 2
         ],
-        'asYouType' => true,
-        'searchBoolean' => env('TNTSEARCH_BOOLEAN', false),
+        'asYouType' => false,
+        'searchBoolean' => env('TNTSEARCH_BOOLEAN', true),
     ],
 ];

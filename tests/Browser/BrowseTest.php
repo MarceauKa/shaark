@@ -20,7 +20,8 @@ class BrowseTest extends DuskTestCase
         $post2 = factory(Post::class)->states('link', 'private')->create();
 
         $this->browse(function (Browser $browser) use ($user, $post1, $post2) {
-            $browser->visit('/')
+            $browser
+                ->visit('/')
                 ->assertSee("Login")
                 ->assertSee($post1->postable->title)
                 ->assertDontSee($post2->postable->title)

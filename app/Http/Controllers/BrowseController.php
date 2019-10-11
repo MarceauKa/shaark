@@ -8,13 +8,11 @@ use App\Post;
 use App\Story;
 use App\Tag;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class BrowseController extends Controller
 {
     public function index(Request $request)
     {
-        DB::enableQueryLog();
         if (true === app('shaarli')->getHomepageAlt()) {
             $posts = Post::with('tags', 'postable')
                 ->withoutChests()
@@ -37,7 +35,7 @@ class BrowseController extends Controller
             ->withPrivate($request)
             ->latest()
             ->paginate(20);
-        //dd(DB::getQueryLog());
+
         return view('home')->with([
             'page_title' => app('shaarli')->getName(),
             'posts' => $posts,
