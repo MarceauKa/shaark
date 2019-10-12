@@ -1,3 +1,9 @@
+# Unreleased
+
+## Changed
+
+- Laravel 6.2
+
 # 1.2.14
 
 ## Added
