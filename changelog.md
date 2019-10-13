@@ -1,3 +1,9 @@
+# Unreleased
+
+## Fixed
+
+- Demo mode on manage tags and users API 
+
 # 1.2.15
 
 ## Added

@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('demo')->except('all');
+    }
+
     public function all()
     {
         return UserResource::collection(User::all());

@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 
 class TagsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('demo')->except('all');
+    }
+
     public function all()
     {
         $tags = Tag::withCount('posts')
