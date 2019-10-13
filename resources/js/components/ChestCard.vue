@@ -5,10 +5,12 @@
                 <span>{{ __('Chest') }}</span> &mdash; <a :href="chest.permalink">{{ chest.title }}</a>
             </h5>
 
-            <chest-lines :preview="chest.content"></chest-lines>
+            <div class="card-content">
+                <chest-lines :preview="chest.content"></chest-lines>
+            </div>
 
             <p class="card-text mt-1" v-if="chest.tags.length > 0">
-                <a v-for="tag in chest.tags" class="badge badge-secondary" :href="`/tag/${tag}`">{{ tag }}</a>
+                <a v-for="tag in chest.tags" class="badge badge-secondary mr-1" :href="`/tag/${tag}`">{{ tag }}</a>
             </p>
         </div>
 
@@ -59,7 +61,6 @@ export default {
                     }
                 })
                 .catch(error => {
-                    console.log(error);
                     this.$toasted.error(this.__("Unable to delete chest"));
                 })
         }

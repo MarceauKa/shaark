@@ -1,10 +1,21 @@
 # Unreleased
 
+## Added
+
+- Ability to hide card content (home and tag view)
+- Ability to choose the number of columns displayed (home and tag view)
+- Ability to display tags or not (home only)
+- Ability to display chests or not (home only)
+
 ## Changed
 
 - Laravel 6.2
 - Removed `mavon-editor` and `vue-markdown` for `tui.editor`
 - Card UI and Search UI
+
+## Removed
+
+- Alternative homepage
 
 # 1.2.14
 

@@ -5,11 +5,27 @@
 @endpush
 
 @section('content')
-<div class="container home">
+<div class="container">
     <div class="row justify-content-center">
         @if($posts->isNotEmpty())
         <div class="col-12">
-            <div class="card-columns">
+            <div class="card-columns column-{{ $columns_count }} {{ $compact ? 'compact' : '' }}">
+                @if($tags->isNotEmpty())
+                <div class="card">
+                    <div class="card-header">
+                        {{ __('Tags') }}
+                    </div>
+                    <div class="card-body">
+                        @foreach($tags as $tag)
+                            <a href="{{ $tag->url }}" class="btn btn-primary btn-sm mb-1">
+                                {{ $tag->name }}
+                                <span class="badge badge-pill badge-light">{{ $tag->posts_count }}</span>
+                            </a>
+                        @endforeach
+                    </div>
+                </div>
+                @endif
+
                 @foreach($posts as $post)
                     @if($post->postable instanceof \App\Link)
                         <link-card :single="false" :link="{{ json_encode(\App\Http\Resources\LinkResource::make($post->postable)) }}"></link-card>

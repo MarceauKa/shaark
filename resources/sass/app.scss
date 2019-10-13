@@ -24,18 +24,6 @@ nav.navbar,
     box-shadow: $box-shadow-sm;
 }
 
-.card {
-    box-shadow: $box-shadow-sm;
-
-    .card-header {
-        border-bottom: none;
-    }
-
-    .card-footer {
-        border-top: none;
-    }
-}
-
 #app {
     display: flex;
     flex-direction: column;
@@ -72,13 +60,13 @@ nav.navbar,
 
         @include media-breakpoint-down(sm) {
             ul.navbar-nav li.dropdown > a {
-                text-align: right;
+                text-align: right
             }
         }
     }
 
     > main {
-        flex-grow: 2;
+        flex-grow: 2
     }
 
     > footer {
@@ -89,14 +77,43 @@ nav.navbar,
     }
 }
 
-.home {
-    &.alt {
-        .card-columns {
-            column-count: 2;
+.card {
+    box-shadow: $box-shadow-sm;
 
-            @include media-breakpoint-down(sm) {
-                column-count: 1;
-            }
+    .card-header {
+        border-bottom: none
+    }
+
+    .card-footer {
+        border-top: none
+    }
+}
+
+.card-columns {
+    &.column-1 { column-count: 1 }
+    &.column-2 { column-count: 2 }
+    &.column-3 { column-count: 3 }
+    &.column-4 { column-count: 4 }
+
+    @include media-breakpoint-down(sm) {
+        &.column-2 { column-count: 1 }
+        &.column-3 { column-count: 1 }
+        &.column-4 { column-count: 1 }
+    }
+
+    @include media-breakpoint-only(md) {
+        &.column-3 { column-count: 2 }
+        &.column-4 { column-count: 2 }
+    }
+
+    @include media-breakpoint-only(lg) {
+        &.column-4 { column-count: 3 }
+    }
+
+    &.compact {
+        .card-content,
+        .card-preview {
+            display: none
         }
     }
 }
@@ -116,7 +133,7 @@ nav.navbar,
 .card--chest {
     h5.card-title {
         span {
-            text-transform: uppercase;
+            text-transform: uppercase
         }
     }
 }

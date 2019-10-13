@@ -2,15 +2,16 @@
     <div class="card card--link mb-4" :class="{'card-single': single, 'card-index': !single}">
         <div class="card-body">
             <h5 class="card-title">
-                <span>{{ __('Link') }}</span> &mdash; <a :href="link.url">{{ link.title }}</a>
+                <span>{{ __('Link') }}</span> &mdash; <a :href="link.permalink">{{ link.title }}</a><br>
+                <a :href="link.url" class="small text-muted">{{ displayUrl }}</a>
             </h5>
 
-            <p class="card-text" v-html="link.content"></p>
+            <p class="card-content" v-html="link.content"></p>
 
-            <div class="card-preview card-reduce mb-1" v-html="link.preview" v-if="link.preview"></div>
+            <div class="card-preview mb-1" v-html="link.preview" v-if="link.preview"></div>
 
             <p class="card-text mt-1" v-if="link.tags.length > 0">
-                <a v-for="tag in link.tags" class="badge badge-secondary" :href="`/tag/${tag}`">{{ tag }}</a>
+                <a v-for="tag in link.tags" class="badge badge-secondary mr-1" :href="`/tag/${tag}`">{{ tag }}</a>
             </p>
         </div>
 
@@ -64,7 +65,6 @@ export default {
                     }
                 })
                 .catch(error => {
-                    console.log(error);
                     this.$toasted.error(this.__("Unable to delete link"));
                 })
         },
@@ -76,9 +76,22 @@ export default {
                     window.location.reload();
                 })
                 .catch(error => {
-                    console.log(error);
                     this.$toasted.error(this.__("Unable to update link preview"));
                 })
+        }
+    },
+
+    computed: {
+        displayUrl: function () {
+            let url = this.link.url;
+            let length = url.length;
+
+            if (length > 65) {
+                let displayUrl = url.substr(0, 62);
+                return `${displayUrl}...`;
+            }
+
+            return url;
         }
     }
 }

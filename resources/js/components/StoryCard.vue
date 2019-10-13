@@ -5,12 +5,12 @@
                 <span>{{ __('Story') }}</span> &mdash; <a :href="story.url">{{ story.title }}</a>
             </h5>
 
-            <div class="card-text">
+            <div class="card-content">
                 <viewer :value="story.content"></viewer>
             </div>
 
             <p class="card-text mt-1" v-if="story.tags.length > 0">
-                <a v-for="tag in story.tags" class="badge badge-secondary" :href="`/tag/${tag}`">{{ tag }}</a>
+                <a v-for="tag in story.tags" class="badge badge-secondary mr-1" :href="`/tag/${tag}`">{{ tag }}</a>
             </p>
         </div>
 

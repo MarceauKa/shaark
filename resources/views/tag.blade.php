@@ -8,10 +8,14 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-12">
-            <h2>{{ __('Tag') }} : {{ $tag->name }}</h2>
-            <p class="text-muted">{{ $posts->total() }} {{ Str::plural('élément', $posts->total()) }}</p>
+            <div class="card-columns column-{{ $columns_count }} {{ $compact ? 'compact' : '' }}">
+                <div class="card">
+                    <div class="card-header">{{ __('Tag') }} &mdash; {{ $tag->name }}</div>
+                    <div class="card-body">
+                        {{ $posts->total() }} {{ Str::plural('élément', $posts->total()) }}
+                    </div>
+                </div>
 
-            <div class="card-columns mt-4">
                 @foreach($posts as $post)
                     @if($post->postable instanceof \App\Link)
                         <link-card :single="false" :link="{{ json_encode(\App\Http\Resources\LinkResource::make($post->postable)) }}"></link-card>

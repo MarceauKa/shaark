@@ -47,11 +47,33 @@
 
                     <div class="form-group">
                         <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" name="homepage_alt" id="homepage_alt" {{ $settings['homepage_alt'] ? ' checked' : '' }}>
-                            <label class="custom-control-label" for="homepage_alt">{{ __('Alternative homepage') }}</label>
+                            <input type="checkbox" class="custom-control-input" name="home_show_tags" id="home_show_tags" {{ $settings['home_show_tags'] ? ' checked' : '' }}>
+                            <label class="custom-control-label" for="home_show_tags">{{ __('Show tags on homepage') }}</label>
                         </div>
+                    </div>
 
-                        <span class="text-muted">{{ __("Homepage with sidebar. Only show links and stories.") }}</span>
+                    <div class="form-group">
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input" name="home_show_chests" id="home_show_chests" {{ $settings['home_show_chests'] ? ' checked' : '' }}>
+                            <label class="custom-control-label" for="home_show_chests">{{ __('Show chests on homepage') }}</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input" name="compact_cardslist" id="compact_cardslist" {{ $settings['compact_cardslist'] ? ' checked' : '' }}>
+                            <label class="custom-control-label" for="compact_cardslist">{{ __('Compact cards list') }}</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">{{ __('Number of columns to show') }}</label>
+                        <input type="number" class="form-control {{ $errors->has('columns_count') ? ' is-invalid' : '' }}" step="1" min="1" max="4"
+                               name="columns_count" id="columns_count" value="{{ $settings['columns_count'] }}">
+
+                        @error('columns_count')
+                        <span class="invalid-feedback" role="alert">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div class="form-group">

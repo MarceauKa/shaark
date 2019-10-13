@@ -5,40 +5,38 @@ namespace App\Http\Controllers;
 use App\Chest;
 use App\Link;
 use App\Post;
+use App\Services\Shaarli\Shaarli;
 use App\Story;
 use App\Tag;
 use Illuminate\Http\Request;
 
 class BrowseController extends Controller
 {
-    public function index(Request $request)
+    public function index(Request $request, Shaarli $shaarli)
     {
-        if (true === app('shaarli')->getHomepageAlt()) {
-            $posts = Post::with('tags', 'postable')
-                ->withoutChests()
-                ->withPrivate($request)
-                ->latest()
-                ->paginate(20);
+        $tags = collect([]);
+        $posts = Post::with('tags', 'postable');
 
-            $tags = Tag::withCount('posts')
-                    ->orderBy('posts_count', 'desc')
-                    ->get();
-
-            return view('home-alt')->with([
-                'page_title' => app('shaarli')->getName(),
-                'posts' => $posts,
-                'tags' => $tags,
-            ]);
+        if (false === $shaarli->getHomeShowChests()) {
+            $posts->withoutChests();
         }
 
-        $posts = Post::with('tags', 'postable')
-            ->withPrivate($request)
+        $posts = $posts->withPrivate($request)
             ->latest()
             ->paginate(20);
+
+        if (true === $shaarli->getHomeShowTags()) {
+            $tags = Tag::withCount('posts')
+                ->orderBy('posts_count', 'desc')
+                ->get();
+        }
 
         return view('home')->with([
             'page_title' => app('shaarli')->getName(),
             'posts' => $posts,
+            'tags' => $tags,
+            'compact' => $shaarli->getCompactCardslist(),
+            'columns_count' => $shaarli->getColumnsCount(),
         ]);
     }
 
@@ -84,7 +82,7 @@ class BrowseController extends Controller
         ]);
     }
 
-    public function tag(Request $request, string $tag)
+    public function tag(Request $request, Shaarli $shaarli, string $tag)
     {
         $tag = Tag::named($tag)->firstOrFail();
 
@@ -104,6 +102,8 @@ class BrowseController extends Controller
             ]),
             'tag' => $tag,
             'posts' => $posts,
+            'compact' => $shaarli->getCompactCardslist(),
+            'columns_count' => $shaarli->getColumnsCount(),
         ]);
     }
 }

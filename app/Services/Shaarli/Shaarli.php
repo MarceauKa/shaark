@@ -89,9 +89,21 @@ class Shaarli
                 'default' => false,
                 'rules' => ['nullable', 'in:on,off']
             ],
-            'homepage_alt' => [
+            'home_show_tags' => [
+                'default' => true,
+                'rules' => ['nullable', 'in:on,off']
+            ],
+            'home_show_chests' => [
+                'default' => true,
+                'rules' => ['nullable', 'in:on,off']
+            ],
+            'compact_cardslist' => [
                 'default' => false,
                 'rules' => ['nullable', 'in:on,off']
+            ],
+            'columns_count' => [
+                'default' => 3,
+                'rules' => ['required', 'numeric', 'min:1', 'max:4']
             ],
             'custom_background' => [
                 'default' => null,
