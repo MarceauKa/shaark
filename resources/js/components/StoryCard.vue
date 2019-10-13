@@ -6,7 +6,7 @@
             </h5>
 
             <div class="card-text">
-                <vue-markdown>{{ story.content }}</vue-markdown>
+                <viewer :value="story.content"></viewer>
             </div>
 
             <p class="card-text mt-1" v-if="story.tags.length > 0">
@@ -34,7 +34,14 @@
 </template>
 
 <script>
+import 'highlight.js/styles/github.css';
+import Viewer from '@toast-ui/vue-editor/src/Viewer.vue'
+
 export default {
+    components: {
+        Viewer
+    },
+
     props: {
         single: {
             type: Boolean,

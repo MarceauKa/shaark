@@ -184,8 +184,7 @@ Our dependencies with link to their documentation and why we use it.
 - [bootstrap](http://getbootstrap.com) is used as CSS framework
 - [vue](https://github.com/vuejs/vue) is used as JS framework 
 - [axios](https://github.com/axios/axios) is for http requests
-- [mavon-editor](https://github.com/hinesboy/mavonEditor) is used as markdown editor for stories
-- [vue-markdown](https://github.com/miaolz123/vue-markdown) is used as markdown parser for stories
+- [tui.editor](https://github.com/nhn/toast-ui.vue-editor) is used for both editing and viewing markdown
 - [vue-multiselect](https://vue-multiselect.js.org/) is used for the tags system
 - [vue-toasted](https://github.com/shakee93/vue-toasted) is used for in app notifications
 - [vuedraggable](https://www.npmjs.org/package/vuedraggable) is used to reorder items in chests

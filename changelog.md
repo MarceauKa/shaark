@@ -3,6 +3,7 @@
 ## Changed
 
 - Laravel 6.2
+- Removed `mavon-editor` and `vue-markdown` for `tui.editor`
 - Card UI and Search UI
 
 # 1.2.14

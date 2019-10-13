@@ -10,11 +10,11 @@
 
             <div class="form-group">
                 <label for="content">{{ __('Content') }}</label>
-                <mavon-editor id="content"
-                              language="fr"
-                              :boxShadow="false"
-                              :toolbars="editorToolbars"
-                              v-model="form.content"></mavon-editor>
+                <editor id="content"
+                        previewStyle="vertical"
+                        :options="editor"
+                        v-model="form.content"
+                ></editor>
             </div>
 
             <div class="form-group">
@@ -53,8 +53,9 @@ let defaultStory = function () {
 
 import formErrors from "../mixins/formErrors";
 import httpErrors from "../mixins/httpErrors";
-import Editor from 'mavon-editor';
-Vue.use(Editor);
+import 'tui-editor/dist/tui-editor.css';
+import 'codemirror/lib/codemirror.css';
+import Editor from '@toast-ui/vue-editor/src/Editor.vue'
 
 export default {
     mixins: [
@@ -78,36 +79,35 @@ export default {
         return {
             form: defaultStory(),
             loading: false,
-            editorToolbars: {
-                bold: true,
-                italic: true,
-                header: true,
-                underline: true,
-                strikethrough: true,
-                mark: true,
-                superscript: true,
-                subscript: true,
-                quote: true,
-                ol: true,
-                ul: true,
-                link: true,
-                imagelink: true,
-                code: true,
-                table: true,
-                fullscreen: false,
-                readmodel: false,
-                htmlcode: false,
-                help: false,
-                undo: true,
-                redo: true,
-                trash: false,
-                save: false,
-                navigation: false,
-                alignleft: true,
-                aligncenter: true,
-                alignright: true,
-                subfield: true,
-                preview: true
+            editor: {
+                minHeight: '300px',
+                language: 'fr_FR',
+                useCommandShortcut: true,
+                useDefaultHTMLSanitizer: true,
+                usageStatistics: false,
+                hideModeSwitch: true,
+                toolbarItems: [
+                    'heading',
+                    'bold',
+                    'italic',
+                    'strike',
+                    'divider',
+                    'hr',
+                    'quote',
+                    'divider',
+                    'ul',
+                    'ol',
+                    'task',
+                    'indent',
+                    'outdent',
+                    'divider',
+                    'table',
+                    'image',
+                    'link',
+                    'divider',
+                    'code',
+                    'codeblock'
+                ]
             }
         }
     },

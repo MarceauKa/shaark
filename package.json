@@ -10,6 +10,7 @@
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
     },
     "devDependencies": {
+        "@toast-ui/vue-editor": "^1.1.1",
         "axios": "^0.18",
         "babel-runtime": "^6.26.0",
         "bootstrap": "^4.1.0",
@@ -18,18 +19,18 @@
         "jquery": "^3.2",
         "laravel-mix": "^4.0.7",
         "lodash": "^4.17.5",
-        "mavon-editor": "^2.7.5",
         "popper.js": "^1.12",
         "resolve-url-loader": "3.1.0",
         "sass": "^1.22.10",
         "sass-loader": "7.*",
         "vue": "^2.5.17",
         "vue-clickaway": "^2.2.2",
-        "vue-markdown": "^2.2.4",
         "vue-multiselect": "^2.1.6",
         "vue-template-compiler": "^2.6.10",
         "vue-toasted": "^1.1.27",
-        "vuedraggable": "^2.23.0",
+        "vuedraggable": "^2.23.0"
+    },
+    "dependencies": {
         "@nesk/puphpeteer": "^1.6.0"
     }
 }
