@@ -26,6 +26,14 @@ nav.navbar,
 
 .card {
     box-shadow: $box-shadow-sm;
+
+    .card-header {
+        border-bottom: none;
+    }
+
+    .card-footer {
+        border-top: none;
+    }
 }
 
 #app {
@@ -35,7 +43,10 @@ nav.navbar,
     min-height: 100%;
 
     > nav.navbar {
+        padding: 1rem;
+
         .dropdown-menu {
+            box-shadow: $box-shadow-lg;
             z-index: 1600;
         }
 
@@ -43,6 +54,10 @@ nav.navbar,
             width: 100%;
             padding-left: 1rem;
             padding-right: 1rem;
+
+            .results {
+                box-shadow: $box-shadow-lg;
+            }
 
             @include media-breakpoint-down(sm) {
                 margin-top: 10px;
@@ -69,12 +84,8 @@ nav.navbar,
     > footer {
         width: 100%;
         background-color: rgba(255, 255, 255, .9);
-        border-top: 1px solid $indigo;
-        padding: 1rem 0;
-
-        p {
-            margin-bottom: 0;
-        }
+        box-shadow: $box-shadow-sm;
+        padding: 1rem;
     }
 }
 
@@ -106,26 +117,6 @@ nav.navbar,
     h5.card-title {
         span {
             text-transform: uppercase;
-        }
-    }
-
-    &.card-index {
-        .card-reduce {
-            position: relative;
-            max-height: 250px;
-            overflow-y: hidden;
-            overflow-x: hidden;
-
-            &::after {
-                content: "";
-                position: absolute;
-                bottom: 0;
-                display: block;
-                width: 100%;
-                height: 30px;
-                background-image: linear-gradient(to bottom, transparent 0%, white 100%);
-                background-repeat: repeat;
-            }
         }
     }
 }

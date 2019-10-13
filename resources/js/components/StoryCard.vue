@@ -5,7 +5,7 @@
                 <span>{{ __('Story') }}</span> &mdash; <a :href="story.url">{{ story.title }}</a>
             </h5>
 
-            <div class="card-text card-reduce">
+            <div class="card-text">
                 <vue-markdown>{{ story.content }}</vue-markdown>
             </div>
 

@@ -1,5 +1,5 @@
 <template>
-    <form class="form-inline">
+    <form class="form-inline position-relative mb-0">
         <input class="form-control w-100"
                type="search"
                ref="input"
@@ -10,7 +10,7 @@
                @keydown.enter.prevent.stop="redirect"
         >
 
-        <div class="list-group results"
+        <div class="list-group results mt-1"
              :class="{'active': hasResults}"
              v-on-clickaway="hide"
         >
@@ -18,13 +18,15 @@
                 v-if="hasTagsResults"
             >
                 Tags :
-                <a v-for="result in results.tags"
-                   class="btn btn-primary btn-sm"
-                   v-if="hasTagsResults"
-                   :href="result.url"
-                >
-                    {{ result.name }}
-                </a>
+                <div>
+                    <a v-for="result in results.tags"
+                       class="btn btn-primary btn-sm mr-1"
+                       v-if="hasTagsResults"
+                       :href="result.url"
+                    >
+                        {{ result.name }}
+                    </a>
+                </div>
             </div>
 
             <a v-for="(result, key) in results.posts"
@@ -37,8 +39,9 @@
                     <span>{{ result.type }} &mdash;</span>
                     <strong>{{ result.title }}</strong>
                 </div>
+
                 <div v-if="result.tags.length > 0">
-                    <span class="badge badge-secondary pr-1" v-for="tag in result.tags">{{ tag }}</span>
+                    <span class="badge badge-secondary mr-1" v-for="tag in result.tags">{{ tag }}</span>
                 </div>
             </a>
         </div>
@@ -104,8 +107,9 @@ export default {
         },
 
         hide() {
-            this.query = "";
+            this.query = null;
             this.results = {};
+            this.selected = null;
         },
 
         redirect() {
@@ -162,22 +166,22 @@ export default {
 </script>
 
 <style lang="scss">
-    .form-inline {
-        position: relative;
-        margin-bottom: 0;
-    }
     .results {
         z-index: 500;
         position: absolute;
         top: 40px;
         width: calc(100% - 2rem);
         display: none;
+
         &.active {
             display: block;
         }
+
         .list-group-item {
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
+
             div:first-child {
                 > span {
                     text-transform: uppercase;

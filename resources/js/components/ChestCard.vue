@@ -5,9 +5,7 @@
                 <span>{{ __('Chest') }}</span> &mdash; <a :href="chest.permalink">{{ chest.title }}</a>
             </h5>
 
-            <div class="card-reduce">
-                <chest-lines :preview="chest.content"></chest-lines>
-            </div>
+            <chest-lines :preview="chest.content"></chest-lines>
 
             <p class="card-text mt-1" v-if="chest.tags.length > 0">
                 <a v-for="tag in chest.tags" class="badge badge-secondary" :href="`/tag/${tag}`">{{ tag }}</a>

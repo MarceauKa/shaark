@@ -3,6 +3,7 @@
 ## Changed
 
 - Laravel 6.2
+- Card UI and Search UI
 
 # 1.2.14
 

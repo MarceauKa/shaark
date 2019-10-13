@@ -5,7 +5,7 @@
                 <span>{{ __('Link') }}</span> &mdash; <a :href="link.url">{{ link.title }}</a>
             </h5>
 
-            <p class="card-text card-reduce" v-html="link.content"></p>
+            <p class="card-text" v-html="link.content"></p>
 
             <div class="card-preview card-reduce mb-1" v-html="link.preview" v-if="link.preview"></div>
 
