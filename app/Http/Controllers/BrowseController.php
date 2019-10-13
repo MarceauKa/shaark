@@ -26,7 +26,7 @@ class BrowseController extends Controller
             ->paginate(20);
 
         if (true === $shaarli->getHomeShowTags()) {
-            $tags = Tag::withCount('posts')
+            $tags = Tag::withPostsFor($request)
                 ->orderBy('posts_count', 'desc')
                 ->get();
         }

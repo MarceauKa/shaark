@@ -1,5 +1,9 @@
 # Unreleased
 
+## Changed
+
+- Only display available tags for the current user or guest
+
 ## Fixed
 
 - Demo mode on manage tags and users API 
