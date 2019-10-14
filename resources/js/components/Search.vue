@@ -75,11 +75,11 @@ export default {
     mounted() {
         document.addEventListener('keydown', (event) => {
             let isEventSafe = (event) => {
-                return event.target.tagName != 'INPUT'
-                    && event.target.tagName != 'TEXTAREA';
+                return event.target.tagName !== 'INPUT'
+                    && event.target.tagName !== 'TEXTAREA';
             };
 
-            if (event.keyCode === 191 && isEventSafe(event)) {
+            if (['/'].indexOf(event.key) !== -1 && isEventSafe(event)) {
                 event.preventDefault();
                 event.stopPropagation();
                 this.$refs.input.focus();

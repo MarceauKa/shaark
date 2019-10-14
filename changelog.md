@@ -4,6 +4,10 @@
 
 - Refactored dark mode
 
+## Fixed
+
+- Search global shortcut on Firefox
+
 # 1.2.16
 
 ## Added
