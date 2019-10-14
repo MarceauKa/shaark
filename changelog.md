@@ -3,6 +3,7 @@
 ## Changed
 
 - Only display available tags for the current user or guest
+- Assets are now splitted into `vendor.js` and `app.js` to reduce bundle size
 
 ## Fixed
 
