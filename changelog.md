@@ -1,3 +1,9 @@
+# Unreleased
+
+## Changed
+
+- Refactored dark mode
+
 # 1.2.16
 
 ## Added

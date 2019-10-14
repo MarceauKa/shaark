@@ -1,10 +1,64 @@
 body.dark {
-  background-image: linear-gradient(to top, #505285 0%, #585e92 12%, #65689f 25%, #7474b0 37%, #7e7ebb 50%, #8389c7 62%, #9795d4 75%, #a2a1dc 87%, #b5aee4 100%);
-  filter: hue-rotate(180deg) invert(1);
+    background-image: linear-gradient(to top, #505285 0%, #585e92 12%, #65689f 25%, #7474b0 37%, #7e7ebb 50%, #8389c7 62%, #9795d4 75%, #a2a1dc 87%, #b5aee4 100%);
 
-  img,
-  video,
-  iframe {
-    filter: hue-rotate(180deg) invert(1);
-  }
+    nav.navbar {
+        @extend .navbar-dark;
+        @extend .bg-dark;
+    }
+
+    .card {
+        @extend .bg-dark;
+        @extend .text-white;
+
+        .card-footer {
+            .btn-outline-dark {
+                @extend .btn-outline-primary;
+            }
+        }
+    }
+
+    .dropdown {
+        .dropdown-menu {
+            @extend .bg-dark;
+
+            .dropdown-item {
+                @extend .text-white;
+
+                &:hover,
+                &:focus {
+                    @extend .active;
+                }
+            }
+        }
+    }
+
+    .list-group {
+        .list-group-item:not(.active) {
+            @extend .bg-dark;
+            @extend .text-white;
+        }
+    }
+
+    input.form-control,
+    textarea.form-control,
+    .multiselect__tags {
+        @extend .bg-dark;
+        @extend .text-white;
+    }
+
+    table.table {
+        @extend .bg-dark;
+        @extend .text-white;
+    }
+
+    pre {
+        code {
+            @extend .text-white;
+        }
+    }
+
+    footer {
+        @extend .bg-dark;
+        @extend .text-white;
+    }
 }
