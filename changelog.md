@@ -1,5 +1,10 @@
 # Unreleased
 
+## Added
+
+- Check if a link has been already shared (thanks to [tuananhp-1844](https://github.com/tuananhp-1844))
+- Tests for LinkForm
+
 ## Changed
 
 - Only display available tags for the current user or guest
