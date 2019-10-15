@@ -119,12 +119,18 @@ nav.navbar,
 }
 
 .card-preview {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+
     iframe {
-        display: inline-block;
-        margin: 0 auto !important;
-        max-width: 100% !important;
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
-        height: auto;
+        height: 100%;
     }
 }
 

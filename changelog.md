@@ -1,3 +1,13 @@
+# Unreleased
+
+## Fixed
+
+- Responsive link preview
+
+## Changed
+
+- DatabaseSeeder with english tags
+
 # 1.2.17
 
 ## Added

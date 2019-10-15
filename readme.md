@@ -52,7 +52,7 @@ but built with [Laravel](https://github.com/laravel/laravel) and [Vue.js](https:
 
 ## Demo
 
-![Homepage](/resources/screenshots/home.png?raw=true "Homepage")
+![Homepage](/resources/screenshots/home.jpg?raw=true "Homepage")
 
 A public demo is available at [https://shaarli.mka.ovh](https://shaarli.mka.ovh). Credentials are **admin@example.com** and **secret**. 
 This demo is resetted hourly.

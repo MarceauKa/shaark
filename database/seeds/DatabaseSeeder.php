@@ -38,15 +38,15 @@ class DatabaseSeeder extends Seeder
                 'preview' => '<iframe width="100%" height="140" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?visual=false&url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F563826981&show_artwork=false"></iframe>',
             ]),
             \App\Link::create([
-                'title' => 'Morten Granau - Scope (Official Audio)',
-                'url' => 'https://www.youtube.com/watch?v=uQbUzL0VE7w',
-                'preview' => '<iframe width="100%" src="https://www.youtube.com/embed/uQbUzL0VE7w" frameborder="0" allowfullscreen></iframe>'
+                'title' => 'Fakear live @ Tal Mixta for Cercle - YouTube',
+                'url' => 'https://www.youtube.com/watch?v=-zZbkPnBtS8',
+                'preview' => '<iframe width="100%" src="https://www.youtube.com/embed/-zZbkPnBtS8" frameborder="0" allowfullscreen></iframe>'
             ]),
             \App\Chest::create([
                 'title' => config('app.name'),
                 'content' => [
                     ['type' => 'url', 'name' => 'URL', 'value' => route('login')],
-                    ['type' => 'text', 'name' => 'Email', 'value' => 'admin@example.fr'],
+                    ['type' => 'text', 'name' => 'Email', 'value' => 'admin@example.com'],
                     ['type' => 'password', 'name' => 'Mot de passe', 'value' => Str::random(12)],
                     ['type' => 'code', 'name' => 'Code', 'value' => "<?php\n\nnamespace App\\Service;\n\nclass Foobar {\n\n\n}\n"],
                 ]
@@ -60,8 +60,8 @@ class DatabaseSeeder extends Seeder
 
         $items[0]->post->attachTag('Web');
         $items[1]->post->attachTag('Web');
-        $items[2]->post->attachTag('Musique');
-        $items[3]->post->attachTag('Musique');
-        $items[4]->post->attachTag('Compte');
+        $items[2]->post->attachTag('Music');
+        $items[3]->post->attachTag('Music');
+        $items[4]->post->attachTag('Account');
     }
 }
