@@ -1,5 +1,9 @@
 # Unreleased
 
+## Added
+
+- Update command: `php artisan shaarli:update`
+
 ## Changed
 
 - Refactored dark mode

@@ -113,7 +113,7 @@ Non-admin users can't access the settings section and can only see their own pri
 
 ## Update
 
-Update the application by running:
+Update the application by running or use the `php artisan shaarli:update`.
 
 ```bash
 php artisan down
@@ -160,6 +160,12 @@ php artisan view:clear
 `php artisan shaarli:install`
 
 This command will install default data (seeder) or ask you for the default user.
+
+### Update command
+
+`php artisan shaarli:update`
+
+This command will try to [update](#update) Shaarli. `Git` and `Composer` must be accessible from your env.
 
 ### Encrypt and decrypt
 
