@@ -3,6 +3,7 @@
 ## Changed
 
 - Refactored dark mode
+- Title tag is read before open graph tags when parsing an URL
 
 ## Fixed
 
