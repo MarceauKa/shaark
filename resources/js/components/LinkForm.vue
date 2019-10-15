@@ -1,5 +1,5 @@
 <template>
-    <div class="card">
+    <div class="card card--link">
         <div class="card-body">
             <div class="form-group">
                 <label for="url">{{ __('URL') }}</label>

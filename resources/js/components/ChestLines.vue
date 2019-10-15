@@ -41,7 +41,7 @@
                             <div class="col-12 col-md-8">
                                 <div class="input-group">
                                     <textarea class="form-control" rows="5" name="value" v-model="item.value" v-if="item.type === 'code'"></textarea>
-                                    <input type="text" class="form-control" name="value" v-model="item.value" v-else>
+                                    <input type="text" class="form-control" name="value" v-model="item.value" autocomplete="off" v-else>
 
                                     <div class="input-group-append">
                                         <confirm tag="button" class="btn btn-outline-secondary" @confirmed="deleteLine(item)" text="&times;" text-confirm="&#10003;"></confirm>
@@ -69,7 +69,7 @@
                     <a :href="line.value" target="_blank" v-if="line.type === 'url'">{{ line.value }}</a>
 
                     <div class="input-group input-group-sm" v-else-if="line.type === 'password'">
-                        <input type="password" class="form-control" :value="line.value">
+                        <input type="password" class="form-control" autocomplete="off" :value="line.value" readonly>
 
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary" type="button" @click="toggleShowPassword($event, key)">{{ __('Show') }}</button>

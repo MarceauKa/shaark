@@ -1,5 +1,5 @@
 <template>
-    <div class="card">
+    <div class="card card--story">
         <div class="card-body">
             <div class="form-group">
                 <label for="title">{{ __('Title') }}</label>

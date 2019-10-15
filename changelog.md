@@ -12,6 +12,7 @@
 ## Fixed
 
 - Search global shortcut on Firefox
+- Chest password are now readonly
 
 # 1.2.16
 
