@@ -2,7 +2,7 @@
 
 ## Fixed
 
-- Responsive link preview
+- Responsive youtube preview
 
 ## Changed
 

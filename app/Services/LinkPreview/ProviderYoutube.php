@@ -18,7 +18,7 @@ class ProviderYoutube extends BaseProvider
         $id = $matches[1];
 
         if ($id) {
-            return '<iframe width="100%" src="https://www.youtube.com/embed/'.$id.'" frameborder="0" allowfullscreen></iframe>';
+            return '<div class="responsive-preview"><iframe width="100%" src="https://www.youtube.com/embed/'.$id.'" frameborder="0" allowfullscreen></iframe></div>';
         }
 
         return null;
