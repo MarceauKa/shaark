@@ -11,9 +11,9 @@ class WebParser
     /** @var Crawler $crawler */
     public $crawler;
     /** @var string $title */
-    public $title;
+    public $title = '';
     /** @var string $content */
-    public $content;
+    public $content = '';
 
     public function __construct(string $url)
     {
@@ -52,8 +52,11 @@ class WebParser
 
     public function grepInfos(): self
     {
-        $this->grepTitle();
-        $this->grepContent();
+        if (! empty($this->crawler)
+            && ! empty($this->crawler->html())) {
+            $this->grepTitle();
+            $this->grepContent();
+        }
 
         return $this;
     }

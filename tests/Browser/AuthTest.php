@@ -69,5 +69,7 @@ class AuthTest extends DuskTestCase
                 ->press("Login")
                 ->assertSee($user->name);
         });
+
+        $this->shaarli()->setSecureLogin(false);
     }
 }
