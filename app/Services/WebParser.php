@@ -2,12 +2,14 @@
 
 namespace App\Services;
 
+use Symfony\Component\DomCrawler\Crawler;
+
 class WebParser
 {
     /** @var string $url */
     public $url;
-    /** @var string $raw */
-    public $raw;
+    /** @var Crawler $crawler */
+    public $crawler;
     /** @var string $title */
     public $title;
     /** @var string $content */
@@ -29,13 +31,17 @@ class WebParser
     {
         try {
             $curl = curl_init();
+
             curl_setopt($curl, CURLOPT_URL, trim($this->url));
             curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
             curl_setopt($curl, CURLOPT_TIMEOUT, 5);
             curl_setopt($curl, CURLOPT_HTTPHEADER, [
                 'Accept: text/*; application/*',
             ]);
-            $this->raw = curl_exec($curl);
+
+            $content = curl_exec($curl);
+            $this->crawler = new Crawler($content);
+
             curl_close($curl);
         } catch (\Exception $e) {
             unset($e);
@@ -54,14 +60,25 @@ class WebParser
 
     private function grepTitle(): string
     {
-        if (preg_match('/<title>(.*)<\/title>/', $this->raw, $matches)) {
-            $this->title = strip_tags($matches[1]);
+        try {
+            $this->title = $this->crawler->filterXPath('//title')->text();
             return $this->title;
+        } catch (\Exception $e) {
+            unset($e);
         }
 
-        if (preg_match('/<meta (?:name|property)=(?:"|\')og:title(?:"|\') content=(?:"|\')(.*)(?:"|\')(?:\s?\/?)>/', $this->raw, $matches)) {
-            $this->title = strip_tags($matches[1]);
+        try {
+            $this->title = $this->crawler->filterXPath('//meta[@property="og:title"]')->attr('content');
             return $this->title;
+        } catch (\Exception $e) {
+            unset($e);
+        }
+
+        try {
+            $this->title = $this->crawler->filterXPath('//meta[@name="twitter:title"]')->attr('content');
+            return $this->title;
+        } catch (\Exception $e) {
+            unset($e);
         }
 
         return '';
@@ -69,9 +86,25 @@ class WebParser
 
     private function grepContent(): string
     {
-        if (preg_match('/<meta name=(?:"|\')(?:og\:)?description(?:"|\') content=(?:"|\')(.*)(?:"|\')(?:\s?\/?)>/', $this->raw, $matches)) {
-            $this->content = strip_tags($matches[1]);
+        try {
+            $this->content = $this->crawler->filterXPath('//meta[@name="description"]')->attr('content');
             return $this->content;
+        } catch (\Exception $e) {
+            unset($e);
+        }
+
+        try {
+            $this->content = $this->crawler->filterXPath('//meta[@property="og:description"]')->attr('content');
+            return $this->content;
+        } catch (\Exception $e) {
+            unset($e);
+        }
+
+        try {
+            $this->content = $this->crawler->filterXPath('//meta[@name="twitter:description"]')->attr('content');
+            return $this->content;
+        } catch (\Exception $e) {
+            unset($e);
         }
 
         return '';

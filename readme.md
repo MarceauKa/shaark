@@ -182,6 +182,7 @@ Our dependencies with link to their documentation and why we use it.
 - [scout](https://laravel.com/docs/6.x/scout) is used for full-text search in database
 - [excel](https://github.com/Maatwebsite/Laravel-Excel) is used to generate exports as xlsx or csv
 - [valuestore](https://github.com/spatie/valuestore) is used for application settings
+- [dom-crawler](https://github.com/symfony/dom-crawler) is used to read metadata from posted links
 - [puphpeteer](https://github.com/nesk/puphpeteer/) is used to save your links as PDF using a chrome browser
 - [youtube-dl-php](https://github.com/norkunas/youtube-dl-php) is a bridge to youtube-dl to save you links (youtube, soundcloud, ...) as a local copy
 

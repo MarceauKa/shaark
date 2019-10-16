@@ -1,12 +1,13 @@
 # Unreleased
 
+## Changed
+
+- WebParser now use Symfony DomCrawler
+- DatabaseSeeder with english tags
+
 ## Fixed
 
 - Responsive youtube preview
-
-## Changed
-
-- DatabaseSeeder with english tags
 
 # 1.2.17
 
