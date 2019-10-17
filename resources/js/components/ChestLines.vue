@@ -52,10 +52,10 @@
                                         <confirm tag="button"
                                                  class="btn btn-outline-secondary"
                                                  @confirmed="deleteLine(item)"
-                                                 text="&times;"
-                                                 text-confirm="&#10003;"
+                                                 text="<i class='fas fa-trash-alt'></i>"
+                                                 text-confirm="<i class='fas fa-check'></i>"
                                         ></confirm>
-                                        <button class="btn btn-outline-secondary handle-order" type="button">&uarr;&darr;</button>
+                                        <button class="btn btn-outline-secondary handle-order" type="button"><i class="fas fa-arrows-alt"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -144,7 +144,8 @@ export default {
                 animation: 200,
                 group: "lines",
                 disabled: false,
-                ghostClass: "ghost"
+                ghostClass: "ghost",
+                forceFallback: true
             },
         }
     },

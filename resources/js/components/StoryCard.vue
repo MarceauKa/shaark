@@ -15,17 +15,22 @@
         </div>
 
         <div class="card-footer d-flex justify-content-between">
-            <span>{{ story.is_private ? '🔒 ' : '' }}{{ story.date_formated }}</span>
+            <span><i class="fas fa-lock pr-2" v-if="story.is_private"></i>{{ story.date_formated }}</span>
 
             <div class="dropdown">
                 <button class="btn btn-outline-dark btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {{ __('More') }}
                 </button>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" :href="story.url">{{ __('Permalink') }}</a>
+                    <a class="dropdown-item" :href="story.url"><i class="fas fa-link fa-fw mr-1"></i> {{ __('Permalink') }}</a>
                     <h6 class="dropdown-header" v-if="story.editable">{{ __('Manage') }}</h6>
-                    <a class="dropdown-item" :href="story.url_edit" v-if="story.editable">{{ __('Edit') }}</a>
-                    <confirm class="dropdown-item" :text="__('Delete')" :text-confirm="__('Confirm')" @confirmed="remove" v-if="story.editable"></confirm>
+                    <a class="dropdown-item" :href="story.url_edit" v-if="story.editable"><i class="fas fa-pen-alt fa-fw mr-1"></i> {{ __('Edit') }}</a>
+                    <confirm class="dropdown-item"
+                             :text="`<i class='fas fa-trash-alt fa-fw mr-1'></i> ${__('Delete')}`"
+                             :text-confirm="`<i class='fas fa-check fa-fw mr-1'></i> ${__('Confirm')}`"
+                             @confirmed="remove"
+                             v-if="story.editable"
+                    ></confirm>
                 </div>
             </div>
         </div>

@@ -2,11 +2,13 @@
 
 ## Added
 
-- Shortcut to see Link, Story or Chest when created or updated  
+- Shortcut to see Link, Story or Chest when created or updated
+- Font Awesome 5 icons
 
 ## Fixed
 
 - WebParser with empty result
+- Dragging chest lines on Firefox
 
 # 1.2.18
 

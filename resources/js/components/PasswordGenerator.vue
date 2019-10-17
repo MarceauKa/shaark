@@ -1,5 +1,5 @@
 <template>
-    <button type="button" @click="generate">⚅</button>
+    <button type="button" @click="generate"><i class="fas fa-dice"></i></button>
 </template>
 
 <script>

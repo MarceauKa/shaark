@@ -145,7 +145,11 @@
                                             <td>
                                                 <div class="d-flex align-items-center">
                                                     <div class="mr-2">
-                                                        {{ $login->device->is_mobile ? '📱' : '🖥' }}
+                                                        @if($login->device->is_mobile)
+                                                        <i class="fas fa-mobile-alt"></i>
+                                                        @else
+                                                        <i class="fas fa-laptop"></i>
+                                                        @endif
                                                     </div>
                                                     <div class="d-flex flex-column">
                                                         <div>{{ $login->device->platform }} <small>{{ $login->device->platform_version }}</small></div>

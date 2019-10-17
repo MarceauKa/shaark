@@ -25,21 +25,31 @@
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <h6 class="dropdown-header">{{ __('Contents') }}</h6>
 
-                                <a class="dropdown-item" href="{{ route('link.create') }}">{{ __('Add link') }}</a>
-                                <a class="dropdown-item" href="{{ route('story.create') }}">{{ __('Add story') }}</a>
-                                <a class="dropdown-item" href="{{ route('chest.create') }}">{{ __('Add chest') }}</a>
+                                <a class="dropdown-item" href="{{ route('link.create') }}">
+                                    <i class="fas fa-link fa-fw mr-1"></i> {{ __('Add link') }}
+                                </a>
+                                <a class="dropdown-item" href="{{ route('story.create') }}">
+                                    <i class="fas fa-book fa-fw mr-1"></i> {{ __('Add story') }}
+                                </a>
+                                <a class="dropdown-item" href="{{ route('chest.create') }}">
+                                    <i class="fas fa-briefcase fa-fw mr-1"></i> {{ __('Add chest') }}
+                                </a>
 
                                 <h6 class="dropdown-header">{{ __('Manage') }}</h6>
 
-                                <a class="dropdown-item" href="{{ route('account') }}">{{ __('Account') }}</a>
-                                <a class="dropdown-item" href="{{ route('manage.settings') }}">{{ __('Settings') }}</a>
+                                <a class="dropdown-item" href="{{ route('account') }}">
+                                    <i class="fas fa-user fa-fw mr-1"></i> {{ __('Account') }}
+                                </a>
+                                <a class="dropdown-item" href="{{ route('manage.settings') }}">
+                                    <i class="fas fa-cogs fa-fw mr-1"></i> {{ __('Settings') }}
+                                </a>
 
                                 <h6 class="dropdown-header">{{ __('Session') }}</h6>
 
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
+                                    <i class="fas fa-sign-out-alt fa-fw mr-1"></i> {{ __('Logout') }}
                                 </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

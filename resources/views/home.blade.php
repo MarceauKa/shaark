@@ -13,7 +13,7 @@
                 @if($tags->isNotEmpty())
                 <div class="card">
                     <div class="card-header">
-                        {{ __('Tags') }}
+                        <i class="fas fa-tags"></i> {{ __('Tags') }}
                     </div>
                     <div class="card-body">
                         @foreach($tags as $tag)

@@ -16,20 +16,30 @@
         </div>
 
         <div class="card-footer d-flex justify-content-between">
-            <span>{{ link.is_private ? '🔒 ' : '' }}{{ link.date_formated }}</span>
+            <span><i class="fas fa-lock pr-2" v-if="link.is_private"></i>{{ link.date_formated }}</span>
 
             <div class="dropdown">
                 <button class="btn btn-outline-dark btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {{ __('More') }}
                 </button>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" :href="link.permalink">{{ __('Permalink') }}</a>
-                    <a class="dropdown-item" :href="link.url_download" v-if="link.url_download">{{ __('Download archive') }}</a>
+                    <a class="dropdown-item" :href="link.permalink"><i class="fas fa-link fa-fw mr-1"></i> {{ __('Permalink') }}</a>
+                    <a class="dropdown-item" :href="link.url_download" v-if="link.url_download"><i class="fas fa-file-download fa-fw mr-1"></i> {{ __('Download archive') }}</a>
                     <h6 class="dropdown-header" v-if="link.editable">{{ __('Manage') }}</h6>
-                    <a class="dropdown-item" :href="link.url_archive" v-if="link.editable">{{ __('Manage archive') }}</a>
-                    <confirm class="dropdown-item" :text="__('Update preview')" :text-confirm="__('Confirm')" @confirmed="preview" v-if="link.editable"></confirm>
-                    <a class="dropdown-item" :href="link.url_edit" v-if="link.editable">{{ __('Edit') }}</a>
-                    <confirm class="dropdown-item" :text="__('Delete')" :text-confirm="__('Confirm')" @confirmed="remove" v-if="link.editable"></confirm>
+                    <a class="dropdown-item" :href="link.url_archive" v-if="link.editable"><i class="fas fa-archive fa-fw mr-1"></i> {{ __('Manage archive') }}</a>
+                    <confirm class="dropdown-item"
+                             :text="`<i class='fas fa-sync fa-fw mr-1'></i> ${__('Update preview')}`"
+                             :text-confirm="`<i class='fas fa-check fa-fw mr-1'></i> ${__('Confirm')}`"
+                             @confirmed="preview"
+                             v-if="link.editable"
+                    ></confirm>
+                    <a class="dropdown-item" :href="link.url_edit" v-if="link.editable"><i class="fas fa-pen-alt fa-fw mr-1"></i> {{ __('Edit') }}</a>
+                    <confirm class="dropdown-item"
+                             :text="`<i class='fas fa-trash-alt fa-fw mr-1'></i> ${__('Delete')}`"
+                             :text-confirm="`<i class='fas fa-check fa-fw mr-1'></i> ${__('Confirm')}`"
+                             @confirmed="remove"
+                             v-if="link.editable"
+                    ></confirm>
                 </div>
             </div>
         </div>
