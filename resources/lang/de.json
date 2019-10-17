@@ -23,6 +23,8 @@
     "Unauthorized": "Nicht autorisiert",
     "Whoops!": "Hoppla !",
     "Whoops, something went wrong on our servers.": "Hoppla, auf unseren Servern ist etwas schief gelaufen.",
+    "Yes": "Yes",
+    "No": "No",
 
     "Login": "Anmeldung",
     "Logout": "Abmeldung",
@@ -73,6 +75,7 @@
     "Permalink": "Permanent-Link",
     "Edit": "Bearbeiten",
     "Delete": "Löschen",
+    "Purge": "Purge",
     "Confirm": "Bestätigen",
     "Save": "Speichern",
     "Save then archive": "Speichern und archivieren",
@@ -95,6 +98,7 @@
     "Private link?": "Privater Link ?",
     "Link created": "Link erstellt",
     "Link updated": "Link aktualisiert",
+    "Unable to parse link": "Unable to parse link",
     "Unable to save link": "Link kann nicht gespeichert werden",
     "Unable to delete link": "Link kann nicht gelöscht werden",
     "Link preview has been updated": "Linkvorschau wurde aktualisiert",
@@ -153,8 +157,10 @@
     "Private content (all content is private and login is required)": "Privater Inhalt (alle Inhalte sind privat und eine Anmeldung ist erforderlich)",
     "Appearance": "Aussehen",
     "Dark mode": "Dark Mode",
-    "Alternative homepage": "Alternative Homepage",
-    "Homepage with sidebar. Only show links and stories.": "Homepage mit Sidebar. Zeige nur Links und Berichte.",
+    "Show tags on homepage": "Show tags on homepage",
+    "Show chests on homepage": "Show chests on homepage",
+    "Compact cards list": "Compact cards list",
+    "Number of columns to show": "Number of columns to show",
     "Custom background image": "Benutzerdefiniertes Hintergrundbild",
     "Paste a link to an image. It'll be base64 encoded.": "Füge einen Link zu einem Bild ein. Es wird Base64-codiert sein.",
     "2-FA login (requires a code sent by email)": "Zwei-Faktor-Authentifizierung (erfordert einen per E-Mail gesendeten Code)",
@@ -180,6 +186,21 @@
     "Logout from other devices": "Von anderen Geräten abmelden",
     "Other sessions have been logged out": "Andere Sitzungen wurden abgemeldet",
     "Type your current password to logout from all other sessions.": "Geben Sie Ihr aktuelles Kennwort ein, um sich von allen anderen Sitzungen abzumelden.",
+    "Logins history has been purged": "Logins history has been purged",
+    "Unable to purge logins history": "Unable to purge logins history",
+
+    "Users": "Users",
+    "Add user": "Add user",
+    "Update user": "Update user",
+    "Is admin?": "Is admin?",
+    "Admin users can access settings and other users private content": "Admin users can access settings and other users private content",
+    "Unable to load users": "Unable to load users",
+    "Unable to save user": "Unable to save user",
+    "User created": "User created",
+    "User updated": "User updated",
+    "User :name has been deleted": "User :name has been deleted",
+    "Unable to delete user": "Unable to delete user",
+    "Can't delete the user you're logged in": "Can't delete the user you're logged in",
 
     "Update account": "Konto bearbeiten",
     "Your account has been updated!": "Dein Konto wurde aktualisiert !",
@@ -191,6 +212,9 @@
     "Your password has been updated!": "Dein Kennwort wurde aktualisiert !",
 
     "Export type or format not recognized": "Exporttyp oder -format wird nicht erkannt",
+
+    "This action is not available in demo mode": "Cette action n'est pas disponible en mode démonstration",
+    "You can't access settings section": "Vous n'avez pas accès aux paramètres",
 
     "Source code": "Quellcode"
 }
