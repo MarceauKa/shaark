@@ -28,7 +28,7 @@
                                         <div class="dropdown-menu">
                                             <a v-for="(type, key) in types"
                                                class="dropdown-item"
-                                               :class="{'active': key === line.type}"
+                                               :class="{'active': key === item.type}"
                                                @click.prevent="item.type = key"
                                             >{{ type }}</a>
                                         </div>
@@ -44,8 +44,9 @@
                                     <input type="text" class="form-control" name="value" v-model="item.value" autocomplete="off" v-else>
 
                                     <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary handle-order" @click="generatePassword(item)" type="button" v-if="item.type === 'password'">{{ __('Generate') }}</button>
                                         <confirm tag="button" class="btn btn-outline-secondary" @confirmed="deleteLine(item)" text="&times;" text-confirm="&#10003;"></confirm>
-                                        <button class="btn btn-outline-secondary handle-order" type="button" @click.prevent="deleteLine(item)">&uarr;&darr;</button>
+                                        <button class="btn btn-outline-secondary handle-order" type="button">&uarr;&darr;</button>
                                     </div>
                                 </div>
                             </div>
@@ -95,6 +96,7 @@ let defaultLine = function () {
     }
 };
 
+import Password from '../mixins/common'
 import draggable from 'vuedraggable'
 
 export default {
@@ -115,7 +117,7 @@ export default {
             lines: [],
             types: {
                 'url': this.__('URL'),
-                'text': this.__('Texte'),
+                'text': this.__('Text'),
                 'password': this.__('Secret'),
                 'code': this.__('Code'),
             },
@@ -144,6 +146,10 @@ export default {
 
         deleteLine(line) {
             this.lines.splice(this.lines.indexOf(line), 1);
+        },
+
+        generatePassword(item) {
+            item.value = Password.generate(16);
         },
 
         copyToClipboard($event, value) {
