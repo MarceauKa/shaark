@@ -28,7 +28,7 @@
                                         <div class="dropdown-menu">
                                             <a v-for="(type, key) in types"
                                                class="dropdown-item"
-                                               :class="{'active': key === line.type}"
+                                               :class="{'active': key === item.type}"
                                                @click.prevent="item.type = key"
                                             >{{ type }}</a>
                                         </div>
@@ -44,8 +44,18 @@
                                     <input type="text" class="form-control" name="value" v-model="item.value" autocomplete="off" v-else>
 
                                     <div class="input-group-append">
-                                        <confirm tag="button" class="btn btn-outline-secondary" @confirmed="deleteLine(item)" text="&times;" text-confirm="&#10003;"></confirm>
-                                        <button class="btn btn-outline-secondary handle-order" type="button" @click.prevent="deleteLine(item)">&uarr;&darr;</button>
+                                        <password-generator class="btn btn-outline-secondary"
+                                                            v-if="item.type === 'password'"
+                                                            :original="item.value"
+                                                            @generated="setPassword($event, item)"
+                                        ></password-generator>
+                                        <confirm tag="button"
+                                                 class="btn btn-outline-secondary"
+                                                 @confirmed="deleteLine(item)"
+                                                 text="&times;"
+                                                 text-confirm="&#10003;"
+                                        ></confirm>
+                                        <button class="btn btn-outline-secondary handle-order" type="button">&uarr;&darr;</button>
                                     </div>
                                 </div>
                             </div>
@@ -55,7 +65,10 @@
             </draggable>
 
             <div class="form-group text-right">
-                <button type="button" v-for="(type, key) in types" class="btn btn-outline-secondary mr-1" @click.prevent="addLine(key)">{{ __('Add') }} {{ type }}</button>
+                <button type="button" v-for="(type, key) in types"
+                        class="btn btn-outline-secondary mr-1"
+                        @click.prevent="addLine(key)"
+                >{{ __('Add') }} {{ type }}</button>
             </div>
         </section>
 
@@ -72,8 +85,14 @@
                         <input type="password" class="form-control" autocomplete="off" :value="line.value" readonly>
 
                         <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button" @click="toggleShowPassword($event, key)">{{ __('Show') }}</button>
-                            <button class="btn btn-outline-secondary" type="button" @click="copyToClipboard($event, line.value)">{{ __('Copy') }}</button>
+                            <button class="btn btn-outline-secondary"
+                                    type="button"
+                                    @click="toggleShowPassword($event, key)"
+                            >{{ __('Show') }}</button>
+                            <button class="btn btn-outline-secondary"
+                                    type="button"
+                                    @click="copyToClipboard($event, line.value)"
+                            >{{ __('Copy') }}</button>
                         </div>
                     </div>
 
@@ -115,7 +134,7 @@ export default {
             lines: [],
             types: {
                 'url': this.__('URL'),
-                'text': this.__('Texte'),
+                'text': this.__('Text'),
                 'password': this.__('Secret'),
                 'code': this.__('Code'),
             },
@@ -188,6 +207,10 @@ export default {
             el.type = el.type === 'password' ? 'text' : 'password';
             $event.target.innerHTML = el.type === 'password' ? this.__('Show') : this.__('Hide');
         },
+
+        setPassword($event, item) {
+            item.value = $event;
+        }
     },
 
     watch: {

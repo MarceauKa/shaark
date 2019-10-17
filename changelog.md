@@ -1,5 +1,9 @@
 # Unreleased
 
+## Added
+
+- Password generator for chests
+
 ## Changed
 
 - WebParser now use Symfony DomCrawler

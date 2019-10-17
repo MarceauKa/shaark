@@ -44,7 +44,7 @@ but built with [Laravel](https://github.com/laravel/laravel) and [Vue.js](https:
 - [x] Original Shaarli import
 - [x] Export
 - [x] Dark mode
-- [x] i18n (english and french)
+- [x] i18n (EN, FR and DE)
 - [x] Archiving
 - [x] 2-FA with email
 - [x] **NEW** Multi-users
