@@ -1,3 +1,13 @@
+# Unreleased
+
+## Added
+
+- Shortcut to see Link, Story or Chest when created or updated  
+
+## Fixed
+
+- WebParser with empty result
+
 # 1.2.18
 
 ## Added

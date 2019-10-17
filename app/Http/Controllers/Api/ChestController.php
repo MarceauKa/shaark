@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreChestRequest;
 use App\Chest;
+use App\Http\Resources\PostResource;
 use App\Post;
 use Illuminate\Http\Request;
 
@@ -35,7 +36,7 @@ class ChestController extends Controller
         $post->save();
 
         return response()->json([
-            'id' => $chest->id,
+            'post' => new PostResource($post),
             'status' => 'created',
         ]);
     }
@@ -55,7 +56,7 @@ class ChestController extends Controller
         $chest->post->save();
 
         return response()->json([
-            'id' => $chest->id,
+            'post' => new PostResource($chest->post),
             'status' => 'updated',
         ]);
     }

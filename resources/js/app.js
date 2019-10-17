@@ -28,7 +28,7 @@ Vue.mixin(require('./i18n'));
 import Toasted from 'vue-toasted';
 Vue.use(Toasted, {
     position: 'top-center',
-    duration: 2000,
+    duration: 5000,
 });
 
 const files = require.context('./', true, /\.vue$/i);

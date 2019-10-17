@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreLinkRequest;
+use App\Http\Resources\PostResource;
 use App\Link;
 use App\Post;
 use App\Services\WebParser;
@@ -68,7 +69,7 @@ class LinkController extends Controller
         $post->save();
 
         return response()->json([
-            'id' => $link->id,
+            'post' => new PostResource($post),
             'status' => 'created',
         ]);
     }
@@ -93,7 +94,7 @@ class LinkController extends Controller
         $link->post->save();
 
         return response()->json([
-            'id' => $link->id,
+            'post' => new PostResource($link->post),
             'status' => 'updated',
         ]);
     }

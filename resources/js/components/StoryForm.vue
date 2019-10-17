@@ -128,10 +128,14 @@ export default {
                 data: this.form
             }).then(response => {
                 if (this.story) {
-                    this.$toasted.success(this.__("Story updated"));
+                    this.$toasted.success(this.__("Story updated"), {
+                        action: {text: this.__('Show'), href: response.data.post.url}
+                    });
                     this.loading = false;
                 } else {
-                    this.$toasted.success(this.__("Story created"));
+                    this.$toasted.success(this.__("Story created"), {
+                        action: {text: this.__('Show'), href: response.data.post.url}
+                    });
                     this.reset();
                 }
             }).catch(error => {

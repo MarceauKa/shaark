@@ -77,10 +77,14 @@ export default {
                 data: this.form
             }).then(response => {
                 if (this.chest) {
-                    this.$toasted.success(this.__('Chest updated'));
+                    this.$toasted.success(this.__('Chest updated'), {
+                        action: {text: this.__('Show'), href: response.data.post.url}
+                    });
                     this.loading = false;
                 } else {
-                    this.$toasted.success(this.__('Chest created'));
+                    this.$toasted.success(this.__('Chest created'), {
+                        action: {text: this.__('Show'), href: response.data.post.url}
+                    });
                     this.reset();
                 }
             }).catch(error => {

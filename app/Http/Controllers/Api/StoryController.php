@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreStoryRequest;
+use App\Http\Resources\PostResource;
 use App\Post;
 use App\Story;
 use Illuminate\Http\Request;
@@ -38,7 +39,7 @@ class StoryController extends Controller
         $post->save();
 
         return response()->json([
-            'id' => $story->id,
+            'post' => new PostResource($post),
             'status' => 'created',
         ]);
     }
@@ -59,7 +60,7 @@ class StoryController extends Controller
         $story->post->save();
 
         return response()->json([
-            'id' => $story->id,
+            'post' => new PostResource($story->post),
             'status' => 'updated',
         ]);
     }

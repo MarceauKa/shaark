@@ -135,10 +135,14 @@ export default {
                 data: this.form
             }).then(response => {
                 if (this.link) {
-                    this.$toasted.success(this.__('Link updated'));
+                    this.$toasted.success(this.__('Link updated'), {
+                        action: {text: this.__('Show'), href: response.data.post.url}
+                    });
                     this.loading = false;
                 } else {
-                    this.$toasted.success(this.__('Link created'));
+                    this.$toasted.success(this.__('Link created'), {
+                        action: {text: this.__('Show'), href: response.data.post.url}
+                    });
                     this.reset();
                 }
 

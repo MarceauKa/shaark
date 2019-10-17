@@ -52,10 +52,14 @@ class WebParser
 
     public function grepInfos(): self
     {
-        if (! empty($this->crawler)
-            && ! empty($this->crawler->html())) {
-            $this->grepTitle();
-            $this->grepContent();
+        try {
+            if (! empty($this->crawler)
+                && ! empty($this->crawler->html())) {
+                $this->grepTitle();
+                $this->grepContent();
+            }
+        } catch (\Exception $e) {
+            unset($e);
         }
 
         return $this;
