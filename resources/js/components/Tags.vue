@@ -18,13 +18,7 @@
 </template>
 
 <script>
-import Multiselect from 'vue-multiselect';
-
 export default {
-    components: {
-        'multiselect': Multiselect,
-    },
-
     data() {
         return {
             options: [],

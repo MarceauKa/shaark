@@ -49,13 +49,7 @@
 </template>
 
 <script>
-import { directive as onClickaway } from 'vue-clickaway';
-
 export default {
-    directives: {
-        onClickaway: onClickaway,
-    },
-
     props: {
         url: {
             type: String,

@@ -114,13 +114,7 @@ let defaultLine = function () {
     }
 };
 
-import draggable from 'vuedraggable'
-
 export default {
-    components: {
-        draggable,
-    },
-
     props: {
         preview: {
             type: Object|null,

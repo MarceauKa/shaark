@@ -31,6 +31,21 @@ Vue.use(Toasted, {
     duration: 5000,
 });
 
+import Multiselect from 'vue-multiselect';
+Vue.component('multiselect', Multiselect);
+
+import Editor from '@toast-ui/vue-editor/src/Editor.vue';
+Vue.component('editor', Editor);
+
+import Viewer from '@toast-ui/vue-editor/src/Viewer.vue';
+Vue.component('viewer', Viewer);
+
+import { directive as onClickaway } from 'vue-clickaway';
+Vue.directive('on-clickaway', onClickaway);
+
+import draggable from 'vuedraggable';
+Vue.component('draggable', draggable);
+
 const files = require.context('./', true, /\.vue$/i);
 files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 

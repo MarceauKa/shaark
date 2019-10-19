@@ -53,19 +53,12 @@ let defaultStory = function () {
 
 import formErrors from "../mixins/formErrors";
 import httpErrors from "../mixins/httpErrors";
-import 'tui-editor/dist/tui-editor.css';
-import 'codemirror/lib/codemirror.css';
-import Editor from '@toast-ui/vue-editor/src/Editor.vue'
 
 export default {
     mixins: [
         formErrors,
         httpErrors,
     ],
-
-    components: {
-        Editor
-    },
 
     props: {
         story: {

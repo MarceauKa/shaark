@@ -4,7 +4,9 @@
 @import '~vue-multiselect/dist/vue-multiselect.min.css';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 @import '~@fortawesome/fontawesome-free/scss/solid';
-
+@import '~tui-editor/dist/tui-editor.css';
+@import '~codemirror/lib/codemirror.css';
+@import '~highlight.js/styles/github.css';
 @import "dark";
 
 html,
