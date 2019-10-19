@@ -44,8 +44,7 @@
                                     <input type="text" class="form-control" name="value" v-model="item.value" autocomplete="off" v-else>
 
                                     <div class="input-group-append">
-                                        <password-generator class="btn btn-outline-secondary"
-                                                            v-if="item.type === 'password'"
+                                        <password-generator v-if="item.type === 'password'"
                                                             :original="item.value"
                                                             @generated="setPassword($event, item)"
                                         ></password-generator>

@@ -1,19 +1,24 @@
 <template>
-    <button type="button" @click="generate"><i class="fas fa-dice"></i></button>
+    <div class="btn-group" role="group">
+        <button type="button" class="btn btn-outline-secondary border-right-0 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-dice pr-1"></i>
+        </button>
+        <div class="dropdown-menu">
+            <h6 class="dropdown-header">{{ __('Alpha numeric with symbols') }}</h6>
+            <button class="dropdown-item" @click="generate(8)">{{ __(':size chars', {size: 8}) }}</button>
+            <button class="dropdown-item" @click="generate(16)">{{ __(':size chars', {size: 16}) }}</button>
+            <button class="dropdown-item" @click="generate(24)">{{ __(':size chars', {size: 24}) }}</button>
+            <h6 class="dropdown-header">{{ __('Alpha numeric only') }}</h6>
+            <button class="dropdown-item" @click="generate(8, false)">{{ __(':size chars', {size: 8}) }}</button>
+            <button class="dropdown-item" @click="generate(16, false)">{{ __(':size chars', {size: 16}) }}</button>
+            <button class="dropdown-item" @click="generate(24, false)">{{ __(':size chars', {size: 24}) }}</button>
+        </div>
+    </div>
 </template>
 
 <script>
 export default {
     props: {
-        size: {
-            type: Number,
-            required: false,
-            default: 16,
-        },
-        chars: {
-            type: String,
-            required: false,
-        },
         original: {
             type: String,
             required: false,
@@ -22,29 +27,26 @@ export default {
     },
 
     methods: {
-        generate() {
-            let length = this.alphabet().length;
+        generate(size = 16, symbols = true) {
+            let alphabet = this.alphabet(symbols);
+            let length = alphabet.length;
             let password = '';
 
-            while (password.length < this.size) {
+            while (password.length < size) {
                 let random = Math.floor(Math.random() * length);
-                password += this.alphabet()[random];
+                password += alphabet[random];
             }
 
             this.$emit('generated', password);
         },
 
-        alphabet() {
-            if (this.chars) {
-                return this.chars;
-            }
-
+        alphabet(symbols = true) {
             return [
                 'abcdefghijklmnopqrstuvwxyz',
                 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
                 '1234567890',
                 '~!?@#$%&^_*+-=[]€,;:|()[]{}',
-            ].join('');
+            ].slice(0, symbols ? 4 : 3).join('');
         },
     },
 }

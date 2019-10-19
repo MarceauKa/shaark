@@ -2,6 +2,7 @@
 
 ## Changed
 
+- Password generator with more options
 - Better JS dependencies extraction for lighter builds
 
 # 1.2.19
