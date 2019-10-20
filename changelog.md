@@ -5,6 +5,10 @@
 - Password generator with more options
 - Better JS dependencies extraction for lighter builds
 
+## Fixed
+
+- DatabaseSeeder for youtube link
+
 # 1.2.19
 
 ## Added

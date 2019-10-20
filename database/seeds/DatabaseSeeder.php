@@ -40,7 +40,7 @@ class DatabaseSeeder extends Seeder
             \App\Link::create([
                 'title' => 'Fakear live @ Tal Mixta for Cercle - YouTube',
                 'url' => 'https://www.youtube.com/watch?v=-zZbkPnBtS8',
-                'preview' => '<iframe width="100%" src="https://www.youtube.com/embed/-zZbkPnBtS8" frameborder="0" allowfullscreen></iframe>'
+                'preview' => '<div class="responsive-preview"><iframe width="100%" src="https://www.youtube.com/embed/-zZbkPnBtS8" frameborder="0" allowfullscreen></iframe></div>'
             ]),
             \App\Chest::create([
                 'title' => config('app.name'),
