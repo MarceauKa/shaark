@@ -33,7 +33,7 @@
                              @confirmed="preview"
                              v-if="link.editable"
                     ></confirm>
-                    <a class="dropdown-item" @click="edit = link" v-if="link.editable"><i class="fas fa-pen-alt fa-fw mr-1"></i> {{ __('Edit') }}</a>
+                    <a class="dropdown-item" :href="link.url_edit" v-if="link.editable"><i class="fas fa-pen-alt fa-fw mr-1"></i> {{ __('Edit') }}</a>
                     <confirm class="dropdown-item"
                              :text="`<i class='fas fa-trash-alt fa-fw mr-1'></i> ${__('Delete')}`"
                              :text-confirm="`<i class='fas fa-check fa-fw mr-1'></i> ${__('Confirm')}`"
@@ -43,14 +43,7 @@
                 </div>
             </div>
         </div>
-
-        <modal :open="edit !== false" @closed="edit = false" size="xl">
-            <template #content>
-                <link-form :link="edit" class="mb-0"></link-form>
-            </template>
-        </modal>
     </div>
-
 </template>
 
 <script>
@@ -66,12 +59,6 @@ export default {
             required: true,
             default: () => {}
         },
-    },
-
-    data() {
-        return {
-            edit: false,
-        }
     },
 
     methods: {

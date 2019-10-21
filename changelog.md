@@ -1,5 +1,9 @@
 # Unreleased
 
+## Added
+
+- New Modal component
+
 ## Changed
 
 - Password generator with more options
