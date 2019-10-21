@@ -17,7 +17,7 @@
             <div class="list-group-item"
                 v-if="hasTagsResults"
             >
-                Tags :
+                <div><i class="fas fa-tags"></i> {{ __('Tags') }}</div>
                 <div>
                     <a v-for="result in results.tags"
                        class="btn btn-primary btn-sm mr-1"

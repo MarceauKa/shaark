@@ -35,6 +35,7 @@ class PostResource extends JsonResource
         }
 
         return array_merge($content, [
+            'id' => $this->postable->id,
             'tags' => $this->tags->pluck('name')->toArray(),
             'is_private' => $this->is_private,
             'created_at' => $this->created_at,

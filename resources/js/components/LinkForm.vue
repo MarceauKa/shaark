@@ -147,7 +147,7 @@ export default {
                 }
 
                 if (redirectToArchive === true) {
-                    window.location = `/link/archive/${response.data.id}`;
+                    window.location = `/link/archive/${response.data.post.id}`;
                 }
             }).catch(error => {
                 this.loading = false;

@@ -8,9 +8,11 @@
 
 - Password generator with more options
 - Better JS dependencies extraction for lighter builds
+- Tags icon on Search and tag page results
 
 ## Fixed
 
+- Create link then archive it (issue #23)
 - DatabaseSeeder for youtube link
 
 # 1.2.19

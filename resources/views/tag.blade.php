@@ -10,7 +10,7 @@
         <div class="col-12">
             <div class="card-columns column-{{ $columns_count }} {{ $compact ? 'compact' : '' }}">
                 <div class="card">
-                    <div class="card-header">{{ __('Tag') }} &mdash; {{ $tag->name }}</div>
+                    <div class="card-header"><i class="fas fa-tags"></i> {{ __('Tag') }} &mdash; {{ $tag->name }}</div>
                     <div class="card-body">
                         {{ $posts->total() }} {{ Str::plural('élément', $posts->total()) }}
                     </div>
