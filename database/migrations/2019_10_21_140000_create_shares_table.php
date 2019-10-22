@@ -22,7 +22,7 @@ class CreateSharesTable extends Migration
     public function down()
     {
         Schema::table('shares', function (Blueprint $table) {
-            $table->dropIndex('post_id');
+            $table->dropIndex(['post_id']);
         });
 
         Schema::dropIfExists('shares');
