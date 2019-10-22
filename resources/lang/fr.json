@@ -241,5 +241,9 @@
     "This action is not available in demo mode": "Cette action n'est pas disponible en mode démonstration",
     "You can't access settings section": "Vous n'avez pas accès aux paramètres",
 
-    "Source code": "Code source"
+    "Source code": "Code source",
+
+    "RSS Feed": "RSS Feed",
+    "Atom Feed": "Atom Feed",
+    "All new content of :title": "All new content of :title"
 }

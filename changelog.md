@@ -4,7 +4,8 @@
 
 ## Added
 
-- Pinned posts
+- RSS and Atom feeds (issue #21)
+- Pinned posts (issue #11)
 
 # 1.2.20
 

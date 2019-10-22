@@ -5,6 +5,10 @@
 @if(auth()->check())
     <meta name="api-token" content="{{ auth()->user()->api_token }}">
 @endif
+@can('restricted')
+<link rel="alternate" type="application/atom+xml" href="{{ route('feed', 'atom') }}" title="{{ __('ATOM Feed') }}" />
+<link rel="alternate" type="application/rss+xml" href="{{ route('feed', 'rss') }}" title="{{ __('RSS Feed') }}" />
+@endCan
 @stack('meta')
 <link rel="dns-prefetch" href="//fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
