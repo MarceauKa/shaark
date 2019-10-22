@@ -23,6 +23,7 @@ class StoryResource extends JsonResource
                 'url_edit' => route('story.edit', $this->id),
                 'url_update' => route('api.story.update', $this->id),
                 'url_delete' => route('api.story.delete', $this->id),
+                'url_share' => route('api.share', $this->post->id),
             ])
         ];
     }

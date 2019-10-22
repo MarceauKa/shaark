@@ -23,6 +23,7 @@ class ChestResource extends JsonResource
                 'url_edit' => route('chest.edit', $this->id),
                 'url_update' => route('api.chest.update', $this->id),
                 'url_delete' => route('api.chest.delete', $this->id),
+                'url_share' => route('api.share', $this->post->id),
             ])
         ];
     }

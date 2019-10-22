@@ -6,6 +6,7 @@ use App\Concerns\Models\HasTags;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Http\Request;
 use Laravel\Scout\Searchable;
@@ -38,6 +39,11 @@ class Post extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function shares(): HasMany
+    {
+        return $this->hasMany(Share::class);
     }
 
     public function getCreatedAtFormatedAttribute(): string

@@ -5,4 +5,7 @@
     </p>
 </footer>
 
+@if(auth()->check())
+    <temp-sharing dusk="temp-sharing"></temp-sharing>
+@endif
 @include('partials.flash')

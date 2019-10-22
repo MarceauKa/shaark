@@ -153,6 +153,10 @@
     "Height": "Hauteur",
     "Share button": "Bouton d'ajout rapide",
 
+    "Temp sharing": "Partage temporaire",
+    "Can't fetch shares": "Impossible de charger les partages",
+    "This shared content has expired": "Ce contenu partagé a expiré",
+
     "Settings": "Paramètres",
     "General": "Général",
     "Site name": "Nom du site",

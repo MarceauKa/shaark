@@ -55,6 +55,7 @@ class Shaarli
             'login/secure/*',
             'password/*',
             'logout',
+            'shared/*'
         ];
 
         foreach ($excepts as $except) {

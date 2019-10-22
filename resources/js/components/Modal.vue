@@ -9,19 +9,19 @@
              :class="{'modal-lg': size === 'lg', 'modal-xl': size === 'xl', 'modal-sm': size === 'sm'}"
              role="document"
         >
-            <div class="modal-content" :class="{'border-0': ! header && ! footer}">
-                <div class="modal-header" v-if="header">
-                    <h5 slot="header" class="modal-title"></h5>
+            <div class="modal-content" :class="{'border-0': ! hasHeader && ! hasFooter}">
+                <div class="modal-header" v-if="hasHeader">
+                    <h5 class="modal-title"><slot name="header"></slot></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
 
-                <div class="modal-body" :class="{'p-0': ! header && ! footer}">
+                <div class="modal-body" :class="{'p-0': ! hasHeader && ! hasFooter}">
                     <slot name="content"></slot>
                 </div>
 
-                <div class="modal-footer" v-if="footer">
+                <div class="modal-footer" v-if="hasFooter">
                     <slot name="footer"></slot>
                 </div>
             </div>
@@ -41,16 +41,6 @@ export default {
             type: String,
             required: false,
             default: 'modal',
-        },
-        header: {
-            type: Boolean,
-            required: false,
-            default: false,
-        },
-        footer: {
-            type: Boolean,
-            required: false,
-            default: false,
         },
         size: {
             type: String,
@@ -102,6 +92,16 @@ export default {
                 this.deleteModal();
             }
         }
+    },
+
+    computed: {
+        hasHeader: function () {
+            return this.$slots.hasOwnProperty('header');
+        },
+
+        hasFooter: function () {
+            return this.$slots.hasOwnProperty('footer');
+        },
     }
 }
 </script>

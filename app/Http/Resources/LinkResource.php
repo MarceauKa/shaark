@@ -26,6 +26,7 @@ class LinkResource extends JsonResource
                 'url_delete' => route('api.link.delete', $this->id),
                 'url_archive' => route('link.archive.form', $this->id),
                 'url_preview' => route('api.link.preview', $this->id),
+                'url_share' => route('api.share', $this->post->id),
             ]),
             $this->mergeWhen($this->resource->canDownloadArchive(), [
                'url_download' => route('link.archive.download', [$this->id, csrf_token()]),

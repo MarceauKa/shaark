@@ -23,7 +23,12 @@ if (apiToken) {
 }
 
 window.Vue = require('vue');
-Vue.mixin(require('./i18n'));
+
+import i18n from './mixins/i18n';
+Vue.mixin(i18n);
+
+import VueBus from './mixins/bus';
+Vue.use(VueBus);
 
 import Toasted from 'vue-toasted';
 Vue.use(Toasted, {
