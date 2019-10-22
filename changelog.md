@@ -1,7 +1,10 @@
 # Unreleased
 
+⚠️ Run migrations when updating
+
 ## Added
 
+- Post content sharing (issue #1)
 - New Modal component
 
 ## Changed
@@ -9,6 +12,7 @@
 - Password generator with more options
 - Better JS dependencies extraction for lighter builds
 - Tags icon on Search and tag page results
+- copyToClipboard is now a mixin
 
 ## Fixed
 

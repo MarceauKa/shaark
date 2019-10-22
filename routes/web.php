@@ -10,7 +10,7 @@ Route::post('logout', 'LoginController@logout')->name('logout');
 
 Route::get('/', 'BrowseController@index')->name('home');
 Route::get('/tag/{tag}', 'BrowseController@tag')->name('tag');
-Route::get('shared/{token}', 'ShareController@view')->name('share');
+Route::get('shared/{id}/{token}', 'ShareController@view')->name('share');
 
 Route::get('link/create', 'LinkController@create')->name('link.create');
 Route::get('link/edit/{id}', 'LinkController@edit')->name('link.edit');

@@ -10,18 +10,20 @@ use Illuminate\Http\Request;
 
 class ShareController extends Controller
 {
-    public function view(Request $request, string $token)
+    public function view(Request $request, int $id, string $token)
     {
         $shared = Share::tokenIs($token)
-            ->with('sharable.postable')
-            ->firstOrFail();
+            ->with('post.postable')
+            ->findOrFail($id);
 
         if ($shared->expires_at->lt(now())) {
+            $shared->delete();
+
             $this->flash(__("This shared content has expired"), 'error');
             return redirect()->route('home');
         }
 
-        $post = $shared->sharable;
+        $post = $shared->post;
 
         if ($post->postable instanceof Link) {
             return view('link')->with([

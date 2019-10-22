@@ -21,10 +21,15 @@
                 <button class="btn btn-outline-dark btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {{ __('More') }}
                 </button>
+
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" :href="chest.permalink"><i class="fas fa-link fa-fw mr-1"></i> {{ __('Permalink') }}</a>
+
                     <h6 class="dropdown-header" v-if="chest.editable">{{ __('Manage') }}</h6>
+
+                    <a class="dropdown-item" @click="$bus.$emit('share', chest)" v-if="chest.editable"><i class="fas fa-share-square fa-fw mr-1"></i> {{ __('Temp sharing') }}</a>
                     <a class="dropdown-item" :href="chest.url_edit" v-if="chest.editable"><i class="fas fa-pen-alt fa-fw mr-1"></i> {{ __('Edit') }}</a>
+
                     <confirm class="dropdown-item"
                              :text="`<i class='fas fa-trash-alt fa-fw mr-1'></i> ${__('Delete')}`"
                              :text-confirm="`<i class='fas fa-check fa-fw mr-1'></i> ${__('Confirm')}`"

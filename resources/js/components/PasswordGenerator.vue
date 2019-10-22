@@ -3,12 +3,16 @@
         <button type="button" class="btn btn-outline-secondary border-right-0 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-dice pr-1"></i>
         </button>
+
         <div class="dropdown-menu">
             <h6 class="dropdown-header">{{ __('Alpha numeric with symbols') }}</h6>
+
             <button class="dropdown-item" @click="generate(8)">{{ __(':size chars', {size: 8}) }}</button>
             <button class="dropdown-item" @click="generate(16)">{{ __(':size chars', {size: 16}) }}</button>
             <button class="dropdown-item" @click="generate(24)">{{ __(':size chars', {size: 24}) }}</button>
+
             <h6 class="dropdown-header">{{ __('Alpha numeric only') }}</h6>
+
             <button class="dropdown-item" @click="generate(8, false)">{{ __(':size chars', {size: 8}) }}</button>
             <button class="dropdown-item" @click="generate(16, false)">{{ __(':size chars', {size: 16}) }}</button>
             <button class="dropdown-item" @click="generate(24, false)">{{ __(':size chars', {size: 24}) }}</button>
