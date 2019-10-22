@@ -48,7 +48,7 @@ but built with [Laravel](https://github.com/laravel/laravel) and [Vue.js](https:
 - [x] Archiving
 - [x] 2-FA with email
 - [x] Multi-users
-- [ ] RSS feed
+- [x] **NEW** RSS feed
 
 ## Demo
 

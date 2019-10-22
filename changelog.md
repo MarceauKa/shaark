@@ -1,4 +1,4 @@
-# Unreleased
+# 1.2.21
 
 ⚠️ Run migrations when updating
 
