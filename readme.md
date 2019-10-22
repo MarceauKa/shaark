@@ -40,14 +40,14 @@ but built with [Laravel](https://github.com/laravel/laravel) and [Vue.js](https:
 - [x] Chests : to save your web accounts
 - [x] Rapid sharing through bookmark extension
 - [x] Tagging system, search and RSS feeds
-- [x] Private content or entirely private
+- [x] Private content or entirely private (with temp sharing)
 - [x] Original Shaarli import
 - [x] Export
 - [x] Dark mode
 - [x] i18n (EN, FR and DE)
 - [x] Archiving
 - [x] 2-FA with email
-- [x] **NEW** Multi-users
+- [x] Multi-users
 - [ ] RSS feed
 
 ## Demo
