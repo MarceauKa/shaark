@@ -15,12 +15,12 @@ but built with [Laravel](https://github.com/laravel/laravel) and [Vue.js](https:
 - [Demo](#demo)
 - [Installation](#installation)
 - [Archiving](#archiving)
+- [Contribute](#contribute)
 - [Security](#security)
 - [Update](#update)
 - [Going live](#going-live)
 - [Artisan commands](#artisan-commands)
 - [Dependencies](#dependencies)
-- [Contribute](#contribute)
 - [Tests](#tests)
 - [Licence](#licence)
 
@@ -87,7 +87,26 @@ from youtube, soundcloud, vimeo and [few more sites](http://ytdl-org.github.io/y
 
 You can adjust archiving configuration in the settings section.
 
+## Contribute
+
+### Features and bugs
+
+All contributions are welcome! Please use the `dev` branch for your pull requests.  
+If you make changes to JS, don't compile assets in production, I'll manually compile them when merging for security reasons.
+
+### Translation
+
+Shaarli is actually available in **English**, **French** and **German**. Feel free to make a pull request to add or update a localization. 
+You can see laravel base localizations [on this repo](https://github.com/caouecs/Laravel-lang).
+
+### Your Shaarli
+
+You host your own Shaarli public instance and you want to share it with other Shaarliers? 
+You can make a pull request to add it to our public listing located at [shaarlies.md](https://github.com/MarceauKa/laravel-shaarli/blob/dev/shaarlies.md). 
+
 ## Security
+
+If you find any **security issues**, please send me an email (can be found in composer.json).
 
 ### Global privacy
 
@@ -196,11 +215,6 @@ Our dependencies with link to their documentation and why we use it.
 - [vue-toasted](https://github.com/shakee93/vue-toasted) is used for in app notifications
 - [vuedraggable](https://www.npmjs.org/package/vuedraggable) is used to reorder items in chests
 - [vue-clickaway](https://github.com/simplesmiler/vue-clickaway) is used to close search bar when clicked away
-
-## Contribute
-
-All contribution are welcome! Please use the `dev` branch for your pull requests.  
-If you make changes to JS, don't compile assets in production, I'll manually compile them when merging for security reasons.
 
 ## Tests
 

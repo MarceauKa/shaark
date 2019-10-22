@@ -1,3 +1,9 @@
+# Unreleased
+
+## Added
+
+- Shaarlies listing
+
 # 1.2.21
 
 ⚠️ Run migrations when updating
