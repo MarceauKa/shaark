@@ -15,6 +15,7 @@ class StoryResource extends JsonResource
             'content' => $this->content,
             'url' => $this->url,
             'is_private' => $this->post->is_private,
+            'is_pinned' => $this->post->is_pinned,
             'date_formated' => $this->created_at->diffForHumans(),
             'tags' => $this->post->tags->pluck('name')->toArray(),
             $this->mergeWhen(Auth::check(), [

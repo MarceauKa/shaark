@@ -17,10 +17,23 @@
                 ></editor>
             </div>
 
-            <div class="form-group">
-                <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="is_private" v-model="form.is_private" :disabled="loading">
-                    <label class="custom-control-label" for="is_private">{{ __('Private story?') }}</label>
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <div class="form-group">
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input" id="is_private" v-model="form.is_private" :disabled="loading">
+                            <label class="custom-control-label" for="is_private" dusk="link-form-private">{{ __('Private link?') }}</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <div class="form-group">
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input" id="is_pinned" v-model="form.is_pinned" :disabled="loading">
+                            <label class="custom-control-label" for="is_pinned" dusk="link-form-pinned">{{ __('Is pinned?') }}</label>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -47,6 +60,7 @@ let defaultStory = function () {
         slug: '',
         content: '',
         is_private: false,
+        is_pinned: false,
         tags: [],
     };
 };

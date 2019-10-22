@@ -22,6 +22,7 @@ class BrowseController extends Controller
         }
 
         $posts = $posts->withPrivate($request)
+            ->pinnedFirst()
             ->latest()
             ->paginate(20);
 
@@ -87,6 +88,7 @@ class BrowseController extends Controller
         $tag = Tag::named($tag)->firstOrFail();
 
         $posts = Post::withPrivate($request)
+                ->pinnedFirst()
                 ->with('postable', 'tags')
                 ->withAllTags($tag)
                 ->paginate(20);

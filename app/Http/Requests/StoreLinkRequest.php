@@ -30,6 +30,9 @@ class StoreLinkRequest extends FormRequest
             'is_private' => [
                 'nullable',
             ],
+            'is_pinned' => [
+                'nullable',
+            ],
             'tags' => [
                 'nullable',
                 'array',

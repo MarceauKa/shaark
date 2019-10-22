@@ -15,6 +15,7 @@ class ChestResource extends JsonResource
             'url' => $this->permalink,
             'permalink' => $this->permalink,
             'is_private' => true,
+            'is_pinned' => $this->post->is_pinned,
             'date_formated' => $this->created_at->diffForHumans(),
             'tags' => $this->post->tags->pluck('name')->toArray(),
             $this->mergeWhen(Auth::check(), [

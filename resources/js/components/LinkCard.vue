@@ -2,6 +2,7 @@
     <div class="card card--link mb-4" :class="{'card-single': single, 'card-index': !single}">
         <div class="card-body">
             <h5 class="card-title">
+                <i class="fas fa-thumbtack fa-sm pr-1" v-if="link.is_pinned && !single"></i>
                 <span>{{ __('Link') }}</span> &mdash; <a :href="link.permalink">{{ link.title }}</a><br>
                 <a :href="link.url" class="small text-muted">{{ displayUrl }}</a>
             </h5>

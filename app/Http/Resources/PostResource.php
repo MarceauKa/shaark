@@ -39,6 +39,7 @@ class PostResource extends JsonResource
             'postable_id' => $this->postable->id,
             'tags' => $this->tags->pluck('name')->toArray(),
             'is_private' => $this->is_private,
+            'is_pinned' => $this->is_pinned,
             'created_at' => $this->created_at,
         ]);
     }

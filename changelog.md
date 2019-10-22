@@ -1,3 +1,11 @@
+# Unreleased
+
+⚠️ Run migrations when updating
+
+## Added
+
+- Pinned posts
+
 # 1.2.20
 
 ⚠️ Run migrations when updating

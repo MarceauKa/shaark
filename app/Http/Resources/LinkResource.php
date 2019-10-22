@@ -15,6 +15,7 @@ class LinkResource extends JsonResource
             'url' => $this->url,
             'permalink' => $this->permalink,
             'is_private' => $this->post->is_private,
+            'is_pinned' => $this->post->is_pinned,
             'preview' => $this->preview,
             'date_formated' => $this->created_at->diffForHumans(),
             'tags' => $this->post->tags->pluck('name')->toArray(),

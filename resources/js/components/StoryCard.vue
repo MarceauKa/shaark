@@ -2,6 +2,7 @@
     <div class="card card--story mb-4" :class="{'card-single': single, 'card-index': !single}">
         <div class="card-body">
             <h5 class="card-title">
+                <i class="fas fa-thumbtack fa-sm pr-1" v-if="story.is_pinned && !single"></i>
                 <span>{{ __('Story') }}</span> &mdash; <a :href="story.url">{{ story.title }}</a>
             </h5>
 

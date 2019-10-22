@@ -37,6 +37,9 @@ class StoreStoryRequest extends FormRequest
             'is_private' => [
                 'nullable',
             ],
+            'is_pinned' => [
+                'nullable',
+            ],
             'tags' => [
                 'nullable',
                 'array',

@@ -28,7 +28,8 @@ class StoryController extends Controller
         ])->toArray());
 
         $post = new Post();
-        $post->is_private = $data->get('is_private', 0);
+        $post->is_pinned = $data;
+        $post->is_private = $data;
         $post->user_id = $request->user()->id;
         $post->postable()->associate($story)->save();
 
@@ -50,6 +51,7 @@ class StoryController extends Controller
         $data = collect($request->validated());
 
         $story->fill($data->only('title', 'slug', 'content')->toArray());
+        $story->post->is_pinned = $data->get('is_pinned', $story->post->is_pinned);
         $story->post->is_private = $data->get('is_private', $story->post->is_private);
 
         if ($data['tags']) {

@@ -9,9 +9,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 use Laravel\Scout\Searchable;
 
 /**
+ * @method Builder|Post pinnedFirst()
  * @method Builder|Post withPrivate(bool|User|Request $private)
  * @method Builder|Post withoutChests()
  */
@@ -24,10 +26,12 @@ class Post extends Model
         'postable_type',
         'postable_id',
         'is_private',
+        'is_pinned',
         'user_id',
         'created_at',
     ];
     protected $casts = [
+        'is_pinned' => 'bool',
         'is_private' => 'bool',
     ];
 
@@ -51,6 +55,24 @@ class Post extends Model
         return $this->created_at->diffForHumans();
     }
 
+    public function setIsPinnedAttribute($value): void
+    {
+        if ($value instanceof Collection) {
+            $value = (bool)$value->get('is_pinned', false);
+        }
+
+        $this->attributes['is_pinned'] = $value;
+    }
+
+    public function setIsPrivateAttribute($value): void
+    {
+        if ($value instanceof Collection) {
+            $value = (bool)$value->get('is_private', false);
+        }
+
+        $this->attributes['is_private'] = $value;
+    }
+
     public function scopeWithPrivate(Builder $query, $user = null): Builder
     {
         if ($user instanceof Request) {
@@ -72,6 +94,11 @@ class Post extends Model
         }
 
         return $query;
+    }
+
+    public function scopePinnedFirst(Builder $query): Builder
+    {
+        return $query->orderByDesc('is_pinned');
     }
 
     public function scopeWithoutChests(Builder $query): Builder

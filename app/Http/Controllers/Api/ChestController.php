@@ -27,6 +27,7 @@ class ChestController extends Controller
         ])->toArray());
 
         $post = new Post(['is_private' => true, 'user_id' => $request->user()->id]);
+        $post->is_pinned = $data;
         $post->postable()->associate($chest)->save();
 
         if ($data['tags']) {
@@ -47,6 +48,7 @@ class ChestController extends Controller
         $data = collect($request->validated());
 
         $chest->fill($data->only('title', 'content')->toArray());
+        $chest->post->is_pinned = $data->get('is_pinned', $chest->post->is_pinned);
 
         if ($data['tags']) {
             $chest->post->syncTags($data['tags']);

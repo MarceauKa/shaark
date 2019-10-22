@@ -58,7 +58,8 @@ class LinkController extends Controller
         $link->updatePreview();
 
         $post = new Post();
-        $post->is_private = $data->get('is_private', 0);
+        $post->is_pinned = $data;
+        $post->is_private = $data;
         $post->user_id = $request->user()->id;
         $post->postable()->associate($link)->save();
 
@@ -83,6 +84,7 @@ class LinkController extends Controller
         $link->fill($data->only('title', 'content', 'url')->toArray());
         $link->updatePreview();
 
+        $link->post->is_pinned = $data->get('is_pinned', $link->post->is_pinned);
         $link->post->is_private = $data->get('is_private', $link->post->is_private);
         $link->post->save();
 

@@ -22,6 +22,9 @@ class StoreChestRequest extends FormRequest
             'content' => [
                 'array',
             ],
+            'is_pinned' => [
+                'nullable',
+            ],
             'tags' => [
                 'nullable',
                 'array',

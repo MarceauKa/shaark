@@ -10,6 +10,7 @@ use Faker\Generator as Faker;
 $factory->define(Post::class, function (Faker $faker) {
     return [
         'is_private' => 0,
+        'is_pinned' => 0,
         'user_id' => 1,
     ];
 });

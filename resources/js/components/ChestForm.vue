@@ -13,6 +13,13 @@
             </div>
 
             <div class="form-group">
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="is_pinned" v-model="form.is_pinned" :disabled="loading">
+                    <label class="custom-control-label" for="is_pinned" dusk="chest-form-pinned">{{ __('Is pinned?') }}</label>
+                </div>
+            </div>
+
+            <div class="form-group">
                 <label>{{ __('Tags') }}</label>
                 <tags v-model="form.tags"></tags>
             </div>
@@ -33,6 +40,7 @@ let defaultChest = function () {
     return {
         title: '',
         content: [],
+        is_pinned: false,
         tags: [],
     };
 };
