@@ -4,6 +4,10 @@
 
 - Shaarlies listing
 
+## Fixed
+
+- Typos in StoryForm
+
 # 1.2.21
 
 ⚠️ Run migrations when updating
