@@ -19,7 +19,7 @@
 
                     <div class="form-group">
                         <label for="locale">{{ __('Language') }}</label>
-                        <select name="locale" id="locale" class="form-control">
+                        <select name="locale" id="locale" class="form-control custom-select">
                             <option value="fr"{{ $settings['locale'] == 'fr' ? ' selected' : '' }}>FR</option>
                             <option value="en"{{ $settings['locale'] == 'en' ? ' selected' : '' }}>EN</option>
                             <option value="de"{{ $settings['locale'] == 'de' ? ' selected' : '' }}>DE</option>

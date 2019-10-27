@@ -12,6 +12,7 @@
 ## Fixed
 
 - Translation in german updated (thanks to [kayschima](https://github.com/kayschima))
+- Select tags now use `custom-select` class
 - Typos in StoryForm
 
 # 1.2.21
