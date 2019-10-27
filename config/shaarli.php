@@ -15,7 +15,7 @@ return [
             'rules' => ['required', 'min:2', 'max:100']
         ],
         'locale' => [
-            'default' => env('APP_LANG'),
+            'default' => env('APP_LOCALE'),
             'rules' => ['required', 'in:fr,en,de']
         ],
         'is_private' => [
@@ -44,11 +44,7 @@ return [
         ],
         'custom_background' => [
             'default' => null,
-            'rules' => ['nullable', 'url']
-        ],
-        'custom_background_encoded' => [
-            'default' => null,
-            'rules' => ['nullable']
+            'rules' => ['nullable'],
         ],
         'private_archive' => [
             'default' => false,

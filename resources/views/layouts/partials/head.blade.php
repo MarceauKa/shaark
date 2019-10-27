@@ -14,11 +14,11 @@
 <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 @stack('css')
-@if(app('shaarli')->getCustomBackgroundEncoded())
+@if(app('shaarli')->getCustomBackgroundCss())
 <style>
     body,
     body.dark {
-        background-image: url('{{ app('shaarli')->getCustomBackgroundEncoded() }}') !important;
+        background-image: {!! app('shaarli')->getCustomBackgroundCss() !!};
         background-repeat: no-repeat;
         background-position: center center;
         background-size: cover;

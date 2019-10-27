@@ -76,16 +76,11 @@
                         @enderror
                     </div>
 
-                    <div class="form-group">
-                        <div class="form-group">
-                            <label for="name">{{ __('Custom background image') }}</label>
-                            <input type="text" class="form-control {{ $errors->has('custom_background') ? ' is-invalid' : '' }}" name="custom_background" id="custom_background" value="{{ $settings['custom_background'] }}">
-                            @error('custom_background')
-                            <span class="invalid-feedback" role="alert">{{ $message }}</span>
-                            @enderror
-                            <span class="text-muted">{{ __("Paste a link to an image. It'll be base64 encoded.") }}</span>
-                        </div>
-                    </div>
+                    <label for="name">{{ __('Custom background') }}</label>
+                    <background name="custom_background" :values="{{ $settings['custom_background'] ?? '{type: "none"}' }}"></background>
+                    @error('custom_background')
+                    <span class="invalid-feedback" role="alert">{{ $message }}</span>
+                    @enderror
                 </div>
             </div>
 
