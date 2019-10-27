@@ -6,6 +6,7 @@
 
 ## Fixed
 
+- Translation in german updated (thanks to [kayschima](https://github.com/kayschima))
 - Typos in StoryForm
 
 # 1.2.21
