@@ -27,7 +27,10 @@ class SettingsController extends Controller
     public function store(StoreSettingsRequest $request, Shaarli $shaarli)
     {
         $validated = collect($request->validated());
-        $shaarli->setSettings($validated);
+
+        $shaarli
+            ->setSettings($validated)
+            ->cleanSettings();
 
         $this->flash(__('Settings updated!'), 'success');
         return redirect()->back();

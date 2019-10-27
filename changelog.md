@@ -4,6 +4,11 @@
 
 - Shaarlies listing
 
+## Changed
+
+- Unused settings keys are now cleaned after settings update
+- Shaarli default settings are now located in shaarli config file
+
 ## Fixed
 
 - Translation in german updated (thanks to [kayschima](https://github.com/kayschima))
