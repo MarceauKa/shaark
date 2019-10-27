@@ -241,6 +241,8 @@
     "Your password has been updated!": "Votre mot de passe a été mis à jour !",
 
     "Export type or format not recognized": "Type d'export ou format non-reconnu",
+    "Format": "Format",
+    "Source": "Source",
 
     "This action is not available in demo mode": "Cette action n'est pas disponible en mode démonstration",
     "You can't access settings section": "Vous n'avez pas accès aux paramètres",
