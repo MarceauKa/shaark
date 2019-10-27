@@ -21,7 +21,7 @@
                         <div class="col-12 col-md-6">
                             <div class="form-group">
                                 <label for="type">Source</label>
-                                <select name="type" id="type" class="form-control">
+                                <select name="type" id="type" class="form-control custom-select">
                                     <option value="links">{{ __('Links') }}</option>
                                     <option value="stories">{{ __('Stories') }}</option>
                                     <option value="chests">{{ __('Chests') }}</option>
@@ -32,7 +32,7 @@
                         <div class="col-12 col-md-6">
                             <div class="form-group">
                                 <label for="format">Format</label>
-                                <select name="format" id="format" class="form-control">
+                                <select name="format" id="format" class="form-control custom-select">
                                     <option value="xlsx">.xlsx</option>
                                     <option value="csv">.csv</option>
                                 </select>
