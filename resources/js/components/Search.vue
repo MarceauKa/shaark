@@ -158,29 +158,3 @@ export default {
     }
 }
 </script>
-
-<style lang="scss">
-    .results {
-        z-index: 500;
-        position: absolute;
-        top: 40px;
-        width: calc(100% - 2rem);
-        display: none;
-
-        &.active {
-            display: block;
-        }
-
-        .list-group-item {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-
-            div:first-child {
-                > span {
-                    text-transform: uppercase;
-                }
-            }
-        }
-    }
-</style>

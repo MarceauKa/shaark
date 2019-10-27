@@ -1,0 +1,45 @@
+.multiselect__tags {
+    border-color: #ced4da;
+    border-radius: 0;
+
+    .multiselect__tag {
+        margin-bottom: 0;
+    }
+}
+
+.results {
+    z-index: 500;
+    position: absolute;
+    top: 40px;
+    width: calc(100% - 2rem);
+    display: none;
+
+    &.active {
+        display: block;
+    }
+
+    .list-group-item {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        div:first-child {
+            > span {
+                text-transform: uppercase;
+            }
+        }
+    }
+}
+
+.chest-lines {
+    .flip-list-move {
+        transition: transform 0.5s;
+    }
+    .no-move {
+        transition: transform 0s;
+    }
+    .ghost {
+        opacity: 0.5;
+        background: #c8ebfb;
+    }
+}

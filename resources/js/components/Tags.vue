@@ -61,14 +61,3 @@ export default {
     }
 }
 </script>
-
-<style lang="scss">
-    .multiselect__tags {
-        border-color: #ced4da;
-        border-radius: 0;
-
-        .multiselect__tag {
-            margin-bottom: 0;
-        }
-    }
-</style>

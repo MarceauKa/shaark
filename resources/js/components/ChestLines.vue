@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="chest-lines">
         <section v-if="!preview" ref="form">
             <draggable v-model="lines"
                        group="lines"
@@ -187,16 +187,3 @@ export default {
     }
 }
 </script>
-
-<style>
-    .flip-list-move {
-        transition: transform 0.5s;
-    }
-    .no-move {
-        transition: transform 0s;
-    }
-    .ghost {
-        opacity: 0.5;
-        background: #c8ebfb;
-    }
-</style>

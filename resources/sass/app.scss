@@ -7,7 +7,8 @@
 @import '~tui-editor/dist/tui-editor.css';
 @import '~codemirror/lib/codemirror.css';
 @import '~highlight.js/styles/github.css';
-@import "dark";
+@import 'components';
+@import 'dark';
 
 html,
 body {
