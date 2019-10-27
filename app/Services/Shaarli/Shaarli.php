@@ -5,6 +5,7 @@ namespace App\Services\Shaarli;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Spatie\Valuestore\Valuestore;
 
@@ -101,24 +102,8 @@ class Shaarli
                 continue;
             }
 
-            if ($key === 'custom_background' || $key === 'custom_background_encoded') {
-                if ($this->getCustomBackground() != $settings->get('custom_background')) {
-                    $url = $settings->get('custom_background');
-
-                    if (empty($url)) {
-                        $this->settings->put('custom_background', null);
-                        $this->settings->put('custom_background_encoded', null);
-
-                        continue;
-                    }
-
-                    $type = last(explode('.', $url));
-                    $value = base64_encode(file_get_contents($url));
-                    $encoded = 'data:image/'.$type.';base64,'.$value;
-
-                    $this->settings->put('custom_background', $url);
-                    $this->settings->put('custom_background_encoded', $encoded);
-                }
+            if ($key === 'custom_background') {
+                $this->handleCustomBackground($settings->get('custom_background'));
 
                 continue;
             }
@@ -141,6 +126,59 @@ class Shaarli
         }
 
         return $this;
+    }
+
+    public function handleCustomBackground($value): void
+    {
+        $data = (array)json_decode($value);
+
+        if ($data['type'] === 'gradient') {
+            $this->settings->put('custom_background', json_encode($data));
+            return;
+        }
+
+        if ($data['type'] === 'image' && ! empty($data['base64'])) {
+            if (false !== preg_match('/data:image\/([a-z]+);.*/i', $data['base64'], $ext)) {
+                $ext = $ext[1];
+                $base64 = str_replace('data:image/'.$ext.';base64,', '', $data['base64']);
+                $file = base64_decode($base64);
+                $name = 'custom-background.'.$ext;
+
+                Storage::disk('public')->put($name, $file);
+                $url = Storage::disk('public')->url($name);
+
+                $this->settings->put('custom_background', json_encode([
+                    'type' => 'image',
+                    'file' => $url,
+                ]));
+            }
+
+            return;
+        }
+
+        $this->settings->put('custom_background', $value);
+        return;
+    }
+
+    public function getCustomBackgroundCss(): string
+    {
+        $background = (array)json_decode($this->settings->get('custom_background'));
+
+        if ($background['type'] === 'gradient') {
+            return vsprintf("linear-gradient(%sdeg, %s 0%%, %s 100%%)", [
+                $background['orientation'],
+                $background['start'],
+                $background['end'],
+            ]);
+        }
+
+        if ($background['type'] === 'image') {
+            return vsprintf("url(%s)", [
+                $background['file'],
+            ]);
+        }
+
+        return '';
     }
 
     public function __call($name, $arguments)

@@ -2,7 +2,8 @@
 
 ## Added
 
-- Shaarlies listing
+- Ability to customize background as image or custom gradient (issues #25 and #26)
+- Shaarlies [listing](https://github.com/MarceauKa/laravel-shaarli/blob/dev/shaarlies.md)
 
 ## Changed
 
