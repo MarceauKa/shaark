@@ -13,7 +13,6 @@ Route::post('link/parse', 'LinkController@parse')->name('link.parse');
 Route::post('link', 'LinkController@store')->name('link.store');
 Route::put('link/{id}', 'LinkController@update')->name('link.update');
 Route::delete('link/{id}', 'LinkController@delete')->name('link.delete');
-Route::put('link/{id}/preview', 'LinkController@preview')->name('link.preview');
 
 Route::get('link/{id}/archive', 'LinkArchiveController@get')->name('link.archive');
 Route::put('link/{id}/archive', 'LinkArchiveController@store');

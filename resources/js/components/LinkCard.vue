@@ -30,13 +30,6 @@
 
                     <h6 class="dropdown-header" v-if="link.editable">{{ __('Manage') }}</h6>
 
-                    <confirm class="dropdown-item"
-                             :text="`<i class='fas fa-sync fa-fw mr-1'></i> ${__('Update preview')}`"
-                             :text-confirm="`<i class='fas fa-check fa-fw mr-1'></i> ${__('Confirm')}`"
-                             @confirmed="preview"
-                             v-if="link.editable"
-                    ></confirm>
-
                     <a class="dropdown-item" @click="$bus.$emit('share', link)" v-if="link.editable"><i class="fas fa-share-square fa-fw mr-1"></i> {{ __('Temp sharing') }}</a>
                     <a class="dropdown-item" :href="link.url_edit" v-if="link.editable"><i class="fas fa-pen-alt fa-fw mr-1"></i> {{ __('Edit') }}</a>
 
@@ -81,17 +74,6 @@ export default {
                 })
                 .catch(error => {
                     this.$toasted.error(this.__("Unable to delete link"));
-                })
-        },
-
-        preview() {
-            axios.put(this.link.url_preview)
-                .then(response => {
-                    this.$toasted.success(this.__("Link preview has been updated"));
-                    window.location.reload();
-                })
-                .catch(error => {
-                    this.$toasted.error(this.__("Unable to update link preview"));
                 })
         }
     },
