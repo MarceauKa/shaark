@@ -9,12 +9,15 @@
 
 - Unused settings keys are now cleaned after settings update
 - Shaarli default settings are now located in shaarli config file
+- Move link preview and archive to LinkForm (issue #29)
 
 ## Fixed
 
 - Translation in german updated (thanks to [kayschima](https://github.com/kayschima))
 - Select tags now use `custom-select` class
 - Move vue component styles to `app.scss`
+- Modal component now correctly remove itself
+- Wrong translation used when blocking in demo mode
 - Typos in StoryForm
 
 # 1.2.21

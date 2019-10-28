@@ -17,9 +17,6 @@ Route::get('feed/{type}', 'FeedController@index')->name('feed');
 Route::get('link/create', 'LinkController@create')->name('link.create');
 Route::get('link/edit/{id}', 'LinkController@edit')->name('link.edit');
 
-Route::get('link/archive/{id}', 'LinkArchiveController@form')->name('link.archive.form');
-Route::post('link/archive/{id}', 'LinkArchiveController@store');
-Route::post('link/archive/{id}/delete', 'LinkArchiveController@delete')->name('link.archive.delete');
 Route::get('link/archive/{id}/download/{hash}', 'LinkArchiveController@download')->name('link.archive.download');
 
 Route::get('story/create', 'StoryController@create')->name('story.create');

@@ -52,15 +52,45 @@
                     <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true" v-if="loading"></span>
                     {{ __('Save') }}
                 </button>
-                <button class="btn btn-outline-primary" @click.prevent="submit(true)" :disabled="loading">
-                    <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true" v-if="loading"></span>
-                    {{ __('Save then archive') }}
-                </button>
+                <button type="button" class="btn btn-outline-primary" @click="openArchive" v-if="link">{{ __('Archive')}}</button>
                 <a :href="link.permalink" class="btn btn-outline-primary" v-if="link">{{ __('View')}}</a>
             </div>
 
             <slot name="actions"></slot>
         </div>
+
+        <modal :open="archiving" @closed="archiving = false" size="lg">
+            <template #header>{{ __('Archive') }}</template>
+            <template #content>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <h4>{{ __('Current archive') }}</h4>
+
+                        <p v-if="archive.download">
+                            <a :href="link.url_download" class="btn btn-sm btn-primary text-white btn-block">{{ __('Download archive') }}</a>
+                            <confirm class="btn btn-sm btn-danger text-white btn-block" :text="__('Delete archive')" :text-confirm="__('Confirm')" @confirmed="deleteArchive"></confirm>
+                        </p>
+
+                        <div class="alert alert-info" v-else>
+                            {{ __('Archive does not exist') }}
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                        <h4>{{ __('New archive') }}</h4>
+
+                        <p v-if="archive.providers.length > 0">
+                            <button class="btn btn-sm btn-primary btn-block" name="type" @click="askArchive('media')" v-if="archive.providers.indexOf('media') !== -1">{{ __('Archive as Media') }}</button>
+                            <button class="btn btn-sm btn-primary btn-block" name="type" @click="askArchive('pdf')" v-if="archive.providers.indexOf('pdf') !== -1">{{ __('Archive as PDF') }}</button>
+                        </p>
+
+                        <div class="alert alert-info" v-else>
+                            {{ __('No provider found to archive this link') }}
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </modal>
     </div>
 </template>
 
@@ -102,6 +132,8 @@ export default {
             form: defaultLink(),
             parsing: false,
             loading: false,
+            archiving: false,
+            archive: null,
         }
     },
 
@@ -140,7 +172,7 @@ export default {
             });
         },
 
-        submit(redirectToArchive = false) {
+        submit() {
             this.loading = true;
 
             axios.request({
@@ -159,10 +191,6 @@ export default {
                     });
                     this.reset();
                 }
-
-                if (redirectToArchive === true) {
-                    window.location = `/link/archive/${response.data.post.postable_id}`;
-                }
             }).catch(error => {
                 this.loading = false;
                 this.setFormError(error);
@@ -171,16 +199,49 @@ export default {
             })
         },
 
+        openArchive() {
+            axios.get(this.link.url_archive)
+                .then(response => {
+                    this.archive = response.data;
+                    this.archiving = true;
+                })
+                .catch(error => {
+                    this.setHttpError(error);
+                    this.toastHttpError(this.__('Whoops!'));
+                });
+        },
+
+        askArchive(type) {
+            axios.put(this.link.url_archive, {type})
+                .then(response => {
+                    this.$toasted.success(response.data.message);
+                    this.archiving = false;
+                    this.archive = null;
+                })
+                .catch(error => {
+                    this.setHttpError(error);
+                    this.toastHttpError(this.__('Whoops!'));
+                });
+        },
+
+        deleteArchive() {
+            axios.delete(this.link.url_archive)
+                .then(response => {
+                    this.$toasted.success(response.data.message);
+                    this.archiving = false;
+                    this.archive = null;
+                })
+                .catch(error => {
+                    this.setHttpError(error);
+                    this.toastHttpError(this.__('Whoops!'));
+                });
+        },
+
         reset() {
             this.loading = false;
             this.parsing = false;
             this.form = defaultLink();
             this.resetFormError();
-        },
-
-        newTag(value) {
-            this.tags.push(value);
-            this.form.tags.push(value);
         }
     },
 

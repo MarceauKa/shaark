@@ -15,6 +15,10 @@ Route::put('link/{id}', 'LinkController@update')->name('link.update');
 Route::delete('link/{id}', 'LinkController@delete')->name('link.delete');
 Route::put('link/{id}/preview', 'LinkController@preview')->name('link.preview');
 
+Route::get('link/{id}/archive', 'LinkArchiveController@get')->name('link.archive');
+Route::put('link/{id}/archive', 'LinkArchiveController@store');
+Route::delete('link/{id}/archive', 'LinkArchiveController@delete');
+
 Route::post('story', 'StoryController@store')->name('story.store');
 Route::put('story/{id}', 'StoryController@update')->name('story.update');
 Route::delete('story/{id}', 'StoryController@delete')->name('story.delete');

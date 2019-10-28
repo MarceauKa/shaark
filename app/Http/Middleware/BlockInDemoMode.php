@@ -13,7 +13,7 @@ class BlockInDemoMode
             if ($request->expectsJson()) {
                 return response()->json([
                     'status' => 'error',
-                    'message' => __("This action is unavailable in demo mode")
+                    'message' => __("This action is not available in demo mode")
                 ], 401);
             }
 
