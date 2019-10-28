@@ -25,7 +25,7 @@ class LinkResource extends JsonResource
                 'url_edit' => route('link.edit', $this->id),
                 'url_update' => route('api.link.update', $this->id),
                 'url_delete' => route('api.link.delete', $this->id),
-                'url_archive' => route('link.archive.form', $this->id),
+                'url_archive' => route('api.link.archive', $this->id),
                 'url_preview' => route('api.link.preview', $this->id),
                 'url_share' => route('api.share', $this->post->id),
             ]),

@@ -2,7 +2,7 @@
     <div class="modal fade"
          :id="id"
          role="dialog"
-         v-if="show"
+         v-if="open"
     >
         <div class="modal-dialog modal-dialog-centered"
              :class="{'modal-lg': size === 'lg', 'modal-xl': size === 'xl', 'modal-sm': size === 'sm'}"
@@ -48,12 +48,6 @@ export default {
         }
     },
 
-    data() {
-        return {
-            show: false,
-        }
-    },
-
     methods: {
         createModal() {
             this.$nextTick(() => {
@@ -65,7 +59,6 @@ export default {
                 });
 
                 modal.on('hidden.bs.modal', (e) => {
-                    this.show = false;
                     this.deleteModal();
                 });
 
@@ -75,22 +68,20 @@ export default {
 
         deleteModal() {
             $(`#${this.id}`).modal('dispose');
+            $('div.modal-backdrop').remove();
+            $('body.modal-open').removeClass('modal-open');
             this.$emit('closed');
         },
     },
 
     watch: {
         open: function (value) {
-            this.show = value;
-        },
-
-        show: function (value) {
             if (value === true) {
                 this.createModal();
             } else {
                 this.deleteModal();
             }
-        }
+        },
     },
 
     computed: {

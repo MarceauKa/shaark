@@ -78,7 +78,6 @@
     "Purge": "Bereinigen",
     "Confirm": "Bestätigen",
     "Save": "Speichern",
-    "Save then archive": "Speichern und archivieren",
     "View": "Ansehen",
     "Add": "Hinzufügen",
     "Move": "Verschieben",
@@ -109,7 +108,6 @@
 
     "Link is being archived": "Der Link wird archiviert",
     "No provider found to archive this link": "Kein Anbieter gefunden, um diesen Link zu archivieren",
-    "Choose preferred method to archive this link: <a href=':link' target='_blank'>:link</a>": "Wählen Sie die bevorzugte Methode zum Archivieren dieses Links : <a href=':link' target='_blank'>:link</a>",
     "Archive as Media": "Als Medien archivieren",
     "Archive as PDF": "Als PDF archivieren",
     "New archive": "Neues Archiv",
@@ -117,7 +115,7 @@
     "Download archive": "Archiv herunterladen",
     "Delete archive": "Archiv löschen",
     "Archive has been deleted": "Das Archiv wurde gelöscht",
-    "Archive doest not exist": "Das Archiv existiert nicht",
+    "Archive does not exist": "Das Archiv existiert nicht",
 
     "Private story?": "Privater Bericht ?",
     "Story created": "Bericht erstellt",
