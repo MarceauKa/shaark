@@ -87,7 +87,7 @@ from youtube, soundcloud, vimeo and [few more sites](http://ytdl-org.github.io/y
 
 - [Puppeteer](https://github.com/GoogleChrome/puppeteer) will be used by default to save the webpage as a PDF.
 
-You can adjust archiving configuration in the settings section.
+You can adjust archiving configuration and test it in the settings section.
 
 ## Contribute
 

@@ -1,5 +1,9 @@
 # Unreleased
 
+## Added
+
+- Ability to test PDF and Media archiving in settings (issue #34)
+
 ## Changed
 
 - Add `php artisan storage:link` to the update command

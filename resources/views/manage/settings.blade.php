@@ -135,7 +135,12 @@
 
                     <div class="form-group">
                         <label for="node_bin">{{ __('Node.js binary') }}</label>
-                        <input type="text" class="form-control {{ $errors->has('node_bin') ? ' is-invalid' : '' }}" name="node_bin" id="node_bin" value="{{ $settings['node_bin'] }}">
+                        <div class="input-group">
+                            <input type="text" class="form-control {{ $errors->has('node_bin') ? ' is-invalid' : '' }}" name="node_bin" id="node_bin" value="{{ $settings['node_bin'] }}">
+                            <div class="input-group-append">
+                                <check-archive type="pdf"></check-archive>
+                            </div>
+                        </div>
                         @error('node_bin')
                         <span class="invalid-feedback" role="alert">{{ $message }}</span>
                         @enderror
@@ -150,7 +155,12 @@
 
                     <div class="form-group">
                         <label for="youtube_dl_bin">{{ __('Youtube-dl binary') }}</label>
-                        <input type="text" class="form-control {{ $errors->has('youtube_dl_bin') ? ' is-invalid' : '' }}" name="youtube_dl_bin" id="youtube_dl_bin" value="{{ $settings['youtube_dl_bin'] }}">
+                        <div class="input-group">
+                            <input type="text" class="form-control {{ $errors->has('youtube_dl_bin') ? ' is-invalid' : '' }}" name="youtube_dl_bin" id="youtube_dl_bin" value="{{ $settings['youtube_dl_bin'] }}">
+                            <div class="input-group-append">
+                                <check-archive type="media"></check-archive>
+                            </div>
+                        </div>
                         @error('youtube_dl_bin')
                         <span class="invalid-feedback" role="alert">{{ $message }}</span>
                         @enderror

@@ -54,7 +54,12 @@ class YoutubeDlProvider extends BaseProvider
 
     public function canArchive(): bool
     {
-        /*try {
+        return true;
+    }
+
+    public static function test(string $url): bool
+    {
+        try {
             $dl = new YoutubeDl([
                 'skip-download' => true,
                 'restrict-filenames' => true,
@@ -64,7 +69,7 @@ class YoutubeDlProvider extends BaseProvider
 
             $dl->setBinPath(app('shaarli')->getYoutubeDlBin());
             $dl->setDownloadPath(storage_path('app/archives'));
-            $result = $dl->download($this->url);
+            $result = $dl->download($url);
 
             if (false === $result instanceof Video) {
                 return false;
@@ -72,7 +77,7 @@ class YoutubeDlProvider extends BaseProvider
         } catch (ExecutableNotFoundException $e) {
             unset($e);
             return false;
-        }*/
+        }
 
         return true;
     }
