@@ -7,6 +7,8 @@
 
 # 1.2.22
 
+⚠️ If you have issues with settings, remove `custom_background` and `custom_background_encoded` from your `storage/settings.json`
+
 ## Added
 
 - Ability to customize background as image or custom gradient (issues #25 and #26)
