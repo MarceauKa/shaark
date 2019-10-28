@@ -4,6 +4,11 @@
 
 - Add `php artisan storage:link` to the update command
 - Installation and update documentation
+- Shaarli will now append default values to settings 
+
+## Fixed
+
+- Default locale setting
 
 # 1.2.22
 
