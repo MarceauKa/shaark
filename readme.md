@@ -63,6 +63,8 @@ This demo is resetted hourly.
 git clone https://github.com/MarceauKa/laravel-shaarli && cd laravel-shaarli
 cp .env.example .env # Then edit it
 composer install
+php artisan key:generate
+php artisan storage:link
 ```
 
 Then run `php artisan shaarli:install` (for interactive installation) or `php artisan migrate --seed` (with default data).
@@ -140,6 +142,7 @@ git reset --hard
 git pull origin master
 composer install --no-dev -o
 php artisan migrate --force -n
+php artisan storage:link
 php artisan optimize
 php artisan view:clear
 php artisan queue:restart # if you're using queues
