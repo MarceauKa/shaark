@@ -1,3 +1,10 @@
+# Unreleased
+
+## Changed
+
+- Add `php artisan storage:link` to the update command
+- Installation and update documentation
+
 # 1.2.22
 
 ## Added

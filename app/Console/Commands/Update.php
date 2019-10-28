@@ -41,6 +41,7 @@ class Update extends Command
         $this->comment('Migrated');
 
         // Optimizations
+        $this->callSilent('storage:link');
         $this->callSilent('optimize');
         $this->callSilent('view:clear');
         $this->callSilent('queue:restart');
