@@ -158,10 +158,10 @@ export default {
                 });
             }
 
-            if (this.type === 'image' && this.backgroundImage) {
+            if (this.type === 'image' && (this.backgroundImage || this.values.file)) {
                 data = JSON.stringify({
                     type: 'image',
-                    base64: this.image.base64,
+                    base64: this.image.base64 || null,
                 })
             }
 

@@ -118,8 +118,7 @@ class Shaarli
     {
         $defaults = $this->getSettingsConfig();
 
-        foreach ($this->settings as $key => $value)
-        {
+        foreach ($this->settings->all() as $key => $value) {
             if (false === array_key_exists($key, $defaults)) {
                 $this->settings->forget($key);
             }
@@ -135,9 +134,7 @@ class Shaarli
         if ($data['type'] === 'gradient') {
             $this->settings->put('custom_background', json_encode($data));
             return;
-        }
-
-        if ($data['type'] === 'image' && ! empty($data['base64'])) {
+        } else if ($data['type'] === 'image' && ! empty($data['base64'])) {
             if (false !== preg_match('/data:image\/([a-z]+);.*/i', $data['base64'], $ext)) {
                 $ext = $ext[1];
                 $base64 = str_replace('data:image/'.$ext.';base64,', '', $data['base64']);
@@ -154,15 +151,21 @@ class Shaarli
             }
 
             return;
+        } else if ($data['type'] === 'none') {
+            $this->settings->put('custom_background', $value);
+            return;
         }
 
-        $this->settings->put('custom_background', $value);
         return;
     }
 
     public function getCustomBackgroundCss(): string
     {
         $background = (array)json_decode($this->settings->get('custom_background'));
+
+        if (! array_key_exists('type', $background)) {
+            return '';
+        }
 
         if ($background['type'] === 'gradient') {
             return vsprintf("linear-gradient(%sdeg, %s 0%%, %s 100%%)", [
