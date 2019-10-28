@@ -32,18 +32,6 @@ class LinkController extends Controller
         ]);
     }
 
-    public function preview(Request $request, int $id)
-    {
-        /** @var Link $link */
-        $link = Link::findOrFail($id);
-        $link->updatePreview();
-
-        return response()->json([
-            'id' => $link->id,
-            'status' => 'previewed',
-        ]);
-    }
-
     public function store(StoreLinkRequest $request)
     {
         $data = collect($request->validated());

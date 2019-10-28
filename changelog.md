@@ -10,6 +10,7 @@
 - Unused settings keys are now cleaned after settings update
 - Shaarli default settings are now located in shaarli config file
 - Move link preview and archive to LinkForm (issue #29)
+- Removed link preview action (previews are updated when saving a link)
 
 ## Fixed
 

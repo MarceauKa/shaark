@@ -69,8 +69,6 @@
     "Export": "Exportieren",
     "Actions": "Aktionen",
     "More": "Mehr",
-    "Update preview": "Vorschau aktualisieren",
-    "Manage archive": "Archiv verwalten",
     "Archive": "Archiv",
     "Permalink": "Permanent-Link",
     "Edit": "Bearbeiten",
@@ -102,8 +100,6 @@
     "Unable to parse link": "Link kann nicht analysiert werden",
     "Unable to save link": "Link kann nicht gespeichert werden",
     "Unable to delete link": "Link kann nicht gelöscht werden",
-    "Link preview has been updated": "Linkvorschau wurde aktualisiert",
-    "Unable to update link preview": "Linkvorschau kann nicht aktualisiert werden",
     "Link :name has been deleted": "Der Link :name wurde gelöscht",
 
     "Link is being archived": "Der Link wird archiviert",
