@@ -15,7 +15,7 @@ return [
             'rules' => ['required', 'min:2', 'max:100']
         ],
         'locale' => [
-            'default' => env('APP_LOCALE'),
+            'default' => env('APP_LANG'),
             'rules' => ['required', 'in:fr,en,de']
         ],
         'is_private' => [

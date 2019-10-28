@@ -26,6 +26,12 @@ class Shaarli
     {
         $this->app = $app;
         $this->settings = Valuestore::make(storage_path('settings.json'));
+
+        if ($this->settings->count() === 0) {
+            foreach ($this->getSettingsConfig() as $key => $item) {
+                $this->settings->put($key, $item['default']);
+            }
+        }
     }
 
     public function authorizeFromRequest(Request $request): bool
