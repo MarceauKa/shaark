@@ -7,6 +7,7 @@
 
 ## Changed
 
+- Installation and archiving documentation
 - Add `php artisan storage:link` to the update command
 - Installation and update documentation
 - Shaarli will now append default values to settings 

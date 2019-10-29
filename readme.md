@@ -10,28 +10,15 @@ but built with [Laravel](https://github.com/laravel/laravel) and [Vue.js](https:
 
 ## Summary
 
-- [Requirements](#requirements)
 - [Features](#features)
 - [Demo](#demo)
 - [Installation](#installation)
 - [Archiving](#archiving)
 - [Contribute](#contribute)
 - [Security](#security)
-- [Update](#update)
-- [Going live](#going-live)
-- [Artisan commands](#artisan-commands)
 - [Dependencies](#dependencies)
 - [Tests](#tests)
 - [Licence](#licence)
-
-## Requirements
-
-- Linux or macOS env
-- PHP >= 7.2
-- MySQL >= 5.7 (or SQLite >= 3)
-- Node.js >= 6
-- (Optional) Redis
-- (Optional) [youtube-dl](https://github.com/ytdl-org/youtube-dl)
 
 ## Features
 
@@ -57,28 +44,11 @@ but built with [Laravel](https://github.com/laravel/laravel) and [Vue.js](https:
 A public demo is available at [https://shaarli.mka.ovh](https://shaarli.mka.ovh). Credentials are **admin@example.com** and **secret**. 
 This demo is resetted hourly.
 
-## Installation
+## [Installation](https://github.com/MarceauKa/laravel-shaarli/blob/dev/documentation/installation.md)
 
-```
-git clone https://github.com/MarceauKa/laravel-shaarli && cd laravel-shaarli
-cp .env.example .env # Then edit it
-composer install
-php artisan key:generate
-php artisan storage:link
-```
+See the extensive [installation documentation](https://github.com/MarceauKa/laravel-shaarli/blob/dev/documentation/installation.md).
 
-Then run `php artisan shaarli:install` (for interactive installation) or `php artisan migrate --seed` (with default data).
-Default user is `admin@example.com` with password `secret`.
-
-### Additional configuration
-
-Laravel Shaarli is built with [Laravel 6](https://laravel.com/docs/6.x/installation). There's many ways to configuration database, session, mail and queue:
-- Database can use MySQL (default), SQLite or Postgre SQL (see [database configuration](https://laravel.com/docs/6.x/database))
-- Session can use file (default), cookie, database or redis (see [session configuration](https://laravel.com/docs/6.x/session))
-- Mail can use sendmail (default), smtp, mailgun, postmark or amazon ses (see [mail configuration](https://laravel.com/docs/6.x/mail#driver-prerequisites))
-- Queue (optional) can use sync (default), redis, database, beanstalkd, amazon sqs (see [queue configuration](https://laravel.com/docs/6.x/queues))   
-
-## Archiving
+## [Archiving](https://github.com/MarceauKa/laravel-shaarli/blob/dev/documentation/archiving.md)
 
 Each link you share can be archived the way you want:
 
@@ -87,7 +57,7 @@ from youtube, soundcloud, vimeo and [few more sites](http://ytdl-org.github.io/y
 
 - [Puppeteer](https://github.com/GoogleChrome/puppeteer) will be used by default to save the webpage as a PDF.
 
-You can adjust archiving configuration and test it in the settings section.
+Learn more in the [archiving documentation](https://github.com/MarceauKa/laravel-shaarli/blob/dev/documentation/archiving.md).
 
 ## Contribute
 
@@ -131,68 +101,6 @@ Since `1.2.9`, all chests data are encrypted in your database using AES-256-CBC 
 
 Others users can be admin or non-admin. Admin users are like the main user and have an access to the entire content. 
 Non-admin users can't access the settings section and can only see their own private content.
-
-## Update
-
-Update the application by running or use the `php artisan shaarli:update`.
-
-```bash
-php artisan down
-git reset --hard
-git pull origin master
-composer install --no-dev -o
-php artisan migrate --force -n
-php artisan storage:link
-php artisan optimize
-php artisan view:clear
-php artisan queue:restart # if you're using queues
-php artisan up
-```
-
-## Going live
-
-Check these options before going live.
-
-**Composer flags**
-```composer install --no-dev -o```
-
-**.env options**
-```
-APP_ENV=production
-APP_DEBUG=false
-APP_URL=https://{your_url}
-CACHE_DRIVER=file # or redis
-SESSION_DRIVER=file # or redis
-QUEUE_CONNECTION=sync # or redis, database
-MAIL_DRIVER=smtp
-MAIL_FROM_NAME={your_name}
-MAIL_FROM_ADDRESS={your_email}
-```
-
-**Artisan routines**
-```
-php artisan optimize
-php artisan view:clear
-```
-
-## Artisan commands
-
-### Install command
-
-`php artisan shaarli:install`
-
-This command will install default data (seeder) or ask you for the default user.
-
-### Update command
-
-`php artisan shaarli:update`
-
-This command will try to [update](#update) Shaarli. `Git` and `Composer` must be accessible from your env.
-
-### Encrypt and decrypt
-
-Encryption is made on the fly for your chests, but you can manually encrypt or decrypt them 
-by running `php artisan shaarli:chests:encrypt` or `php artisan shaarli:chests:decrypt`.
 
 ## Dependencies
 
