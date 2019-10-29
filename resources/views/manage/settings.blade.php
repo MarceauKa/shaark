@@ -23,6 +23,7 @@
                             <option value="fr"{{ $settings['locale'] == 'fr' ? ' selected' : '' }}>FR</option>
                             <option value="en"{{ $settings['locale'] == 'en' ? ' selected' : '' }}>EN</option>
                             <option value="de"{{ $settings['locale'] == 'de' ? ' selected' : '' }}>DE</option>
+                            <option value="de"{{ $settings['locale'] == 'ja' ? ' selected' : '' }}>JA</option>
                         </select>
                     </div>
 
