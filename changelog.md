@@ -2,6 +2,7 @@
 
 ## Added
 
+- Japanese translation (thanks to [wyred](https://github.com/wyred))
 - Ability to test PDF and Media archiving in settings (issue #34)
 
 ## Changed
