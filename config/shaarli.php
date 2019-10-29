@@ -16,7 +16,7 @@ return [
         ],
         'locale' => [
             'default' => env('APP_LANG'),
-            'rules' => ['required', 'in:fr,en,de']
+            'rules' => ['required', 'in:fr,en,de,ja']
         ],
         'is_private' => [
             'default' => false,
