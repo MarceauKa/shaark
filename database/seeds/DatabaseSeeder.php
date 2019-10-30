@@ -48,7 +48,7 @@ class DatabaseSeeder extends Seeder
                     ['type' => 'url', 'name' => 'URL', 'value' => route('login')],
                     ['type' => 'text', 'name' => 'Email', 'value' => 'admin@example.com'],
                     ['type' => 'password', 'name' => 'Mot de passe', 'value' => Str::random(12)],
-                    ['type' => 'code', 'name' => 'Code', 'value' => "<?php\n\nnamespace App\\Service;\n\nclass Foobar {\n\n\n}\n"],
+                    ['type' => 'code', 'name' => 'Code', 'value' => "<?php print \"Hello world\"; ?>"],
                 ]
             ]),
         ];
