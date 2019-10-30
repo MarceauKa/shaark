@@ -38,7 +38,7 @@ Route::post('account/logins/logout', 'AccountController@logoutDevices')->name('a
 
 Route::get('manifest.webmanifest', 'PwaController@manifest')->name('pwa.manifest');
 Route::get('sw.js', 'PwaController@worker')->name('pwa.worker');
-Route::get('offline.html', 'PwaController@offline')->name('pwa.offline');
+Route::get('offline', 'PwaController@offline')->name('pwa.offline');
 
 Route::group([
     'as' => 'manage.',

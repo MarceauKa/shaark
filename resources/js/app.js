@@ -56,4 +56,44 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
 
 const app = new Vue({
     el: '#app',
+
+    data() {
+        return {
+            'pwa': false,
+            'prompt': null,
+        }
+    },
+
+    created() {
+        this.registerServiceWorker();
+
+        window.addEventListener('beforeinstallprompt', (event) => {
+            this.prompt = event;
+        });
+    },
+
+    methods: {
+        registerServiceWorker() {
+            if ("serviceWorker" in navigator) {
+                if (navigator.serviceWorker.controller) {
+                    this.pwa = true;
+                } else {
+                    navigator
+                        .serviceWorker
+                        .register("sw.js", {scope: "/"});
+                }
+            }
+        },
+
+        promptPwa(event) {
+            this.prompt.prompt();
+
+            this.prompt
+                .userChoice
+                .then((choiceResult) => {
+                    console.log(choiceResult.outcome);
+                    this.prompt = null;
+                });
+        },
+    }
 });

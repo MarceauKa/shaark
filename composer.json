@@ -27,6 +27,7 @@
         "doctrine/dbal": "^2.9",
         "fideloper/proxy": "^4.0",
         "hashids/hashids": "^2.0.4|~3.0",
+        "intervention/image": "^2.5",
         "lab404/laravel-auth-checker": "^1.4",
         "laravel/framework": "^6.0",
         "laravel/scout": "^7.1",

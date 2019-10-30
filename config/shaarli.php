@@ -78,5 +78,9 @@ return [
             'default' => '/usr/bin/youtube-dl',
             'rules' => ['required']
         ],
+        'icon' => [
+            'default' => '/images/logo-shaarli.png',
+            'rules' => ['nullable', 'image']
+        ],
     ],
 ];

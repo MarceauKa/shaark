@@ -43,6 +43,9 @@
                                 <a class="dropdown-item" href="{{ route('manage.settings') }}">
                                     <i class="fas fa-cogs fa-fw mr-1"></i> {{ __('Settings') }}
                                 </a>
+                                <a class="dropdown-item" href="#" @click.prevent="promptPwa()" v-if="!pwa">
+                                    <i class="fas fa-magnet fa-fw mr-1"></i> {{ __('Add to homescreen') }}
+                                </a>
 
                                 <h6 class="dropdown-header">{{ __('Session') }}</h6>
 

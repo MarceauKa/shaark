@@ -15,16 +15,23 @@ class PwaController extends Controller
             'name' => $shaarli->getName(),
             'scope' => '/',
             'display' => 'standalone',
-            'start_url' => url()->route('home'),
+            'start_url' => '/',
             'short_name' => $shaarli->getName(),
             'theme_color' => 'transparent',
             'description' => $shaarli->getName(),
             'orientation' => 'any',
             'background_color' => 'transparent',
-            'related_applications' => '',
-            'prefer_related_applications' => 'false',
-            'icons' => [],
-            'screenshots' => [],
+            'prefer_related_applications' => false,
+            'icons' => [
+                [
+                    'src' => url($shaarli->getIcon()),
+                    'type' => 'image/png',
+                    'sizes' => '192x192 512x512',
+                ]
+            ],
+            'serviceworker' => [
+                'src' => url('serviceworker.js'),
+            ],
             'generated' => true,
         ];
 
@@ -37,7 +44,9 @@ class PwaController extends Controller
 
     public function worker(Request $request)
     {
-        return response()->file(resource_path('js/sw.js'));
+        return response()->file(resource_path('js/sw.js'), [
+            'Content-Type' => 'application/javascript'
+        ]);
     }
 
     public function offline(Request $request, Shaarli $shaarli)
