@@ -4,6 +4,7 @@ namespace App\Services\Shaarli;
 
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -115,6 +116,12 @@ class Shaarli
                 continue;
             }
 
+            if ($key === 'custom_icon') {
+                $this->handleCustomIcon($settings->get('custom_icon'));
+
+                continue;
+            }
+
             $this->settings->put($key, $settings->get($key, $item['default']));
         }
 
@@ -162,6 +169,19 @@ class Shaarli
             $this->settings->put('custom_background', $value);
             return;
         }
+
+        return;
+    }
+
+    public function handleCustomIcon(UploadedFile $value): void
+    {
+        if (empty($value)) {
+            return;
+        }
+
+        $name = sprintf('logo-%s.png', uniqid());
+        $value->storeAs('/', $name, ['disk' => 'public']);
+        $this->settings->put('custom_icon', $name);
 
         return;
     }

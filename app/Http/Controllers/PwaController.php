@@ -24,7 +24,7 @@ class PwaController extends Controller
             'prefer_related_applications' => false,
             'icons' => [
                 [
-                    'src' => url($shaarli->getIcon()),
+                    'src' => url($shaarli->getCustomIcon()),
                     'type' => 'image/png',
                     'sizes' => '192x192 512x512',
                 ]

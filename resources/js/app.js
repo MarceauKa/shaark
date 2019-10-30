@@ -60,16 +60,11 @@ const app = new Vue({
     data() {
         return {
             'pwa': false,
-            'prompt': null,
         }
     },
 
     created() {
         this.registerServiceWorker();
-
-        window.addEventListener('beforeinstallprompt', (event) => {
-            this.prompt = event;
-        });
     },
 
     methods: {
@@ -83,17 +78,6 @@ const app = new Vue({
                         .register("sw.js", {scope: "/"});
                 }
             }
-        },
-
-        promptPwa(event) {
-            this.prompt.prompt();
-
-            this.prompt
-                .userChoice
-                .then((choiceResult) => {
-                    console.log(choiceResult.outcome);
-                    this.prompt = null;
-                });
-        },
+        }
     }
 });

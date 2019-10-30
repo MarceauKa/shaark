@@ -3,7 +3,7 @@
 @section('content')
 <div class="row justify-content-center">
     <div class="col-12">
-        <form method="POST" action="{{ route('manage.settings') }}" method="POST">
+        <form method="POST" action="{{ route('manage.settings') }}" enctype="multipart/form-data">
             @csrf
 
             <div class="card">
@@ -80,7 +80,21 @@
                     <label for="name">{{ __('Custom background') }}</label>
                     <background name="custom_background" :values="{{ $settings['custom_background'] ?? '{type: "none"}' }}"></background>
                     @error('custom_background')
-                    <span class="invalid-feedback" role="alert">{{ $message }}</span>
+                    <span class="text-danger" role="alert">{{ $message }}</span>
+                    @enderror
+
+                    <label for="name">{{ __('Custom icon (512x512, .png)') }}</label>
+                    <div class="input-group">
+                        <div class="custom-file">
+                            <label for="custom_icon" class="custom-file-label" data-browse="{{ __('Browse') }}">{{ __('File') }}</label>
+                            <input type="file" class="custom-file-input" name="custom_icon" id="custom_icon" accept="image/png" />
+                        </div>
+                        <div class="input-group-append">
+                            <img src="{{ url(app('shaarli')->getCustomIcon()) }}" class="img-fluid img-thumbnail" style="height: 37px;" />
+                        </div>
+                    </div>
+                    @error('custom_icon')
+                    <span class="text-danger" role="alert">{{ $message }}</span>
                     @enderror
                 </div>
             </div>

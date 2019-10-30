@@ -46,6 +46,10 @@ return [
             'default' => null,
             'rules' => ['nullable'],
         ],
+        'custom_icon' => [
+            'default' => '/images/logo-shaarli.png',
+            'rules' => ['nullable', 'image', 'mimes:png', 'dimensions:width=512,height=512'],
+        ],
         'private_archive' => [
             'default' => false,
             'rules' => ['nullable', 'in:on,off']
@@ -77,10 +81,6 @@ return [
         'youtube_dl_bin' => [
             'default' => '/usr/bin/youtube-dl',
             'rules' => ['required']
-        ],
-        'icon' => [
-            'default' => '/images/logo-shaarli.png',
-            'rules' => ['nullable', 'image']
         ],
     ],
 ];

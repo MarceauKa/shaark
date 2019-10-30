@@ -1,7 +1,8 @@
 <nav class="navbar navbar-expand-md navbar-light mb-3">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
-            {{ app('shaarli')->getName() }}
+            <img src="{{ url(app('shaarli')->getCustomIcon()) }}">
+            <span>{{ app('shaarli')->getName() }}</span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
@@ -42,9 +43,6 @@
                                 </a>
                                 <a class="dropdown-item" href="{{ route('manage.settings') }}">
                                     <i class="fas fa-cogs fa-fw mr-1"></i> {{ __('Settings') }}
-                                </a>
-                                <a class="dropdown-item" href="#" @click.prevent="promptPwa()" v-if="!pwa">
-                                    <i class="fas fa-magnet fa-fw mr-1"></i> {{ __('Add to homescreen') }}
                                 </a>
 
                                 <h6 class="dropdown-header">{{ __('Session') }}</h6>

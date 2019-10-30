@@ -38,6 +38,17 @@ nav.navbar,
     > nav.navbar {
         padding: 1rem;
 
+        .navbar-brand {
+            display: flex;
+            flex-flow: row nowrap;
+
+            img {
+                max-height: 30px;
+                width: auto;
+                margin-right: 10px;
+            }
+        }
+
         .dropdown-menu {
             box-shadow: $box-shadow-lg;
             z-index: 1600;

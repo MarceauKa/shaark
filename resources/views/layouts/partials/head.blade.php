@@ -12,7 +12,7 @@
 @stack('meta')
 <link rel="manifest" href="{{ route('pwa.manifest') }}">
 <base href="{{ url()->route('home') }}">
-<link rel="icon" type="image/png" href="{{ url(app('shaarli')->getIcon()) }}">
+<link rel="icon" type="image/png" href="{{ url(app('shaarli')->getCustomIcon()) }}">
 <link rel="dns-prefetch" href="//fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 <link href="{{ mix('css/app.css') }}" rel="stylesheet">

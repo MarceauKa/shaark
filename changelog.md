@@ -1,3 +1,10 @@
+# Unreleased
+
+## Added
+
+- Progressive Web App compatibility (chests are not cached)
+- Default icon for Shaarli and ability to customize it
+
 # 1.2.23
 
 ## Added
@@ -9,7 +16,6 @@
 
 - Installation and archiving documentation
 - Add `php artisan storage:link` to the update command
-- Installation and update documentation
 - Shaarli will now append default values to settings 
 
 ## Fixed
