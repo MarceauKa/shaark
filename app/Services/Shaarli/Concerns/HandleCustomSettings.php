@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Storage;
  */
 trait HandleCustomSettings
 {
-    public function handleCustomIcon(UploadedFile $value): void
+    public function handleCustomIcon(?UploadedFile $value): void
     {
         if (empty($value)) {
             return;
