@@ -36,6 +36,10 @@ Route::post('account/password', 'AccountController@storePassword');
 Route::get('account/logins', 'AccountController@viewLogins')->name('account.logins');
 Route::post('account/logins/logout', 'AccountController@logoutDevices')->name('account.logins.logout');
 
+Route::get('manifest.webmanifest', 'PwaController@manifest')->name('pwa.manifest');
+Route::get('sw.js', 'PwaController@worker')->name('pwa.worker');
+Route::get('offline.html', 'PwaController@offline')->name('pwa.offline');
+
 Route::group([
     'as' => 'manage.',
     'prefix' => 'manage',

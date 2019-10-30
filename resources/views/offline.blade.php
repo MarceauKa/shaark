@@ -1,0 +1,1 @@
+Offline {{ $page_title }}

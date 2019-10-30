@@ -11,6 +11,7 @@ use Spatie\Valuestore\Valuestore;
 
 /**
  * @method string getName()
+ * @method string getLocale()
  * @method bool getIsPrivate()
  */
 class Shaarli
