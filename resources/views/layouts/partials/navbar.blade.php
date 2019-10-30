@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-light mb-3">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
-            <img src="{{ url(app('shaarli')->getCustomIcon()) }}">
+            <img src="{{ app('shaarli')->getCustomIconUrl() }}">
             <span>
                 {{ app('shaarli')->getName() }}
                 <sup class="fa-stack" v-if="!online">

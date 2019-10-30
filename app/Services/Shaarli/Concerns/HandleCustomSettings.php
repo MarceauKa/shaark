@@ -24,6 +24,17 @@ trait HandleCustomSettings
         return;
     }
 
+    public function getCustomIconUrl(): string
+    {
+        $icon = $this->getCustomIcon();
+
+        if ($icon === $this->getSettingsConfig()['custom_icon']['default']) {
+            return url($icon);
+        }
+
+        return Storage::disk('public')->url($icon);
+    }
+
     public function handleCustomBackground($value): void
     {
         $data = (array)json_decode($value);

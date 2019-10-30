@@ -96,7 +96,7 @@
                             <input type="file" class="custom-file-input" name="custom_icon" id="custom_icon" accept="image/png" />
                         </div>
                         <div class="input-group-append">
-                            <img src="{{ url(app('shaarli')->getCustomIcon()) }}" class="img-fluid img-thumbnail" style="height: 37px;" />
+                            <img src="{{ app('shaarli')->getCustomIconUrl() }}" class="img-fluid img-thumbnail" style="height: 37px;" />
                         </div>
                     </div>
                     @error('custom_icon')
