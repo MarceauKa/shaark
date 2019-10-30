@@ -4,6 +4,7 @@
 
 - Progressive Web App compatibility (chests are not cached)
 - Default icon for Shaarli and ability to customize it
+- Network status monitor (for PWA)
 
 # 1.2.23
 

@@ -22,20 +22,17 @@ but built with [Laravel](https://github.com/laravel/laravel) and [Vue.js](https:
 
 ## Features
 
-- [x] Links : to save a web content such a website or a youtube video
-- [x] Stories : posts with markdown content
-- [x] Chests : to save your web accounts
-- [x] Rapid sharing through bookmark extension
+- [x] Links : to keep your bookmarks
+- [x] Stories : posts with markdown flavored content
+- [x] Chests : to save your passwords
+- [x] Rapid sharing extension and progressive web app 
 - [x] Tagging system, search and RSS feeds
 - [x] Private content or entirely private (with temp sharing)
-- [x] Original Shaarli import
-- [x] Export
-- [x] Dark mode
-- [x] i18n (EN, FR and DE)
-- [x] Archiving
-- [x] 2-FA with email
-- [x] Multi-users
-- [x] **NEW** RSS feed
+- [x] Export / Import (even original Shaarli)
+- [x] Theming (dark mode, background)
+- [x] i18n (🇬🇧, 🇫🇷, 🇩🇪, 🇯🇵)
+- [x] Archiving (as pdf, as media)
+- [x] DB encryption, 2-FA, Multi-users
 
 ## Demo
 

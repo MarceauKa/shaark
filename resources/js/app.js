@@ -60,11 +60,15 @@ const app = new Vue({
     data() {
         return {
             'pwa': false,
+            'online': true,
         }
     },
 
     created() {
         this.registerServiceWorker();
+
+        window.addEventListener('online', () => { this.online = true; });
+        window.addEventListener('offline', () => { this.online = false; });
     },
 
     methods: {

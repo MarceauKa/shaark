@@ -2,7 +2,13 @@
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
             <img src="{{ url(app('shaarli')->getCustomIcon()) }}">
-            <span>{{ app('shaarli')->getName() }}</span>
+            <span>
+                {{ app('shaarli')->getName() }}
+                <sup class="fa-stack" v-if="!online">
+                    <i class="fas fa-wifi fa-stack-1x text-dark"></i>
+                    <i class="fas fa-ban fa-stack-2x text-danger"></i>
+                </sup>
+            </span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
