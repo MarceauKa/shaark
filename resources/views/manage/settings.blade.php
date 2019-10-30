@@ -25,6 +25,9 @@
                             <option value="de"{{ $settings['locale'] == 'de' ? ' selected' : '' }}>DE</option>
                             <option value="ja"{{ $settings['locale'] == 'ja' ? ' selected' : '' }}>JA</option>
                         </select>
+                        @error('locale')
+                        <span class="text-danger" role="alert">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div class="form-group">
@@ -32,6 +35,9 @@
                             <input type="checkbox" class="custom-control-input" name="is_private" id="is_private" {{ $settings['is_private'] ? ' checked' : '' }}>
                             <label class="custom-control-label" for="is_private">{{ __('Private content (all content is private and login is required)') }}</label>
                         </div>
+                        @error('is_private')
+                        <span class="text-danger" role="alert">{{ $message }}</span>
+                        @enderror
                     </div>
                 </div>
             </div>
@@ -178,6 +184,37 @@
                         </div>
                         @error('youtube_dl_bin')
                         <span class="invalid-feedback" role="alert">{{ $message }}</span>
+                        @enderror
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mt-4">
+                <div class="card-header">{{ __('shaarli.settings.backup.title') }}</div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input" name="backup_enabled" id="backup_enabled" {{ $settings['backup_enabled'] ? ' checked' : '' }}>
+                            <label class="custom-control-label" for="backup_enabled">{{ __('shaarli.settings.backup.enabled') }}</label>
+                        </div>
+                        <span class="text-muted">{{ __('shaarli.settings.backup.enabled_help') }}</span>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input" name="backup_only_database" id="backup_only_database" {{ $settings['backup_only_database'] ? ' checked' : '' }}>
+                            <label class="custom-control-label" for="backup_only_database">{{ __('shaarli.settings.backup.only_database') }}</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="backup_period">{{ __('shaarli.settings.backup.period') }}</label>
+                        <select name="backup_period" id="backup_period" class="form-control custom-select">
+                            <option value="daily"{{ $settings['backup_period'] == 'daily' ? ' selected' : '' }}>{{ __('shaarli.settings.backup.period_daily') }}</option>
+                            <option value="weekly"{{ $settings['backup_period'] == 'weekly' ? ' selected' : '' }}>{{ __('shaarli.settings.backup.period_weekly') }}</option>
+                        </select>
+                        @error('backup_period')
+                        <span class="text-danger" role="alert">{{ $message }}</span>
                         @enderror
                     </div>
                 </div>

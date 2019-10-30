@@ -2,8 +2,9 @@
 
 ## Added
 
-- Progressive Web App compatibility (chests are not cached)
+- Progressive Web App compatibility (issue #24)
 - Default icon for Shaarli and ability to customize it
+- Automatic [backup](https://github.com/MarceauKa/laravel-shaarli/blob/dev/documentation/backup.md) (issue #28)
 - Network status monitor (for PWA)
 
 ## Changed

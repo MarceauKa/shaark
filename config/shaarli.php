@@ -82,5 +82,17 @@ return [
             'default' => '/usr/bin/youtube-dl',
             'rules' => ['required']
         ],
+        'backup_enabled' => [
+            'default' => false,
+            'rules' => ['nullable', 'in:on,off']
+        ],
+        'backup_only_database' => [
+            'default' => false,
+            'rules' => ['nullable', 'in:on,off']
+        ],
+        'backup_period' => [
+            'default' => 'daily',
+            'rules' => ['required', 'in:daily,weekly']
+        ],
     ],
 ];

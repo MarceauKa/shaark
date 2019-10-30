@@ -50,6 +50,12 @@ Default user is `admin@example.com` with password `secret`.
 - With default data:
 `php artisan migrate --seed`
 
+### CRON job (optional)
+
+CRON job is for now useful to automate [backups](https://github.com/MarceauKa/laravel-shaarli/blob/dev/documentation/backup.md).
+
+`* * * * * cd /path-to-your-project && php artisan schedule:run >> /dev/null 2>&1`
+
 Shaarli is now installed! 🎉
 
 ## Configuration

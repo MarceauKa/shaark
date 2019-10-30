@@ -16,10 +16,13 @@ use Spatie\Valuestore\Valuestore;
  * @method bool getHomeShowChests()
  * @method bool getCompactCardslist()
  * @method bool getColumnsCount()
- * @method ?string getCustomBackground()
+ * @method string getCustomBackground()
  * @method string getCustomIcon()
  * @method bool getPrivateArchive()
  * @method bool getSecureLogin()
+ * @method bool getBackupEnabled()
+ * @method bool getBackupOnlyDatabase()
+ * @method bool getBackupPeriod()
  */
 trait ControlsSettings
 {

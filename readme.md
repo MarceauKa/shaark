@@ -31,8 +31,8 @@ but built with [Laravel](https://github.com/laravel/laravel) and [Vue.js](https:
 - [x] Export / Import (even original Shaarli)
 - [x] Theming (dark mode, background)
 - [x] i18n (🇬🇧, 🇫🇷, 🇩🇪, 🇯🇵)
-- [x] Archiving (as pdf, as media)
-- [x] DB encryption, 2-FA, Multi-users
+- [x] [Archiving](https://github.com/MarceauKa/laravel-shaarli/blob/dev/documentation/archiving.md) (as pdf, as media)
+- [x] DB encryption, 2-FA, Multi-users, [backup](https://github.com/MarceauKa/laravel-shaarli/blob/dev/documentation/backup.md)
 
 ## Demo
 
@@ -110,8 +110,9 @@ Our dependencies with link to their documentation and why we use it.
 - [excel](https://github.com/Maatwebsite/Laravel-Excel) is used to generate exports as xlsx or csv
 - [valuestore](https://github.com/spatie/valuestore) is used for application settings
 - [dom-crawler](https://github.com/symfony/dom-crawler) is used to read metadata from posted links
-- [puphpeteer](https://github.com/nesk/puphpeteer/) is used to save your links as PDF using a chrome browser
-- [youtube-dl-php](https://github.com/norkunas/youtube-dl-php) is a bridge to youtube-dl to save you links (youtube, soundcloud, ...) as a local copy
+- [puphpeteer](https://github.com/nesk/puphpeteer/) is used to [save your links as PDF](https://github.com/MarceauKa/laravel-shaarli/blob/dev/documentation/archiving.md) using a chrome browser
+- [youtube-dl-php](https://github.com/norkunas/youtube-dl-php) is a bridge to youtube-dl to [save your links](https://github.com/MarceauKa/laravel-shaarli/blob/dev/documentation/archiving.md) (youtube, soundcloud, ...) as a local copy
+- [laravel-backup](https://github.com/spatie/laravel-backup) is used for... [backups](https://github.com/MarceauKa/laravel-shaarli/blob/dev/documentation/backup.md) !
 
 ### JS
 
