@@ -37,9 +37,6 @@
     "Invalid credentials": "Ungültige Anmeldedaten",
     "Invalid secure code": "Sicherheitscode",
     "A security code has been sent to you. This code will expire :expire.": "Ein Sicherheitscode wurde an Sie gesendet. Dieser Code verfällt :expire.",
-    "Secure your login": "Sichern Sie Ihre Anmeldung ab",
-    "Please use the following code :code to access your account.": "Bitte verwenden Sie den folgenden Code :code, um auf Ihr Konto zuzugreifen.",
-    "Confirm login": "Anmeldung bestätigen",
 
     "Manage": "Verwalten",
     "Page": "Seite",

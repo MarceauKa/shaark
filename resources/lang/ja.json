@@ -37,9 +37,6 @@
     "Invalid credentials": "パスワードが正しくありません",
     "Invalid secure code": "厳密コードが正しくありません",
     "A security code has been sent to you. This code will expire :expire.": "厳密コードはメールで送りました。当コードの期限切れは:expire.",
-    "Secure your login": "ログインを安全化にする",
-    "Please use the following code :code to access your account.": "アカウントをアクセスするために、このコードを入力してください：:code",
-    "Confirm login": "ログインを確認",
 
     "Manage": "整理",
     "Page": "ページ",

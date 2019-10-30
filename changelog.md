@@ -9,6 +9,7 @@
 ## Changed
 
 - Shaarli manager is now divised into multiple traits
+- Move email translation from frontend file to laravel file for performance issue
 
 # 1.2.23
 
