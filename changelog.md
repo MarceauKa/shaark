@@ -6,6 +6,10 @@
 - Default icon for Shaarli and ability to customize it
 - Network status monitor (for PWA)
 
+## Changed
+
+- Shaarli manager is now divised into multiple traits
+
 # 1.2.23
 
 ## Added
