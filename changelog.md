@@ -4,6 +4,10 @@
 
 - Install button for PWA in settings
 
+## Changed
+
+- Move settings translation from frontend file to laravel file for performance issue 
+
 # 1.2.24
 
 ## Added
