@@ -6,6 +6,7 @@
 
 ## Changed
 
+- Laravel 6.4
 - Move settings translation from frontend file to laravel file for performance issue 
 
 # 1.2.24
