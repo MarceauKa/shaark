@@ -38,7 +38,9 @@ trait ControlsGlobalPrivacy
             'login/secure/*',
             'password/*',
             'logout',
-            'shared/*'
+            'shared/*',
+            'manifest.json',
+            'sw.js',
         ];
 
         foreach ($excepts as $except) {
