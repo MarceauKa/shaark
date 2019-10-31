@@ -9,7 +9,7 @@
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     {{ __('General') }}
-                    <button type="button" class="btn btn-sm btn-outline-primary" @click="installPwa">{{ __('Install') }}</button>
+                    <button type="button" class="btn btn-sm btn-outline-primary" @click="installPwa" :disabled="prompt === null">{{ __('Install') }}</button>
                 </div>
                 <div class="card-body">
                     <div class="form-group">
