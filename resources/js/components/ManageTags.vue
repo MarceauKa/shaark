@@ -1,6 +1,9 @@
 <template>
     <div class="card">
-        <div class="card-header">{{ __('Tags') }}</div>
+        <div class="card-header">
+            <i class="fas fa-tags mr-1"></i>
+            {{ __('Tags') }}
+        </div>
 
         <div class="card-body" v-if="!loading">
             <div class="alert alert-info" v-if="tags.length === 0">

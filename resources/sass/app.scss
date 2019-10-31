@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Rubik:400,700&display=swap&subset=cyrillic,hebrew,latin-ext');
 @import 'variables';
 @import '~bootstrap/scss/bootstrap';
 @import '~vue-multiselect/dist/vue-multiselect.min.css';
@@ -17,16 +16,31 @@ body {
 }
 
 body {
-    background-image: linear-gradient(to top, #dad4ec 0%, #dad4ec 1%, #f3e7e9 100%);
+    background-image: linear-gradient(to top, #dad4ec 0%, #f3e7e9 100%);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
 }
 
-nav.navbar,
-.list-group {
+nav.navbar {
     background-color: rgba(255, 255, 255, .9);
-    box-shadow: $box-shadow-sm;
+    box-shadow: $box-shadow;
+}
+
+.list-group {
+    background-color: transparent;
+    box-shadow: $box-shadow;
+    border-radius: 1rem;
+    border-color: transparent;
+
+    .list-group-item {
+        border: none;
+    }
+}
+
+.dropdown-menu {
+    box-shadow: $box-shadow;
+    z-index: 1600;
 }
 
 #app {
@@ -36,7 +50,7 @@ nav.navbar,
     min-height: 100%;
 
     > nav.navbar {
-        padding: 1rem;
+        padding: 1.5rem 1rem;
 
         .navbar-brand {
             display: flex;
@@ -63,18 +77,34 @@ nav.navbar,
             }
         }
 
-        .dropdown-menu {
-            box-shadow: $box-shadow-lg;
-            z-index: 1600;
-        }
-
         #search {
             width: 100%;
             padding-left: 1rem;
             padding-right: 1rem;
 
             .results {
-                box-shadow: $box-shadow-lg;
+                display: none;
+                z-index: 500;
+                position: absolute;
+                top: 40px;
+                width: calc(100% - 2rem);
+                box-shadow: $box-shadow;
+
+                &.active {
+                    display: block;
+                }
+
+                .list-group-item {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+
+                    div:first-child {
+                        > span {
+                            text-transform: uppercase;
+                        }
+                    }
+                }
             }
 
             @include media-breakpoint-down(sm) {
@@ -102,13 +132,13 @@ nav.navbar,
     > footer {
         width: 100%;
         background-color: rgba(255, 255, 255, .9);
-        box-shadow: $box-shadow-sm;
-        padding: 1rem;
+        box-shadow: $box-shadow;
+        padding: 1.5rem 1rem;
     }
 }
 
 .card {
-    box-shadow: $box-shadow-sm;
+    box-shadow: $box-shadow;
 
     .card-header {
         border-bottom: none

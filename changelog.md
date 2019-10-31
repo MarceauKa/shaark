@@ -7,6 +7,8 @@
 ## Changed
 
 - Laravel 6.4
+- New theme (rounded, more icons, more space, new font)
+- Replaced font "Rubik" by "IBM Plex Sans" (without Google Font)
 - Move settings translation from frontend file to laravel file for performance issue 
 
 # 1.2.24

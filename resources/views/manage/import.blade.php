@@ -4,7 +4,10 @@
 <div class="row justify-content-center">
     <div class="col-12">
         <div class="card">
-            <div class="card-header">{{ __('Import') }}</div>
+            <div class="card-header">
+                <i class="fas fa-cloud-upload-alt mr-1"></i>
+                {{ __('Import') }}
+            </div>
 
             <div class="card-body">
                 <div class="alert alert-warning">
@@ -22,8 +25,10 @@
                     @csrf
 
                     <div class="form-group">
-                        <label for="file">Fichier d'import</label>
-                        <input type="file" class="form-control-file {{ $errors->has('file') ? ' is-invalid' : '' }}" name="file" id="file" accept=".php">
+                        <div class="custom-file">
+                            <label for="file" class="custom-file-label">Fichier d'import</label>
+                            <input type="file" class="custom-file-input {{ $errors->has('file') ? ' is-invalid' : '' }}" name="file" id="file" accept=".php">
+                        </div>
                         @error('file')
                         <span class="invalid-feedback" role="alert">{{ $message }}</span>
                         @enderror

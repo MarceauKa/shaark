@@ -13,19 +13,19 @@
                         <div class="list-group">
                             <a href="{{ route('manage.settings') }}"
                                class="list-group-item list-group-item-action{{ request()->is('manage/settings') ? ' active' : '' }}"
-                            >{{ __('Settings') }}</a>
+                            ><i class="fas fa-fw fa-cogs mr-1"></i> {{ __('Settings') }}</a>
                             <a href="{{ route('manage.tags') }}"
                                class="list-group-item list-group-item-action{{ request()->is('manage/tags') ? ' active' : '' }}"
-                            >{{ __('Tags') }}</a>
+                            ><i class="fas fa-fw fa-tags mr-1"></i> {{ __('Tags') }}</a>
                             <a href="{{ route('manage.users') }}"
                                class="list-group-item list-group-item-action{{ request()->is('manage/users') ? ' active' : '' }}"
-                            >{{ __('Users') }}</a>
+                            ><i class="fas fa-fw fa-users mr-1"></i> {{ __('Users') }}</a>
                             <a href="{{ route('manage.export') }}"
                                class="list-group-item list-group-item-action{{ request()->is('manage/export') ? ' active' : '' }}"
-                            >{{ __('Export') }}</a>
+                            ><i class="fas fa-fw fa-cloud-download-alt mr-1"></i> {{ __('Export') }}</a>
                             <a href="{{ route('manage.import') }}"
                                class="list-group-item list-group-item-action{{ request()->is('manage/import') ? ' active' : '' }}"
-                            >{{ __('Import') }}</a>
+                            ><i class="fas fa-fw fa-cloud-upload-alt mr-1"></i> {{ __('Import') }}</a>
                         </div>
                     </div>
                     <div class="col-12 col-md-8">

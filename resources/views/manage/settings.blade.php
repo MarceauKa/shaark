@@ -93,14 +93,9 @@
                     @enderror
 
                     <label for="name">{{ __('shaarli.settings.appearance.custom_icon') }}</label>
-                    <div class="input-group">
-                        <div class="custom-file">
-                            <label for="custom_icon" class="custom-file-label" data-browse="{{ __('Browse') }}">{{ __('File') }}</label>
-                            <input type="file" class="custom-file-input" name="custom_icon" id="custom_icon" accept="image/png" />
-                        </div>
-                        <div class="input-group-append">
-                            <img src="{{ app('shaarli')->getCustomIconUrl() }}" class="img-fluid img-thumbnail" style="height: 37px;" />
-                        </div>
+                    <div class="custom-file">
+                        <label for="custom_icon" class="custom-file-label" data-browse="{{ __('Browse') }}">{{ __('File') }}</label>
+                        <input type="file" class="custom-file-input" name="custom_icon" id="custom_icon" accept="image/png" />
                     </div>
                     @error('custom_icon')
                     <span class="text-danger" role="alert">{{ $message }}</span>

@@ -1,7 +1,7 @@
 <template>
     <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
-            {{ __("Users") }}
+            <span><i class="fas fa-users mr-1"></i> {{ __("Users") }}</span>
             <button class="btn btn-primary btn-sm text-white" @click="add()">{{ __('Add user') }}</button>
         </div>
 

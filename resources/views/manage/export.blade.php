@@ -4,7 +4,10 @@
 <div class="row justify-content-center">
     <div class="col-12">
         <div class="card">
-            <div class="card-header">{{ __('Export') }}</div>
+            <div class="card-header">
+                <i class="fas fa-cloud-download-alt mr-1"></i>
+                {{ __('Export') }}
+            </div>
 
             <div class="card-body">
                 <form method="POST" action="{{ route('manage.export') }}" method="POST">
