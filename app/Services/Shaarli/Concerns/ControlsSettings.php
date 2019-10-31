@@ -62,21 +62,18 @@ trait ControlsSettings
     public function setSettings(Collection $settings): self
     {
         foreach ($this->getSettingsConfig() as $key => $item) {
-            if (is_bool($item['default'])) {
-                $this->settings->put($key, $settings->get($key, 'off') == 'on');
-
-                continue;
-            }
-
             if ($key === 'custom_background') {
                 $this->handleCustomBackground($settings->get('custom_background'));
-
                 continue;
             }
 
             if ($key === 'custom_icon') {
                 $this->handleCustomIcon($settings->get('custom_icon'));
+                continue;
+            }
 
+            if (is_bool($item['default'])) {
+                $this->settings->put($key, $settings->get($key, 'off') == 'on');
                 continue;
             }
 
