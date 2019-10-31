@@ -10,6 +10,7 @@ class PwaController extends Controller
     public function manifest(Request $request, Shaarli $shaarli)
     {
         $manifest = [
+            'version' => Shaarli::VERSION,
             'dir' => 'ltr',
             'lang' => $shaarli->getLocale(),
             'name' => $shaarli->getName(),
@@ -36,7 +37,7 @@ class PwaController extends Controller
         ];
 
         $headers = [
-            'Content-Type' => 'application/manifest+json',
+            'Content-Type' => 'application/json',
         ];
 
         return response()->json($manifest, 200, $headers);
