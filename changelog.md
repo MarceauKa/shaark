@@ -1,3 +1,9 @@
+# Unreleased
+
+## Added
+
+- Install button for PWA in settings
+
 # 1.2.24
 
 ## Added

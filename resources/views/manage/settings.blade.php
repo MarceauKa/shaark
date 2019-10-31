@@ -7,7 +7,10 @@
             @csrf
 
             <div class="card">
-                <div class="card-header">{{ __('General') }}</div>
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    {{ __('General') }}
+                    <button type="button" class="btn btn-sm btn-outline-primary" @click="installPwa">{{ __('Install') }}</button>
+                </div>
                 <div class="card-body">
                     <div class="form-group">
                         <label for="name">{{ __('Site name') }}</label>

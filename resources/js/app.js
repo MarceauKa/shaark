@@ -61,6 +61,7 @@ const app = new Vue({
         return {
             'pwa': false,
             'online': true,
+            'prompt': null,
         }
     },
 
@@ -69,6 +70,7 @@ const app = new Vue({
 
         window.addEventListener('online', () => { this.online = true; });
         window.addEventListener('offline', () => { this.online = false; });
+        window.addEventListener('beforeinstallprompt', (event) => { this.prompt = event; });
     },
 
     methods: {
@@ -82,6 +84,17 @@ const app = new Vue({
                         .register("sw.js", {scope: "/"});
                 }
             }
+        },
+
+        installPwa($event) {
+            this.prompt.prompt();
+
+            this.prompt
+                .userChoice
+                .then((result) => {
+                    this.prompt = null;
+                });
+
         }
     }
 });
