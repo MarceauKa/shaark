@@ -10,5 +10,6 @@ You host your own Shaarli public instance and you want to share it with other Sh
 
 ### Listing
 
+- Arciela - [https://arciela.com](https://arciela.com)
 - Laravel Shaarli - [https://shaarli.mka.ovh](https://shaarli.mka.ovh)
 - Marceau Ka - [https://note.casals.fr](https://note.casals.fr)
