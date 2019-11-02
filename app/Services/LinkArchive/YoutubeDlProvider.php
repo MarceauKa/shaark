@@ -25,6 +25,7 @@ class YoutubeDlProvider extends BaseProvider
                 'output' => md5($this->url) . '.%(ext)s',
             ]);
 
+            $dl->setPythonPath(app('shaarli')->getPythonBin());
             $dl->setBinPath(app('shaarli')->getYoutubeDlBin());
             $dl->setDownloadPath($path);
 

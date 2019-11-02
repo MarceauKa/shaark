@@ -12,7 +12,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="custom-file">
-                        <label for="file" class="custom-file-label" :data-browse="__('Browse')">{{ __('File') }}</label>
+                        <label for="file" class="custom-file-label" :data-browse="__('Choose')">{{ __('File') }}</label>
                         <input type="file" class="custom-file-input" id="file" @change="handleFile" accept="image/*" :value="image.name"/>
                     </div>
                 </div>

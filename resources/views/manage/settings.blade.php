@@ -135,10 +135,15 @@
             </div>
 
             <div class="card mt-4">
-                <div class="card-header d-flex justify-content-between align-items-center">
+                <div class="card-header d-flex justify-content-between align-items-center flex-wrap">
                     {{ __('shaarli.settings.archiving.title') }}
-                    <a href="{{ route('manage.archives') }}" class="btn btn-sm btn-outline-primary" >{{ __('Manage') }}</a>
+                    <span>
+                        <check-archive type="pdf" class="btn btn-sm btn-outline-secondary" text="{{ __('shaarli.settings.archiving.check_pdf_archiving') }}"></check-archive>
+                        <check-archive type="media" class="btn btn-sm btn-outline-secondary" text="{{ __('shaarli.settings.archiving.check_media_archiving') }}"></check-archive>
+                        <a href="{{ route('manage.archives') }}" class="btn btn-sm btn-outline-primary" >{{ __('Manage') }}</a>
+                    </span>
                 </div>
+
                 <div class="card-body">
                     <div class="form-group">
                         <div class="custom-control custom-switch">
@@ -156,12 +161,7 @@
 
                     <div class="form-group">
                         <label for="node_bin">{{ __('shaarli.settings.archiving.node_bin') }}</label>
-                        <div class="input-group">
-                            <input type="text" class="form-control {{ $errors->has('node_bin') ? ' is-invalid' : '' }}" name="node_bin" id="node_bin" value="{{ $settings['node_bin'] }}">
-                            <div class="input-group-append">
-                                <check-archive type="pdf"></check-archive>
-                            </div>
-                        </div>
+                        <input type="text" class="form-control {{ $errors->has('node_bin') ? ' is-invalid' : '' }}" name="node_bin" id="node_bin" value="{{ $settings['node_bin'] }}">
                         @error('node_bin')
                         <span class="invalid-feedback" role="alert">{{ $message }}</span>
                         @enderror
@@ -176,13 +176,16 @@
 
                     <div class="form-group">
                         <label for="youtube_dl_bin">{{ __('shaarli.settings.archiving.youtube_dl_bin') }}</label>
-                        <div class="input-group">
-                            <input type="text" class="form-control {{ $errors->has('youtube_dl_bin') ? ' is-invalid' : '' }}" name="youtube_dl_bin" id="youtube_dl_bin" value="{{ $settings['youtube_dl_bin'] }}">
-                            <div class="input-group-append">
-                                <check-archive type="media"></check-archive>
-                            </div>
-                        </div>
+                        <input type="text" class="form-control {{ $errors->has('youtube_dl_bin') ? ' is-invalid' : '' }}" name="youtube_dl_bin" id="youtube_dl_bin" value="{{ $settings['youtube_dl_bin'] }}">
                         @error('youtube_dl_bin')
+                        <span class="invalid-feedback" role="alert">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label for="python_bin">{{ __('shaarli.settings.archiving.python_bin') }}</label>
+                        <input type="text" class="form-control {{ $errors->has('python_bin') ? ' is-invalid' : '' }}" name="python_bin" id="python_bin" value="{{ $settings['python_bin'] }}">
+                        @error('python_bin')
                         <span class="invalid-feedback" role="alert">{{ $message }}</span>
                         @enderror
                     </div>

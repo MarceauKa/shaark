@@ -82,6 +82,10 @@ return [
             'default' => '/usr/bin/youtube-dl',
             'rules' => ['required']
         ],
+        'python_bin' => [
+            'default' => '/usr/bin/python',
+            'rules' => ['required']
+        ],
         'backup_enabled' => [
             'default' => false,
             'rules' => ['nullable', 'in:on,off']

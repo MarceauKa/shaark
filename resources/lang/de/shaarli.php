@@ -36,6 +36,9 @@ return [
             'node_bin' => "ausführbare Node.js-Datei",
             'link_archive_media' => "Archvierung der Medien (Youtube, Soundcloud, ...)",
             'youtube_dl_bin' => "ausführbare Youtube-dl-Datei",
+            'python_bin' => 'ausführbare Python-Datei',
+            'check_pdf_archiving' => 'Test PDF archiving',
+            'check_media_archiving' => 'Test Media archiving',
         ],
 
         'backup' => [

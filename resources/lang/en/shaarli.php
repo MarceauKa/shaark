@@ -36,6 +36,9 @@ return [
             'node_bin' => 'Node.js binary',
             'link_archive_media' => 'Media archiving (Youtube, Soundcloud, ...)',
             'youtube_dl_bin' => 'Youtube-dl binary',
+            'python_bin' => 'Python binary',
+            'check_pdf_archiving' => 'Test PDF archiving',
+            'check_media_archiving' => 'Test Media archiving',
         ],
 
         'backup' => [

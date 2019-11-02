@@ -3,6 +3,7 @@
 ## Added
 
 - Manage archives (in settings section)
+- Ability to configure python path (for media archiving)
 
 ## Changed
 

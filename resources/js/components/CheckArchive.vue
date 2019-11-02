@@ -1,11 +1,10 @@
 <template>
     <button type="button"
-            class="btn btn-primary"
-            :class="{'btn-danger': status === 'fail', 'btn-success': status === 'success'}"
+            :class="{'btn-outline-danger': status === 'fail', 'btn-outline-success': status === 'success'}"
             @click="check"
             :disabled="loading"
     >
-        <span v-if="!loading && status === null">{{ __('Check') }}</span>
+        <span v-if="!loading && status === null">{{ text }}</span>
         <span v-else-if="status === 'success'">{{ __('Success') }}</span>
         <span v-else-if="status === 'fail'">{{ __('Fail') }}</span>
         <span v-else>
@@ -27,6 +26,10 @@ export default {
             type: String,
             required: true
         },
+        text: {
+            type: String,
+            required: true
+        }
     },
 
     data() {

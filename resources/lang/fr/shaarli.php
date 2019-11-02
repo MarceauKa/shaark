@@ -36,6 +36,9 @@ return [
             'node_bin' => "Éxécutable node.js",
             'link_archive_media' => "Archiver les médias (Youtube, Soundcloud, ...)",
             'youtube_dl_bin' => "Éxécutable Youtube-dl",
+            'python_bin' => 'Éxécutable Python',
+            'check_pdf_archiving' => 'Tester archive PDF',
+            'check_media_archiving' => 'Tester archive Média',
         ],
 
         'backup' => [

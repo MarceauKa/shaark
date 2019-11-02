@@ -29,7 +29,7 @@ You need to install manually [youtube-dl](https://github.com/ytdl-org/youtube-dl
 
 ### Configuration
 
-Once your app is installed, access the **Settings** section, enable **Media archiving** then configure your **Youtube-dl path** (defaults to `/usr/bin/youtube-dl`).
+Once your app is installed, access the **Settings** section, enable **Media archiving** then configure your **Youtube-dl path** (defaults to `/usr/bin/youtube-dl`) and your **Python path** (defaults to `/usr/bin/python`). 
 You can use the **Check** button to test your configuration.
 
 ## Caveats

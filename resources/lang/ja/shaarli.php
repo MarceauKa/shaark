@@ -36,6 +36,9 @@ return [
             'node_bin' => 'Node.jsバイナリ',
             'link_archive_media' => 'メディアアーカイブ (Youtube, Soundcloud, ...)',
             'youtube_dl_bin' => 'Youtube-dlバイナリ',
+            'python_bin' => 'Pythonバイナリ',
+            'check_pdf_archiving' => 'Test PDF archiving',
+            'check_media_archiving' => 'Test Media archiving',
         ],
 
         'backup' => [
