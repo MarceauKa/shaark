@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Album;
 use App\Chest;
 use App\Link;
 use App\Story;
@@ -31,6 +32,12 @@ class PostResource extends JsonResource
                 'title' => $this->postable->title,
                 'url' => $this->postable->permalink,
                 'type' => __('Chest'),
+            ];
+        } elseif ($this->resource->postable instanceof Album) {
+            $content = [
+                'title' => $this->postable->title,
+                'url' => $this->postable->permalink,
+                'type' => __('Album'),
             ];
         }
 

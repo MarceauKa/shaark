@@ -2,6 +2,7 @@
 
 ## Added
 
+- 🚧 Add new Album content type for sharing your pictures
 - Manage archives (in settings section)
 - Ability to configure python path (for media archiving)
 

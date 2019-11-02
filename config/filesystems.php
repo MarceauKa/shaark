@@ -16,6 +16,12 @@ return [
             'visibility' => 'private',
         ],
 
+        'albums' => [
+            'driver' => 'local',
+            'root' => storage_path('app/albums'),
+            'visibility' => 'private',
+        ],
+
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),

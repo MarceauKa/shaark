@@ -48,6 +48,8 @@
     "Stories": "Stories",
     "Chest": "Coffre",
     "Chests": "Coffres",
+    "Album": "Album",
+    "Albums": "Albums",
     "Posts": "Posts",
 
     "Add link": "Ajouter lien",
@@ -56,6 +58,8 @@
     "Update story": "Modifier story",
     "Add chest": "Ajouter coffre",
     "Update chest": "Modifier coffre",
+    "Add album": "Ajouter album",
+    "Update album": "Modifier album",
 
     "Contents": "Contenus",
     "Session": "Session",
