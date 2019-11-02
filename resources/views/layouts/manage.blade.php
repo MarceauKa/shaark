@@ -17,6 +17,9 @@
                             <a href="{{ route('manage.tags') }}"
                                class="list-group-item list-group-item-action{{ request()->is('manage/tags') ? ' active' : '' }}"
                             ><i class="fas fa-fw fa-tags mr-1"></i> {{ __('Tags') }}</a>
+                            <a href="{{ route('manage.archives') }}"
+                               class="list-group-item list-group-item-action{{ request()->is('manage/archives') ? ' active' : '' }}"
+                            ><i class="fas fa-fw fa-archive mr-1"></i> {{ __('Archives') }}</a>
                             <a href="{{ route('manage.users') }}"
                                class="list-group-item list-group-item-action{{ request()->is('manage/users') ? ' active' : '' }}"
                             ><i class="fas fa-fw fa-users mr-1"></i> {{ __('Users') }}</a>

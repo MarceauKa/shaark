@@ -17,7 +17,7 @@ Route::get('feed/{type}', 'FeedController@index')->name('feed');
 Route::get('link/create', 'LinkController@create')->name('link.create');
 Route::get('link/edit/{id}', 'LinkController@edit')->name('link.edit');
 
-Route::get('link/archive/{id}/download/{hash}', 'LinkArchiveController@download')->name('link.archive.download');
+Route::get('link/archive/{id}/download', 'LinkArchiveController@download')->name('link.archive.download');
 
 Route::get('story/create', 'StoryController@create')->name('story.create');
 Route::get('story/{id}/edit', 'StoryController@edit')->name('story.edit');
@@ -52,6 +52,7 @@ Route::group([
     $router->post('export', 'ExportController@export');
     $router->get('users', 'UsersController@all')->name('users');
     $router->get('tags', 'TagsController@view')->name('tags');
+    $router->get('archives', 'ArchivesController@view')->name('archives');
     $router->get('settings', 'SettingsController@form')->name('settings');
     $router->post('settings', 'SettingsController@store');
 });

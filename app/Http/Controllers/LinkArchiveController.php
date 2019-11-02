@@ -14,12 +14,8 @@ class LinkArchiveController extends Controller
         $this->middleware('demo');
     }
 
-    public function download(Request $request, int $id, string $hash)
+    public function download(Request $request, int $id)
     {
-        if ($hash !== csrf_token()) {
-            abort(403);
-        }
-
         /** @var Link $link */
         $link = Link::findOrFail($id);
 

@@ -29,7 +29,7 @@ class LinkResource extends JsonResource
                 'url_share' => route('api.share', $this->post->id),
             ]),
             $this->mergeWhen($this->resource->canDownloadArchive(), [
-               'url_download' => route('link.archive.download', [$this->id, csrf_token()]),
+               'url_download' => route('link.archive.download', $this->id),
             ])
         ];
     }

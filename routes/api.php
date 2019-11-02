@@ -39,7 +39,8 @@ Route::group([
     $router->delete('tags/{tag}', 'TagsController@delete')->name('tags.delete');
     $router->post('tags/{from}/move/{to}', 'TagsController@move')->name('tags.move');
 
-    $router->get('archive/check/{type}', 'ArchiveController@check');
+    $router->get('archives', 'ArchivesController@all')->name('archives');
+    $router->get('archive/check/{type}', 'ArchivesController@check');
 
     $router->get('users', 'UsersController@all')->name('users.all');
     $router->post('users', 'UsersController@store')->name('users.store');

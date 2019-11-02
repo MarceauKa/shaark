@@ -22,7 +22,7 @@ class LinkArchiveController extends Controller
         $link = Link::findOrFail($id);
 
         return response()->json([
-            'download' => $link->hasArchive() ? route('link.archive.download', [$link->id, csrf_token()]) : null,
+            'download' => $link->hasArchive() ? route('link.archive.download', $link->id) : null,
             'providers' => LinkArchive::availableFor($link->url)
         ]);
     }

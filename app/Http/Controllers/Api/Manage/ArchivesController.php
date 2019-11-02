@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Api\Manage;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\LinkArchiveResource;
+use App\Link;
 use App\Services\LinkArchive\LinkArchive;
 use App\Services\LinkArchive\YoutubeDlProvider;
 use App\Services\Shaarli\Shaarli;
@@ -10,11 +12,20 @@ use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Storage;
 
-class ArchiveController extends Controller
+class ArchivesController extends Controller
 {
     public function __construct()
     {
         $this->middleware('demo');
+    }
+
+    public function all(Request $request)
+    {
+        $archives = Link::whereNotNull('archive')->latest()->get();
+
+        return response()->json(
+            LinkArchiveResource::collection($archives)
+        );
     }
 
     public function check(Request $request, Shaarli $shaarli, string $type)

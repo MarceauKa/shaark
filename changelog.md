@@ -1,3 +1,13 @@
+# Unreleased
+
+## Added
+
+- Manage archives (in settings section)
+
+## Changed
+
+- No more URL hash for Archive downloading
+
 # 1.2.25
 
 ## Added

@@ -135,7 +135,10 @@
             </div>
 
             <div class="card mt-4">
-                <div class="card-header">{{ __('shaarli.settings.archiving.title') }}</div>
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    {{ __('shaarli.settings.archiving.title') }}
+                    <a href="{{ route('manage.archives') }}" class="btn btn-sm btn-outline-primary" >{{ __('Manage') }}</a>
+                </div>
                 <div class="card-body">
                     <div class="form-group">
                         <div class="custom-control custom-switch">

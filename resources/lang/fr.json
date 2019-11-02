@@ -66,6 +66,7 @@
     "Actions": "Actions",
     "More": "Plus",
     "Archive": "Archive",
+    "Archives": "Archives",
     "Permalink": "Lien permanent",
     "Edit": "Modifier",
     "Delete": "Supprimer",
@@ -108,6 +109,8 @@
     "Delete archive": "Supprimer l'archive",
     "Archive has been deleted": "L'archive a été supprimée",
     "Archive does not exist": "Aucune archive pour ce lien",
+    "No archive": "Aucune archive",
+    "Can't fetch archives": "Impossible de récupérer les archives",
 
     "Private story?": "Story privée ?",
     "Story created": "Story ajoutée",

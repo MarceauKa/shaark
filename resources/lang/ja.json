@@ -66,6 +66,7 @@
     "Actions": "アクション",
     "More": "更に",
     "Archive": "アーカイブ",
+    "Archives": "アーカイブ",
     "Permalink": "固定ＵＲＬ",
     "Edit": "編集",
     "Delete": "削除",
@@ -108,6 +109,8 @@
     "Delete archive": "アーカイブを削除",
     "Archive has been deleted": "アーカイブが削除されました",
     "Archive does not exist": "アーカイブは見つかりません",
+    "No archive": "No archive",
+    "Can't fetch archives": "Can't fetch archives",
 
     "Private story?": "非公開ストーリーにしますか？",
     "Story created": "ストーリーが作成されました",
