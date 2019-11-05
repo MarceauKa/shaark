@@ -32,7 +32,8 @@ class Update extends Command
 
         // Composer
         $this->comment('Composer install');
-        exec('composer install --no-dev -o >> /dev/null 2>&1');
+        exec('composer install --no-dev >> /dev/null 2>&1');
+        exec('composer dump-autoload -o >> /dev/null 2>&1');
 
         // Migrations
         $this->callSilent('migrate', [

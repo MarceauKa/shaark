@@ -13,6 +13,7 @@
 
 ## Fixed
 
+- Fix composer issue after updating
 - PasswordGenerator border radius
 
 # 1.2.25
