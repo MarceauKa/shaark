@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Console\Commands\CleanFiles;
 use App\Console\Commands\ResetForDemo;
 use App\Services\Shaarli\Shaarli;
 use Illuminate\Console\Scheduling\Schedule;
@@ -9,24 +10,26 @@ use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
 {
-    protected $commands = [
-        //
-    ];
+    protected function commands()
+    {
+        $this->load(__DIR__ . '/Commands');
+    }
 
     protected function schedule(Schedule $schedule)
     {
+        // Reset Demo
         $schedule->command(ResetForDemo::class)
             ->when(function () {
                 return config('shaarli.demo');
             })
             ->hourly();
 
-        $this->scheduleBackup($schedule);
-    }
+        // Clean files
+        $schedule->command(CleanFiles::class)
+            ->hourly();
 
-    protected function commands()
-    {
-        $this->load(__DIR__.'/Commands');
+        // Make backup
+        $this->scheduleBackup($schedule);
     }
 
     protected function scheduleBackup(Schedule $schedule): self
