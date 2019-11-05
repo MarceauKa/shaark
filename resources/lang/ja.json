@@ -48,6 +48,8 @@
     "Stories": "ストーリー",
     "Chest": "チェスト",
     "Chests": "チェスト",
+    "Album": "アルバム",
+    "Albums": "アルバム",
     "Posts": "ポスト",
 
     "Add link": "ＵＲＬを追加",
@@ -56,6 +58,8 @@
     "Update story": "ストーリーを更新",
     "Add chest": "チェストを追加",
     "Update chest": "チェストを更新",
+    "Add album": "アルバムを追加",
+    "Update album": "アルバムを追加",
 
     "Contents": "コンテンツ",
     "Session": "セッション",
@@ -133,6 +137,14 @@
     "Unable to save chest": "チェストの保存に失敗しました",
     "Unable to delete chest": "チェストの削除に失敗しました",
     "Chest :name has been deleted": "チェスト「:name」は削除されました",
+
+    "Images": "Images",
+    "Drop files or click to choose": "Drop files or click to choose",
+    "Invalid file": "Invalid file",
+    "Private album?": "Private album?",
+    "Unable to save album": "Unable to save album",
+    "Album :name has been deleted": "Album :name has been deleted",
+    "Unable to delete album": "Unable to delete album",
 
     "Create tag": "タグを作成",
     "Click to select": "クリックして選択する",

@@ -20,7 +20,7 @@
                            :allow-browse="true"
                            :instant-upload="true"
                            :label-idle="__('Drop files or click to choose')"
-                           :label-invalid-field="__('Fichier invalide')"
+                           :label-invalid-field="__('Invalid file')"
                            :label-file-loading="__('Loading')"
                            :label-file-load-error="__('Fail')"
                            :label-file-processing-error="__('Fail')"

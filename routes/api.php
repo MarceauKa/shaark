@@ -26,7 +26,7 @@ Route::put('chest/{id}', 'ChestController@update')->name('chest.update');
 Route::delete('chest/{id}', 'ChestController@delete')->name('chest.delete');
 
 Route::post('album', 'AlbumController@store')->name('album.store');
-Route::post('album/upload', 'AlbumController@uploadImage')->name('album.image.upload');
+Route::post('album/upload', 'AlbumController@upload')->name('album.image.upload');
 Route::put('album/{id}', 'AlbumController@update')->name('album.update');
 Route::delete('album/{id}', 'AlbumController@delete')->name('album.delete');
 

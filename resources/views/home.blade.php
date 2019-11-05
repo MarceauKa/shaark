@@ -33,6 +33,8 @@
                         <story-card :single="false" :story="{{ json_encode(\App\Http\Resources\StoryResource::make($post->postable)) }}"></story-card>
                     @elseif($post->postable instanceof \App\Chest)
                         <chest-card :single="false" :chest="{{ json_encode(\App\Http\Resources\ChestResource::make($post->postable)) }}"></chest-card>
+                    @elseif($post->postable instanceof \App\Album)
+                        <album-card :single="false" :album="{{ json_encode(\App\Http\Resources\AlbumResource::make($post->postable)) }}"></album-card>
                     @endif
                 @endforeach
             </div>
@@ -51,6 +53,7 @@
                             <a href="{{ route('link.create') }}" class="btn btn-outline-primary">{{ __('Add link') }}</a>
                             <a href="{{ route('story.create') }}" class="btn btn-outline-primary">{{ __('Add story') }}</a>
                             <a href="{{ route('chest.create') }}" class="btn btn-outline-primary">{{ __('Add chest') }}</a>
+                            <a href="{{ route('album.create') }}" class="btn btn-outline-primary">{{ __('Add album') }}</a>
                         </p>
                     </div>
                 </div>

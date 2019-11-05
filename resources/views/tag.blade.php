@@ -23,6 +23,8 @@
                         <story-card :single="false" :story="{{ json_encode(\App\Http\Resources\StoryResource::make($post->postable)) }}"></story-card>
                     @elseif($post->postable instanceof \App\Chest)
                         <chest-card :single="false" :chest="{{ json_encode(\App\Http\Resources\ChestResource::make($post->postable)) }}"></chest-card>
+                    @elseif($post->postable instanceof \App\Album)
+                        <album-card :single="false" :album="{{ json_encode(\App\Http\Resources\AlbumResource::make($post->postable)) }}"></album-card>
                     @endif
                 @endforeach
             </div>
@@ -32,3 +34,9 @@
     </div>
 </div>
 @endsection
+<script>
+    import AlbumCard from "../js/components/AlbumCard";
+    export default {
+        components: {AlbumCard}
+    }
+</script>
