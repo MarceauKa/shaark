@@ -17,11 +17,13 @@
 - (Optional) Redis
 - (Optional) [youtube-dl](https://github.com/ytdl-org/youtube-dl)
 
-## Installation
+## Installation 
 
 ### Installation with Git
 
 `git clone https://github.com/MarceauKa/laravel-shaarli && cd laravel-shaarli`
+
+⚠️ Your domain configuration must point to `/public` folder.
 
 ### Composer dependencies
 
