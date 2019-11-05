@@ -15,7 +15,7 @@ class AlbumController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth:api');
+        $this->middleware(['auth:api', 'demo']);
     }
 
     public function store(StoreAlbumRequest $request)

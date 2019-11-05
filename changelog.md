@@ -1,8 +1,8 @@
-# Unreleased
+# 1.2.26
 
 ## Added
 
-- 🚧 Add new Album content type for sharing your pictures
+- Add new Album content type for sharing your pictures
 - Manage archives (in settings section)
 - Ability to configure python path (for media archiving)
 - Scheduled job to clean old or incomplete files from storage
