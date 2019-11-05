@@ -52,7 +52,7 @@ Default user is `admin@example.com` with password `secret`.
 
 ### CRON job (optional)
 
-CRON job is for now useful to automate [backups](https://github.com/MarceauKa/laravel-shaarli/blob/dev/documentation/backup.md).
+CRON job is used for automations: [backups](https://github.com/MarceauKa/laravel-shaarli/blob/dev/documentation/backup.md), file cleaning, ...
 
 `* * * * * cd /path-to-your-project && php artisan schedule:run >> /dev/null 2>&1`
 

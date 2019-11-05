@@ -14,7 +14,10 @@
                      class="mb-1"
             >
                 <div v-for="image in images" :key="image.name">
-                    <img v-img:group :src="image.url_thumb || image.url_full" :alt="image.name" class="img-fluid mb-1" />
+                    <img v-img="{src: image.url_full, group: album.permalink}"
+                         :src="image.url_thumb || image.url_full"
+                         :alt="image.name"
+                         class="img-fluid mb-1" />
                 </div>
 
                 <div v-if="!single && album.images.length > 4" key="more">
