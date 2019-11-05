@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Album;
 use App\Chest;
 use App\Link;
 use App\Post;
@@ -80,6 +81,20 @@ class BrowseController extends Controller
             'page_title' => sprintf('%s - #%s', $chest->title, $chest->hash_id),
             'chest' => $chest,
             'post' => $chest->post,
+        ]);
+    }
+
+    public function album(Request $request, string $hash)
+    {
+        $album = Album::withPrivate($request)
+            ->with('post.tags')
+            ->hashIdIs($hash)
+            ->firstOrFail();
+
+        return view('album')->with([
+            'page_title' => sprintf('%s', $album->title),
+            'album' => $album,
+            'post' => $album->post,
         ]);
     }
 

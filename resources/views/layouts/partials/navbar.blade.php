@@ -41,6 +41,9 @@
                                 <a class="dropdown-item" href="{{ route('chest.create') }}">
                                     <i class="fas fa-briefcase fa-fw mr-1"></i> {{ __('Add chest') }}
                                 </a>
+                                <a class="dropdown-item" href="{{ route('album.create') }}">
+                                    <i class="fas fa-images fa-fw mr-1"></i> {{ __('Add album') }}
+                                </a>
 
                                 <h6 class="dropdown-header">{{ __('Manage') }}</h6>
 

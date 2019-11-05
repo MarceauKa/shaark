@@ -15,8 +15,7 @@ Route::get('shared/{id}/{token}', 'ShareController@view')->name('share');
 Route::get('feed/{type}', 'FeedController@index')->name('feed');
 
 Route::get('link/create', 'LinkController@create')->name('link.create');
-Route::get('link/edit/{id}', 'LinkController@edit')->name('link.edit');
-
+Route::get('link/{id}/edit', 'LinkController@edit')->name('link.edit');
 Route::get('link/archive/{id}/download', 'LinkArchiveController@download')->name('link.archive.download');
 
 Route::get('story/create', 'StoryController@create')->name('story.create');
@@ -25,9 +24,13 @@ Route::get('story/{id}/edit', 'StoryController@edit')->name('story.edit');
 Route::get('chest/create', 'ChestController@create')->name('chest.create');
 Route::get('chest/{id}/edit', 'ChestController@edit')->name('chest.edit');
 
+Route::get('album/create', 'AlbumController@create')->name('album.create');
+Route::get('album/{id}/edit', 'AlbumController@edit')->name('album.edit');
+
 Route::get('link/{link}', 'BrowseController@link')->name('link.view');
 Route::get('story/{story}', 'BrowseController@story')->name('story.view');
 Route::get('chest/{chest}', 'BrowseController@chest')->name('chest.view');
+Route::get('album/{album}', 'BrowseController@album')->name('album.view');
 
 Route::get('account', 'AccountController@form')->name('account');
 Route::post('account', 'AccountController@store');

@@ -4,6 +4,7 @@
 /storage/*.json
 /storage/*.key
 /storage/*.index
+/storage/medialibrary
 /vendor
 .env
 .phpunit.result.cache

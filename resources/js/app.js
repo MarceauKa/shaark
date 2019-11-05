@@ -51,6 +51,12 @@ Vue.directive('on-clickaway', onClickaway);
 import draggable from 'vuedraggable';
 Vue.component('draggable', draggable);
 
+import VueMasonry from 'vue-masonry-css';
+Vue.use(VueMasonry);
+
+import VueImg from 'v-img';
+Vue.use(VueImg);
+
 const files = require.context('./', true, /\.vue$/i);
 files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 

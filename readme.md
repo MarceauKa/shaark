@@ -1,12 +1,11 @@
 # Laravel Shaarli
 
-It's a **free and open source platform** to host by yourself. **Shaarli** allows you to **save your web links** 
-(websites, youtube videos, ...), to **share your stories** and **manage your web accounts**. 
+**Laravel Shaarli is a self-hosted platform to keep and share your content: web links, posts, passwords and pictures.**
 
-All of your content can be **private or public** and can be browsed by **tags** or **all-in-one search**.
+All of your data can be **private, public or both** and can be browsed by **tags** or **all-in-one search**.
 
-It's ready to use for **production**. **Laravel Shaarli** is inspired by [Shaarli](https://github.com/shaarli/Shaarli) 
-but built with [Laravel](https://github.com/laravel/laravel) and [Vue.js](https://vuejs.org/).
+**Laravel Shaarli** is production ready, inspired by [Shaarli](https://github.com/shaarli/Shaarli) 
+and built with [Laravel](https://github.com/laravel/laravel) and [Vue.js](https://vuejs.org/).
 
 ## Summary
 
@@ -25,6 +24,7 @@ but built with [Laravel](https://github.com/laravel/laravel) and [Vue.js](https:
 - [x] Links : to keep your bookmarks
 - [x] Stories : posts with markdown flavored content
 - [x] Chests : to save your passwords
+- [x] Albums : to host your pictures
 - [x] Rapid sharing extension and progressive web app 
 - [x] Tagging system, search and RSS feeds
 - [x] Private content or entirely private (with temp sharing)

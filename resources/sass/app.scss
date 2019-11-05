@@ -6,6 +6,7 @@
 @import '~tui-editor/dist/tui-editor.css';
 @import '~codemirror/lib/codemirror.css';
 @import '~highlight.js/styles/github.css';
+@import '~filepond/dist/filepond.min.css';
 @import 'components';
 @import 'dark';
 
@@ -198,7 +199,8 @@ nav.navbar {
 
 .card--link,
 .card--story,
-.card--chest {
+.card--chest,
+.card--album {
     h5.card-title {
         span {
             text-transform: uppercase

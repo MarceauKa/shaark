@@ -48,6 +48,8 @@
     "Stories": "Berichte",
     "Chest": "Truhe",
     "Chests": "Truhen",
+    "Album": "Album",
+    "Albums": "Albums",
     "Posts": "Posts",
 
     "Add link": "Link hinzufügen",
@@ -56,6 +58,8 @@
     "Update story": "Bericht bearbeiten",
     "Add chest": "Truhe hinzufügen",
     "Update chest": "Truhe bearbeiten",
+    "Add album": "Add album",
+    "Update album": "Update album",
 
     "Contents": "Inhalt",
     "Session": "Sitzung",
@@ -133,6 +137,14 @@
     "Unable to save chest": "Die Truhe kann nicht gespeichert werden",
     "Unable to delete chest": "Die Truhe kann nicht gelöscht werden",
     "Chest :name has been deleted": "Die Truhe :name wurde gelöscht",
+
+    "Images": "Images",
+    "Drop files or click to choose": "Drop files or click to choose",
+    "Invalid file": "Invalid file",
+    "Private album?": "Private album?",
+    "Unable to save album": "Unable to save album",
+    "Album :name has been deleted": "Album :name has been deleted",
+    "Unable to delete album": "Unable to delete album",
 
     "Create tag": "Tag anlegen",
     "Click to select": "Zum Auswählen anklicken",

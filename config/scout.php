@@ -2,7 +2,7 @@
 
 return [
     // Supported: "algolia", "tntsearch", "null"
-    'driver' => env('SCOUT_DRIVER', 'algolia'),
+    'driver' => env('SCOUT_DRIVER', 'tntsearch'),
     'prefix' => env('SCOUT_PREFIX', ''),
     'queue' => env('SCOUT_QUEUE', false),
     'chunk' => [

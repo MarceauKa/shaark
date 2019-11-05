@@ -6,6 +6,7 @@ use App\Services\Hashid;
 use App\Services\Shaarli\Shaarli;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -53,6 +54,10 @@ class AppServiceProvider extends ServiceProvider
 
         Validator::extend('current_password', function ($attribute, $value, $parameters, $validator) {
             return Hash::check($value, Auth::user()->getAuthPassword());
+        });
+
+        Validator::extend('temp_image', function ($attribute, $value, $parameters, $validator) {
+            return Storage::exists($value);
         });
     }
 }
