@@ -40,7 +40,7 @@ class AlbumController extends Controller
 
         $post->save();
 
-        $this->processImages($data->get('images'), $album);
+        $this->processUploadedImages($data->get('uploaded'), $album);
 
         return response()->json([
             'post' => new PostResource($post),
@@ -67,18 +67,13 @@ class AlbumController extends Controller
         $album->save();
         $album->post->save();
 
-        $this->processImages($data->get('images'), $album);
+        $this->processExistingImages($data->get('images'), $album);
+        $this->processUploadedImages($data->get('uploaded'), $album);
 
         return response()->json([
             'post' => new PostResource($album->post),
             'status' => 'updated',
         ]);
-    }
-
-    public function upload(StoreAlbumUploadRequest $request)
-    {
-        $file = $request->file('filepond');
-        return Storage::put('tmp', $file);
     }
 
     public function delete(Request $request, int $id)
@@ -95,11 +90,19 @@ class AlbumController extends Controller
         ]);
     }
 
-    public function processImages(array $images, Album $model): void
+    public function upload(StoreAlbumUploadRequest $request)
     {
-        $images = collect($images)->reject(function ($item) {
-            return substr($item, 0, 4) !== 'tmp/';
-        });
+        $file = $request->file('filepond');
+
+        return Storage::put('tmp', $file);
+    }
+
+    public function processUploadedImages(array $images, Album $model): void
+    {
+        $images = collect($images)
+            ->reject(function ($item) {
+                return substr($item, 0, 4) !== 'tmp/';
+            });
 
         $images->each(function ($item) use ($model) {
             $model->addMedia(Storage::path($item))
@@ -107,5 +110,28 @@ class AlbumController extends Controller
 
             Storage::delete($item);
         });
+    }
+
+    public function processExistingImages(array $images, Album $model): void
+    {
+        $images = collect($images);
+        $medias = $model->getMedia('images');
+
+        foreach ($medias as $media) {
+            $image = $images->firstWhere('name', $media->name);
+
+            if (! $image) {
+                $media->delete();
+            }
+        }
+
+        foreach ($images as $image) {
+            $media = $medias->firstWhere('name', $image['name']);
+
+            if ($media) {
+                $media->order_column = $image['order'];
+                $media->save();
+            }
+        }
     }
 }

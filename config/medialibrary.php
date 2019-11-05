@@ -2,7 +2,7 @@
 
 return [
     'disk_name' => env('MEDIA_DISK', 'public'),
-    'max_file_size' => 1024 * 1024 * 10,
+    'max_file_size' => 1024 * 1024 * 30,
     'queue_name' => '',
     'media_model' => Spatie\MediaLibrary\Models\Media::class,
     's3' => [

@@ -1,6 +1,10 @@
 <template>
     <div class="btn-group" role="group">
-        <button type="button" class="btn btn-outline-secondary border-right-0 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button type="button" class="btn btn-outline-secondary border-right-0 dropdown-toggle"
+                style="border-radius: 0"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false">
             <i class="fas fa-dice pr-1"></i>
         </button>
 

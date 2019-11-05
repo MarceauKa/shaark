@@ -7,14 +7,13 @@ use Illuminate\Support\Facades\Auth;
 
 class AlbumResource extends JsonResource
 {
-    /** @todo MediaResource */
     public function toArray($request)
     {
         return [
             'title' => $this->title,
             'content' => $this->content,
             'permalink' => $this->permalink,
-            'images' => [],
+            'images' => $this->getAlbumImages(),
             'is_private' => $this->post->is_private,
             'is_pinned' => $this->post->is_pinned,
             'date_formated' => $this->created_at->diffForHumans(),
@@ -28,5 +27,22 @@ class AlbumResource extends JsonResource
                 'url_share' => route('api.share', $this->post->id),
             ]),
         ];
+    }
+
+    protected function getAlbumImages(): array
+    {
+        return $this
+            ->getMedia('images')
+            ->transform(function ($item) {
+                return [
+                    'name' => $item->name,
+                    'size' => $item->human_readable_size,
+                    'mime' => $item->mime_type,
+                    'order' => $item->order_column,
+                    'url_full' => $item->getFullUrl(),
+                    'url_thumb' => $item->hasGeneratedConversion('thumb') ? $item->getFullUrl('thumb') : null,
+                ];
+            })
+            ->toArray();
     }
 }

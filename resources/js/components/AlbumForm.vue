@@ -27,11 +27,38 @@
                            @init="initUpload"
                            @processfile="handleFileProcess"
                            ref="pond"
-                           v-if="album"
                 />
 
-                <div class="alert alert-info" v-else>
-                    {{ __('Create your album to add images') }}
+                <div v-if="form.images">
+                    <draggable v-model="form.images"
+                               group="images"
+                               v-bind="dragOptions"
+                               @start="startDragging"
+                               @end="endDragging"
+                               handle=".handle-order"
+                    >
+                        <transition-group
+                            type="transition"
+                            tag="div"
+                            :name="!drag ? 'flip-list' : null"
+                        >
+                            <figure v-for="image in form.images" class="figure mr-2" :key="`item-${image.name}`">
+                                <img :src="image.url_thumb || image.url_full"
+                                     class="figure-img img-fluid rounded"
+                                     style="height: 100px;"
+                                />
+                                <figcaption class="figure-caption d-flex justify-content-center">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary handle-order mr-1"><i class="fas fa-arrows-alt"></i></button>
+                                    <confirm tag="button"
+                                             class="btn btn-sm btn-outline-secondary"
+                                             @confirmed="deleteImage(image)"
+                                             text="<i class='fas fa-trash-alt'></i>"
+                                             text-confirm="<i class='fas fa-check'></i>"
+                                    ></confirm>
+                                </figcaption>
+                            </figure>
+                        </transition-group>
+                    </draggable>
                 </div>
             </div>
 
@@ -82,6 +109,7 @@ let defaultAlbum = function () {
         title: null,
         content: null,
         images: [],
+        uploaded: [],
         is_private: false,
         is_pinned: false,
         tags: []
@@ -114,12 +142,21 @@ export default {
         return {
             form: defaultAlbum(),
             loading: false,
+            drag: false,
+            dragOptions: {
+                animation: 200,
+                group: "images",
+                disabled: false,
+                ghostClass: "ghost",
+                forceFallback: true
+            },
         }
     },
 
     mounted() {
         if (this.album) {
             this.form = this.album;
+            this.form.uploaded = [];
         }
     },
 
@@ -132,6 +169,7 @@ export default {
                 url: this.album ? this.album.url_update : '/api/album',
                 data: this.form
             }).then(response => {
+                this.loading = false;
                 window.location = `/album/${response.data.post.postable_id}/edit`
             }).catch(error => {
                 this.loading = false;
@@ -157,7 +195,33 @@ export default {
 
         handleFileProcess(error, file) {
             if (error === null) {
-                this.form.images.push(file.serverId);
+                this.form.uploaded.push(file.serverId);
+            }
+        },
+
+        deleteImage(item) {
+            let index = this.form.images.indexOf(item);
+
+            if (index !== -1) {
+                this.form.images.splice(index, 1);
+                this.updateImagesOrder();
+            }
+        },
+
+        startDragging() {
+            this.drag = true;
+        },
+
+        endDragging(item) {
+            this.drag = false;
+            this.updateImagesOrder();
+        },
+
+        updateImagesOrder() {
+            let total = this.form.images.length - 1;
+
+            for (let i = 0; i <= total; i++) {
+                this.form.images[i].order = i + 1;
             }
         }
     },

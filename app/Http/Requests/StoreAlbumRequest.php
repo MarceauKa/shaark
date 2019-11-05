@@ -29,12 +29,21 @@ class StoreAlbumRequest extends FormRequest
             'is_pinned' => [
                 'nullable',
             ],
+            'uploaded' => [
+                'nullable',
+                'array',
+            ],
+            'uploaded.*' => [
+                'temp_image',
+            ],
             'images' => [
                 'nullable',
                 'array',
             ],
-            'images.*' => [
-                'temp_image',
+            'images.*.order' => [
+                'numeric',
+                'min:0',
+                'max:9999'
             ],
             'tags' => [
                 'nullable',

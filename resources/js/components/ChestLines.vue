@@ -4,8 +4,8 @@
             <draggable v-model="lines"
                        group="lines"
                        v-bind="dragOptions"
-                       @start="drag=true"
-                       @end="drag=false"
+                       @start="drag = true"
+                       @end="drag = false"
                        handle=".handle-order"
             >
                 <transition-group

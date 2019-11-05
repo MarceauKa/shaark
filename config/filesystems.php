@@ -18,8 +18,9 @@ return [
 
         'albums' => [
             'driver' => 'local',
-            'root' => storage_path('app/albums'),
-            'visibility' => 'private',
+            'root' => storage_path('app/public/albums'),
+            'url' => env('APP_URL').'/storage/albums',
+            'visibility' => 'public',
         ],
 
         'public' => [

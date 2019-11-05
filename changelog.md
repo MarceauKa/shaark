@@ -11,6 +11,10 @@
 
 - No more URL hash for Archive downloading
 
+## Fixed
+
+- PasswordGenerator border radius
+
 # 1.2.25
 
 ## Added
