@@ -53,7 +53,6 @@ return [
 
         'images' => [
             'title' => 'Images',
-            'action' => 'Regénérer les miniatures',
             'images_original_resize' => "Redimensionner l'image originale",
             'images_original_resize_width' => "Largeur max de l'image originale en pixels",
             'images_thumb_format' => 'Format de la miniature',

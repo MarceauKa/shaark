@@ -53,7 +53,6 @@ return [
 
         'images' => [
             'title' => 'Images',
-            'action' => 'Regenerate thumbnails',
             'images_original_resize' => 'Resize original image?',
             'images_original_resize_width' => 'Original max width in pixels',
             'images_thumb_format' => 'Thumbnail format',

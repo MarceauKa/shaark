@@ -238,12 +238,7 @@
             </div>
 
             <div class="card mt-4">
-                <div class="card-header d-flex justify-content-between align-items-center flex-wrap">
-                    {{ __('shaarli.settings.images.title') }}
-                    <span>
-                        <a href="{{ route('manage.archives') }}" class="btn btn-sm btn-outline-primary" >{{ __('shaarli.settings.images.action') }}</a>
-                    </span>
-                </div>
+                <div class="card-header">{{ __('shaarli.settings.images.title') }}</div>
                 <div class="card-body">
                     <div class="form-group">
                         <div class="custom-control custom-switch">
