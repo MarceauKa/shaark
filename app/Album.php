@@ -3,8 +3,10 @@
 namespace App;
 
 use App\Concerns\Models\Postable;
+use App\Services\Shaarli\Shaarli;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\Models\Media;
@@ -55,8 +57,20 @@ class Album extends Model implements HasMedia
 
     public function registerMediaConversions(Media $media = null)
     {
-        $this->addMediaConversion('thumb')
-            ->width(300)
-            ->height(300);
+        /** @var Shaarli $shaarli */
+        $shaarli = app('shaarli');
+        $conversion = $this->addMediaConversion('thumb');
+
+        if ($shaarli->getImagesThumbFormat() === 'square') {
+            $conversion->fit(Manipulations::FIT_CROP, 300, 300);
+        }
+
+        if ($shaarli->getImagesThumbFormat() === 'original') {
+            $conversion->fit(Manipulations::FIT_CONTAIN, 300, 300);
+        }
+
+        if ($shaarli->getImagesThumbQueue() === false) {
+            $conversion->nonQueued();
+        }
     }
 }

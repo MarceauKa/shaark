@@ -98,5 +98,21 @@ return [
             'default' => 'daily',
             'rules' => ['required', 'in:daily,weekly']
         ],
+        'images_original_resize' => [
+            'default' => true,
+            'rules' => ['nullable', 'in:on,off'],
+        ],
+        'images_original_resize_width' => [
+            'default' => 2000,
+            'rules' => ['required', 'numeric', 'min:500', 'max:5000'],
+        ],
+        'images_thumb_format' => [
+            'default' => 'square',
+            'rules' => ['required', 'in:square,original']
+        ],
+        'images_thumb_queue' => [
+            'default' => false,
+            'rules' => ['nullable', 'in:on,off']
+        ],
     ],
 ];

@@ -1,8 +1,12 @@
 # Unreleased
 
-## Changed
+## Added
 
-- Readme
+- Ability to customize image generation
+
+## Fixed
+
+- Keep old settings values when validation fails
 
 # 1.2.26
 

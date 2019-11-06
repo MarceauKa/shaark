@@ -23,6 +23,10 @@ use Spatie\Valuestore\Valuestore;
  * @method bool getBackupEnabled()
  * @method bool getBackupOnlyDatabase()
  * @method bool getBackupPeriod()
+ * @method bool getImagesOriginalResize()
+ * @method int getImagesOriginalResizeWidth()
+ * @method string getImagesThumbFormat()
+ * @method bool getImagesThumbQueue()
  */
 trait ControlsSettings
 {

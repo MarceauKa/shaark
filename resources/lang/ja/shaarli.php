@@ -49,6 +49,17 @@ return [
             'period' => 'バックアップ頻度',
             'period_daily' => '毎日',
             'period_weekly' => '毎週',
+        ],
+
+        'images' => [
+            'title' => 'Images',
+            'action' => 'Regenerate thumbnails',
+            'images_original_resize' => 'Resize original image?',
+            'images_original_resize_width' => 'Original max width in pixels',
+            'images_thumb_format' => 'Thumbnail format',
+            'format_square' => 'Square',
+            'format_original' => 'Original',
+            'images_thumb_queue' => 'Generate thumbnail in background?',
         ]
     ],
 
