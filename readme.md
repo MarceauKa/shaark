@@ -19,7 +19,7 @@ and built with [Laravel](https://github.com/laravel/laravel) and [Vue.js](https:
 - [x] Stories : posts with markdown flavored content
 - [x] Chests : to save your passwords
 - [x] Albums : to host your pictures
-- [x] Rapid sharing extension and progressive web app 
+- [x] Rapid sharing extension and **P**rogressive **W**eb **A**pp 
 - [x] Tagging system, search and RSS feeds
 - [x] Private content or entirely private (with temp sharing)
 - [x] Export / Import (even original Shaarli)
