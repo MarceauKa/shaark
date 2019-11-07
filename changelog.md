@@ -7,6 +7,7 @@
 
 ## Changed
 
+- Laravel 6.5
 - Japanese translation updated (thanks to [wyred](https://github.com/wyred))
 
 ## Fixed
