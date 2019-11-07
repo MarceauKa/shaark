@@ -37,8 +37,8 @@ return [
             'link_archive_media' => 'メディアアーカイブ (Youtube, Soundcloud, ...)',
             'youtube_dl_bin' => 'Youtube-dlバイナリ',
             'python_bin' => 'Pythonバイナリ',
-            'check_pdf_archiving' => 'Test PDF archiving',
-            'check_media_archiving' => 'Test Media archiving',
+            'check_pdf_archiving' => 'ＰＤＦアーカイブのテストを実行',
+            'check_media_archiving' => 'メディアアーカイブのテストを実行',
         ],
 
         'backup' => [
@@ -52,13 +52,13 @@ return [
         ],
 
         'images' => [
-            'title' => 'Images',
-            'images_original_resize' => 'Resize original image?',
-            'images_original_resize_width' => 'Original max width in pixels',
-            'images_thumb_format' => 'Thumbnail format',
-            'format_square' => 'Square',
-            'format_original' => 'Original',
-            'images_thumb_queue' => 'Generate thumbnail in background?',
+            'title' => '画像',
+            'images_original_resize' => '元の画像のサイズを変更しますか？',
+            'images_original_resize_width' => '元の画像の最大幅（ピクセル）',
+            'images_thumb_format' => 'サムネールのフォーマット',
+            'format_square' => '四角',
+            'format_original' => 'オリジナル',
+            'images_thumb_queue' => 'バックグラウンドでサムネールを生成しますか？',
         ]
     ],
 
