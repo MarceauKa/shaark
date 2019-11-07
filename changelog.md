@@ -4,8 +4,13 @@
 
 - Ability to customize image generation
 
+## Changed
+
+- Japanese translation updated (thanks to [wyred](https://github.com/wyred))
+
 ## Fixed
 
+- Manage Tags and Manage Archives issues in responsive and dark mode (issue #47)
 - Keep old settings values when validation fails
 
 # 1.2.26

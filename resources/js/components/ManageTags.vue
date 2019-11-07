@@ -10,39 +10,41 @@
                 {{ __('No tag') }}
             </div>
 
-            <table class="table table-borderless table-sm" v-else>
-                <thead>
-                <tr>
-                    <th class="w-25">{{ __('Name') }}</th>
-                    <th class="w-25">{{ __('Posts') }}</th>
-                    <th class="w-50">{{ __('Actions') }}</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr v-for="tag in tags">
-                    <td class="align-middle">
-                        <a :href="tag.url">{{ tag.name }}</a>
-                    </td>
-                    <td class="align-middle">{{ tag.posts_count }}</td>
-                    <td class="d-flex justify-content-between">
-                        <select name="tag" id="tag" class="form-control mr-1 w-auto flex-grow-1" @change="move(tag.name, $event.target.value)">
-                            <option value="none">-- {{ __('Move') }} --</option>
-                            <option v-for="item in tags"
-                                    :value="item.name"
-                                    v-text="item.name"
-                                    v-if="tag.name !== item.name"
-                            ></option>
-                        </select>
+            <div class="table-responsive" v-else>
+                <table class="table table-borderless table-sm">
+                    <thead>
+                    <tr>
+                        <th class="w-25">{{ __('Name') }}</th>
+                        <th class="w-25">{{ __('Posts') }}</th>
+                        <th class="w-50">{{ __('Actions') }}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr v-for="tag in tags">
+                        <td class="align-middle">
+                            <a :href="tag.url">{{ tag.name }}</a>
+                        </td>
+                        <td class="align-middle">{{ tag.posts_count }}</td>
+                        <td class="d-flex justify-content-between">
+                            <select name="tag" id="tag" class="form-control custom-select mr-1 w-auto flex-grow-1" @change="move(tag.name, $event.target.value)">
+                                <option value="none">-- {{ __('Move') }} --</option>
+                                <option v-for="item in tags"
+                                        :value="item.name"
+                                        v-text="item.name"
+                                        v-if="tag.name !== item.name"
+                                ></option>
+                            </select>
 
-                        <confirm tag="button" class="btn btn-danger btn-sm"
-                                 :text="__('Delete')"
-                                 :text-confirm="__('Confirm')"
-                                 @confirmed="remove(tag)"
-                        ></confirm>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+                            <confirm tag="button" class="btn btn-danger btn-sm"
+                                     :text="__('Delete')"
+                                     :text-confirm="__('Confirm')"
+                                     @confirmed="remove(tag)"
+                            ></confirm>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
         <div class="card-body" v-else>
             <loader :loading="loading"></loader>

@@ -15,12 +15,6 @@ body.dark {
                 @extend .btn-outline-primary;
             }
         }
-
-        &.card--chest {
-            .btn-outline-secondary {
-                @extend .btn-outline-light;
-            }
-        }
     }
 
     .dropdown {
@@ -58,6 +52,10 @@ body.dark {
             @extend .bg-dark;
             box-shadow: $box-shadow;
         }
+    }
+
+    .btn-outline-secondary {
+        @extend .btn-outline-light;
     }
 
     table.table {
