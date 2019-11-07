@@ -12,6 +12,7 @@
 
 - AlbumCard preview
 - Missing translations on file uploader
+- Markdown editor will now load correct language pack (issue #42)
 - Manage Tags and Manage Archives issues in responsive and dark mode (issue #47)
 - Keep old settings values when validation fails
 

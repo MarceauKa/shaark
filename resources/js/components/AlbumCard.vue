@@ -99,7 +99,7 @@ export default {
 
             let length = this.album.images.length;
             let max = length > 4 ? 4 : length;
-            console.log(length, max);
+
             return this.album.images.slice(0, max);
         },
 

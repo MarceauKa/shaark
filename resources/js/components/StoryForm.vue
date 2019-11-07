@@ -88,7 +88,7 @@ export default {
             loading: false,
             editor: {
                 minHeight: '300px',
-                language: 'fr_FR',
+                language: document.getElementsByTagName('html')[0].getAttribute('lang') || 'en',
                 useCommandShortcut: true,
                 useDefaultHTMLSanitizer: true,
                 usageStatistics: false,

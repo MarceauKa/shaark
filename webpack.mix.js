@@ -14,6 +14,7 @@ mix.js('resources/js/app.js', 'public/js')
         'to-mark',
         'tui-code-snippet',
         'tui-editor',
+        'vue-filepond',
         'vue',
         'v-img',
         'vue-clickaway',
