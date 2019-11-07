@@ -10,6 +10,8 @@
 
 ## Fixed
 
+- AlbumCard preview
+- Missing translations on file uploader
 - Manage Tags and Manage Archives issues in responsive and dark mode (issue #47)
 - Keep old settings values when validation fails
 

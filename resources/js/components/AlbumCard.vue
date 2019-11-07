@@ -19,15 +19,11 @@
                          :alt="image.name"
                          class="img-fluid mb-1" />
                 </div>
-
-                <div v-if="!single && album.images.length > 4" key="more">
-                    <a :href="album.permalink"
-                       class="d-flex justify-content-center align-items-center w-100 text-dark"
-                       style="height: 40px; background-color: #ccc; text-decoration: none;">
-                        <i class="fas fa-plus mr-1"></i> {{ album.images.length - images.length }}
-                    </a>
-                </div>
             </masonry>
+
+            <p v-if="!single && album.images.length > 4" class="text-right small mb-0">
+                <i class="fas fa-plus mr-1"></i> {{ album.images.length - images.length }}
+            </p>
 
             <p class="card-text mt-1" v-if="album.tags.length > 0">
                 <a v-for="tag in album.tags" class="badge badge-secondary mr-1" :href="`/tag/${tag}`">{{ tag }}</a>
@@ -101,9 +97,10 @@ export default {
                 return this.album.images;
             }
 
-            let lenght = this.album.images.length;
-            let max = lenght >= 4 ? 4 : lenght;
-            return this.album.images.splice(0, max);
+            let length = this.album.images.length;
+            let max = length > 4 ? 4 : length;
+            console.log(length, max);
+            return this.album.images.slice(0, max);
         },
 
         imagesCols: function () {
