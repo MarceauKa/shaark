@@ -3,6 +3,7 @@
 ## Added
 
 - Ability to customize image generation
+- [Troubleshouting guide](https://github.com/MarceauKa/laravel-shaarli/blob/dev/documentation/troubleshooting.md)
 
 ## Changed
 

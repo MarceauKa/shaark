@@ -11,7 +11,7 @@ and built with [Laravel](https://github.com/laravel/laravel) and [Vue.js](https:
 
 ## Summary
 
-[Features](#features) / [Demo](#demo) / [Installation](#installation) / [Archiving](#archiving) / [Contribute](#contribute) / [Security](#security) / [Dependencies](#dependencies) / [Tests](#tests) / [Licence](#licence)
+[Features](#features) / [Demo](#demo) / [Installation](#installation) / [Archiving](#archiving) / [Contribute](#contribute) / [Security](#security) / [Troubleshooting](#troubleshooting) / [Tests](#tests) / [Licence](#licence)
 
 ## Features
 
@@ -93,9 +93,9 @@ Since `1.2.9`, all chests data are encrypted in your database using AES-256-CBC 
 Others users can be admin or non-admin. Admin users are like the main user and have an access to the entire content. 
 Non-admin users can't access the settings section and can only see their own private content.
 
-## [Dependencies](https://github.com/MarceauKa/laravel-shaarli/blob/dev/documentation/dependencies.md)
+## [Troubleshooting](https://github.com/MarceauKa/laravel-shaarli/blob/dev/documentation/troubleshooting.md)
 
-See [dependencies](https://github.com/MarceauKa/laravel-shaarli/blob/dev/documentation/dependencies.md) used in this application.
+All of frequent issues are answered in our [troubleshooting guide](https://github.com/MarceauKa/laravel-shaarli/blob/dev/documentation/troubleshooting.md).
 
 ## Tests
 
