@@ -16,12 +16,14 @@
                         <i class="fas fa-tags"></i> {{ __('Tags') }}
                     </div>
                     <div class="card-body">
-                        @foreach($tags as $tag)
-                            <a href="{{ $tag->url }}" class="btn btn-primary btn-sm mb-1">
-                                {{ $tag->name }}
-                                <span class="badge badge-pill badge-light">{{ $tag->posts_count }}</span>
-                            </a>
-                        @endforeach
+                        <tag-limiter>
+                            @foreach($tags as $tag)
+                                <a href="{{ $tag->url }}" class="btn btn-primary btn-sm mb-1">
+                                    {{ $tag->name }}
+                                    <span class="badge badge-pill badge-light">{{ $tag->posts_count }}</span>
+                                </a>
+                            @endforeach
+                        </tag-limiter>
                     </div>
                 </div>
                 @endif

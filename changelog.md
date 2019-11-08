@@ -3,6 +3,7 @@
 ## Changed
 
 - New responsive navbar (issue #49)
+- Limit displayed tags in tags card (issue #50)
 
 # 1.2.27
 
