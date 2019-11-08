@@ -1,5 +1,5 @@
 <template>
-    <form class="form-inline position-relative mb-0">
+    <form class="form-inline">
         <input class="form-control w-100"
                type="search"
                ref="input"

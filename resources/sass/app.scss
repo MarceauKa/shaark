@@ -50,82 +50,6 @@ nav.navbar {
     justify-content: space-between;
     min-height: 100%;
 
-    > nav.navbar {
-        padding: 1.5rem 1rem;
-
-        .navbar-brand {
-            display: flex;
-            flex-flow: row nowrap;
-
-            img {
-                max-height: 30px;
-                width: auto;
-                margin-right: 10px;
-            }
-
-            .fa-stack {
-                height: 1em;
-                width: 1em;
-                line-height: 1em;
-
-                .fa-stack-2x {
-                    font-size: 1em;
-                }
-
-                .fa-stack-1x {
-                    font-size: .5em;
-                }
-            }
-        }
-
-        #search {
-            width: 100%;
-            padding-left: 1rem;
-            padding-right: 1rem;
-
-            .results {
-                display: none;
-                z-index: 500;
-                position: absolute;
-                top: 40px;
-                width: calc(100% - 2rem);
-                box-shadow: $box-shadow;
-
-                &.active {
-                    display: block;
-                }
-
-                .list-group-item {
-                    display: flex;
-                    flex-wrap: wrap;
-                    justify-content: space-between;
-
-                    div:first-child {
-                        > span {
-                            text-transform: uppercase;
-                        }
-                    }
-                }
-            }
-
-            @include media-breakpoint-down(sm) {
-                margin-top: 10px;
-                padding-left: 0;
-                padding-right: 0;
-
-                .results {
-                    width: 100%;
-                }
-            }
-        }
-
-        @include media-breakpoint-down(sm) {
-            ul.navbar-nav li.dropdown > a {
-                text-align: right
-            }
-        }
-    }
-
     > main {
         flex-grow: 2
     }
@@ -135,6 +59,116 @@ nav.navbar {
         background-color: rgba(255, 255, 255, .9);
         box-shadow: $box-shadow;
         padding: 1.5rem 1rem;
+    }
+}
+
+#nav {
+    padding: 1.5rem 1rem;
+
+    > .container {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .navbar-brand {
+        display: flex;
+        flex-flow: row nowrap;
+
+        img {
+            max-height: 30px;
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .fa-stack {
+            height: 1em;
+            width: 1em;
+            line-height: 1em;
+
+            .fa-stack-2x {
+                font-size: 1em;
+            }
+
+            .fa-stack-1x {
+                font-size: .5em;
+            }
+        }
+    }
+
+    #search {
+        position: relative;
+        width: 100%;
+        margin-bottom: 0;
+        padding-left: 1rem;
+        padding-right: 1rem;
+
+        .results {
+            display: none;
+            z-index: 500;
+            position: absolute;
+            top: 40px;
+            width: calc(100% - 2rem);
+            box-shadow: $box-shadow;
+
+            &.active {
+                display: block;
+            }
+
+            .list-group-item {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+
+                div:first-child {
+                    > span {
+                        text-transform: uppercase;
+                    }
+                }
+            }
+        }
+    }
+
+    ul.navbar-nav {
+        li.dropdown > a {
+            &:after {
+                display: none;
+            }
+        }
+    }
+
+    @include media-breakpoint-down(sm) {
+        .navbar-brand {
+            img {
+                margin-right: 0;
+            }
+        }
+
+        #search {
+            position: static;
+            margin-top: 0;
+            margin-right: 1rem;
+            padding-left: 0;
+            padding-right: 0;
+
+            .results {
+                top: 70px;
+                width: auto;
+                left: 5px;
+                right: 5px;
+            }
+        }
+
+        ul.navbar-nav {
+            li.dropdown > a {
+                text-align: center;
+            }
+
+            .dropdown-menu {
+                position: absolute;
+            }
+        }
     }
 }
 

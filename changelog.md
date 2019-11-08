@@ -1,3 +1,9 @@
+# Unreleased
+
+## Changed
+
+- New responsive navbar (issue #49)
+
 # 1.2.27
 
 ## Added
