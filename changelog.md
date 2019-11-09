@@ -1,5 +1,9 @@
 # Unreleased
 
+## Added
+
+- Ability to test email configuration from settings
+
 ## Changed
 
 - New responsive navbar (issue #49)

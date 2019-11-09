@@ -24,6 +24,7 @@ return [
 
         '2fa' => [
             'title' => 'Secure login',
+            'check_email' => 'Test email',
             'secure_login' => '2-FA login (requires a code sent by email)',
             'secure_code_expires' => 'Secure code expiration (in minutes)',
             'secure_code_length' => 'Secure code length',
@@ -68,6 +69,11 @@ return [
             'title' => 'Secure your login',
             'message' => 'Please use the following code :code to access your account.',
             'button' => 'Confirm login',
+        ],
+
+        'check' => [
+            'title' => 'It works!',
+            'message' => 'This email was sent by :name to test your email configuration.',
         ],
     ],
 ];

@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Api\Manage;
 
 use App\Http\Controllers\Controller;
+use App\Notifications\CheckEmail;
 use App\Services\LinkArchive\LinkArchive;
 use App\Services\LinkArchive\YoutubeDlProvider;
 use App\Services\Shaarli\Shaarli;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Storage;
@@ -32,7 +34,7 @@ class FeaturesController extends Controller
         }
 
         if ($type === 'email') {
-            $check = $this->checkEmail($shaarli);
+            $check = $this->checkEmail($request);
         }
 
         if (true !== $check) {
@@ -96,8 +98,16 @@ class FeaturesController extends Controller
         return true;
     }
 
-    protected function checkEmail(Shaarli $shaarli)
+    protected function checkEmail(Request $request)
     {
+        try {
+            /** @var User $user */
+            $user = $request->user();
+            $user->notifyNow(new CheckEmail());
+        } catch (\Exception $e) {
+            return $this->sendError(__('Unable to send test email'));
+        }
+
         return true;
     }
 

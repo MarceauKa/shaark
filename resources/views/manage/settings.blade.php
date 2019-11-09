@@ -110,7 +110,12 @@
             </div>
 
             <div class="card mt-4">
-                <div class="card-header">{{ __('shaarli.settings.2fa.title') }}</div>
+                <div class="card-header d-flex justify-content-between align-items-center flex-wrap">
+                    {{ __('shaarli.settings.2fa.title') }}
+                    <span>
+                        <check-feature type="email" class="btn btn-sm btn-outline-secondary" text="{{ __('shaarli.settings.2fa.check_email') }}"></check-feature>
+                    </span>
+                </div>
                 <div class="card-body">
                     <div class="form-group">
                         <div class="custom-control custom-switch">
