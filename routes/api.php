@@ -44,7 +44,8 @@ Route::group([
     $router->post('tags/{from}/move/{to}', 'TagsController@move')->name('tags.move');
 
     $router->get('archives', 'ArchivesController@all')->name('archives');
-    $router->get('archive/check/{type}', 'ArchivesController@check');
+
+    $router->get('features/{type}', 'FeaturesController@check');
 
     $router->get('users', 'UsersController@all')->name('users.all');
     $router->post('users', 'UsersController@store')->name('users.store');

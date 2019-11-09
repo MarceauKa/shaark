@@ -43,7 +43,7 @@ export default {
         check() {
             this.loading = true;
 
-            axios.get(`/api/manage/archive/check/${this.type}`)
+            axios.get(`/api/manage/features/${this.type}`)
                 .then(response => {
                     this.status = response.data.status;
                     this.clear();

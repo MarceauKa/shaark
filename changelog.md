@@ -4,6 +4,11 @@
 
 - New responsive navbar (issue #49)
 - Limit displayed tags in tags card (issue #50)
+- CheckArchive becames CheckFeature
+
+## Fixed
+
+- Custom background UI
 
 # 1.2.27
 

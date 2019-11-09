@@ -144,8 +144,8 @@
                 <div class="card-header d-flex justify-content-between align-items-center flex-wrap">
                     {{ __('shaarli.settings.archiving.title') }}
                     <span>
-                        <check-archive type="pdf" class="btn btn-sm btn-outline-secondary" text="{{ __('shaarli.settings.archiving.check_pdf_archiving') }}"></check-archive>
-                        <check-archive type="media" class="btn btn-sm btn-outline-secondary" text="{{ __('shaarli.settings.archiving.check_media_archiving') }}"></check-archive>
+                        <check-feature type="pdf" class="btn btn-sm btn-outline-secondary" text="{{ __('shaarli.settings.archiving.check_pdf_archiving') }}"></check-feature>
+                        <check-feature type="media" class="btn btn-sm btn-outline-secondary" text="{{ __('shaarli.settings.archiving.check_media_archiving') }}"></check-feature>
                         <a href="{{ route('manage.archives') }}" class="btn btn-sm btn-outline-primary" >{{ __('Manage') }}</a>
                     </span>
                 </div>
