@@ -39,6 +39,7 @@ trait ControlsGlobalPrivacy
             'password/*',
             'logout',
             'shared/*',
+            'robots.txt',
             'manifest.json',
             'sw.js',
         ];

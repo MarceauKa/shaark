@@ -43,6 +43,8 @@ Route::get('manifest.json', 'PwaController@manifest')->name('pwa.manifest');
 Route::get('sw.js', 'PwaController@worker')->name('pwa.worker');
 Route::get('offline', 'PwaController@offline')->name('pwa.offline');
 
+Route::get('robots.txt', 'StaticController@robots');
+
 Route::group([
     'as' => 'manage.',
     'prefix' => 'manage',
@@ -51,11 +53,16 @@ Route::group([
 ], function (\Illuminate\Routing\Router $router) {
     $router->get('import', 'ImportController@form')->name('import');
     $router->post('import', 'ImportController@import');
+
     $router->get('export', 'ExportController@form')->name('export');
     $router->post('export', 'ExportController@export');
+
     $router->get('users', 'UsersController@all')->name('users');
+
     $router->get('tags', 'TagsController@view')->name('tags');
+
     $router->get('archives', 'ArchivesController@view')->name('archives');
+
     $router->get('settings', 'SettingsController@form')->name('settings');
     $router->post('settings', 'SettingsController@store');
 });

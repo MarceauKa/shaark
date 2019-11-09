@@ -3,6 +3,7 @@
 ## Added
 
 - Ability to test email configuration from settings
+- Robots are disabled when global privacy is enabled
 
 ## Changed
 
