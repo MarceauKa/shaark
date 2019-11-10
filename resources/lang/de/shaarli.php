@@ -9,6 +9,7 @@ return [
             'site_name' => 'Name der Website',
             'lang' => 'Sprache',
             'private_help' => 'Privater Inhalt (alle Inhalte sind privat und eine Anmeldung ist erforderlich)',
+            'private_download' => 'Downloads privat halten (Links und Alben)'
         ],
 
         'appearance' => [
@@ -31,7 +32,6 @@ return [
 
         'archiving' => [
             'title' => "Archivierung",
-            'private_archive' => "Archive als privat umstellen? ",
             'link_archive_pdf' => "PDF-Archivierung (Webseiten zu PDF)",
             'node_bin' => "ausführbare Node.js-Datei",
             'link_archive_media' => "Archvierung der Medien (Youtube, Soundcloud, ...)",

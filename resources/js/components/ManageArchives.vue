@@ -49,7 +49,7 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" :href="archive.url_download">
-                                        <i class="fas fa-file-download fa-fw mr-1"></i> {{ __('Download archive') }}
+                                        <i class="fas fa-file-download fa-fw mr-1"></i> {{ __('Download') }}
                                     </a>
                                     <confirm class="dropdown-item"
                                              :text="`<i class='fas fa-trash-alt fa-fw mr-1'></i> ${__('Delete')}`"

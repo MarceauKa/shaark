@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Album;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use Spatie\MediaLibrary\Models\Media;
 
 class AlbumController extends Controller
 {
@@ -28,5 +31,37 @@ class AlbumController extends Controller
             'page_title' => __('Update album'),
             'album' => $album,
         ]);
+    }
+
+    public function download(Request $request, int $id)
+    {
+        /** @var Album $album */
+        $album = Album::findOrFail($id);
+
+        if (false === $album->canDownloadArchive()) {
+            abort(404);
+        }
+
+        $name = sprintf('album-%s.zip', Str::slug($album->title));
+
+        if (Storage::exists('tmp/' . $name)) {
+            return Storage::download('tmp/' . $name, $name);
+        }
+
+        $zip = new \ZipArchive();
+
+        if ($zip->open(storage_path('app/tmp/' . $name), \ZipArchive::CREATE | \ZipArchive::OVERWRITE)) {
+            $medias = $album->getMedia('images');
+
+            foreach ($medias as $item) {
+                /** @var Media $item */
+                $zip->addFile($item->getPath(), $item->file_name);
+                $zip->setCompressionName($item->file_name, \ZipArchive::CM_STORE);
+            }
+
+            $zip->close();
+        }
+
+        return $this->download($request, $id);
     }
 }

@@ -9,6 +9,7 @@ return [
             'site_name' => 'Site name',
             'lang' => 'Language',
             'private_help' => 'Private content (all content is private and login is required)',
+            'private_download' => 'Keep downloads private (links and albums)'
         ],
 
         'appearance' => [
@@ -32,7 +33,6 @@ return [
 
         'archiving' => [
             'title' => 'Archiving',
-            'private_archive' => 'Make archives private?',
             'link_archive_pdf' => 'PDF archiving (Web pages to PDF)',
             'node_bin' => 'Node.js binary',
             'link_archive_media' => 'Media archiving (Youtube, Soundcloud, ...)',

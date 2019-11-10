@@ -4,6 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Auth;
+use Spatie\MediaLibrary\Models\Media;
 
 class AlbumResource extends JsonResource
 {
@@ -26,6 +27,9 @@ class AlbumResource extends JsonResource
                 'url_delete' => route('api.album.delete', $this->id),
                 'url_share' => route('api.share', $this->post->id),
             ]),
+            $this->mergeWhen($this->resource->canDownloadArchive(), [
+                'url_download' => route('album.download', $this->id),
+            ])
         ];
     }
 
@@ -34,6 +38,7 @@ class AlbumResource extends JsonResource
         return $this
             ->getMedia('images')
             ->transform(function ($item) {
+                /** @var Media $item */
                 return [
                     'name' => $item->name,
                     'size' => $item->human_readable_size,

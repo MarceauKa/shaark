@@ -67,7 +67,7 @@
                         <h4>{{ __('Current archive') }}</h4>
 
                         <p v-if="archive.download">
-                            <a :href="link.url_download" class="btn btn-sm btn-primary text-white btn-block">{{ __('Download archive') }}</a>
+                            <a :href="link.url_download" class="btn btn-sm btn-primary text-white btn-block">{{ __('Download') }}</a>
                             <confirm class="btn btn-sm btn-danger text-white btn-block" :text="__('Delete archive')" :text-confirm="__('Confirm')" @confirmed="deleteArchive"></confirm>
                         </p>
 

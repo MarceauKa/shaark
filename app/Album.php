@@ -48,6 +48,21 @@ class Album extends Model implements HasMedia
         return $query->where('id', app('hashid')->decode($hash));
     }
 
+    public function canDownloadArchive(): bool
+    {
+        if ($this->post->is_private
+            && auth()->check() === false) {
+            return false;
+        }
+
+        if (app('shaarli')->getPrivateDownload() === true
+            && auth()->check() === false) {
+            return false;
+        }
+
+        return true;
+    }
+
     public function registerMediaCollections()
     {
         $this->addMediaCollection('images')

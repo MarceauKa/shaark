@@ -2,6 +2,7 @@
 
 ## Added
 
+- Albums can be downloaded as .zip
 - Ability to test email configuration from settings
 - Robots are disabled when global privacy is enabled
 
@@ -9,7 +10,8 @@
 
 - New responsive navbar (issue #49)
 - Limit displayed tags in tags card (issue #50)
-- CheckArchive becames CheckFeature
+- Private archive setting is now Private download 
+- CheckArchive is now CheckFeature
 
 ## Fixed
 

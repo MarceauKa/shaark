@@ -9,6 +9,7 @@ return [
             'site_name' => 'サイトの名前',
             'lang' => '言語',
             'private_help' => '非公開（全てのコンテンツが非公開になる。コンテンツへのアクセスにログインが必要。）',
+            'private_download' => 'ダウンロードを非公開にしますか？（ＵＲＬとアルバム）'
         ],
 
         'appearance' => [
@@ -31,7 +32,6 @@ return [
 
         'archiving' => [
             'title' => 'アーカイブ中',
-            'private_archive' => 'アーカイブを非公開にしますか？',
             'link_archive_pdf' => 'ＰＤＦアーカイブ (サイトをＰＤＦ化)',
             'node_bin' => 'Node.jsバイナリ',
             'link_archive_media' => 'メディアアーカイブ (Youtube, Soundcloud, ...)',

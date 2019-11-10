@@ -22,6 +22,10 @@ return [
             'default' => false,
             'rules' => ['nullable', 'in:on,off']
         ],
+        'private_download' => [
+            'default' => true,
+            'rules' => ['nullable', 'in:on,off']
+        ],
         'is_dark' => [
             'default' => false,
             'rules' => ['nullable', 'in:on,off']
@@ -49,10 +53,6 @@ return [
         'custom_icon' => [
             'default' => '/images/logo-shaarli.png',
             'rules' => ['nullable', 'image', 'mimes:png', 'dimensions:width=512,height=512'],
-        ],
-        'private_archive' => [
-            'default' => false,
-            'rules' => ['nullable', 'in:on,off']
         ],
         'secure_login' => [
             'default' => false,

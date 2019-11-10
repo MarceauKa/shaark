@@ -44,6 +44,17 @@
                         <span class="text-danger" role="alert">{{ $message }}</span>
                         @enderror
                     </div>
+
+                    <div class="form-group">
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input"
+                                   name="private_download" id="private_download" {{ old('private_download', $settings['private_download']) ? ' checked' : '' }}>
+                            <label class="custom-control-label" for="private_download">{{ __('shaarli.settings.general.private_download') }}</label>
+                        </div>
+                        @error('private_download')
+                        <span class="text-danger" role="alert">{{ $message }}</span>
+                        @enderror
+                    </div>
                 </div>
             </div>
 
@@ -156,14 +167,6 @@
                 </div>
 
                 <div class="card-body">
-                    <div class="form-group">
-                        <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input"
-                                   name="private_archive" id="private_archive" {{ old('private_archive', $settings['private_archive']) ? ' checked' : '' }}>
-                            <label class="custom-control-label" for="private_archive">{{ __('shaarli.settings.archiving.private_archive') }}</label>
-                        </div>
-                    </div>
-
                     <div class="form-group">
                         <div class="custom-control custom-switch">
                             <input type="checkbox" class="custom-control-input"

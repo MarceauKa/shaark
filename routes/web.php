@@ -26,6 +26,7 @@ Route::get('chest/{id}/edit', 'ChestController@edit')->name('chest.edit');
 
 Route::get('album/create', 'AlbumController@create')->name('album.create');
 Route::get('album/{id}/edit', 'AlbumController@edit')->name('album.edit');
+Route::get('album/{id}/download', 'AlbumController@download')->name('album.download');
 
 Route::get('link/{link}', 'BrowseController@link')->name('link.view');
 Route::get('story/{story}', 'BrowseController@story')->name('story.view');

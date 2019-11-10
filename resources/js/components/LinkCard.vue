@@ -26,7 +26,7 @@
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" :href="link.permalink"><i class="fas fa-link fa-fw mr-1"></i> {{ __('Permalink') }}</a>
-                    <a class="dropdown-item" :href="link.url_download" v-if="link.url_download"><i class="fas fa-file-download fa-fw mr-1"></i> {{ __('Download archive') }}</a>
+                    <a class="dropdown-item" :href="link.url_download" v-if="link.url_download"><i class="fas fa-file-download fa-fw mr-1"></i> {{ __('Download') }}</a>
 
                     <h6 class="dropdown-header" v-if="link.editable">{{ __('Manage') }}</h6>
 
