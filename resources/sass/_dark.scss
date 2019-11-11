@@ -73,4 +73,11 @@ body.dark {
         @extend .bg-dark;
         @extend .text-white;
     }
+
+    .modal {
+        .modal-content {
+            @extend .bg-dark;
+            @extend .text-white;
+        }
+    }
 }

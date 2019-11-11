@@ -1,3 +1,9 @@
+# Unreleased
+
+## Fixed
+
+- Text in modals not visible using dark mode (issue #51)
+
 # 1.2.28
 
 ## Added
