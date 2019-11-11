@@ -12,6 +12,7 @@ use Spatie\Valuestore\Valuestore;
  * @method string getLocale()
  * @method bool getIsPrivate()
  * @method bool getPrivateDownload()
+ * @method bool getUseDefaultSearch()
  * @method bool getIsDark()
  * @method bool getHomeShowTags()
  * @method bool getHomeShowChests()

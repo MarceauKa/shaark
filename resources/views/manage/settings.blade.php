@@ -55,6 +55,17 @@
                         <span class="text-danger" role="alert">{{ $message }}</span>
                         @enderror
                     </div>
+
+                    <div class="form-group">
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input"
+                                   name="use_default_search" id="use_default_search" {{ old('use_default_search', $settings['use_default_search']) ? ' checked' : '' }}>
+                            <label class="custom-control-label" for="use_default_search">{{ __('shaarli.settings.general.use_default_search') }}</label>
+                        </div>
+                        @error('use_default_search')
+                        <span class="text-danger" role="alert">{{ $message }}</span>
+                        @enderror
+                    </div>
                 </div>
             </div>
 

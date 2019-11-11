@@ -9,7 +9,8 @@ return [
             'site_name' => 'Site name',
             'lang' => 'Language',
             'private_help' => 'Private content (all content is private and login is required)',
-            'private_download' => 'Keep downloads private (links and albums)'
+            'private_download' => 'Keep downloads private (links and albums)',
+            'use_default_search' => 'Use classic SQL search instead of full-text search',
         ],
 
         'appearance' => [

@@ -26,6 +26,10 @@ return [
             'default' => true,
             'rules' => ['nullable', 'in:on,off']
         ],
+        'use_default_search' => [
+            'default' => false,
+            'rules' => ['nullable', 'in:on,off']
+        ],
         'is_dark' => [
             'default' => false,
             'rules' => ['nullable', 'in:on,off']

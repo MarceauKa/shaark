@@ -1,5 +1,10 @@
 # Unreleased
 
+## Added
+
+- New search strategy using classic SQL search (issue #33 #52)
+- Ability to choose search strategy in settings
+
 ## Fixed
 
 - Text in modals not visible using dark mode (issue #51)

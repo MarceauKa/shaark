@@ -9,7 +9,8 @@ return [
             'site_name' => 'Nom du site',
             'lang' => 'Langue',
             'private_help' => "Contenu privé (tout est privé et nécessite d'être connecté)",
-            'private_download' => 'Garder les téléchargements privés (liens et albums)'
+            'private_download' => 'Garder les téléchargements privés (liens et albums)',
+            'use_default_search' => 'Utiliser la recherche SQL plutôt que la recherche full-text',
         ],
 
         'appearance' => [

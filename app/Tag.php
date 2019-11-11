@@ -48,4 +48,11 @@ class Tag extends Model
                 $query->withPrivate($request);
             }, '>', 0);
     }
+
+    public function toSearchableArray()
+    {
+        return [
+            'name' => $this->name
+        ];
+    }
 }
