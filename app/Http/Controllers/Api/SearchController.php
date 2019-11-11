@@ -18,7 +18,7 @@ class SearchController extends Controller
         $query = $request->get('query');
         $default_search = $shaarli->getUseDefaultSearch();
 
-        if (strlen($query) < 3) {
+        if (mb_strlen($query) < 3) {
             abort(422);
         }
 
