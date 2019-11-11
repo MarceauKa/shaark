@@ -16,7 +16,7 @@ class Shaarli
         HandleCustomSettings;
 
     /** @var string VERSION */
-    public const VERSION = '1.2.28';
+    public const VERSION = '1.2.29';
     /** @var Application $app */
     protected $app;
 
