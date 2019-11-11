@@ -4,6 +4,7 @@
 
 - New search strategy using classic SQL search (issue #33 #52)
 - Ability to choose search strategy in settings
+- Chest content can be copied as a text (issue #4)
 
 ## Fixed
 

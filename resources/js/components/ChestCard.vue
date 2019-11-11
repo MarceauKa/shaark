@@ -25,6 +25,7 @@
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" :href="chest.permalink"><i class="fas fa-link fa-fw mr-1"></i> {{ __('Permalink') }}</a>
+                    <button type="button" class="dropdown-item" @click="copyAll"><i class="fas fa-copy fa-fw mr-1"></i> {{ __('Copy all') }}</button>
 
                     <h6 class="dropdown-header" v-if="chest.editable">{{ __('Manage') }}</h6>
 
@@ -44,7 +45,13 @@
 </template>
 
 <script>
+import copyToClipboard from '../mixins/copyToClipboard';
+
 export default {
+    mixins: [
+        copyToClipboard,
+    ],
+
     props: {
         single: {
             type: Boolean,
@@ -79,6 +86,20 @@ export default {
                 .catch(error => {
                     this.$toasted.error(this.__("Unable to delete chest"));
                 })
+        },
+
+        copyAll($event) {
+            let content = "";
+
+            this.chest.content.forEach(item => {
+                if (item.name) {
+                    content += `${item.name}: `;
+                }
+
+                content += item.type === 'code' ? `\n${item.value}\n` : `${item.value}\n`;
+            });
+
+            this.copyToClipboard($event, content);
         }
     }
 }
