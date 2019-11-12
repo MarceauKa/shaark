@@ -1,3 +1,9 @@
+# Unreleased
+
+## Changed
+
+- Japanese translation updated to 1.2.29 (thanks to [wyred](https://github.com/wyred))
+
 # 1.2.29
 
 ## Added
