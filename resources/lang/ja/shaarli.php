@@ -10,7 +10,7 @@ return [
             'lang' => '言語',
             'private_help' => '非公開（全てのコンテンツが非公開になる。コンテンツへのアクセスにログインが必要。）',
             'private_download' => 'ダウンロードを非公開にしますか？（ＵＲＬとアルバム）',
-            'use_default_search' => 'Use classic SQL search instead of full-text search',
+            'use_default_search' => 'クラシックＳＱＬ検索を使用（デフォルト：全文検索）',
         ],
 
         'appearance' => [
