@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('shaarli.settings.2fa.title') }}</div>
+                <div class="card-header">{{ __('shaark.settings.2fa.title') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login.secure', $token) }}">

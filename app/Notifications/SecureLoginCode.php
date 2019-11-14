@@ -28,9 +28,9 @@ class SecureLoginCode extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                ->subject(__('shaarli.mails.2fa.title'))
-                ->line(__('shaarli.mails.2fa.message', ['code' => $this->secure->code]))
-                ->action(__('shaarli.mails.2fa.button'), sprintf('%s?code=%s', route('login.secure', $this->secure), $this->secure->code));
+                ->subject(__('shaark.mails.2fa.title'))
+                ->line(__('shaark.mails.2fa.message', ['code' => $this->secure->code]))
+                ->action(__('shaark.mails.2fa.button'), sprintf('%s?code=%s', route('login.secure', $this->secure), $this->secure->code));
     }
 
     public function toArray($notifiable)

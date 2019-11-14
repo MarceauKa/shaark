@@ -8,7 +8,7 @@ use App\Http\Requests\StoreAlbumRequest;
 use App\Http\Requests\StoreAlbumUploadRequest;
 use App\Http\Resources\PostResource;
 use App\Post;
-use App\Services\Shaarli\Shaarli;
+use App\Services\Shaark\Shaark;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Spatie\Image\Image;
@@ -93,12 +93,12 @@ class AlbumController extends Controller
         ]);
     }
 
-    public function upload(StoreAlbumUploadRequest $request, Shaarli $shaarli)
+    public function upload(StoreAlbumUploadRequest $request, Shaark $shaark)
     {
         $file = $request->file('filepond');
 
-        if ($shaarli->getImagesOriginalResize() === true) {
-            $size = $shaarli->getImagesOriginalResizeWidth();
+        if ($shaark->getImagesOriginalResize() === true) {
+            $size = $shaark->getImagesOriginalResizeWidth();
 
             Image::load($file)
                 ->fit(Manipulations::FIT_MAX, $size, $size)

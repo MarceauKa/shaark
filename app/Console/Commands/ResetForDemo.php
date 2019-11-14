@@ -6,7 +6,7 @@ use Illuminate\Console\Command;
 
 class ResetForDemo extends Command
 {
-    protected $signature = 'shaarli:reset';
+    protected $signature = 'shaark:reset';
     protected $description = 'Reset app for demo';
 
     public function __construct()

@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class DecryptChests extends Command
 {
-    protected $signature = 'shaarli:chests:decrypt';
+    protected $signature = 'shaark:chests:decrypt';
     protected $description = 'This command will decrypt all encrypted chests';
 
     public function __construct()

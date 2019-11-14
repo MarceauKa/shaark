@@ -1,22 +1,22 @@
 <?php
 
-namespace App\Services\Shaarli;
+namespace App\Services\Shaark;
 
-use App\Services\Shaarli\Concerns\ControlsGlobalPrivacy;
-use App\Services\Shaarli\Concerns\ControlsSettings;
-use App\Services\Shaarli\Concerns\HandleCustomSettings;
+use App\Services\Shaark\Concerns\ControlsGlobalPrivacy;
+use App\Services\Shaark\Concerns\ControlsSettings;
+use App\Services\Shaark\Concerns\HandleCustomSettings;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Str;
 use Spatie\Valuestore\Valuestore;
 
-class Shaarli
+class Shaark
 {
     use ControlsGlobalPrivacy,
         ControlsSettings,
         HandleCustomSettings;
 
     /** @var string VERSION */
-    public const VERSION = '1.2.29';
+    public const VERSION = '1.2.30';
     /** @var Application $app */
     protected $app;
 

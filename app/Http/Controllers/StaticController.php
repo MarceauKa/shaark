@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\Shaarli\Shaarli;
+use App\Services\Shaark\Shaark;
 use Illuminate\Http\Request;
 
 class StaticController extends Controller
 {
-    public function robots(Request $request, Shaarli $shaarli)
+    public function robots(Request $request, Shaark $shaark)
     {
         $content = "User-agent: *\nDisallow:";
 
-        if (true === $shaarli->getIsPrivate()) {
+        if (true === $shaark->getIsPrivate()) {
             $content = "User-agent: *\nDisallow: /";
         }
 

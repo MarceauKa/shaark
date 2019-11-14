@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Services\Shaarli\Concerns;
+namespace App\Services\Shaark\Concerns;
 
-use App\Services\Shaarli\Shaarli;
+use App\Services\Shaark\Shaark;
 use Illuminate\Http\Request;
 
 /**
- * @mixin Shaarli
+ * @mixin Shaark
  */
 trait ControlsGlobalPrivacy
 {

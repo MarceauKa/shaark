@@ -2,30 +2,30 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\Shaarli\Shaarli;
+use App\Services\Shaark\Shaark;
 use Illuminate\Http\Request;
 
 class PwaController extends Controller
 {
-    public function manifest(Request $request, Shaarli $shaarli)
+    public function manifest(Request $request, Shaark $shaark)
     {
         $manifest = [
-            'version' => Shaarli::VERSION,
+            'version' => Shaark::VERSION,
             'dir' => 'ltr',
-            'lang' => $shaarli->getLocale(),
-            'name' => $shaarli->getName(),
+            'lang' => $shaark->getLocale(),
+            'name' => $shaark->getName(),
             'scope' => '/',
             'display' => 'standalone',
             'start_url' => '/',
-            'short_name' => $shaarli->getName(),
+            'short_name' => $shaark->getName(),
             'theme_color' => 'transparent',
-            'description' => $shaarli->getName(),
+            'description' => $shaark->getName(),
             'orientation' => 'any',
             'background_color' => 'transparent',
             'prefer_related_applications' => false,
             'icons' => [
                 [
-                    'src' => $shaarli->getCustomIconUrl(),
+                    'src' => $shaark->getCustomIconUrl(),
                     'type' => 'image/png',
                     'sizes' => '192x192 512x512',
                 ]
@@ -50,10 +50,10 @@ class PwaController extends Controller
         ]);
     }
 
-    public function offline(Request $request, Shaarli $shaarli)
+    public function offline(Request $request, Shaark $shaark)
     {
         return view('offline')->with([
-            'page_title' => $shaarli->getName(),
+            'page_title' => $shaark->getName(),
         ]);
     }
 }

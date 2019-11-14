@@ -6,8 +6,8 @@ use Illuminate\Console\Command;
 
 class Install extends Command
 {
-    protected $signature = 'shaarli:install';
-    protected $description = 'Shaarli installer';
+    protected $signature = 'shaark:install';
+    protected $description = 'Shaark installer';
 
     public function __construct()
     {

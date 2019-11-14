@@ -40,8 +40,8 @@ class SecureLogin extends Model
      */
     public static function createForUser($user): self
     {
-        $code_length = app('shaarli')->getSecureCodeLength();
-        $expire_minutes = app('shaarli')->getSecureCodeExpires();
+        $code_length = app('shaark')->getSecureCodeLength();
+        $expire_minutes = app('shaark')->getSecureCodeExpires();
 
         $model = new static();
         $model->user_id = $user->id;

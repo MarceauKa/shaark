@@ -6,8 +6,8 @@ use Illuminate\Console\Command;
 
 class Update extends Command
 {
-    protected $signature = 'shaarli:update';
-    protected $description = 'Shaarli updater';
+    protected $signature = 'shaark:update';
+    protected $description = 'Shaark updater';
 
     public function __construct()
     {

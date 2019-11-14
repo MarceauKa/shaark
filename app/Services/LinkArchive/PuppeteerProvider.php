@@ -13,7 +13,7 @@ class PuppeteerProvider extends BaseProvider
 
         try {
             $puppeteer = new Puppeteer([
-                'executable_path' => app('shaarli')->getNodeBin()
+                'executable_path' => app('shaark')->getNodeBin()
             ]);
 
             $browser = $puppeteer->launch([
@@ -48,7 +48,7 @@ class PuppeteerProvider extends BaseProvider
 
     public function isEnabled(): bool
     {
-        return app('shaarli')->getLinkArchivePdf() === true;
+        return app('shaark')->getLinkArchivePdf() === true;
     }
 
     public function canArchive(): bool

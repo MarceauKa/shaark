@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Services\Shaarli\Concerns;
+namespace App\Services\Shaark\Concerns;
 
-use App\Services\Shaarli\Shaarli;
+use App\Services\Shaark\Shaark;
 use Illuminate\Support\Collection;
 use Spatie\Valuestore\Valuestore;
 
 /**
- * @mixin Shaarli
+ * @mixin Shaark
  * @method string getName()
  * @method string getLocale()
  * @method bool getIsPrivate()
@@ -41,7 +41,7 @@ trait ControlsSettings
 
     public function getSettingsConfig(): array
     {
-        return $this->app['config']->get('shaarli.settings');
+        return $this->app['config']->get('shaark.settings');
     }
 
     public function validateDefaultSettings(): void

@@ -3,7 +3,7 @@
 <head>
     @include('layouts.partials.head')
 </head>
-<body class="{{ app('shaarli')->getIsDark() ? 'dark' : 'light' }}">
+<body class="{{ app('shaark')->getIsDark() ? 'dark' : 'light' }}">
     <div id="app">
         @include('layouts.partials.navbar')
         <main class="py-4">

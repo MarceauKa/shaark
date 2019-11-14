@@ -1,7 +1,10 @@
-# Unreleased
+# 1.2.30
+
+⚠️ Update your Git remote URL: `git remote set-url origin https://github.com/MarceauKa/shaark.git`
 
 ## Changed
 
+- Laravel Shaarli is now Shaark (issue #54)
 - Japanese translation updated to 1.2.29 (thanks to [wyred](https://github.com/wyred))
 
 # 1.2.29
@@ -40,7 +43,7 @@
 ## Added
 
 - Ability to customize image generation
-- [Troubleshouting guide](https://github.com/MarceauKa/laravel-shaarli/blob/dev/documentation/troubleshooting.md)
+- [Troubleshouting guide](https://github.com/MarceauKa/shaark/blob/dev/documentation/troubleshooting.md)
 
 ## Changed
 
@@ -96,7 +99,7 @@
 
 - Progressive Web App compatibility (issue #24)
 - Default icon for Shaarli and ability to customize it
-- Automatic [backup](https://github.com/MarceauKa/laravel-shaarli/blob/dev/documentation/backup.md) (issue #28)
+- Automatic [backup](https://github.com/MarceauKa/shaark/blob/dev/documentation/backup.md) (issue #28)
 - Network status monitor (for PWA)
 
 ## Changed
@@ -128,7 +131,7 @@
 ## Added
 
 - Ability to customize background as image or custom gradient (issues #25 and #26)
-- Shaarlies [listing](https://github.com/MarceauKa/laravel-shaarli/blob/dev/shaarlies.md)
+- Shaarlies [listing](https://github.com/MarceauKa/shaark/blob/dev/directory.md)
 
 ## Changed
 

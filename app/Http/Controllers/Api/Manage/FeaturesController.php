@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Notifications\CheckEmail;
 use App\Services\LinkArchive\LinkArchive;
 use App\Services\LinkArchive\YoutubeDlProvider;
-use App\Services\Shaarli\Shaarli;
+use App\Services\Shaark\Shaark;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
@@ -19,18 +19,18 @@ class FeaturesController extends Controller
         $this->middleware('demo');
     }
 
-    public function check(Request $request, Shaarli $shaarli, string $type)
+    public function check(Request $request, Shaark $shaark, string $type)
     {
         if (false === in_array($type, ['pdf', 'media', 'email'])) {
             abort(404);
         }
 
         if ($type === 'pdf') {
-            $check = $this->checkArchivePdf($shaarli);
+            $check = $this->checkArchivePdf($shaark);
         }
 
         if ($type === 'media') {
-            $check = $this->checkArchiveMedia($shaarli);
+            $check = $this->checkArchiveMedia($shaark);
         }
 
         if ($type === 'email') {
@@ -46,13 +46,13 @@ class FeaturesController extends Controller
         ]);
     }
 
-    protected function checkArchivePdf(Shaarli $shaarli)
+    protected function checkArchivePdf(Shaark $shaark)
     {
-        if (false === $shaarli->getLinkArchivePdf()) {
+        if (false === $shaark->getLinkArchivePdf()) {
             return $this->sendError(__('Archive as PDF is not enabled'));
         }
 
-        $exec = $shaarli->getNodeBin();
+        $exec = $shaark->getNodeBin();
         exec($exec . ' --version', $result);
 
         if (empty($result)) {
@@ -76,13 +76,13 @@ class FeaturesController extends Controller
         return true;
     }
 
-    protected function checkArchiveMedia(Shaarli $shaarli)
+    protected function checkArchiveMedia(Shaark $shaark)
     {
-        if (false === $shaarli->getLinkArchiveMedia()) {
+        if (false === $shaark->getLinkArchiveMedia()) {
             return $this->sendError(__('Archive as Media is not enabled'));
         }
 
-        $exec = $shaarli->getYoutubeDlBin();
+        $exec = $shaark->getYoutubeDlBin();
         exec($exec . ' --version', $result);
 
         if (empty($result)) {

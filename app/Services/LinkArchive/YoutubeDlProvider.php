@@ -25,8 +25,8 @@ class YoutubeDlProvider extends BaseProvider
                 'output' => md5($this->url) . '.%(ext)s',
             ]);
 
-            $dl->setPythonPath(app('shaarli')->getPythonBin());
-            $dl->setBinPath(app('shaarli')->getYoutubeDlBin());
+            $dl->setPythonPath(app('shaark')->getPythonBin());
+            $dl->setBinPath(app('shaark')->getYoutubeDlBin());
             $dl->setDownloadPath($path);
 
             /*$dl->onProgress(function ($progress) {
@@ -50,7 +50,7 @@ class YoutubeDlProvider extends BaseProvider
 
     public function isEnabled(): bool
     {
-        return app('shaarli')->getLinkArchiveMedia() === true;
+        return app('shaark')->getLinkArchiveMedia() === true;
     }
 
     public function canArchive(): bool
@@ -68,7 +68,7 @@ class YoutubeDlProvider extends BaseProvider
                 'no-check-certificate' => true
             ]);
 
-            $dl->setBinPath(app('shaarli')->getYoutubeDlBin());
+            $dl->setBinPath(app('shaark')->getYoutubeDlBin());
             $dl->setDownloadPath(storage_path('app/archives'));
             $result = $dl->download($url);
 

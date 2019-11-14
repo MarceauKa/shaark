@@ -1,4 +1,4 @@
-# Shaarli - Dependencies
+# Shaark - Dependencies
 
 Our dependencies with link to their documentation and why we use it.
 
@@ -9,10 +9,10 @@ Our dependencies with link to their documentation and why we use it.
 - [excel](https://github.com/Maatwebsite/Laravel-Excel) is used to generate exports as xlsx or csv
 - [valuestore](https://github.com/spatie/valuestore) is used for application settings
 - [dom-crawler](https://github.com/symfony/dom-crawler) is used to read metadata from posted links
-- [puphpeteer](https://github.com/nesk/puphpeteer/) is used to [save your links as PDF](https://github.com/MarceauKa/laravel-shaarli/blob/dev/documentation/archiving.md) using a chrome browser
-- [youtube-dl-php](https://github.com/norkunas/youtube-dl-php) is a bridge to youtube-dl to [save your links](https://github.com/MarceauKa/laravel-shaarli/blob/dev/documentation/archiving.md) (youtube, soundcloud, ...) as a local copy
+- [puphpeteer](https://github.com/nesk/puphpeteer/) is used to [save your links as PDF](https://github.com/MarceauKa/shaark/blob/dev/documentation/archiving.md) using a chrome browser
+- [youtube-dl-php](https://github.com/norkunas/youtube-dl-php) is a bridge to youtube-dl to [save your links](https://github.com/MarceauKa/shaark/blob/dev/documentation/archiving.md) (youtube, soundcloud, ...) as a local copy
 - [laravel-media-library](https://github.com/spatie/laravel-medialibrary) is used to attach images to models and image manipulation
-- [laravel-backup](https://github.com/spatie/laravel-backup) is used for... [backups](https://github.com/MarceauKa/laravel-shaarli/blob/dev/documentation/backup.md) !
+- [laravel-backup](https://github.com/spatie/laravel-backup) is used for... [backups](https://github.com/MarceauKa/shaark/blob/dev/documentation/backup.md) !
 
 ### JS
 

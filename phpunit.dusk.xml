@@ -9,7 +9,7 @@
          processIsolation="false"
          stopOnFailure="true">
     <testsuites>
-        <testsuite name="Laravel Shaarli Test Suite">
+        <testsuite name="Shaark Test Suite">
             <file>./tests/Browser/AuthTest.php</file>
             <file>./tests/Browser/BrowseTest.php</file>
             <file>./tests/Browser/LinkFormTest.php</file>

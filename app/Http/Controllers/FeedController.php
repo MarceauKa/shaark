@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\PostResource;
 use App\Post;
-use App\Services\Shaarli\Shaarli;
+use App\Services\Shaark\Shaark;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Cache;
 
 class FeedController extends Controller
 {
-    public function index(Request $request, Shaarli $shaarli, string $type)
+    public function index(Request $request, Shaark $shaark, string $type)
     {
         if (false === in_array($type, ['rss', 'atom'])) {
             abort(404);
@@ -28,10 +28,10 @@ class FeedController extends Controller
         });
 
         return view(sprintf('feed/%s', $type))->with([
-            'title' => $shaarli->getName(),
+            'title' => $shaark->getName(),
             'link' => route('home'),
-            'description' => __('All new content of :title', ['title' => $shaarli->getName()]),
-            'language' => $shaarli->getLocale(),
+            'description' => __('All new content of :title', ['title' => $shaark->getName()]),
+            'language' => $shaark->getLocale(),
             'pub_date' => count($items) ? $items[0]['created_at']->toRssString() : Carbon::now()->toRssString(),
             'items' => $items,
         ]);

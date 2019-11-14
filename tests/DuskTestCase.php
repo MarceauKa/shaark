@@ -2,7 +2,7 @@
 
 namespace Tests;
 
-use App\Services\Shaarli\Shaarli;
+use App\Services\Shaark\Shaark;
 use Laravel\Dusk\TestCase as BaseTestCase;
 use Facebook\WebDriver\Chrome\ChromeOptions;
 use Facebook\WebDriver\Remote\RemoteWebDriver;
@@ -16,8 +16,8 @@ abstract class DuskTestCase extends BaseTestCase
     {
         parent::setUp();
 
-        $this->shaarli()->setLocale('en');
-        $this->shaarli()->setSecureLogin(false);
+        $this->shaark()->setLocale('en');
+        $this->shaark()->setSecureLogin(false);
     }
 
     /**
@@ -43,8 +43,8 @@ abstract class DuskTestCase extends BaseTestCase
         );
     }
 
-    protected function shaarli(): Shaarli
+    protected function shaark(): Shaark
     {
-        return app(Shaarli::class);
+        return app(Shaark::class);
     }
 }

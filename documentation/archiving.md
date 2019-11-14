@@ -1,4 +1,4 @@
-# Shaarli - Archiving
+# Shaark - Archiving
 
 - [PDF Archiving](#pdf-archiving)
 - [Media Archiving](#media-archiving)
@@ -34,4 +34,4 @@ You can use the **Check** button to test your configuration.
 
 ## Caveats
 
-Archiving is performance expensive and should be run in production using queues. See our [installation configuration](https://github.com/MarceauKa/laravel-shaarli/blob/dev/documentation/installation.md) to learn more about it.
+Archiving is performance expensive and should be run in production using queues. See our [installation configuration](https://github.com/MarceauKa/shaark/blob/dev/documentation/installation.md) to learn more about it.

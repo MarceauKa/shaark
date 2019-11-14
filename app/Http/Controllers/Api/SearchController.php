@@ -7,16 +7,16 @@ use App\Http\Resources\PostResource;
 use App\Http\Resources\TagResource;
 use App\Post;
 use App\Services\ModelSearch;
-use App\Services\Shaarli\Shaarli;
+use App\Services\Shaark\Shaark;
 use App\Tag;
 use Illuminate\Http\Request;
 
 class SearchController extends Controller
 {
-    public function search(Request $request, Shaarli $shaarli)
+    public function search(Request $request, Shaark $shaark)
     {
         $query = $request->get('query');
-        $default_search = $shaarli->getUseDefaultSearch();
+        $default_search = $shaark->getUseDefaultSearch();
 
         if (mb_strlen($query) < 3) {
             abort(422);

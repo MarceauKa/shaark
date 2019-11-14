@@ -43,7 +43,7 @@ class LoginController extends Controller
             $this->sendLockoutResponse($request);
         }
 
-        if (true === app('shaarli')->getSecureLogin()) {
+        if (true === app('shaark')->getSecureLogin()) {
             return $this->checkWithSecureLogin($request, $validated);
         }
 

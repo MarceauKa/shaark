@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Manage;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreSettingsRequest;
-use App\Services\Shaarli\Shaarli;
+use App\Services\Shaark\Shaark;
 use Illuminate\Http\Request;
 
 class SettingsController extends Controller
@@ -20,15 +20,15 @@ class SettingsController extends Controller
     {
         return view('manage.settings')->with([
             'page_title' => __('Settings'),
-            'settings' => app('shaarli')->getSettings(),
+            'settings' => app('shaark')->getSettings(),
         ]);
     }
 
-    public function store(StoreSettingsRequest $request, Shaarli $shaarli)
+    public function store(StoreSettingsRequest $request, Shaark $shaark)
     {
         $validated = collect($request->validated());
 
-        $shaarli
+        $shaark
             ->setSettings($validated)
             ->cleanSettings();
 

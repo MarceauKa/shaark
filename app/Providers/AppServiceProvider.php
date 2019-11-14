@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use App\Services\Hashid;
-use App\Services\Shaarli\Shaarli;
+use App\Services\Shaark\Shaark;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
@@ -19,14 +19,14 @@ class AppServiceProvider extends ServiceProvider
             $this->app['request']->server->set('HTTPS', true);
         }
 
-        $this->app->singleton(Shaarli::class, function ($app) {
-            return new Shaarli($app);
+        $this->app->singleton(Shaark::class, function ($app) {
+            return new Shaark($app);
         });
 
-        $this->app->alias(Shaarli::class, 'shaarli');
+        $this->app->alias(Shaark::class, 'shaark');
 
         $this->app->singleton(Hashid::class, function ($app) {
-            return new Hashid($app['config']->get('shaarli.hashids'));
+            return new Hashid($app['config']->get('shaark.hashids'));
         });
 
         $this->app->alias(Hashid::class, 'hashid');
@@ -34,7 +34,7 @@ class AppServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        $this->app->setLocale(app('shaarli')->getLocale());
+        $this->app->setLocale(app('shaark')->getLocale());
 
         View::composer('layouts.partials.scripts', function (\Illuminate\View\View $view) {
             $locale = config('app.locale');

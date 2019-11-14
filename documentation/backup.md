@@ -1,4 +1,4 @@
-# Shaarli - Backup
+# Shaark - Backup
 
 ## Getting started
 
@@ -19,7 +19,7 @@ In the settings section of the app, go to the **Backup** panel. You can:
 
 - Enable or disable automatic backup.
 - Choose to backup **daily** or **weekly**.
-- Choose to save only the database. Saving files can consume a lot of disk space, especially if you use [archiving](https://github.com/MarceauKa/laravel-shaarli/blob/dev/documentation/archiving.md).
+- Choose to save only the database. Saving files can consume a lot of disk space, especially if you use [archiving](https://github.com/MarceauKa/shaark/blob/dev/documentation/archiving.md).
 
 ## Commands
 

@@ -55,7 +55,7 @@ return [
             'rules' => ['nullable'],
         ],
         'custom_icon' => [
-            'default' => '/images/logo-shaarli.png',
+            'default' => '/images/logo-shaark.png',
             'rules' => ['nullable', 'image', 'mimes:png', 'dimensions:width=512,height=512'],
         ],
         'secure_login' => [

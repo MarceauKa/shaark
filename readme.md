@@ -1,12 +1,12 @@
 <p align="center">
-  <img width="256" height="256" src="https://raw.githubusercontent.com/MarceauKa/laravel-shaarli/dev/public/images/logo-shaarli.png" alt="Logo Shaarli" />
+  <img width="256" height="256" src="https://raw.githubusercontent.com/MarceauKa/shaark/dev/public/images/logo-shaark.png" alt="Logo Shaark" />
 </p>
 
-**Laravel Shaarli is a self-hosted platform to keep and share your content: web links, posts, passwords and pictures.**
+**Shaark is a self-hosted platform to keep and share your content: web links, posts, passwords and pictures.**
 
 All of your data can be **private, public or both** and can be browsed by **tags** or **all-in-one search**.
 
-**Laravel Shaarli** is production ready, inspired by [Shaarli](https://github.com/shaarli/Shaarli) 
+**Shaark** is production ready, inspired by [Shaarli](https://github.com/shaarli/Shaarli) 
 and built with [Laravel](https://github.com/laravel/laravel) and [Vue.js](https://vuejs.org/).
 
 ## Summary
@@ -25,21 +25,21 @@ and built with [Laravel](https://github.com/laravel/laravel) and [Vue.js](https:
 - [x] Export / Import (even original Shaarli)
 - [x] Theming (dark mode, background)
 - [x] i18n (🇬🇧, 🇫🇷, 🇩🇪, 🇯🇵)
-- [x] [Archiving](https://github.com/MarceauKa/laravel-shaarli/blob/dev/documentation/archiving.md) (as pdf, as media)
-- [x] DB encryption, 2-FA, Multi-users, [backup](https://github.com/MarceauKa/laravel-shaarli/blob/dev/documentation/backup.md)
+- [x] [Archiving](https://github.com/MarceauKa/shaark/blob/dev/documentation/archiving.md) (as pdf, as media)
+- [x] DB encryption, 2-FA, Multi-users, [backup](https://github.com/MarceauKa/shaark/blob/dev/documentation/backup.md)
 
 ## Demo
 
 ![Homepage](/resources/screenshots/home.jpg?raw=true "Homepage")
 
-A public demo is available at [https://shaarli.mka.ovh](https://shaarli.mka.ovh). Credentials are **admin@example.com** and **secret**. 
+A public demo is available at [https://shaark.mka.ovh](https://shaark.mka.ovh). Credentials are **admin@example.com** and **secret**. 
 This demo is resetted hourly.
 
-## [Installation](https://github.com/MarceauKa/laravel-shaarli/blob/dev/documentation/installation.md)
+## [Installation](https://github.com/MarceauKa/shaark/blob/dev/documentation/installation.md)
 
-See the extensive [installation documentation](https://github.com/MarceauKa/laravel-shaarli/blob/dev/documentation/installation.md).
+See the extensive [installation documentation](https://github.com/MarceauKa/shaark/blob/dev/documentation/installation.md).
 
-## [Archiving](https://github.com/MarceauKa/laravel-shaarli/blob/dev/documentation/archiving.md)
+## [Archiving](https://github.com/MarceauKa/shaark/blob/dev/documentation/archiving.md)
 
 Each link you share can be archived the way you want:
 
@@ -48,7 +48,7 @@ from youtube, soundcloud, vimeo and [few more sites](http://ytdl-org.github.io/y
 
 - [Puppeteer](https://github.com/GoogleChrome/puppeteer) will be used by default to save the webpage as a PDF.
 
-Learn more in the [archiving documentation](https://github.com/MarceauKa/laravel-shaarli/blob/dev/documentation/archiving.md).
+Learn more in the [archiving documentation](https://github.com/MarceauKa/shaark/blob/dev/documentation/archiving.md).
 
 ## Contribute
 
@@ -59,13 +59,13 @@ If you make changes to JS, don't compile assets in production, I'll manually com
 
 ### Translation
 
-Shaarli is actually available in **English**, **French** and **German**. Feel free to make a pull request to add or update a localization. 
+Shaark is actually available in **English**, **French** and **German**. Feel free to make a pull request to add or update a localization. 
 You can see laravel base localizations [on this repo](https://github.com/caouecs/Laravel-lang).
 
-### Your Shaarli
+### Your Shaark
 
-You host your own Shaarli public instance and you want to share it with other Shaarliers? 
-You can make a pull request to add it to our public listing located at [shaarlies.md](https://github.com/MarceauKa/laravel-shaarli/blob/dev/shaarlies.md). 
+You host your own Shaark public instance and you want to share it with other users? 
+You can make a pull request to add it to our public listing located at [directory.md](https://github.com/MarceauKa/shaark/blob/dev/directory.md). 
 
 ## Security
 
@@ -82,7 +82,7 @@ Code length and code expiration are also configurable. **Test if you application
 
 ### Auth monitoring
 
-Shaarli logs all successful and failed auths with their associated devices.
+Shaark logs all successful and failed auths with their associated devices.
 
 ### Chests encryption
 
@@ -93,9 +93,9 @@ Since `1.2.9`, all chests data are encrypted in your database using AES-256-CBC 
 Others users can be admin or non-admin. Admin users are like the main user and have an access to the entire content. 
 Non-admin users can't access the settings section and can only see their own private content.
 
-## [Troubleshooting](https://github.com/MarceauKa/laravel-shaarli/blob/dev/documentation/troubleshooting.md)
+## [Troubleshooting](https://github.com/MarceauKa/shaark/blob/dev/documentation/troubleshooting.md)
 
-All of frequent issues are answered in our [troubleshooting guide](https://github.com/MarceauKa/laravel-shaarli/blob/dev/documentation/troubleshooting.md).
+All of frequent issues are answered in our [troubleshooting guide](https://github.com/MarceauKa/shaark/blob/dev/documentation/troubleshooting.md).
 
 ## Tests
 

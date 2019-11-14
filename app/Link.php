@@ -75,7 +75,7 @@ class Link extends Model
             return false;
         }
 
-        if (app('shaarli')->getPrivateDownload() === true
+        if (app('shaark')->getPrivateDownload() === true
             && auth()->check() === false) {
             return false;
         }

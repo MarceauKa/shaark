@@ -1,4 +1,4 @@
-const CACHE = "shaarli";
+const CACHE = "shaark";
 const offlineFallbackPage = "offline";
 const avoidCachingPaths = [
     /chest\/.*/,

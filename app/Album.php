@@ -3,7 +3,7 @@
 namespace App;
 
 use App\Concerns\Models\Postable;
-use App\Services\Shaarli\Shaarli;
+use App\Services\Shaark\Shaark;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Image\Manipulations;
@@ -55,7 +55,7 @@ class Album extends Model implements HasMedia
             return false;
         }
 
-        if (app('shaarli')->getPrivateDownload() === true
+        if (app('shaark')->getPrivateDownload() === true
             && auth()->check() === false) {
             return false;
         }
@@ -72,19 +72,19 @@ class Album extends Model implements HasMedia
 
     public function registerMediaConversions(Media $media = null)
     {
-        /** @var Shaarli $shaarli */
-        $shaarli = app('shaarli');
+        /** @var Shaark $shaark */
+        $shaark = app('shaark');
         $conversion = $this->addMediaConversion('thumb');
 
-        if ($shaarli->getImagesThumbFormat() === 'square') {
+        if ($shaark->getImagesThumbFormat() === 'square') {
             $conversion->fit(Manipulations::FIT_CROP, 300, 300);
         }
 
-        if ($shaarli->getImagesThumbFormat() === 'original') {
+        if ($shaark->getImagesThumbFormat() === 'original') {
             $conversion->fit(Manipulations::FIT_CONTAIN, 300, 300);
         }
 
-        if ($shaarli->getImagesThumbQueue() === false) {
+        if ($shaark->getImagesThumbQueue() === false) {
             $conversion->nonQueued();
         }
     }

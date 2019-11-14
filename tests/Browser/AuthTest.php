@@ -3,7 +3,7 @@
 namespace Tests\Browser;
 
 use App\SecureLogin;
-use App\Services\Shaarli\Shaarli;
+use App\Services\Shaark\Shaark;
 use App\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Support\Facades\Hash;
@@ -44,7 +44,7 @@ class AuthTest extends DuskTestCase
     /** @test */
     public function it_tests_login_with_2fa()
     {
-        $this->shaarli()->setSecureLogin(true);
+        $this->shaark()->setSecureLogin(true);
 
         $user = factory(User::class)->create([
             'password' => Hash::make('randomPassword'),
@@ -70,6 +70,6 @@ class AuthTest extends DuskTestCase
                 ->assertSee($user->name);
         });
 
-        $this->shaarli()->setSecureLogin(false);
+        $this->shaark()->setSecureLogin(false);
     }
 }

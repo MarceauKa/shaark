@@ -1,14 +1,15 @@
 {
-    "name": "marceauka/laravel-shaarli",
+    "name": "marceauka/shaark",
     "type": "project",
     "description": "Your place to archive your links, stories, passwords and archive your content.",
     "keywords": [
         "laravel",
+        "shaark",
         "shaarli",
         "links"
     ],
     "license": "MIT",
-    "homepage": "https://github.com/MarceauKa/laravel-shaarli/",
+    "homepage": "https://github.com/MarceauKa/shaark/",
     "readme": "readme.md",
     "authors": [
         {
@@ -20,7 +21,7 @@
     ],
     "support": {
         "email": "web@404lab.fr",
-        "issues": "https://github.com/MarceauKa/laravel-shaarli/issues"
+        "issues": "https://github.com/MarceauKa/shaark/issues"
     },
     "require": {
         "php": "^7.2",

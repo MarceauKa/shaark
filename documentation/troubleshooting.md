@@ -1,14 +1,14 @@
-# Shaarli - Troubleshooting
+# Shaark - Troubleshooting
 
 ## Install and update
 
-At first, read our [installation guide](https://github.com/MarceauKa/laravel-shaarli/blob/dev/documentation/installation.md).
+At first, read our [installation guide](https://github.com/MarceauKa/shaark/blob/dev/documentation/installation.md).
 
 ### Can't access the app once installed
 
 Make sure the document root of your host points to the `/public` folder.
 
-### Error when updating with the `shaarli:update` command
+### Error when updating with the `shaark:update` command
 
 Sometimes you can have issues when upgrading, running the command a second time will generaly solve the problem.
 
@@ -39,18 +39,18 @@ By default, search is made using a "full-text" engine powered by [Laravel Scout]
 It allows typing errors in your search (ex: `helol` instead of `hello`) and operators (ex: `foo -bar` search `foo` without `bar`). 
 But it's not robust against non-latin search (ex: `こんにちは`, `добрый день`, etc).
 
-Laravel Shaarli provides a fallback to a classic SQL search using the `LIKE` operator. Set your preference in the settings section.
+Shaark provides a fallback to a classic SQL search using the `LIKE` operator. Set your preference in the settings section.
 
 ## Archiving
 
-Read our [archiving guide](https://github.com/MarceauKa/laravel-shaarli/blob/dev/documentation/archiving.md).
+Read our [archiving guide](https://github.com/MarceauKa/shaark/blob/dev/documentation/archiving.md).
 
 ## Backup
 
-Read our [backup guide](https://github.com/MarceauKa/laravel-shaarli/blob/dev/documentation/backup.md).
+Read our [backup guide](https://github.com/MarceauKa/shaark/blob/dev/documentation/backup.md).
 
 ## Dependencies
 
-See [dependencies](https://github.com/MarceauKa/laravel-shaarli/blob/dev/documentation/dependencies.md) used in this application.
+See [dependencies](https://github.com/MarceauKa/shaark/blob/dev/documentation/dependencies.md) used in this application.
 
 

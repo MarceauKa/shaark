@@ -9,7 +9,7 @@ class BlockInDemoMode
 {
     public function handle(Request $request, Closure $next, $guard = null)
     {
-        if (config('shaarli.demo')) {
+        if (config('shaark.demo')) {
             if ($request->expectsJson()) {
                 return response()->json([
                     'status' => 'error',

@@ -8,7 +8,7 @@ class CheckForGlobalPrivacy
 {
     public function handle($request, Closure $next)
     {
-        if (app('shaarli')->authorizeFromRequest($request)) {
+        if (app('shaark')->authorizeFromRequest($request)) {
             return $next($request);
         }
 

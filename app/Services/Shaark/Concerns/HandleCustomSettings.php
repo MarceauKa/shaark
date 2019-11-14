@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Services\Shaarli\Concerns;
+namespace App\Services\Shaark\Concerns;
 
-use App\Services\Shaarli\Shaarli;
+use App\Services\Shaark\Shaark;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 
 /**
- * @mixin Shaarli
+ * @mixin Shaark
  */
 trait HandleCustomSettings
 {

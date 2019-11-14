@@ -1,4 +1,4 @@
-# Shaarli - Installation
+# Shaark - Installation
 
 - [Requirements](#requirements)
 - [Installation](#installation)
@@ -21,7 +21,7 @@
 
 ### Installation with Git
 
-`git clone https://github.com/MarceauKa/laravel-shaarli && cd laravel-shaarli`
+`git clone https://github.com/MarceauKa/shaark && cd shaark`
 
 ⚠️ Your domain configuration must point to `/public` folder.
 
@@ -46,7 +46,7 @@ Once created, run `php artisan key:generate` to generate a unique key for you ap
 Default user is `admin@example.com` with password `secret`.
 
 - With install command:
-`php artisan shaarli:install`
+`php artisan shaark:install`
 - With no data (user must be created manually):
 `php artisan migrate`
 - With default data:
@@ -54,11 +54,11 @@ Default user is `admin@example.com` with password `secret`.
 
 ### CRON job
 
-CRON job is used for automations: [backups](https://github.com/MarceauKa/laravel-shaarli/blob/dev/documentation/backup.md), file cleaning, ...
+CRON job is used for automations: [backups](https://github.com/MarceauKa/shaark/blob/dev/documentation/backup.md), file cleaning, ...
 
 `* * * * * cd /path-to-your-project && php artisan schedule:run >> /dev/null 2>&1`
 
-🎉 Shaarli is now installed!
+🎉 Shaark is now installed!
 
 ## Configuration
 
@@ -95,7 +95,7 @@ MAIL_USERNAME=null
 MAIL_PASSWORD=null
 MAIL_ENCRYPTION=null
 MAIL_FROM_ADDRESS=hello@example.com
-MAIL_FROM_NAME="Laravel Shaarli"
+MAIL_FROM_NAME="Shaark"
 ```
 
 ### Session
@@ -110,7 +110,7 @@ SESSION_LIFETIME=120
 
 ### Queue (optional)
 
-Recommended configuration: `sync` (local), `redis` (production). Queues are used for [archiving](https://github.com/MarceauKa/laravel-shaarli/blob/dev/documentation/archiving).  
+Recommended configuration: `sync` (local), `redis` (production). Queues are used for [archiving](https://github.com/MarceauKa/shaark/blob/dev/documentation/archiving).  
 Queue (optional) can use sync (default), redis, database, beanstalkd, amazon sqs (see [laravel queue configuration](https://laravel.com/docs/6.x/queues)).  
 
 ```
@@ -147,12 +147,12 @@ The install command is useful:
 
 ⚠ Install command will not work with non-dev composer dependencies installed
 
-Run: `php artisan shaarli:install`
+Run: `php artisan shaark:install`
 
 ## Update command
 
 Git and composer must be accessible.  
-Run: `php artisan shaarli:update`. 
+Run: `php artisan shaark:update`. 
 
 This command is a shortcut for:
 ```

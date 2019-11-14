@@ -19,8 +19,8 @@ class CheckEmail extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                ->subject(__('shaarli.mails.check.title'))
-                ->line(__('shaarli.mails.check.message', ['name' => config('app.name')]));
+                ->subject(__('shaark.mails.check.title'))
+                ->line(__('shaark.mails.check.message', ['name' => config('app.name')]));
     }
 
     public function toArray($notifiable)

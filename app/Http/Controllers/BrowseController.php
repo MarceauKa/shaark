@@ -6,19 +6,19 @@ use App\Album;
 use App\Chest;
 use App\Link;
 use App\Post;
-use App\Services\Shaarli\Shaarli;
+use App\Services\Shaark\Shaark;
 use App\Story;
 use App\Tag;
 use Illuminate\Http\Request;
 
 class BrowseController extends Controller
 {
-    public function index(Request $request, Shaarli $shaarli)
+    public function index(Request $request, Shaark $shaark)
     {
         $tags = collect([]);
         $posts = Post::with('tags', 'postable');
 
-        if (false === $shaarli->getHomeShowChests()) {
+        if (false === $shaark->getHomeShowChests()) {
             $posts->withoutChests();
         }
 
@@ -27,18 +27,18 @@ class BrowseController extends Controller
             ->latest()
             ->paginate(20);
 
-        if (true === $shaarli->getHomeShowTags()) {
+        if (true === $shaark->getHomeShowTags()) {
             $tags = Tag::withPostsFor($request)
                 ->orderBy('posts_count', 'desc')
                 ->get();
         }
 
         return view('home')->with([
-            'page_title' => app('shaarli')->getName(),
+            'page_title' => app('shaark')->getName(),
             'posts' => $posts,
             'tags' => $tags,
-            'compact' => $shaarli->getCompactCardslist(),
-            'columns_count' => $shaarli->getColumnsCount(),
+            'compact' => $shaark->getCompactCardslist(),
+            'columns_count' => $shaark->getColumnsCount(),
         ]);
     }
 
@@ -98,7 +98,7 @@ class BrowseController extends Controller
         ]);
     }
 
-    public function tag(Request $request, Shaarli $shaarli, string $tag)
+    public function tag(Request $request, Shaark $shaark, string $tag)
     {
         $tag = Tag::named($tag)->firstOrFail();
 
@@ -119,8 +119,8 @@ class BrowseController extends Controller
             ]),
             'tag' => $tag,
             'posts' => $posts,
-            'compact' => $shaarli->getCompactCardslist(),
-            'columns_count' => $shaarli->getColumnsCount(),
+            'compact' => $shaark->getCompactCardslist(),
+            'columns_count' => $shaark->getColumnsCount(),
         ]);
     }
 }

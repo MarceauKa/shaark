@@ -13,7 +13,7 @@ class StoreSettingsRequest extends FormRequest
 
     public function rules()
     {
-        $config = collect(app('shaarli')->getSettingsConfig());
+        $config = collect(app('shaark')->getSettingsConfig());
 
         return $config->transform(function ($item, $key) {
             return [

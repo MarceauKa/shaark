@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Storage;
 
 class CleanFiles extends Command
 {
-    protected $signature = 'shaarli:clean-files';
+    protected $signature = 'shaark:clean-files';
     protected $description = 'Remove temporary uploaded files';
 
     public function __construct()
