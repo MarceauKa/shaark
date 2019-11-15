@@ -104,6 +104,24 @@ nav.navbar {
         padding-left: 1rem;
         padding-right: 1rem;
 
+        div.search-input-wrapper {
+            position: relative;
+            width: 100%;
+            min-width: 100%;
+
+            input {
+                width: 100%;
+                min-width: 100%;
+            }
+
+            .badge,
+            .spinner-border {
+                position: absolute;
+                right: 1rem;
+                top: .75rem;
+            }
+        }
+
         .results {
             display: none;
             z-index: 500;

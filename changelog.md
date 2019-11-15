@@ -2,17 +2,22 @@
 
 ## Added
 
-- Add to links a link to archive.org (issue #57)
+- Search with history, loading indicator and no result indicator (issue #59)
+- Links now have a shortcut to archive.org (issue #57)
 
 ## Fixed
 
-- Markdown editor on small devices (issue #55)
+- Story: Markdown editor on small devices (issue #55)
 
 ## Changed
 
 - New form actions "Save", "Save & New", "Save & View"
 - Story is now displayed at full-width
 - Cleaned some translations
+
+## Removed
+
+- Original shaarli import (issue #30)
 
 # 1.2.30
 

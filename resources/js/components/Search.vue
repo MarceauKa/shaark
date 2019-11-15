@@ -1,19 +1,35 @@
 <template>
     <form class="form-inline">
-        <input class="form-control w-100"
-               type="search"
-               ref="input"
-               :placeholder="__('Type / to search')"
-               v-model="query"
-               @keydown.down.stop="move('down')"
-               @keydown.up.stop="move('up')"
-               @keydown.enter.prevent.stop="redirect"
-        >
+        <div class="search-input-wrapper">
+            <input class="form-control"
+                   type="search"
+                   ref="input"
+                   :placeholder="__('Type / to search')"
+                   v-model="query"
+                   @focus="focused = true"
+                   @blur="focused = false"
+                   @keydown.down.stop="move('down')"
+                   @keydown.up.stop="move('up')"
+                   @keydown.enter.prevent.stop="choose"
+            >
+            <div class="spinner-border spinner-border-sm text-info" role="status" v-if="loading"></div>
+            <span class="badge badge-info text-white" role="status" v-if="displayNoResultIndicator">
+                {{ __('No result') }}
+            </span>
+        </div>
 
         <div class="list-group results mt-1"
-             :class="{'active': hasResults}"
+             :class="{'active': hasResults || displaySearchHistory}"
              v-on-clickaway="hide"
         >
+            <a class="list-group-item list-group-item-action"
+               :class="{'active': selected === item}"
+               v-for="item in history"
+               v-if="displaySearchHistory"
+            >
+                <span><i class="fas fa-history fa-fw mr-1"></i> {{ item }}</span>
+            </a>
+
             <div class="list-group-item"
                 v-if="hasTagsResults"
             >
@@ -21,7 +37,6 @@
                 <div>
                     <a v-for="result in results.tags"
                        class="btn btn-primary btn-sm mr-1"
-                       v-if="hasTagsResults"
                        :href="result.url"
                     >
                         {{ result.name }}
@@ -63,10 +78,14 @@ export default {
             results: {},
             loading: false,
             selected: null,
+            history: [],
+            focused: false,
         }
     },
 
     mounted() {
+        this.fetchHistory();
+
         document.addEventListener('keydown', (event) => {
             let isEventSafe = (event) => {
                 return event.target.tagName !== 'INPUT'
@@ -93,6 +112,7 @@ export default {
                 if (response.status === 200) {
                     this.results = response.data;
                     this.selected = null;
+                    this.addHistory(this.query);
                 }
             }).catch((error) => {
                 this.loading = false;
@@ -106,28 +126,65 @@ export default {
             this.selected = null;
         },
 
-        redirect() {
-            if (this.selected) {
+        choose() {
+            if (this.selected && this.displaySearchHistory) {
+                this.query = this.selected;
+            }
+
+            if (this.selected && this.hasResults) {
                 window.location = this.selected.url;
             }
         },
 
         move(direction) {
-            if (false === this.hasResults) {
-                this.selected = null;
+            if (this.displaySearchHistory) {
+                this.moveIn(this.history, direction);
                 return;
             }
 
-            let posts = this.results.posts;
-            let current = this.selected ? posts.indexOf(this.selected) : null;
-            let last = posts.length - 1;
+            if (this.hasResults) {
+                this.moveIn(this.results.posts, direction);
+                return;
+            }
+
+            this.selected = null;
+        },
+
+        moveIn(items, direction) {
+            let current = this.selected ? items.indexOf(this.selected) : null;
+            let last = items.length - 1;
 
             if (direction === 'down') {
-                this.selected = (current === null || current === last) ? posts[0] : posts[current + 1];
+                this.selected = (current === null || current === last) ? items[0] : items[current + 1];
             }
 
             if (direction === 'up') {
-                this.selected = (current === null || current === 0) ? posts[last] : posts[current - 1];
+                this.selected = (current === null || current === 0) ? items[last] : items[current - 1];
+            }
+        },
+
+        fetchHistory() {
+            let storage = localStorage.getItem('searchHistory') || null;
+
+            if (storage) {
+                try {
+                    this.history = JSON.parse(storage);
+                } catch (e) {
+                    console.log('Unable to parse search history from local storage');
+                }
+            }
+        },
+
+        addHistory(query) {
+            if (false === this.hasResults) {
+                return;
+            }
+
+            if (this.history.indexOf(query) === -1) {
+                this.history.unshift(query);
+                this.history = this.history.slice(0, 5);
+
+                localStorage.setItem('searchHistory', JSON.stringify(this.history));
             }
         },
     },
@@ -146,6 +203,19 @@ export default {
         hasPostsResults() {
             return this.results.hasOwnProperty('posts')
                 && this.results.posts.length > 0;
+        },
+
+        displaySearchHistory() {
+            return this.history.length > 0
+                && this.query === null
+                && this.focused;
+        },
+
+        displayNoResultIndicator() {
+            return this.query !== null
+                && this.query.length >= 3
+                && this.loading === false
+                && false === this.hasResults;
         }
     },
 
@@ -153,6 +223,10 @@ export default {
         query: _.debounce(function (value) {
             if (value && value.length >= 3) {
                 this.search(value)
+            }
+
+            if (value.length === 0) {
+                this.hide();
             }
         }, 200),
     }
