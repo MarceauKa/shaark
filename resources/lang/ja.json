@@ -107,6 +107,7 @@
     "Title": "タイトル",
     "Content": "コンテンツ",
     "Unable to parse link": "ＵＲＬの解析に失敗しました",
+    "View on archive.org": "View on archive.org",
 
     "Link is being archived": "ＵＲＬはアーカイブ中です",
     "No provider found to archive this link": "ＵＲＬをアーカイブするプロバイダーが見つかりませんでした",

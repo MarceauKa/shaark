@@ -1,5 +1,9 @@
 # Unreleased
 
+## Added
+
+- Add to links a link to archive.org (issue #57)
+
 ## Fixed
 
 - Markdown editor on small devices (issue #55)

@@ -107,6 +107,7 @@
     "Title": "Titel",
     "Content": "Inhalt",
     "Unable to parse link": "Link kann nicht analysiert werden",
+    "View on archive.org": "View on archive.org",
 
     "Link is being archived": "Der Link wird archiviert",
     "No provider found to archive this link": "Kein Anbieter gefunden, um diesen Link zu archivieren",

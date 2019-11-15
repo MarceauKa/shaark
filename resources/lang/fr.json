@@ -107,6 +107,7 @@
     "Title": "Titre",
     "Content": "Contenu",
     "Unable to parse link": "Impossible de récupérer les informations de l'URL",
+    "View on archive.org": "Voir sur archive.org",
 
     "Link is being archived": "Le lien est en cours d'archive",
     "No provider found to archive this link": "Aucun driver n'est disponible pour archiver ce lien",
