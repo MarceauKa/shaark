@@ -1,3 +1,9 @@
+# Unreleased
+
+## Changed
+
+- Story is now displayed at full-width
+
 # 1.2.30
 
 ⚠️ Update your Git remote URL: `git remote set-url origin https://github.com/MarceauKa/shaark.git`
