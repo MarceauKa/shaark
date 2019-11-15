@@ -11,7 +11,8 @@
             <div class="form-group">
                 <label for="content">{{ __('Content') }}</label>
                 <editor id="content"
-                        previewStyle="vertical"
+                        height="auto"
+                        previewStyle="tab"
                         :options="editor"
                         v-model="form.content"
                 ></editor>

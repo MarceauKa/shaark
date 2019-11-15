@@ -1,5 +1,9 @@
 # Unreleased
 
+## Fixed
+
+- Markdown editor on small devices (issue #55)
+
 ## Changed
 
 - New form actions "Save", "Save & New", "Save & View"
