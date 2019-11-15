@@ -62,7 +62,7 @@ export default {
         remove() {
             axios.delete(this.story.url_delete)
                 .then(response => {
-                    this.$toasted.success(this.__("Story :name has been deleted", {'name': this.story.title}));
+                    this.$toasted.success(this.__("Deleted"));
 
                     if (this.single) {
                         window.location = '/';
@@ -72,7 +72,7 @@ export default {
                 })
                 .catch(error => {
                     console.log(error);
-                    this.$toasted.error(this.__("Unable to delete story"));
+                    this.$toasted.error(this.__("Can't delete"));
                 })
         }
     }

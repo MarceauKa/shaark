@@ -78,7 +78,7 @@ export default {
         remove() {
             axios.delete(this.album.url_delete)
                 .then(response => {
-                    this.$toasted.success(this.__("Album :name has been deleted", {'name': this.album.title}));
+                    this.$toasted.success(this.__("Deleted"));
 
                     if (this.single) {
                         window.location = '/';
@@ -87,7 +87,7 @@ export default {
                     }
                 })
                 .catch(error => {
-                    this.$toasted.error(this.__("Unable to delete album"));
+                    this.$toasted.error(this.__("Can't delete"));
                 })
         }
     },

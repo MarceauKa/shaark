@@ -26,10 +26,17 @@
         </div>
 
         <div class="card-footer">
-            <button class="btn btn-primary" @click.prevent="submit" :disabled="loading">
-                <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true" v-if="loading"></span>
-                {{ __('Save') }}
-            </button>
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary" @click.prevent="submit('edit')" :disabled="loading" dusk="chest-form-save">
+                    <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true" v-if="loading"></span>
+                    {{ __('Save') }}
+                </button>
+                <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                <div class="dropdown-menu">
+                    <button type="button" class="dropdown-item" @click.prevent="submit('view')">{{ __('Save & View') }}</button>
+                    <button type="button" class="dropdown-item" @click.prevent="submit('new')">{{ __('Save & New') }}</button>
+                </div>
+            </div>
             <a :href="chest.permalink" class="btn btn-outline-primary" v-if="chest">{{ __('View')}}</a>
         </div>
     </div>
@@ -76,7 +83,7 @@ export default {
     },
 
     methods: {
-        submit() {
+        submit(then) {
             this.loading = true;
 
             axios.request({
@@ -84,30 +91,21 @@ export default {
                 url: this.chest ? this.chest.url_update : '/api/chest',
                 data: this.form
             }).then(response => {
-                if (this.chest) {
-                    this.$toasted.success(this.__('Chest updated'), {
-                        action: {text: this.__('Show'), href: response.data.post.url}
-                    });
-                    this.loading = false;
+                this.$toasted.success(this.__('Saved'));
+
+                if (then !== 'edit') {
+                    window.location = then === 'new' ? '/chest/create' : response.data.post.url;
                 } else {
-                    this.$toasted.success(this.__('Chest created'), {
-                        action: {text: this.__('Show'), href: response.data.post.url}
-                    });
-                    this.reset();
+                    this.loading = false;
+                    this.resetFormError();
                 }
             }).catch(error => {
                 this.loading = false;
                 this.setFormError(error);
                 this.setHttpError(error);
-                this.toastHttpError(this.__('Unable to save chest'));
+                this.toastHttpError(this.__("Can't save"));
             })
-        },
-
-        reset() {
-            this.loading = false;
-            this.form = defaultChest();
-            this.resetFormError();
-        },
+        }
     }
 }
 </script>

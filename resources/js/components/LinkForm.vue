@@ -25,7 +25,7 @@
                     <div class="form-group">
                         <div class="custom-control custom-switch">
                             <input type="checkbox" class="custom-control-input" id="is_private" v-model="form.is_private" :disabled="loading">
-                            <label class="custom-control-label" for="is_private" dusk="link-form-private">{{ __('Private link?') }}</label>
+                            <label class="custom-control-label" for="is_private" dusk="link-form-private">{{ __('Is private?') }}</label>
                         </div>
                     </div>
                 </div>
@@ -48,10 +48,17 @@
 
         <div class="card-footer d-flex justify-content-between">
             <div>
-                <button class="btn btn-primary" @click.prevent="submit" :disabled="loading" dusk="link-form-save">
-                    <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true" v-if="loading"></span>
-                    {{ __('Save') }}
-                </button>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary" @click.prevent="submit('edit')" :disabled="loading" dusk="link-form-save">
+                        <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true" v-if="loading"></span>
+                        {{ __('Save') }}
+                    </button>
+                    <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                    <div class="dropdown-menu">
+                        <button type="button" class="dropdown-item" @click.prevent="submit('view')">{{ __('Save & View') }}</button>
+                        <button type="button" class="dropdown-item" @click.prevent="submit('new')">{{ __('Save & New') }}</button>
+                    </div>
+                </div>
                 <button type="button" class="btn btn-outline-primary" @click="openArchive" v-if="link">{{ __('Archive')}}</button>
                 <a :href="link.permalink" class="btn btn-outline-primary" v-if="link">{{ __('View')}}</a>
             </div>
@@ -68,7 +75,7 @@
 
                         <p v-if="archive.download">
                             <a :href="link.url_download" class="btn btn-sm btn-primary text-white btn-block">{{ __('Download') }}</a>
-                            <confirm class="btn btn-sm btn-danger text-white btn-block" :text="__('Delete archive')" :text-confirm="__('Confirm')" @confirmed="deleteArchive"></confirm>
+                            <confirm class="btn btn-sm btn-danger text-white btn-block" :text="__('Delete')" :text-confirm="__('Confirm')" @confirmed="deleteArchive"></confirm>
                         </p>
 
                         <div class="alert alert-info" v-else>
@@ -172,7 +179,7 @@ export default {
             });
         },
 
-        submit() {
+        submit(then) {
             this.loading = true;
 
             axios.request({
@@ -180,22 +187,20 @@ export default {
                 url: this.link ? this.link.url_update : '/api/link',
                 data: this.form
             }).then(response => {
-                if (this.link) {
-                    this.$toasted.success(this.__('Link updated'), {
-                        action: {text: this.__('Show'), href: response.data.post.url}
-                    });
-                    this.loading = false;
+                this.$toasted.success(this.__('Saved'));
+
+                if (then !== 'edit') {
+                    window.location = then === 'new' ? '/link/create' : response.data.post.url;
                 } else {
-                    this.$toasted.success(this.__('Link created'), {
-                        action: {text: this.__('Show'), href: response.data.post.url}
-                    });
-                    this.reset();
+                    this.loading = false;
+                    this.parsing = false;
+                    this.resetFormError();
                 }
             }).catch(error => {
                 this.loading = false;
                 this.setFormError(error);
                 this.setHttpError(error);
-                this.toastHttpError(this.__('Unable to save link'));
+                this.toastHttpError(this.__("Can't save"));
             })
         },
 
@@ -235,13 +240,6 @@ export default {
                     this.setHttpError(error);
                     this.toastHttpError(this.__('Whoops!'));
                 });
-        },
-
-        reset() {
-            this.loading = false;
-            this.parsing = false;
-            this.form = defaultLink();
-            this.resetFormError();
         }
     },
 

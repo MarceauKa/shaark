@@ -107,7 +107,7 @@ export default {
             this.loading = true;
 
             axios.delete(`/api/manage/tags/${tag.name}`).then(response => {
-                this.$toasted.success(this.__("Tag :name has been deleted", {name: tag.name}));
+                this.$toasted.success(this.__("Deleted"));
                 this.fetch();
             }).catch(error => {
                 console.log(error);

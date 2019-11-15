@@ -2,7 +2,9 @@
 
 ## Changed
 
+- New form actions "Save", "Save & New", "Save & View"
 - Story is now displayed at full-width
+- Cleaned some translations
 
 # 1.2.30
 

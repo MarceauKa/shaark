@@ -53,7 +53,7 @@ class LinkArchiveController extends Controller
 
             return response()->json([
                 'status' => 'deleted',
-                'message' => __('Archive has been deleted')
+                'message' => __('Deleted')
             ]);
         }
 

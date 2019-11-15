@@ -73,7 +73,7 @@
                     <div class="form-group">
                         <div class="custom-control custom-switch">
                             <input type="checkbox" class="custom-control-input" id="is_private" v-model="form.is_private" :disabled="loading">
-                            <label class="custom-control-label" for="is_private" dusk="album-form-private">{{ __('Private album?') }}</label>
+                            <label class="custom-control-label" for="is_private" dusk="album-form-private">{{ __('Is private?') }}</label>
                         </div>
                     </div>
                 </div>
@@ -96,10 +96,17 @@
 
         <div class="card-footer d-flex justify-content-between">
             <div>
-                <button class="btn btn-primary" @click.prevent="submit" :disabled="loading" dusk="album-form-save">
-                    <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true" v-if="loading"></span>
-                    {{ __('Save') }}
-                </button>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary" @click.prevent="submit('edit')" :disabled="loading" dusk="album-form-save">
+                        <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true" v-if="loading"></span>
+                        {{ __('Save') }}
+                    </button>
+                    <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                    <div class="dropdown-menu">
+                        <button type="button" class="dropdown-item" @click.prevent="submit('view')">{{ __('Save & View') }}</button>
+                        <button type="button" class="dropdown-item" @click.prevent="submit('new')">{{ __('Save & New') }}</button>
+                    </div>
+                </div>
 
                 <a :href="album.permalink" class="btn btn-outline-primary" v-if="album">{{ __('View')}}</a>
             </div>
@@ -167,7 +174,7 @@ export default {
     },
 
     methods: {
-        submit() {
+        submit(then) {
             this.loading = true;
 
             axios.request({
@@ -175,13 +182,19 @@ export default {
                 url: this.album ? this.album.url_update : '/api/album',
                 data: this.form
             }).then(response => {
-                this.loading = false;
-                window.location = `/album/${response.data.post.postable_id}/edit`
+                this.$toasted.success(this.__('Saved'));
+
+                if (then !== 'edit') {
+                    window.location = then === 'new' ? '/album/create' : response.data.post.url;
+                } else {
+                    this.loading = false;
+                    this.resetFormError();
+                }
             }).catch(error => {
                 this.loading = false;
                 this.setFormError(error);
                 this.setHttpError(error);
-                this.toastHttpError(this.__('Unable to save album'));
+                this.toastHttpError(this.__("Can't save"));
             })
         },
 

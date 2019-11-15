@@ -99,11 +99,11 @@ export default {
                 url: this.user ? this.user.url_update : '/api/manage/users',
                 data: this.form
             }).then(response => {
+                this.$toasted.success(this.__("Saved"));
+
                 if (this.user) {
-                    this.$toasted.success(this.__("User updated"));
                     this.loading = false;
                 } else {
-                    this.$toasted.success(this.__("User created"));
                     this.form = defaultUser();
                 }
 
@@ -113,7 +113,7 @@ export default {
                 if (error.response.data.status === 'error') {
                     this.$toasted.error(error.response.data.message);
                 } else {
-                    this.$toasted.error(this.__("Unable to save user"));
+                    this.$toasted.error(this.__("Can't save"));
                 }
 
                 this.setFormError(error);

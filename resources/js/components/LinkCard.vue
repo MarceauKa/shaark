@@ -64,7 +64,7 @@ export default {
         remove() {
             axios.delete(this.link.url_delete)
                 .then(response => {
-                    this.$toasted.success(this.__("Link :name has been deleted", {'name': this.link.title}));
+                    this.$toasted.success(this.__("Deleted"));
 
                     if (this.single) {
                         window.location = '/';
@@ -73,7 +73,7 @@ export default {
                     }
                 })
                 .catch(error => {
-                    this.$toasted.error(this.__("Unable to delete link"));
+                    this.$toasted.error(this.__("Can't delete"));
                 })
         }
     },

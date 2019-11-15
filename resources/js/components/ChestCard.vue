@@ -75,7 +75,7 @@ export default {
         remove() {
             axios.delete(this.chest.url_delete)
                 .then(response => {
-                    this.$toasted.success(this.__("Chest :name has been deleted", {'name': this.chest.title}));
+                    this.$toasted.success(this.__("Deleted"));
 
                     if (this.single) {
                         window.location = '/';
@@ -84,7 +84,7 @@ export default {
                     }
                 })
                 .catch(error => {
-                    this.$toasted.error(this.__("Unable to delete chest"));
+                    this.$toasted.error(this.__("Can't delete"));
                 })
         },
 

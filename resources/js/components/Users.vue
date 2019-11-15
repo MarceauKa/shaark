@@ -72,14 +72,14 @@ export default {
 
             axios.delete(`/api/manage/users/${user.id}`)
                 .then(response => {
-                    this.$toasted.success(this.__("User :name has been deleted", {name: user.name}));
+                    this.$toasted.success(this.__("Deleted"));
                     this.fetch();
                 })
                 .catch(error => {
                     if (error.response.data.status === 'error') {
                         this.$toasted.error(error.response.data.message);
                     } else {
-                        this.$toasted.error(this.__("Unable to delete user"));
+                        this.$toasted.error(this.__("Can't delete"));
                     }
 
                     this.loading = false;
