@@ -26,9 +26,6 @@
                             <a href="{{ route('manage.export') }}"
                                class="list-group-item list-group-item-action{{ request()->is('manage/export') ? ' active' : '' }}"
                             ><i class="fas fa-fw fa-cloud-download-alt mr-1"></i> {{ __('Export') }}</a>
-                            <a href="{{ route('manage.import') }}"
-                               class="list-group-item list-group-item-action{{ request()->is('manage/import') ? ' active' : '' }}"
-                            ><i class="fas fa-fw fa-cloud-upload-alt mr-1"></i> {{ __('Import') }}</a>
                         </div>
                     </div>
                     <div class="col-12 col-md-8">

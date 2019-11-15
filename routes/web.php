@@ -52,9 +52,6 @@ Route::group([
     'middleware' => ['auth', 'manage'],
     'namespace' => 'Manage',
 ], function (\Illuminate\Routing\Router $router) {
-    $router->get('import', 'ImportController@form')->name('import');
-    $router->post('import', 'ImportController@import');
-
     $router->get('export', 'ExportController@form')->name('export');
     $router->post('export', 'ExportController@export');
 

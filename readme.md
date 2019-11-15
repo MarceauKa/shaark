@@ -22,7 +22,6 @@ and built with [Laravel](https://github.com/laravel/laravel) and [Vue.js](https:
 - [x] Rapid sharing extension and **P**rogressive **W**eb **A**pp 
 - [x] Tagging system, search and RSS feeds
 - [x] Private content or entirely private (with temp sharing)
-- [x] Export / Import (even original Shaarli)
 - [x] Theming (dark mode, background)
 - [x] i18n (🇬🇧, 🇫🇷, 🇩🇪, 🇯🇵)
 - [x] [Archiving](https://github.com/MarceauKa/shaark/blob/dev/documentation/archiving.md) (as pdf, as media)
