@@ -1,5 +1,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
 <title>@if(isset($page_title)){{ $page_title }} - @endif{{ app('shaark')->getName() }}</title>
 <meta name="csrf-token" content="{{ csrf_token() }}">
 @if(auth()->check())
@@ -13,6 +14,7 @@
 <link rel="manifest" href="{{ route('pwa.manifest') }}">
 <base href="{{ url()->route('home') }}">
 <link rel="icon" type="image/png" href="{{ app('shaark')->getCustomIconUrl() }}">
+<link rel="apple-touch-icon" href="{{ app('shaark')->getCustomIconUrl() }}">
 <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 @stack('css')
 @if(app('shaark')->getCustomBackgroundCss())

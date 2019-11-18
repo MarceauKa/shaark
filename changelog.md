@@ -3,6 +3,7 @@
 ## Added
 
 - Ability to rename tags
+- PWA meta for iOS
 
 ## Changed
 
