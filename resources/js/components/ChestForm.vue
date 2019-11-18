@@ -96,8 +96,7 @@ export default {
                 if (then !== 'edit') {
                     window.location = then === 'new' ? '/chest/create' : response.data.post.url;
                 } else {
-                    this.loading = false;
-                    this.resetFormError();
+                    window.location.reload();
                 }
             }).catch(error => {
                 this.loading = false;

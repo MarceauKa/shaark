@@ -4,6 +4,10 @@
 
 - Japanese translation updated to 1.2.31 (thanks to [wyred](https://github.com/wyred))
 
+## Fixed
+
+- Link, Story, Chest and Album default save action now reload the form
+
 # 1.2.31
 
 ## Added

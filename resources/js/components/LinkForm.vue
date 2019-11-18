@@ -192,9 +192,7 @@ export default {
                 if (then !== 'edit') {
                     window.location = then === 'new' ? '/link/create' : response.data.post.url;
                 } else {
-                    this.loading = false;
-                    this.parsing = false;
-                    this.resetFormError();
+                    window.location.reload();
                 }
             }).catch(error => {
                 this.loading = false;
