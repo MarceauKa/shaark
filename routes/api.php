@@ -42,6 +42,7 @@ Route::group([
     $router->get('tags', 'TagsController@all')->name('tags.all');
     $router->delete('tags/{tag}', 'TagsController@delete')->name('tags.delete');
     $router->post('tags/{from}/move/{to}', 'TagsController@move')->name('tags.move');
+    $router->put('tags/{from}/rename/{to}', 'TagsController@rename')->name('tags.rename');
 
     $router->get('archives', 'ArchivesController@all')->name('archives');
 

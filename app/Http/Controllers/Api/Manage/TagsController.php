@@ -34,6 +34,21 @@ class TagsController extends Controller
         return $this->delete($request, $from);
     }
 
+    public function rename(Request $request, string $from, string $to)
+    {
+        $fromTag = Tag::named($from)->firstOrFail();
+        $toTag = Tag::named($to)->first();
+
+        if ($toTag) {
+            response()->json([], 422);
+        }
+
+        $fromTag->name = $to;
+        $fromTag->save();
+
+        return response()->json();
+    }
+
     public function delete(Request $request, string $tag)
     {
         $tag = Tag::findNamedOrCreate($tag);

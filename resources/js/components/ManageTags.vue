@@ -15,17 +15,40 @@
                     <thead>
                     <tr>
                         <th class="w-25">{{ __('Name') }}</th>
-                        <th class="w-25">{{ __('Posts') }}</th>
+                        <th>{{ __('Posts') }}</th>
                         <th class="w-50">{{ __('Actions') }}</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr v-for="tag in tags">
                         <td class="align-middle">
-                            <a :href="tag.url">{{ tag.name }}</a>
+                            <div v-if="editing !== null && editing.id === tag.id">
+                                <input type="text" class="form-control" :id="`input${tag.id}`" v-model="edit" />
+                            </div>
+                            <div v-else>
+                                <a :href="`/tag/${tag.name}`">{{ tag.name }}</a>
+                            </div>
                         </td>
                         <td class="align-middle">{{ tag.posts_count }}</td>
                         <td class="d-flex justify-content-between">
+                            <button type="button"
+                                    class="btn btn-outline-secondary btn-sm mr-1"
+                                    @click.prevent="editing = tag"
+                                    :disabled="editing !== null && editing.id !== tag.id"
+                                    v-if="editing === null || (editing !== null && editing.id !== tag.id)"
+                            >
+                                <i class="fas fa-edit"></i>
+                            </button>
+
+                            <button type="button"
+                                    class="btn btn-outline-secondary btn-sm mr-1"
+                                    @click.prevent="rename()"
+                                    @keyup.enter.prevent="rename()"
+                                    v-else
+                            >
+                                <i class="fas fa-check"></i>
+                            </button>
+
                             <select name="tag" id="tag" class="form-control custom-select mr-1 w-auto flex-grow-1" @change="move(tag.name, $event.target.value)">
                                 <option value="none">-- {{ __('Move') }} --</option>
                                 <option v-for="item in tags"
@@ -64,6 +87,8 @@ export default {
         return {
             tags: [],
             loading: true,
+            editing: null,
+            edit: null,
         }
     },
 
@@ -98,7 +123,7 @@ export default {
                     this.$toasted.success(this.__("Elements tagged :from have been moved to :to.", {from: from, to: to}));
                     this.fetch();
                 }).catch(error => {
-                    console.log(error);
+                    this.$toasted.error(this.__("Can't save"));
                 })
             }
         },
@@ -110,9 +135,37 @@ export default {
                 this.$toasted.success(this.__("Deleted"));
                 this.fetch();
             }).catch(error => {
-                console.log(error);
+                this.$toasted.error(this.__("Can't delete"));
             })
         },
+
+        rename() {
+            if (this.editing.name !== this.edit) {
+                axios.put(`/api/manage/tags/${this.editing.name}/rename/${this.edit}`).then(response => {
+                    this.$toasted.success(this.__("Saved"));
+                    this.fetch();
+                }).catch(error => {
+                    this.$toasted.error(this.__("Can't save"));
+                })
+            }
+
+            this.editing = null;
+            this.edit = null;
+        }
     },
+
+    watch: {
+        editing: function (tag) {
+            if (tag !== null) {
+                this.$nextTick(() => {
+                    this.edit = tag.name;
+                    let selector = `input#input${tag.id}`;
+                    document.querySelector(selector).focus();
+                });
+            }
+
+            this.edit = null;
+        }
+    }
 }
 </script>

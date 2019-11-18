@@ -1,5 +1,9 @@
 # Unreleased
 
+## Added
+
+- Ability to rename tags
+
 ## Changed
 
 - Japanese translation updated to 1.2.31 (thanks to [wyred](https://github.com/wyred))
