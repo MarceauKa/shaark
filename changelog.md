@@ -3,6 +3,7 @@
 ## Added
 
 - Ability to rename tags
+- In-app notification updater (issue #31)
 - PWA meta for iOS
 
 ## Changed

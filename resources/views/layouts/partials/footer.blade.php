@@ -12,5 +12,8 @@
 
 @if(auth()->check())
     <temp-sharing dusk="temp-sharing"></temp-sharing>
+    @if($version)
+    <update-notifier dusk="update-notifier" :version="{{ $version }}"></update-notifier>
+    @endif
 @endif
 @include('partials.flash')

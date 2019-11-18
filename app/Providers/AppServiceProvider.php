@@ -4,7 +4,10 @@ namespace App\Providers;
 
 use App\Services\Hashid;
 use App\Services\Shaark\Shaark;
+use App\Services\UpdateChecker;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
@@ -50,6 +53,16 @@ class AppServiceProvider extends ServiceProvider
             } else {
                 $view->with('lang', []);
             }
+        });
+
+        View::composer('layouts.partials.footer', function (\Illuminate\View\View $view) {
+            $version = Cache::remember('version', Carbon::now()->addDay(), function () {
+                $checker = UpdateChecker::check();
+
+                return $checker->latest;
+            });
+
+            $view->with('version', json_encode($version));
         });
 
         Validator::extend('current_password', function ($attribute, $value, $parameters, $validator) {
