@@ -7,6 +7,7 @@
 ## Fixed
 
 - Link, Story, Chest and Album default save action now reload the form
+- Remove unused yarn.lock
 
 # 1.2.31
 
