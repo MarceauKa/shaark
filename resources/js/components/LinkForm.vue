@@ -189,10 +189,16 @@ export default {
             }).then(response => {
                 this.$toasted.success(this.__('Saved'));
 
-                if (then !== 'edit') {
-                    window.location = then === 'new' ? '/link/create' : response.data.post.url;
-                } else {
-                    window.location.reload();
+                switch (then) {
+                    case 'view':
+                        window.location = response.data.post.url;
+                        break;
+                    case 'new':
+                        window.location = '/link/create';
+                        break;
+                    case 'edit':
+                        window.location = `/link/${response.data.post.postable_id}/edit`;
+                        break;
                 }
             }).catch(error => {
                 this.loading = false;
