@@ -13,6 +13,7 @@
     <div class="row justify-content-center">
         <div class="col-12">
             <story-card :single="true" :story="{{ json_encode(\App\Http\Resources\StoryResource::make($story)) }}"></story-card>
+            <comments :id="{{ $story->post->id }}"></comments>
         </div>
     </div>
 </div>

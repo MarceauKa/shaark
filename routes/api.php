@@ -30,6 +30,8 @@ Route::post('album/upload', 'AlbumController@upload')->name('album.image.upload'
 Route::put('album/{id}', 'AlbumController@update')->name('album.update');
 Route::delete('album/{id}', 'AlbumController@delete')->name('album.delete');
 
+Route::get('comments/{id}', 'CommentController@get')->name('comments');
+
 Route::get('share/{post_id}', 'ShareController@get')->name('share');
 Route::post('share/{post_id}', 'ShareController@store');
 

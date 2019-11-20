@@ -13,6 +13,7 @@
     <div class="row justify-content-center">
         <div class="col-12">
             <album-card :single="true" :album="{{ json_encode(\App\Http\Resources\AlbumResource::make($album)) }}"></album-card>
+            <comments :id="{{ $album->post->id }}"></comments>
         </div>
     </div>
 </div>

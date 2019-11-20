@@ -17,3 +17,10 @@
     opacity: 0.5;
     background: #c8ebfb;
 }
+
+.card--comments {
+    blockquote + div,
+    div + div.replies {
+        padding-left: 20px;
+    }
+}

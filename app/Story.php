@@ -5,7 +5,6 @@ namespace App;
 use App\Concerns\Models\Postable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
 
 class Story extends Model
 {

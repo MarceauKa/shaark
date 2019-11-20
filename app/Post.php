@@ -50,6 +50,11 @@ class Post extends Model
         return $this->hasMany(Share::class);
     }
 
+    public function comments(): HasMany
+    {
+        return $this->hasMany(Comment::class);
+    }
+
     public function getCreatedAtFormatedAttribute(): string
     {
         return $this->created_at->diffForHumans();
