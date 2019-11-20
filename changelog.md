@@ -1,5 +1,9 @@
 # Unreleased
 
+## Added
+
+- Comments on posts ([documentation](https://github.com/MarceauKa/shaark/blob/dev/documentation/comments.md), issue #45)
+
 ## Fixed
 
 - Missing test email translations
