@@ -6,7 +6,7 @@
         <form method="POST" action="{{ route('manage.settings') }}" enctype="multipart/form-data">
             @csrf
 
-            <div class="card">
+            <div class="card" id="general">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     {{ __('shaark.settings.general.title') }}
                     <button type="button" class="btn btn-sm btn-outline-primary" @click="installPwa" :disabled="prompt === null">{{ __('shaark.settings.general.install_button') }}</button>
@@ -69,7 +69,7 @@
                 </div>
             </div>
 
-            <div class="card mt-4">
+            <div class="card mt-4" id="appearance">
                 <div class="card-header">{{ __('shaark.settings.appearance.title') }}</div>
                 <div class="card-body">
                     <div class="form-group">
@@ -131,7 +131,7 @@
                 </div>
             </div>
 
-            <div class="card mt-4">
+            <div class="card mt-4" id="2fa">
                 <div class="card-header d-flex justify-content-between align-items-center flex-wrap">
                     {{ __('shaark.settings.2fa.title') }}
                     <span>
@@ -167,7 +167,7 @@
                 </div>
             </div>
 
-            <div class="card mt-4">
+            <div class="card mt-4" id="archiving">
                 <div class="card-header d-flex justify-content-between align-items-center flex-wrap">
                     {{ __('shaark.settings.archiving.title') }}
                     <span>
@@ -223,7 +223,7 @@
                 </div>
             </div>
 
-            <div class="card mt-4">
+            <div class="card mt-4" id="backup">
                 <div class="card-header">{{ __('shaark.settings.backup.title') }}</div>
                 <div class="card-body">
                     <div class="form-group">
@@ -256,7 +256,7 @@
                 </div>
             </div>
 
-            <div class="card mt-4">
+            <div class="card mt-4" id="images">
                 <div class="card-header">{{ __('shaark.settings.images.title') }}</div>
                 <div class="card-body">
                     <div class="form-group">
@@ -297,6 +297,68 @@
                             <label class="custom-control-label" for="images_thumb_queue">{{ __('shaark.settings.images.images_thumb_queue') }}</label>
                         </div>
                         @error('images_thumb_queue')
+                        <span class="text-danger" role="alert">{{ $message }}</span>
+                        @enderror
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mt-4" id="comments">
+                <div class="card-header">{{ __('shaark.settings.comments.title') }}</div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input"
+                                   name="comments_enabled" id="comments_enabled" {{ old('comments_enabled', $settings['comments_enabled']) ? ' checked' : '' }}>
+                            <label class="custom-control-label" for="comments_enabled">{{ __('shaark.settings.comments.comments_enabled') }}</label>
+                        </div>
+                        @error('comments_enabled')
+                        <span class="text-danger" role="alert">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input"
+                                   name="comments_guest_view" id="comments_guest_view" {{ old('comments_guest_view', $settings['comments_guest_view']) ? ' checked' : '' }}>
+                            <label class="custom-control-label" for="comments_guest_view">{{ __('shaark.settings.comments.comments_guest_view') }}</label>
+                        </div>
+                        @error('comments_guest_view')
+                        <span class="text-danger" role="alert">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input"
+                                   name="comments_guest_add" id="comments_guest_add" {{ old('comments_guest_add', $settings['comments_guest_add']) ? ' checked' : '' }}>
+                            <label class="custom-control-label" for="comments_guest_add">{{ __('shaark.settings.comments.comments_guest_add') }}</label>
+                        </div>
+                        @error('comments_guest_add')
+                        <span class="text-danger" role="alert">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label for="comments_moderation">{{ __('shaark.settings.comments.comments_moderation') }}</label>
+                        <select name="comments_moderation" id="comments_moderation" class="form-control custom-select">
+                            <option value="disabled"{{ old('comments_moderation', $settings['comments_moderation']) == 'disabled' ? ' selected' : '' }}>{{ __('shaark.settings.comments.disabled') }}</option>
+                            <option value="whitelist"{{ old('comments_moderation', $settings['comments_moderation']) == 'whitelist' ? ' selected' : '' }}>{{ __('shaark.settings.comments.whitelist') }}</option>
+                            <option value="all"{{ old('comments_moderation', $settings['comments_moderation']) == 'all' ? ' selected' : '' }}>{{ __('shaark.settings.comments.all') }}</option>
+                        </select>
+                        @error('comments_moderation')
+                        <span class="text-danger" role="alert">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label for="comments_notification">{{ __('shaark.settings.comments.comments_notification') }}</label>
+                        <select name="comments_notification" id="comments_notification" class="form-control custom-select">
+                            <option value="disabled"{{ old('comments_notification', $settings['comments_notification']) == 'disabled' ? ' selected' : '' }}>{{ __('shaark.settings.comments.disabled') }}</option>
+                            <option value="whitelist"{{ old('comments_notification', $settings['comments_notification']) == 'whitelist' ? ' selected' : '' }}>{{ __('shaark.settings.comments.whitelist') }}</option>
+                            <option value="all"{{ old('comments_notification', $settings['comments_notification']) == 'all' ? ' selected' : '' }}>{{ __('shaark.settings.comments.all') }}</option>
+                        </select>
+                        @error('comments_notification')
                         <span class="text-danger" role="alert">{{ $message }}</span>
                         @enderror
                     </div>

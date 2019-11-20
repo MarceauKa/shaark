@@ -61,6 +61,18 @@ return [
             'format_square' => 'Square',
             'format_original' => 'Original',
             'images_thumb_queue' => 'Generate thumbnail in background?',
+        ],
+
+        'comments' => [
+            'title' => 'Comments',
+            'comments_enabled' => 'Enable comments',
+            'comments_guest_view' => 'Guests can see comments',
+            'comments_guest_add' => 'Guests can add comments',
+            'comments_moderation' => 'New comment moderation',
+            'comments_notification' => 'New comment notification',
+            'disabled' => 'Disabled',
+            'whitelist' => 'White-listing',
+            'all' => 'All',
         ]
     ],
 

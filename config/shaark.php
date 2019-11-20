@@ -118,5 +118,25 @@ return [
             'default' => false,
             'rules' => ['nullable', 'in:on,off']
         ],
+        'comments_enabled' => [
+            'default' => false,
+            'rules' => ['nullable', 'in:on,off']
+        ],
+        'comments_guest_view' => [
+            'default' => false,
+            'rules' => ['nullable', 'in:on,off']
+        ],
+        'comments_guest_add' => [
+            'default' => false,
+            'rules' => ['nullable', 'in:on,off']
+        ],
+        'comments_moderation' => [
+            'default' => 'whitelist',
+            'rules' => ['nullable', 'in:disabled,whitelist,all']
+        ],
+        'comments_notification' => [
+            'default' => 'whitelist',
+            'rules' => ['nullable', 'in:disabled,whitelist,all']
+        ],
     ],
 ];

@@ -60,6 +60,18 @@ return [
             'format_square' => 'Carré',
             'format_original' => 'Original',
             'images_thumb_queue' => 'Générer les miniatures en tâche de fond ?',
+        ],
+
+        'comments' => [
+            'title' => 'Commentaires',
+            'comments_enabled' => 'Commentaires activés ?',
+            'comments_guest_view' => 'Les invités peuvent voir les commentaires',
+            'comments_guest_add' => 'Les invités peuvent ajouter des commentaires',
+            'comments_moderation' => 'Modération des nouveaux commentaires',
+            'comments_notification' => 'Notifications des nouveaux commentaires',
+            'disabled' => 'Désactivé',
+            'whitelist' => 'Liste blanche',
+            'all' => 'Tous',
         ]
     ],
 

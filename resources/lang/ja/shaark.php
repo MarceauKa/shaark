@@ -60,6 +60,18 @@ return [
             'format_square' => '四角',
             'format_original' => 'オリジナル',
             'images_thumb_queue' => 'バックグラウンドでサムネールを生成しますか？',
+        ],
+
+        'comments' => [
+            'title' => 'Comments',
+            'comments_enabled' => 'Enable comments',
+            'comments_guest_view' => 'Guests can see comments',
+            'comments_guest_add' => 'Guests can add comments',
+            'comments_moderation' => 'New comment moderation',
+            'comments_notification' => 'New comment notification',
+            'disabled' => 'Disabled',
+            'whitelist' => 'White-listing',
+            'all' => 'All',
         ]
     ],
 

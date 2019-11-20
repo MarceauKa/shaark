@@ -13,7 +13,8 @@
                         <div class="list-group">
                             <a href="{{ route('manage.settings') }}"
                                class="list-group-item list-group-item-action{{ request()->is('manage/settings') ? ' active' : '' }}"
-                            ><i class="fas fa-fw fa-cogs mr-1"></i> {{ __('Settings') }}</a>
+                            ><i class="fas fa-fw fa-cogs mr-1"></i> {{ __('Settings') }}
+                            </a>
                             <a href="{{ route('manage.tags') }}"
                                class="list-group-item list-group-item-action{{ request()->is('manage/tags') ? ' active' : '' }}"
                             ><i class="fas fa-fw fa-tags mr-1"></i> {{ __('Tags') }}</a>

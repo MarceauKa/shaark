@@ -33,6 +33,11 @@ use Spatie\Valuestore\Valuestore;
  * @method int getImagesOriginalResizeWidth()
  * @method string getImagesThumbFormat()
  * @method bool getImagesThumbQueue()
+ * @method bool getCommentsEnabled()
+ * @method bool getCommentsGuestView()
+ * @method bool getCommentsGuestAdd()
+ * @method bool getCommentsModeration()
+ * @method bool getCommentsNotification()
  */
 trait ControlsSettings
 {
