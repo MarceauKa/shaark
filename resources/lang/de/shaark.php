@@ -70,5 +70,10 @@ return [
             'message' => 'Bitte verwenden Sie den folgenden Code :code, um auf Ihr Konto zuzugreifen.',
             'button' => 'Anmeldung bestätigen'
         ],
+
+        'check' => [
+            'title' => 'It works!',
+            'message' => 'This email was sent by :name to test your email configuration.',
+        ],
     ],
 ];

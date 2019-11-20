@@ -70,5 +70,10 @@ return [
             'message' => 'アカウントをアクセスするために、このコードを入力してください：:code',
             'button' => 'ログインを確認'
         ],
+
+        'check' => [
+            'title' => 'It works!',
+            'message' => 'This email was sent by :name to test your email configuration.',
+        ],
     ],
 ];
