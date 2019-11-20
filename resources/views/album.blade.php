@@ -13,7 +13,10 @@
     <div class="row justify-content-center">
         <div class="col-12">
             <album-card :single="true" :album="{{ json_encode(\App\Http\Resources\AlbumResource::make($album)) }}"></album-card>
-            <comments :id="{{ $album->post->id }}"></comments>
+            <comments :id="{{ $album->post->id }}"
+                      @if(auth()->check()):user="{{ auth()->user()->id }}" @endif
+                      :allow-guest="true"
+            ></comments>
         </div>
     </div>
 </div>

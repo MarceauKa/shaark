@@ -1,6 +1,12 @@
 <template>
     <div class="card card--comments">
-        <div class="card-header">{{ __('Comments') }}</div>
+        <div class="card-header d-flex justify-content-between">
+            {{ __('Comments') }}
+            <span class="d-block badge text-white"
+                  :class="{'badge-info': count > 0, 'badge-default': count === 0}"
+            >{{ count }}</span>
+        </div>
+
         <div class="card-body">
             <loader :loading="loading" v-if="loading"></loader>
             <div v-else>
@@ -14,6 +20,39 @@
                     :key="comment.id"
                 ></comment-list>
             </div>
+        </div>
+
+        <div class="card-footer" v-if="canAddComment">
+            <h5 class="card-title d-flex justify-content-between flex-wrap">
+                {{ __('New comment') }}
+                <small v-if="comment.comment">
+                    <i class="fas fa-reply mr-1"></i> {{ __('Replying to :name', {name: comment.comment.name}) }}
+                </small>
+            </h5>
+
+            <div class="row" v-if="!user">
+                <div class="col-12 col-sm-6">
+                    <div class="form-group">
+                        <input type="text" class="form-control" :placeholder="__('Name')" v-model="comment.name" required>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6">
+                    <div class="form-group">
+                        <input type="email" class="form-control" :placeholder="__('E-Mail address')" v-model="comment.email" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <textarea class="form-control" :placeholder="__('Content')" v-model="comment.content" minlength="10" required></textarea>
+            </div>
+
+            <button type="button"
+                    class="btn btn-primary"
+                    @click.prevent="submit"
+                    :disabled="loading"
+            >{{ __('Save') }}</button>
         </div>
     </div>
 </template>
@@ -30,17 +69,40 @@ export default {
         id: {
             type: Number,
             required: true,
+        },
+        user: {
+            type: Number,
+            required: false,
+            default: null,
+        },
+        allowGuest: {
+            type: Boolean,
+            required: false,
+            default: true,
         }
     },
 
     mounted() {
         this.fetch();
+
+        this.$bus.$on('reply', (comment) => {
+            this.comment.comment = comment;
+        });
+
+        this.initFromStorage();
     },
 
     data() {
         return {
             loading: true,
+            count: 0,
             comments: [],
+            comment: {
+                comment: null,
+                content: '',
+                name: null,
+                email: null,
+            }
         }
     },
 
@@ -50,8 +112,31 @@ export default {
 
             axios.get(`/api/comments/${this.id}`)
                 .then(response => {
+                    this.count = response.data.comments.length || 0;
                     this.comments = this.nested(response.data.comments);
                     this.loading = false;
+                })
+                .catch(error => {
+                    this.setHttpError(error);
+                    this.toastHttpError();
+                    this.loading = false;
+                });
+        },
+
+        submit() {
+            this.loading = true;
+
+            axios.post(`/api/comments/${this.id}`, {
+                name: this.comment.name,
+                email: this.comment.email,
+                content: this.comment.content,
+                reply: this.comment.comment ? this.comment.comment.id : null
+            })
+                .then(response => {
+                    this.loading = false;
+                    this.$toasted.success(__('Saved'));
+                    this.comment.content = null;
+                    this.comment.comment = null;
                 })
                 .catch(error => {
                     this.setHttpError(error);
@@ -66,29 +151,45 @@ export default {
                 .map(item => ({...item, comments: this.nested(items, item.id)}));
         },
 
-        nest(items) {
-            let tree = [],
-                itemsMap = {},
-                item,
-                mappedItem;
+        removeReply() {
+            this.comment.comment = null;
+        },
 
-            for (let i = 0, length = items.length; i < length; i++) {
-                item = items[i];
-                itemsMap[item.id] = item;
-                itemsMap[item.id]['comments'] = [];
+        initFromStorage() {
+            let storage = JSON.parse(localStorage.getItem('comment'));
+
+            if (this.user === null && storage) {
+                this.comment.name = storage.name || null;
+                this.comment.email = storage.email || null;
             }
 
-            for (let id in itemsMap) {
-                if (itemsMap.hasOwnProperty(id)) {
-                    mappedItem = itemsMap[id];
-                    if (mappedItem.comment_id) {
-                        itemsMap[mappedItem['comment_id']]['comments'].push(mappedItem);
-                    } else {
-                        tree.push(mappedItem);
-                    }
-                }
-            }
-            return tree;
+            this.comment.content = storage.comment || '';
+        },
+
+        commentToStorage() {
+            localStorage.setItem('comment', JSON.stringify({
+                name: this.comment.name,
+                email: this.comment.email,
+                comment: this.comment.content,
+            }));
+        },
+    },
+
+    watch: {
+        'comment.content': _.debounce(function (value) {
+            this.commentToStorage();
+        }, 200),
+        'comment.name': _.debounce(function (value) {
+            this.commentToStorage();
+        }, 200),
+        'comment.email': _.debounce(function (value) {
+            this.commentToStorage();
+        }, 200),
+    },
+
+    computed: {
+        canAddComment() {
+            return this.user !== null || this.allowGuest;
         }
     }
 }

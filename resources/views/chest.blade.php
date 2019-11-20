@@ -11,7 +11,10 @@
     <div class="row justify-content-center">
         <div class="col-12 col-md-8">
             <chest-card :single="true" :chest="{{ json_encode(\App\Http\Resources\ChestResource::make($chest)) }}"></chest-card>
-            <comments :id="{{ $chest->post->id }}"></comments>
+            <comments :id="{{ $chest->post->id }}"
+                      @if(auth()->check()):user="{{ auth()->user()->id }}" @endif
+                      :allow-guest="true"
+            ></comments>
         </div>
     </div>
 </div>

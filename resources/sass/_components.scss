@@ -19,8 +19,16 @@
 }
 
 .card--comments {
-    blockquote + div,
+    .badge {
+        line-height: $line-height-base;
+    }
+
+    div.comment + div,
     div + div.replies {
         padding-left: 20px;
+    }
+
+    div.comment {
+        margin-bottom: 1em;
     }
 }

@@ -1,9 +1,14 @@
 <template>
     <div>
-        <blockquote class="blockquote">
+        <div class="comment">
+            <div class="d-flex justify-content-between">
+                <span><strong>{{ comment.name }}</strong> <small>{{ comment.date_formated }}</small></span>
+                <a href="#" @click.prevent="$bus.$emit('reply', comment)"><i class="fas fa-reply"></i></a>
+            </div>
+
             <p class="mb-0">{{ comment.content }}</p>
-            <footer class="blockquote-footer">{{ comment.name }}, {{ comment.date_formated }}</footer>
-        </blockquote>
+        </div>
+
         <comment-list v-if="comment.comments.length > 0"
                       class="replies"
                       v-for="item in comment.comments"
@@ -20,6 +25,6 @@ export default {
             type: Object,
             required: true
         }
-    },
+    }
 }
 </script>

@@ -13,7 +13,10 @@
     <div class="row justify-content-center">
         <div class="col-12">
             <story-card :single="true" :story="{{ json_encode(\App\Http\Resources\StoryResource::make($story)) }}"></story-card>
-            <comments :id="{{ $story->post->id }}"></comments>
+            <comments :id="{{ $story->post->id }}"
+                      @if(auth()->check()):user="{{ auth()->user()->id }}" @endif
+                      :allow-guest="true"
+            ></comments>
         </div>
     </div>
 </div>
