@@ -1,3 +1,9 @@
+# Unreleased
+
+## Fixed
+
+- Missing test email translations
+
 # 1.2.32
 
 ## Added

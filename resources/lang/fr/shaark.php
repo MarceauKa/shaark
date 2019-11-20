@@ -70,5 +70,10 @@ return [
             'message' => 'Veuillez utiliser le code suivant :code pour sécuriser votre connexion.',
             'button' => 'Confirmer la connexion'
         ],
+
+        'check' => [
+            'title' => 'Tout fonctionne !',
+            'message' => 'Cet email a été envoyé par :name pour tester la configuration email.',
+        ],
     ],
 ];
