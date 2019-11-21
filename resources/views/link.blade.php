@@ -13,10 +13,16 @@
     <div class="row justify-content-center">
         <div class="col-12 col-md-8">
             <link-card :single="true" :link="{{ json_encode(\App\Http\Resources\LinkResource::make($link)) }}"></link-card>
+            @can('comments.see')
             <comments :id="{{ $link->post->id }}"
                       @if(auth()->check()):user="{{ auth()->user()->id }}" @endif
+                      @can('comments.add')
                       :allow-guest="true"
+                      @else
+                      :allow-guest="false"
+                @endcan
             ></comments>
+            @endcan
         </div>
     </div>
 </div>

@@ -2,6 +2,7 @@
 
 namespace App\Services\Shaark;
 
+use App\Services\Shaark\Concerns\ControlsComments;
 use App\Services\Shaark\Concerns\ControlsGlobalPrivacy;
 use App\Services\Shaark\Concerns\ControlsSettings;
 use App\Services\Shaark\Concerns\HandleCustomSettings;
@@ -12,6 +13,7 @@ use Spatie\Valuestore\Valuestore;
 class Shaark
 {
     use ControlsGlobalPrivacy,
+        ControlsComments,
         ControlsSettings,
         HandleCustomSettings;
 
