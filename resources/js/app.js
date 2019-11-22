@@ -27,6 +27,9 @@ window.Vue = require('vue');
 import i18n from './mixins/i18n';
 Vue.mixin(i18n);
 
+import auth from './mixins/auth';
+Vue.mixin(auth);
+
 import VueBus from './mixins/bus';
 Vue.use(VueBus);
 

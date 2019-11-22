@@ -87,5 +87,17 @@ return [
             'title' => 'Tout fonctionne !',
             'message' => 'Cet email a été envoyé par :name pour tester la configuration email.',
         ],
+
+        'comment' => [
+            'title' => 'Nouveau commentaire',
+            'message' => 'Vous avez un nouveau commentaire de ":name" (:email) sur le post ":post".',
+            'action' => 'Voir',
+        ],
+
+        'unmoderated' => [
+            'title' => 'Nouveau commentaire à modérer',
+            'message' => 'Vous avez un nouveau commentaire à modérer de ":name" (:email) sur le post ":post".',
+            'action' => 'Voir et modérer',
+        ]
     ],
 ];

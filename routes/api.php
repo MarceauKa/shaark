@@ -32,6 +32,8 @@ Route::delete('album/{id}', 'AlbumController@delete')->name('album.delete');
 
 Route::get('comments/{id}', 'CommentController@get')->name('comments');
 Route::post('comments/{id}', 'CommentController@store');
+Route::post('comments/{id}/moderate/{comment_id}', 'CommentController@moderate');
+Route::delete('comments/{id}/{comment_id}', 'CommentController@delete');
 
 Route::get('share/{post_id}', 'ShareController@get')->name('share');
 Route::post('share/{post_id}', 'ShareController@store');

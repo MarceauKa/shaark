@@ -28,13 +28,13 @@ class NewUnmoderatedComment extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                ->subject(__('New unmoderated comment'))
-                ->line(__('You have a new unmoderated comment from ":name" (:email) to the post ":post".', [
+                ->subject(__('shaark.mails.unmoderated.title'))
+                ->line(__('shaark.mails.unmoderated.message', [
                     'name' => $this->comment->user->name,
                     'email' => $this->comment->user->email,
                     'post' => $this->comment->post->postable->title,
                 ]))
-                ->action(__('View'), $this->comment->post->postable->permalink);
+                ->action(__('shaark.mails.unmoderated.action'), $this->comment->post->postable->permalink);
     }
 
     public function toArray($notifiable)

@@ -15,7 +15,6 @@
             <album-card :single="true" :album="{{ json_encode(\App\Http\Resources\AlbumResource::make($album)) }}"></album-card>
             @can('comments.see')
             <comments :id="{{ $album->post->id }}"
-                      @if(auth()->check()):user="{{ auth()->user()->id }}" @endif
                       @can('comments.add')
                       :allow-guest="true"
                       @else

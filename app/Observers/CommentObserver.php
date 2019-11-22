@@ -12,15 +12,18 @@ class CommentObserver
     public function created(Comment $comment)
     {
         $notification = app('shaark')->getCommentsNotification();
-        /** @var User $user */
-        $user = User::isAdmin()->first();
+        $users = User::isAdmin()->get();
 
-       if ($notification === 'whitelist' && ! $comment->is_visible) {
-            $user->notifyNow(new NewUnmoderatedComment($comment));
-        }
+        $users->each(function (User $user) use ($notification, $comment) {
+            if ($comment->user_id === $user->id) {
+                return;
+            }
 
-        if ($notification === 'all' && $comment->user_id !== $user->id) {
-            $user->notifyNow(new NewComment($comment));
-        }
+            if ($notification !== 'disabled' && false == $comment->is_visible) {
+                $user->notifyNow(new NewUnmoderatedComment($comment));
+            } else if ($notification === 'all' && $comment->is_visible) {
+                $user->notifyNow(new NewComment($comment));
+            }
+        });
     }
 }

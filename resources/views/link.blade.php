@@ -15,7 +15,6 @@
             <link-card :single="true" :link="{{ json_encode(\App\Http\Resources\LinkResource::make($link)) }}"></link-card>
             @can('comments.see')
             <comments :id="{{ $link->post->id }}"
-                      @if(auth()->check()):user="{{ auth()->user()->id }}" @endif
                       @can('comments.add')
                       :allow-guest="true"
                       @else

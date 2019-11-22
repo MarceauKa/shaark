@@ -63,14 +63,12 @@ class Comment extends Model
         return $query->where('is_visible', 0);
     }
 
-    public function scopeWithVisible(Builder $query, $user = null)
+    public function scopeWithVisible(Builder $query, ?User $user): Builder
     {
-        if ($user instanceof Request) {
-            $user = $user->user();
-        }
-
         if (empty($user)) {
             return $query->where('is_visible', 1);
         }
+
+        return $query;
     }
 }

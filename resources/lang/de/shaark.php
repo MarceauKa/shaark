@@ -87,5 +87,17 @@ return [
             'title' => 'It works!',
             'message' => 'This email was sent by :name to test your email configuration.',
         ],
+
+        'comment' => [
+            'title' => 'New comment',
+            'message' => 'You have a comment from ":name" (:email) to the post ":post".',
+            'action' => 'View',
+        ],
+
+        'unmoderated' => [
+            'title' => 'New unmoderated comment',
+            'message' => 'You have a new unmoderated comment from ":name" (:email) to the post ":post".',
+            'action' => 'View and moderate',
+        ]
     ],
 ];

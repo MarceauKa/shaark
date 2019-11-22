@@ -28,13 +28,13 @@ class NewComment extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                ->subject(__('New comment'))
-                ->line(__('You have a comment from ":name" (:email) to the post ":post".', [
-                    'name' => $this->comment->user->name,
-                    'email' => $this->comment->user->email,
-                    'post' => $this->comment->post->postable->title,
-                ]))
-                ->action(__('View'), $this->comment->post->postable->permalink);
+            ->subject(__('shaark.mails.comment.title'))
+            ->line(__('shaark.mails.comment.message', [
+                'name' => $this->comment->user->name,
+                'email' => $this->comment->user->email,
+                'post' => $this->comment->post->postable->title,
+            ]))
+            ->action(__('shaark.mails.comment.action'), $this->comment->post->postable->permalink);
     }
 
     public function toArray($notifiable)

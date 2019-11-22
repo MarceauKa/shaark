@@ -13,7 +13,6 @@
             <chest-card :single="true" :chest="{{ json_encode(\App\Http\Resources\ChestResource::make($chest)) }}"></chest-card>
             @can('comments.see')
             <comments :id="{{ $chest->post->id }}"
-                      @if(auth()->check()):user="{{ auth()->user()->id }}" @endif
                       @can('comments.add')
                       :allow-guest="true"
                       @else

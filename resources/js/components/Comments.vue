@@ -14,11 +14,10 @@
                      v-if="comments.length === 0"
                 >{{ __('No comments') }}</div>
 
-                <comment-list
-                    v-for="comment in comments"
-                    :comment="comment"
-                    :key="comment.id"
-                ></comment-list>
+                <comment v-for="comment in comments"
+                         :comment="comment"
+                         :key="comment.id"
+                ></comment>
             </div>
         </div>
 
@@ -30,7 +29,7 @@
                 </small>
             </h5>
 
-            <div class="row" v-if="!user">
+            <div class="row" v-if="false === isLogged()">
                 <div class="col-12 col-sm-6">
                     <div class="form-group">
                         <input type="text"
@@ -49,7 +48,7 @@
                         <input type="email"
                                class="form-control"
                                :class="{'is-invalid': hasFormError('email')}"
-                               :placeholder="__('E-Mail address')"
+                               :placeholder="__('E-Mail Address')"
                                v-model="comment.email"
                                required
                         >
@@ -64,7 +63,6 @@
                           :placeholder="__('Content')"
                           ref="commentFormContent"
                           v-model="comment.content"
-                          minlength="10"
                           required
                 ></textarea>
                 <span class="invalid-feedback" v-if="hasFormError('content')">{{ firstFormError('content') }}</span>
@@ -94,11 +92,6 @@ export default {
             type: Number,
             required: true,
         },
-        user: {
-            type: Number,
-            required: false,
-            default: null,
-        },
         allowGuest: {
             type: Boolean,
             required: false,
@@ -111,6 +104,10 @@ export default {
 
         this.$bus.$on('reply', (comment) => {
             this.comment.comment = comment;
+        });
+
+        this.$bus.$on('moderate', (comment) => {
+            this.moderate(comment);
         });
 
         this.initFromStorage();
@@ -172,6 +169,22 @@ export default {
                 });
         },
 
+        moderate(comment) {
+            this.loading = true;
+
+            axios.post(`/api/comments/${this.id}/moderate/${comment.id}`)
+                .then(response => {
+                    this.loading = false;
+                    this.$toasted.success(response.data.message);
+                    this.fetch();
+                })
+                .catch(error => {
+                    this.setHttpError(error);
+                    this.toastHttpError();
+                    this.loading = false;
+                });
+        },
+
         nested(items, id = null, link = 'comment_id') {
             return items
                 .filter(item => item[link] === id)
@@ -185,7 +198,7 @@ export default {
         initFromStorage() {
             let storage = JSON.parse(localStorage.getItem('comment'));
             if (storage !== null) {
-                if (this.user === null) {
+                if (false === this.isLogged()) {
                     this.comment.name = storage.name || null;
                     this.comment.email = storage.email || null;
                 }
@@ -214,7 +227,7 @@ export default {
 
     computed: {
         canAddComment() {
-            return this.user !== null || this.allowGuest;
+            return this.isLogged() || this.allowGuest;
         }
     }
 }

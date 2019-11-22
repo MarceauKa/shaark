@@ -9,12 +9,16 @@ use App\Http\Resources\CommentResource;
 use App\Post;
 use App\Services\Shaark\Shaark;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CommentController extends Controller
 {
     public function __construct()
     {
-        //$this->middleware(['auth:api']);
+        $this->middleware(['auth:api', 'demo'])->only(['moderate', 'delete']);
+
+        $this->middleware('can:comments.see')->only('get');
+        $this->middleware('can:comments.add')->only('store');
     }
 
     public function get(Request $request, int $id)
@@ -23,7 +27,7 @@ class CommentController extends Controller
             ->findOrFail($id);
 
         $comments = Comment::postIs($id)
-            ->withVisible($request)
+            ->withVisible($request->user('api'))
             ->get();
 
         return response()->json([
@@ -67,8 +71,51 @@ class CommentController extends Controller
 
         return response()->json([
             'comment' => new CommentResource($comment),
-            'message' => $comment->is_visible ? __('Saved') : __('You comment will be displayed once moderated'),
+            'message' => $comment->is_visible ? __('Saved') : __('Your comment will be displayed once moderated'),
             'status' => 'created',
         ]);
+    }
+
+    public function moderate(Request $request, Shaark $shaark, int $id, int $comment_id)
+    {
+        $post = Post::withPrivate($request->user('api'))
+                    ->findOrFail($id);
+
+        $comment = Comment::postIs($id)
+                    ->isNotVisible()
+                    ->findOrFail($comment_id);
+
+        $comment->is_visible = true;
+        $comment->save();
+
+        if ($shaark->getCommentsModeration() === 'whitelist') {
+            DB::table('comments')
+                ->where('is_visible', 0)
+                ->where('user_email', $comment->user_email)
+                ->update([
+                    'is_visible' => true,
+                ]);
+
+            return response()->json([
+                'status' => 'moderated',
+                'message' => __('This comment and all others comments from this user are now visible'),
+            ]);
+        }
+
+        return response()->json([
+            'status' => 'moderated',
+            'message' => __('This comment is now visible'),
+        ]);
+    }
+
+    /** @todo Remove comment and childrens */
+    public function delete(Request $request, int $id, int $comment_id)
+    {
+        $post = Post::withPrivate($request->user('api'))
+            ->findOrFail($id);
+
+        $comment = Comment::postIs($id)
+            ->isNotVisible()
+            ->findOrFail($comment_id);
     }
 }

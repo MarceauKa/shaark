@@ -167,6 +167,14 @@
     "2 weeks": "2 semaines",
     "1 month": "1 mois",
 
+    "Comments": "Comments",
+    "No comments": "No comments",
+    "New comment": "New comment",
+    "Replying to :name": "Replying to :name",
+    "Your comment will be displayed once moderated": "Your comment will be displayed once moderated",
+    "This comment and all others comments from this user are now visible": "This comment and all others comments from this user are now visible",
+    "This comment is now visible": "This comment is now visible",
+
     "Settings": "Paramètres",
     "None": "Aucun",
     "Image": "Image",
