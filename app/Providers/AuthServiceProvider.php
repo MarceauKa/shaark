@@ -25,11 +25,11 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         Gate::define('comments.see', function (?User $user) {
-            return app('shaark')->authorizedToSee(request());
+            return app('shaark')->authorizedToSeeComments(request());
         });
 
         Gate::define('comments.add', function (?User $user) {
-            return app('shaark')->authorizedToAdd(request());
+            return app('shaark')->authorizedToAddComments(request());
         });
     }
 }

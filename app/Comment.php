@@ -6,16 +6,18 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Http\Request;
 
 class Comment extends Model
 {
     /** @var array $fillable */
     protected $fillable = [
-        'postable_id',
-        'postable_type',
+        'comment_id',
+        'post_id',
         'user_id',
         'user_name',
         'user_email',
+        'content',
         'is_visible',
     ];
     /** @var array $casts */
@@ -59,5 +61,16 @@ class Comment extends Model
     public function scopeIsNotVisible(Builder $query): Builder
     {
         return $query->where('is_visible', 0);
+    }
+
+    public function scopeWithVisible(Builder $query, $user = null)
+    {
+        if ($user instanceof Request) {
+            $user = $user->user();
+        }
+
+        if (empty($user)) {
+            return $query->where('is_visible', 1);
+        }
     }
 }

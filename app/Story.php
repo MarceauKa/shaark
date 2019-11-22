@@ -22,6 +22,11 @@ class Story extends Model
         'url',
     ];
 
+    public function getPermalinkAttribute(): string
+    {
+        return $this->url;
+    }
+
     public function getUrlAttribute(): string
     {
         return route('story.view', $this->slug);

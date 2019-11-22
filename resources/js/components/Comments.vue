@@ -33,19 +33,41 @@
             <div class="row" v-if="!user">
                 <div class="col-12 col-sm-6">
                     <div class="form-group">
-                        <input type="text" class="form-control" :placeholder="__('Name')" v-model="comment.name" required>
+                        <input type="text"
+                               class="form-control"
+                               :class="{'is-invalid': hasFormError('name')}"
+                               :placeholder="__('Name')"
+                               v-model="comment.name"
+                               required
+                        >
+                        <span class="invalid-feedback" v-if="hasFormError('name')">{{ firstFormError('name') }}</span>
                     </div>
                 </div>
 
                 <div class="col-12 col-sm-6">
                     <div class="form-group">
-                        <input type="email" class="form-control" :placeholder="__('E-Mail address')" v-model="comment.email" required>
+                        <input type="email"
+                               class="form-control"
+                               :class="{'is-invalid': hasFormError('email')}"
+                               :placeholder="__('E-Mail address')"
+                               v-model="comment.email"
+                               required
+                        >
+                        <span class="invalid-feedback" v-if="hasFormError('email')">{{ firstFormError('email') }}</span>
                     </div>
                 </div>
             </div>
 
             <div class="form-group">
-                <textarea class="form-control" :placeholder="__('Content')" v-model="comment.content" minlength="10" required></textarea>
+                <textarea class="form-control"
+                          :class="{'is-invalid': hasFormError('content')}"
+                          :placeholder="__('Content')"
+                          ref="commentFormContent"
+                          v-model="comment.content"
+                          minlength="10"
+                          required
+                ></textarea>
+                <span class="invalid-feedback" v-if="hasFormError('content')">{{ firstFormError('content') }}</span>
             </div>
 
             <button type="button"
@@ -58,10 +80,12 @@
 </template>
 
 <script>
+import formErrors from "../mixins/formErrors";
 import httpErrors from "../mixins/httpErrors";
 
 export default {
     mixins: [
+        formErrors,
         httpErrors,
     ],
 
@@ -134,11 +158,14 @@ export default {
             })
                 .then(response => {
                     this.loading = false;
-                    this.$toasted.success(__('Saved'));
+                    this.$toasted.success(response.data.message);
+                    this.resetFormError();
                     this.comment.content = null;
                     this.comment.comment = null;
+                    this.fetch();
                 })
                 .catch(error => {
+                    this.setFormError(error);
                     this.setHttpError(error);
                     this.toastHttpError();
                     this.loading = false;
@@ -157,28 +184,26 @@ export default {
 
         initFromStorage() {
             let storage = JSON.parse(localStorage.getItem('comment'));
-
-            if (this.user === null && storage) {
-                this.comment.name = storage.name || null;
-                this.comment.email = storage.email || null;
+            if (storage !== null) {
+                if (this.user === null) {
+                    this.comment.name = storage.name || null;
+                    this.comment.email = storage.email || null;
+                }
             }
-
-            this.comment.content = storage.comment || '';
         },
 
         commentToStorage() {
             localStorage.setItem('comment', JSON.stringify({
                 name: this.comment.name,
                 email: this.comment.email,
-                comment: this.comment.content,
             }));
         },
     },
 
     watch: {
-        'comment.content': _.debounce(function (value) {
-            this.commentToStorage();
-        }, 200),
+        'comment.comment': function (value) {
+            this.$refs.commentFormContent.focus();
+        },
         'comment.name': _.debounce(function (value) {
             this.commentToStorage();
         }, 200),

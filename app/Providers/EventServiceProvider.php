@@ -20,6 +20,7 @@ class EventServiceProvider extends ServiceProvider
     {
         parent::boot();
 
+        \App\Comment::observe(\App\Observers\CommentObserver::class);
         \App\Tag::observe(\App\Observers\TagObserver::class);
     }
 }

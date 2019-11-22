@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
  */
 trait ControlsComments
 {
-    public function authorizedToSee(Request $request): bool
+    public function authorizedToSeeComments(Request $request): bool
     {
         if (false === $this->getCommentsEnabled()) {
             return false;
@@ -25,7 +25,7 @@ trait ControlsComments
         return $this->getCommentsGuestView();
     }
 
-    public function authorizedToAdd(Request $request): bool
+    public function authorizedToAddComments(Request $request): bool
     {
         if (false === $this->getCommentsEnabled()) {
             return false;

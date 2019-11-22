@@ -31,6 +31,7 @@ Route::put('album/{id}', 'AlbumController@update')->name('album.update');
 Route::delete('album/{id}', 'AlbumController@delete')->name('album.delete');
 
 Route::get('comments/{id}', 'CommentController@get')->name('comments');
+Route::post('comments/{id}', 'CommentController@store');
 
 Route::get('share/{post_id}', 'ShareController@get')->name('share');
 Route::post('share/{post_id}', 'ShareController@store');
