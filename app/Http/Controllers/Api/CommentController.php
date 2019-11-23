@@ -108,14 +108,24 @@ class CommentController extends Controller
         ]);
     }
 
-    /** @todo Remove comment and childrens */
     public function delete(Request $request, int $id, int $comment_id)
     {
         $post = Post::withPrivate($request->user('api'))
             ->findOrFail($id);
 
         $comment = Comment::postIs($id)
-            ->isNotVisible()
             ->findOrFail($comment_id);
+
+        $repliesId = $comment->repliesTree()
+            ->pluck('id')
+            ->push($comment->id)
+            ->toArray();
+
+        Comment::whereIn('id', $repliesId)->delete();
+
+        return response()->json([
+            'status' => 'deleted',
+            'message' => __('Deleted'),
+        ]);
     }
 }

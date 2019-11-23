@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 
 class Comment extends Model
 {
@@ -70,5 +70,21 @@ class Comment extends Model
         }
 
         return $query;
+    }
+
+    public function repliesTree(Comment $comment = null, Collection $tree = null): Collection
+    {
+        $comment = $comment ?? $this;
+        $tree = $tree ?? collect();
+
+        $comment->replies->each(function (Comment $item) use ($tree) {
+            $tree->push($item);
+
+            if ($item->replies->isNotEmpty()) {
+                $tree->merge($item->repliesTree($item, $tree));
+            }
+        });
+
+        return $tree;
     }
 }

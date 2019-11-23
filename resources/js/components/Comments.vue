@@ -110,6 +110,10 @@ export default {
             this.moderate(comment);
         });
 
+        this.$bus.$on('delete', (comment) => {
+            this.delete(comment);
+        });
+
         this.initFromStorage();
     },
 
@@ -173,6 +177,22 @@ export default {
             this.loading = true;
 
             axios.post(`/api/comments/${this.id}/moderate/${comment.id}`)
+                .then(response => {
+                    this.loading = false;
+                    this.$toasted.success(response.data.message);
+                    this.fetch();
+                })
+                .catch(error => {
+                    this.setHttpError(error);
+                    this.toastHttpError();
+                    this.loading = false;
+                });
+        },
+
+        delete(comment) {
+            this.loading = true;
+
+            axios.delete(`/api/comments/${this.id}/${comment.id}`)
                 .then(response => {
                     this.loading = false;
                     this.$toasted.success(response.data.message);
