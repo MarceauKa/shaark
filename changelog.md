@@ -2,7 +2,7 @@
 
 ## Added
 
-- Comments on posts ([documentation](https://github.com/MarceauKa/shaark/blob/dev/documentation/comments.md), issue #45)
+- Comments on posts ([documentation](https://github.com/MarceauKa/shaark/blob/dev/documentation/comments.md), [#45](https://github.com/MarceauKa/shaark/issues/45))
 
 ## Fixed
 
@@ -13,7 +13,7 @@
 ## Added
 
 - Ability to rename tags
-- In-app notification updater (issue #31)
+- In-app notification updater ([#31](https://github.com/MarceauKa/shaark/issues/31))
 - PWA meta for iOS
 
 ## Changed
@@ -29,12 +29,12 @@
 
 ## Added
 
-- Search with history, loading indicator and no result indicator (issue #59)
-- Links now have a shortcut to archive.org (issue #57)
+- Search with history, loading indicator and no result indicator ([#59](https://github.com/MarceauKa/shaark/issues/59))
+- Links now have a shortcut to archive.org ([#57](https://github.com/MarceauKa/shaark/issues/57))
 
 ## Fixed
 
-- Story: Markdown editor on small devices (issue #55)
+- Story: Markdown editor on small devices ([#55](https://github.com/MarceauKa/shaark/issues/55))
 
 ## Changed
 
@@ -44,7 +44,7 @@
 
 ## Removed
 
-- Original shaarli import (issue #30)
+- Original shaarli import ([#30](https://github.com/MarceauKa/shaark/issues/30))
 
 # 1.2.30
 
@@ -52,20 +52,20 @@
 
 ## Changed
 
-- Laravel Shaarli is now Shaark (issue #54)
+- Laravel Shaarli is now Shaark ([#54](https://github.com/MarceauKa/shaark/issues/54))
 - Japanese translation updated to 1.2.29 (thanks to [wyred](https://github.com/wyred))
 
 # 1.2.29
 
 ## Added
 
-- New search strategy using classic SQL search (issue #33 #52)
+- New search strategy using classic SQL search ([#33](https://github.com/MarceauKa/shaark/issues/33), [#52](https://github.com/MarceauKa/shaark/issues/52))
 - Ability to choose search strategy in settings
-- Chest content can be copied as a text (issue #4)
+- Chest content can be copied as a text ([#4](https://github.com/MarceauKa/shaark/issues/4))
 
 ## Fixed
 
-- Text in modals not visible using dark mode (issue #51)
+- Text in modals not visible using dark mode ([#51](https://github.com/MarceauKa/shaark/issues/51))
 
 # 1.2.28
 
@@ -77,8 +77,8 @@
 
 ## Changed
 
-- New responsive navbar (issue #49)
-- Limit displayed tags in tags card (issue #50)
+- New responsive navbar ([#49](https://github.com/MarceauKa/shaark/issues/49))
+- Limit displayed tags in tags card ([#50](https://github.com/MarceauKa/shaark/issues/50))
 - Private archive setting is now Private download 
 - CheckArchive is now CheckFeature
 
@@ -102,8 +102,8 @@
 
 - AlbumCard preview
 - Missing translations on file uploader
-- Markdown editor will now load correct language pack (issue #42)
-- Manage Tags and Manage Archives issues in responsive and dark mode (issue #47)
+- Markdown editor will now load correct language pack ([#42](https://github.com/MarceauKa/shaark/issues/42))
+- Manage Tags and Manage Archives issues in responsive and dark mode ([#47](https://github.com/MarceauKa/shaark/issues/47))
 - Keep old settings values when validation fails
 
 # 1.2.26
@@ -145,9 +145,9 @@
 
 ## Added
 
-- Progressive Web App compatibility (issue #24)
+- Progressive Web App compatibility ([#24](https://github.com/MarceauKa/shaark/issues/24))
 - Default icon for Shaarli and ability to customize it
-- Automatic [backup](https://github.com/MarceauKa/shaark/blob/dev/documentation/backup.md) (issue #28)
+- Automatic [backup](https://github.com/MarceauKa/shaark/blob/dev/documentation/backup.md) ([#28](https://github.com/MarceauKa/shaark/issues/28))
 - Network status monitor (for PWA)
 
 ## Changed
@@ -160,7 +160,7 @@
 ## Added
 
 - Japanese translation (thanks to [wyred](https://github.com/wyred))
-- Ability to test PDF and Media archiving in settings (issue #34)
+- Ability to test PDF and Media archiving in settings ([#34](https://github.com/MarceauKa/shaark/issues/34))
 
 ## Changed
 
@@ -178,14 +178,14 @@
 
 ## Added
 
-- Ability to customize background as image or custom gradient (issues #25 and #26)
+- Ability to customize background as image or custom gradient ([#25](https://github.com/MarceauKa/shaark/issues/25), [#26](https://github.com/MarceauKa/shaark/issues/26))
 - Shaarlies [listing](https://github.com/MarceauKa/shaark/blob/dev/directory.md)
 
 ## Changed
 
 - Unused settings keys are now cleaned after settings update
 - Shaarli default settings are now located in shaarli config file
-- Move link preview and archive to LinkForm (issue #29)
+- Move link preview and archive to LinkForm ([#29](https://github.com/MarceauKa/shaark/issues/29))
 - Removed link preview action (previews are updated when saving a link)
 
 ## Fixed
@@ -203,8 +203,8 @@
 
 ## Added
 
-- RSS and Atom feeds (issue #21)
-- Pinned posts (issue #11)
+- RSS and Atom feeds ([#21](https://github.com/MarceauKa/shaark/issues/21))
+- Pinned posts ([#11](https://github.com/MarceauKa/shaark/issues/11))
 
 # 1.2.20
 
@@ -212,7 +212,7 @@
 
 ## Added
 
-- Post content sharing (issue #1)
+- Post content sharing ([#1](https://github.com/MarceauKa/shaark/issues/1))
 - New Modal component
 
 ## Changed
@@ -224,7 +224,7 @@
 
 ## Fixed
 
-- Create link then archive it (issue #23)
+- Create link then archive it ([#23](https://github.com/MarceauKa/shaark/issues/23))
 - DatabaseSeeder for youtube link
 
 # 1.2.19
