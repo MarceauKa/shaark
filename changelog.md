@@ -4,9 +4,13 @@
 
 - Comments on posts ([documentation](https://github.com/MarceauKa/shaark/blob/dev/documentation/comments.md), [#45](https://github.com/MarceauKa/shaark/issues/45))
 
+## Changed
+
+- New offline network monitor
+
 ## Fixed
 
-- Missing test email translations
+- German and Japanese translations updated
 
 # 1.2.32
 

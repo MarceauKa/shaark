@@ -62,8 +62,30 @@ nav.navbar {
     }
 }
 
+#network {
+    width: 100%;
+    background-color: $danger;
+    text-align: center;
+    color: white;
+    font-size: .8rem;
+    line-height: 1rem;
+    transform: translate3d(0, -1rem, 0);
+    transition: transform .2s ease-in-out;
+
+    &.offline {
+        transform: translate3d(0, 0, 0);
+    }
+
+    &:not(.offline) {
+        & + #nav {
+            transform: translate3d(0, -1rem, 0);
+        }
+    }
+}
+
 #nav {
     padding: 1.5rem 1rem;
+    transition: transform .2s ease-in-out;
 
     > .container {
         display: flex;

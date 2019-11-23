@@ -1,14 +1,12 @@
+<div id="network" :class="{'offline': !online}">
+    {{ __('Network is offline') }}
+</div>
+
 <nav class="navbar navbar-expand-md navbar-light mb-3" id="nav">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
             <img src="{{ app('shaark')->getCustomIconUrl() }}">
-            <span>
-                <span class="d-none d-md-inline">{{ app('shaark')->getName() }}</span>
-                <sup class="fa-stack" v-if="!online">
-                    <i class="fas fa-wifi fa-stack-1x text-dark"></i>
-                    <i class="fas fa-ban fa-stack-2x text-danger"></i>
-                </sup>
-            </span>
+            <span class="d-none d-md-inline">{{ app('shaark')->getName() }}</span>
         </a>
 
         @can('restricted')

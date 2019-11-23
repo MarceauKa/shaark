@@ -63,15 +63,15 @@ return [
         ],
 
         'comments' => [
-            'title' => 'Comments',
-            'comments_enabled' => 'Enable comments',
-            'comments_guest_view' => 'Guests can see comments',
-            'comments_guest_add' => 'Guests can add comments',
-            'comments_moderation' => 'New comment moderation',
-            'comments_notification' => 'New comment notification',
-            'disabled' => 'Disabled',
-            'whitelist' => 'White-listing',
-            'all' => 'All',
+            'title' => 'コメント',
+            'comments_enabled' => 'コメントを有効にしますか？',
+            'comments_guest_view' => 'ゲストはコメントを見ることができます',
+            'comments_guest_add' => 'ゲストはコメントを追加できます',
+            'comments_moderation' => '新しいコメントの管理',
+            'comments_notification' => '新しいコメント通知',
+            'disabled' => '無効',
+            'whitelist' => 'ホワイトリスト',
+            'all' => 'すべて',
         ]
     ],
 
@@ -84,20 +84,20 @@ return [
         ],
 
         'check' => [
-            'title' => 'It works!',
-            'message' => 'This email was sent by :name to test your email configuration.',
+            'title' => 'できます！',
+            'message' => 'このメールは、メール設定をテストするために:nameによって送信されました。',
         ],
 
         'comment' => [
-            'title' => 'New comment',
-            'message' => 'You have a comment from ":name" (:email) to the post ":post".',
-            'action' => 'View',
+            'title' => '新しいコメント',
+            'message' => '「:name」（:email）から投稿「:post」へのコメントがあります。',
+            'action' => '表示する',
         ],
 
         'unmoderated' => [
-            'title' => 'New unmoderated comment',
-            'message' => 'You have a new unmoderated comment from ":name" (:email) to the post ":post".',
-            'action' => 'View and moderate',
+            'title' => '新しいモデレートされていないコメント',
+            'message' => '「:name」（:email）から投稿「:post」への新しいモデレートされていないコメントがあります。',
+            'action' => '表示およびモデレート',
         ]
     ],
 ];

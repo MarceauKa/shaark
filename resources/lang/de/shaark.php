@@ -44,34 +44,34 @@ return [
 
         'backup' => [
             'title' => 'Backup',
-            'enabled' => 'Backup enabled?',
-            'enabled_help' => 'Ensure that your backup configuration is correct.',
-            'only_database' => 'Save only database?',
-            'period' => 'Backup period',
-            'period_daily' => 'Daily',
-            'period_weekly' => 'Weekly',
+            'enabled' => 'Backup aktiviert?',
+            'enabled_help' => 'Stellen Sie sicher, dass Ihre Sicherungskonfiguration korrekt ist.',
+            'only_database' => 'Nur Datenbank speichern?',
+            'period' => 'Sicherungszeitraum',
+            'period_daily' => 'Täglich',
+            'period_weekly' => 'Wöchentlich',
         ],
 
         'images' => [
-            'title' => 'Images',
-            'images_original_resize' => 'Resize original image?',
-            'images_original_resize_width' => 'Original max width in pixels',
-            'images_thumb_format' => 'Thumbnail format',
-            'format_square' => 'Square',
+            'title' => 'Bilder',
+            'images_original_resize' => 'Originalbildgröße ändern?',
+            'images_original_resize_width' => 'Ursprüngliche maximale Breite in Pixel',
+            'images_thumb_format' => 'Thumbnail-Format',
+            'format_square' => 'Platz',
             'format_original' => 'Original',
-            'images_thumb_queue' => 'Generate thumbnail in background?',
+            'images_thumb_queue' => 'Vorschaubild im Hintergrund erzeugen?',
         ],
 
         'comments' => [
-            'title' => 'Comments',
-            'comments_enabled' => 'Enable comments',
-            'comments_guest_view' => 'Guests can see comments',
-            'comments_guest_add' => 'Guests can add comments',
-            'comments_moderation' => 'New comment moderation',
-            'comments_notification' => 'New comment notification',
-            'disabled' => 'Disabled',
-            'whitelist' => 'White-listing',
-            'all' => 'All',
+            'title' => 'Bemerkungen',
+            'comments_enabled' => 'Kommentare aktivieren',
+            'comments_guest_view' => 'Gäste können Kommentare sehen',
+            'comments_guest_add' => 'Gäste können Kommentare hinzufügen',
+            'comments_moderation' => 'Neue Kommentarmoderation',
+            'comments_notification' => 'Benachrichtigung über neue Kommentare',
+            'disabled' => 'Behindert',
+            'whitelist' => 'Whitelisting',
+            'all' => 'Alle',
         ]
     ],
 
@@ -84,20 +84,20 @@ return [
         ],
 
         'check' => [
-            'title' => 'It works!',
-            'message' => 'This email was sent by :name to test your email configuration.',
+            'title' => 'Es klappt!',
+            'message' => 'Diese E-Mail wurde von :name gesendet, um Ihre E-Mail-Konfiguration zu testen.',
         ],
 
         'comment' => [
-            'title' => 'New comment',
-            'message' => 'You have a comment from ":name" (:email) to the post ":post".',
-            'action' => 'View',
+            'title' => 'Neuer Kommentar',
+            'message' => 'Sie haben einen Kommentar von ":name" (:email) zum Beitrag ":post".',
+            'action' => 'Aussicht',
         ],
 
         'unmoderated' => [
-            'title' => 'New unmoderated comment',
-            'message' => 'You have a new unmoderated comment from ":name" (:email) to the post ":post".',
-            'action' => 'View and moderate',
+            'title' => 'Neuer nicht moderierter Kommentar',
+            'message' => 'Sie haben einen neuen nicht moderierten Kommentar von ":name" (:email) zum Post ":post".',
+            'action' => 'Anschauen und moderieren',
         ]
     ],
 ];

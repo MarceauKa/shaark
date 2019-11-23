@@ -223,6 +223,7 @@
     "You can't access settings section": "Vous n'avez pas accès aux paramètres",
 
     "New version :version available": "Nouvelle version :version disponible",
+    "Network is offline": "Aucune connexion",
     "Source code": "Code source",
     "RSS Feed": "Flux RSS",
     "Atom Feed": "Flux Atom",
