@@ -11,7 +11,7 @@ and built with [Laravel](https://github.com/laravel/laravel) and [Vue.js](https:
 
 ## Summary
 
-[Features](#features) / [Demo](#demo) / [Installation](#installation) / [Archiving](#archiving) / [Contribute](#contribute) / [Security](#security) / [Troubleshooting](#troubleshooting) / [Tests](#tests) / [Licence](#licence)
+[Features](#features) / [Demo](#demo) / [Documentation](#documentation) / [Contribute](#contribute) / [Security](#security) / [Tests](#tests) / [Licence](#licence)
 
 ## Features
 
@@ -34,20 +34,15 @@ and built with [Laravel](https://github.com/laravel/laravel) and [Vue.js](https:
 A public demo is available at [https://shaark.mka.ovh](https://shaark.mka.ovh). Credentials are **admin@example.com** and **secret**. 
 This demo is resetted hourly.
 
-## [Installation](https://github.com/MarceauKa/shaark/blob/dev/documentation/installation.md)
+## Documentation
 
-See the extensive [installation documentation](https://github.com/MarceauKa/shaark/blob/dev/documentation/installation.md).
-
-## [Archiving](https://github.com/MarceauKa/shaark/blob/dev/documentation/archiving.md)
-
-Each link you share can be archived the way you want:
-
-- [youtube-dl](https://github.com/ytdl-org/youtube-dl/) when available on your system, will be used to download media
-from youtube, soundcloud, vimeo and [few more sites](http://ytdl-org.github.io/youtube-dl/supportedsites.html).
-
-- [Puppeteer](https://github.com/GoogleChrome/puppeteer) will be used by default to save the webpage as a PDF.
-
-Learn more in the [archiving documentation](https://github.com/MarceauKa/shaark/blob/dev/documentation/archiving.md).
+- [Installation](https://github.com/MarceauKa/shaark/blob/dev/documentation/installation.md): How to install Shaark
+- [Troubleshooting](https://github.com/MarceauKa/shaark/blob/dev/documentation/troubleshooting.md): Common issues
+- [Changelog](https://github.com/MarceauKa/shaark/blob/dev/changelog.md): Extensive changelog
+- [Archiving](https://github.com/MarceauKa/shaark/blob/dev/documentation/archiving.md): How to run PDF and Media archiving
+- [Backup](https://github.com/MarceauKa/shaark/blob/dev/documentation/backup.md): How to set up automatic backup
+- [Comments](https://github.com/MarceauKa/shaark/blob/dev/documentation/comments.md): How comment system work
+- [Dependencies](https://github.com/MarceauKa/shaark/blob/dev/documentation/dependencies.md): Dependencies used by Shaark
 
 ## Contribute
 
@@ -91,10 +86,6 @@ Since `1.2.9`, all chests data are encrypted in your database using AES-256-CBC 
 
 Others users can be admin or non-admin. Admin users are like the main user and have an access to the entire content. 
 Non-admin users can't access the settings section and can only see their own private content.
-
-## [Troubleshooting](https://github.com/MarceauKa/shaark/blob/dev/documentation/troubleshooting.md)
-
-All of frequent issues are answered in our [troubleshooting guide](https://github.com/MarceauKa/shaark/blob/dev/documentation/troubleshooting.md).
 
 ## Tests
 
