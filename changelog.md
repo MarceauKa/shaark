@@ -3,6 +3,7 @@
 ## Added
 
 - Comments on posts ([documentation](https://github.com/MarceauKa/shaark/blob/dev/documentation/comments.md), [#45](https://github.com/MarceauKa/shaark/issues/45))
+- Captcha system
 
 ## Changed
 
@@ -11,6 +12,7 @@
 ## Fixed
 
 - German and Japanese translations updated
+- Composer install and update commands
 
 # 1.2.32
 

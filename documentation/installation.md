@@ -159,7 +159,8 @@ This command is a shortcut for:
 php artisan down
 git reset --hard HEAD
 git pull origin master
-composer install --no-dev -o
+composer install --no-dev --prefer-dist --no-scripts
+composer dumpautoload -o
 php artisan migrate --force
 php artisan storage:link
 php artisan optimize
