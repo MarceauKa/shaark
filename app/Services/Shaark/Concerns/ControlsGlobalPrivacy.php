@@ -18,11 +18,7 @@ trait ControlsGlobalPrivacy
             return true;
         }
 
-        foreach (['web', 'api'] as $guard) {
-            if (! $user) {
-                $user = auth($guard)->user();
-            }
-        }
+        $user = $this->getRequestUser();
 
         if (! empty($user) || $this->requestAuthorizedForGlobalPrivacy($request)) {
             return true;

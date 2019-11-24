@@ -6,6 +6,7 @@ use App\Services\Shaark\Concerns\ControlsComments;
 use App\Services\Shaark\Concerns\ControlsGlobalPrivacy;
 use App\Services\Shaark\Concerns\ControlsSettings;
 use App\Services\Shaark\Concerns\HandleCustomSettings;
+use App\User;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Str;
 use Spatie\Valuestore\Valuestore;
@@ -28,6 +29,19 @@ class Shaark
         $this->settings = Valuestore::make(storage_path('settings.json'));
 
         $this->validateDefaultSettings();
+    }
+
+    public function getRequestUser(): ?User
+    {
+        $user = null;
+
+        foreach (['web', 'api'] as $guard) {
+            if (! $user) {
+                $user = auth($guard)->user();
+            }
+        }
+
+        return $user;
     }
 
     public function __call($name, $arguments)

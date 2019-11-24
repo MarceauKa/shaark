@@ -16,7 +16,7 @@ trait ControlsComments
             return false;
         }
 
-        $user = $request->user();
+        $user = $this->getRequestUser();
 
         if ($user && $user->exists) {
             return true;
@@ -31,7 +31,7 @@ trait ControlsComments
             return false;
         }
 
-        $user = $request->user();
+        $user = $this->getRequestUser();
 
         if ($user && $user->exists) {
             return true;
