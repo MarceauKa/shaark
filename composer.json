@@ -41,7 +41,8 @@
         "spatie/laravel-medialibrary": "^7.0.0",
         "spatie/valuestore": "^1.2",
         "symfony/dom-crawler": "^4.3",
-        "teamtnt/laravel-scout-tntsearch-driver": "^7.2"
+        "teamtnt/laravel-scout-tntsearch-driver": "^7.2",
+        "symfony/translation": "4.3.8"
     },
     "require-dev": {
         "facade/ignition": "^1.4",
