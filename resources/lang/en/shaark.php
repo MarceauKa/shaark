@@ -11,6 +11,9 @@ return [
             'private_help' => 'Private content (all content is private and login is required)',
             'private_download' => 'Keep downloads private (links and albums)',
             'use_default_search' => 'Use classic SQL search instead of full-text search',
+            'posts_order' => 'Preferred posts order',
+            'created' => 'Creation date',
+            'updated' => 'Last update date',
         ],
 
         'appearance' => [

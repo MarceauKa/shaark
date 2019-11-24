@@ -32,6 +32,7 @@ class Album extends Model implements HasMedia
     protected $appends = [
         'permalink',
     ];
+    protected $touches = ['post'];
 
     public function getHashIdAttribute(): string
     {

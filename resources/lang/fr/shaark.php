@@ -11,6 +11,9 @@ return [
             'private_help' => "Contenu privé (tout est privé et nécessite d'être connecté)",
             'private_download' => 'Garder les téléchargements privés (liens et albums)',
             'use_default_search' => 'Utiliser la recherche SQL plutôt que la recherche full-text',
+            'posts_order' => 'Ordre des posts',
+            'created' => 'Date de création',
+            'updated' => 'Date de dernière modification',
         ],
 
         'appearance' => [

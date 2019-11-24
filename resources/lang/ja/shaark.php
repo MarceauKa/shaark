@@ -11,6 +11,9 @@ return [
             'private_help' => '非公開（全てのコンテンツが非公開になる。コンテンツへのアクセスにログインが必要。）',
             'private_download' => 'ダウンロードを非公開にしますか？（ＵＲＬとアルバム）',
             'use_default_search' => 'クラシックＳＱＬ検索を使用（デフォルト：全文検索）',
+            'posts_order' => '優先投稿順',
+            'created' => '作成日',
+            'updated' => '最終更新日',
         ],
 
         'appearance' => [

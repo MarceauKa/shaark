@@ -30,6 +30,10 @@ return [
             'default' => false,
             'rules' => ['nullable', 'in:on,off']
         ],
+        'posts_order' => [
+            'default' => 'created',
+            'rules' => ['required', 'in:created,updated'],
+        ],
         'is_dark' => [
             'default' => false,
             'rules' => ['nullable', 'in:on,off']

@@ -66,6 +66,17 @@
                         <span class="text-danger" role="alert">{{ $message }}</span>
                         @enderror
                     </div>
+
+                    <div class="form-group">
+                        <label for="posts_order">{{ __('shaark.settings.general.posts_order') }}</label>
+                        <select name="posts_order" id="posts_order" class="form-control custom-select">
+                            <option value="created"{{ old('posts_order', $settings['posts_order']) == 'created' ? ' selected' : '' }}>{{ __('shaark.settings.general.created') }}</option>
+                            <option value="updated"{{ old('posts_order', $settings['posts_order']) == 'updated' ? ' selected' : '' }}>{{ __('shaark.settings.general.updated') }}</option>
+                        </select>
+                        @error('posts_order')
+                        <span class="text-danger" role="alert">{{ $message }}</span>
+                        @enderror
+                    </div>
                 </div>
             </div>
 

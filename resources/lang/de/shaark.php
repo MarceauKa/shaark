@@ -5,12 +5,15 @@ return [
     'settings' => [
         'general' => [
             'title' => 'Allgemeines',
-            'install_button' => 'Install',
+            'install_button' => 'Installieren',
             'site_name' => 'Name der Website',
             'lang' => 'Sprache',
             'private_help' => 'Privater Inhalt (alle Inhalte sind privat und eine Anmeldung ist erforderlich)',
             'private_download' => 'Downloads privat halten (Links und Alben)',
-            'use_default_search' => 'Use classic SQL search instead of full-text search',
+            'use_default_search' => 'Verwenden Sie die klassische SQL-Suche anstelle der Volltextsuche',
+            'posts_order' => 'Bevorzugte Reihenfolge der Beiträge',
+            'created' => 'Erstellungsdatum',
+            'updated' => 'Datum des letzten Updates',
         ],
 
         'appearance' => [
@@ -21,7 +24,7 @@ return [
             'compact_cardslist' => "Komprimiere die Liste der Karten",
             'columns_count' => "Anzahl der angezeigten Spoalten",
             'custom_background' => "Benutzerdefiniertes Hintergrundbild",
-            'custom_icon' => "Custom icon (PNG, 512px)",
+            'custom_icon' => "Benutzerdefiniertes Symbol (PNG, 512px)",
         ],
 
         '2fa' => [
@@ -38,8 +41,8 @@ return [
             'link_archive_media' => "Archvierung der Medien (Youtube, Soundcloud, ...)",
             'youtube_dl_bin' => "ausführbare Youtube-dl-Datei",
             'python_bin' => 'ausführbare Python-Datei',
-            'check_pdf_archiving' => 'Test PDF archiving',
-            'check_media_archiving' => 'Test Media archiving',
+            'check_pdf_archiving' => 'Testen Sie die PDF-Archivierung',
+            'check_media_archiving' => 'Testen Sie die Medienarchivierung',
         ],
 
         'backup' => [

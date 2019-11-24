@@ -11,16 +11,15 @@ class Story extends Model
     use Postable;
 
     protected $table = 'stories';
-
     protected $fillable = [
         'title',
         'slug',
         'content',
     ];
-
     protected $appends = [
         'url',
     ];
+    protected $touches = ['post'];
 
     public function getPermalinkAttribute(): string
     {

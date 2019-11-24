@@ -81,7 +81,7 @@
                     <button type="button"
                             class="btn btn-primary btn-block"
                             @click.prevent="submit"
-                            :disabled="loading"
+                            :disabled="loading || false === canSubmit"
                     >{{ __('Save') }}</button>
                 </div>
             </div>
@@ -272,6 +272,17 @@ export default {
     computed: {
         canAddComment() {
             return this.isLogged() || this.allowGuest;
+        },
+
+        canSubmit() {
+            let validComment = this.comment.content && this.comment.content.length >= 3;
+            let validCaptcha = this.comment.captcha && this.comment.captcha.length > 0;
+
+            if (this.isLogged()) {
+                return validComment === true;
+            }
+
+            return validComment === true && validCaptcha === true;
         }
     }
 }

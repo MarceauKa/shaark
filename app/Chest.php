@@ -14,6 +14,7 @@ class Chest extends Model
         'title',
         'content',
     ];
+    protected $touches = ['post'];
 
     public function getCreatedAtFormatedAttribute(): string
     {

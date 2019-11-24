@@ -24,7 +24,7 @@ class BrowseController extends Controller
 
         $posts = $posts->withPrivate($request)
             ->pinnedFirst()
-            ->latest()
+            ->latest(sprintf('%s_at', $shaark->getPostsOrder()))
             ->paginate(20);
 
         if (true === $shaark->getHomeShowTags()) {
@@ -106,6 +106,7 @@ class BrowseController extends Controller
                 ->pinnedFirst()
                 ->with('postable', 'tags')
                 ->withAllTags($tag)
+                ->latest(sprintf('%s_at', $shaark->getPostsOrder()))
                 ->paginate(20);
 
         abort_if($posts->isEmpty(), 404);

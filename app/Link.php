@@ -22,6 +22,7 @@ class Link extends Model
     protected $appends = [
         'permalink',
     ];
+    protected $touches = ['post'];
 
     public function getHashIdAttribute(): string
     {

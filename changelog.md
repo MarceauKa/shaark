@@ -1,17 +1,19 @@
-# Unreleased
+# 1.2.33
 
 ## Added
 
 - Comments on posts ([documentation](https://github.com/MarceauKa/shaark/blob/dev/documentation/comments.md), [#45](https://github.com/MarceauKa/shaark/issues/45))
 - Captcha system
+- Ability to choose prefered posts order: creation date or last update date ([#61](https://github.com/MarceauKa/shaark/issues/61))
 
 ## Changed
 
 - New offline network monitor
+- German and Japanese translations updated
 
 ## Fixed
 
-- German and Japanese translations updated
+- Typos on Story form
 - Composer install and update commands
 
 # 1.2.32

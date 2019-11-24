@@ -13,6 +13,7 @@ use Spatie\Valuestore\Valuestore;
  * @method bool getIsPrivate()
  * @method bool getPrivateDownload()
  * @method bool getUseDefaultSearch()
+ * @method string getPostsOrder()
  * @method bool getIsDark()
  * @method bool getHomeShowTags()
  * @method bool getHomeShowChests()
