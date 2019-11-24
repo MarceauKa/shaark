@@ -1,5 +1,7 @@
 # 1.2.33
 
+⚠️ Run migrations when updating
+
 ## Added
 
 - Comments on posts ([documentation](https://github.com/MarceauKa/shaark/blob/dev/documentation/comments.md), [#45](https://github.com/MarceauKa/shaark/issues/45))
