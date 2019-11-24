@@ -10,6 +10,10 @@
     </p>
 </footer>
 
+<div id="network" :class="{'offline': !online}">
+    <i class="fa fa-wifi mr-1"></i> {{ __('Network is offline') }}
+</div>
+
 @if(auth()->check())
     <temp-sharing dusk="temp-sharing"></temp-sharing>
     @if($version)

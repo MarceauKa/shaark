@@ -15,6 +15,7 @@
             <album-card :single="true" :album="{{ json_encode(\App\Http\Resources\AlbumResource::make($album)) }}"></album-card>
             @can('comments.see')
             <comments :id="{{ $album->post->id }}"
+                      :captcha="{{ json_encode(Captcha::create('default', true)) }}"
                       @can('comments.add')
                       :allow-guest="true"
                       @else

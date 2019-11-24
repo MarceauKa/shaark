@@ -49,6 +49,11 @@ class AddCommentRequest extends FormRequest
                 'required',
                 'email'
             ];
+
+            $rules['captcha'] = [
+                'required',
+                'captcha_api:' . $this->key,
+            ];
         }
 
         return $rules;

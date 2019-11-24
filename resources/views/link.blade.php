@@ -15,6 +15,7 @@
             <link-card :single="true" :link="{{ json_encode(\App\Http\Resources\LinkResource::make($link)) }}"></link-card>
             @can('comments.see')
             <comments :id="{{ $link->post->id }}"
+                      :captcha="{{ json_encode(Captcha::create('default', true)) }}"
                       @can('comments.add')
                       :allow-guest="true"
                       @else

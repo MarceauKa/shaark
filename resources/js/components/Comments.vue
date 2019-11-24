@@ -68,11 +68,23 @@
                 <span class="invalid-feedback" v-if="hasFormError('content')">{{ firstFormError('content') }}</span>
             </div>
 
-            <button type="button"
-                    class="btn btn-primary"
-                    @click.prevent="submit"
-                    :disabled="loading"
-            >{{ __('Save') }}</button>
+            <div class="row">
+                <div class="col-12 col-md-8 mb-1 d-flex" v-if="captcha && false === isLogged()">
+                    <img :src="captcha.img" alt="Captcha" class="d-inline-block mr-md-1 mb-1 mb-md-0 mx-auto mx-md-0" style="border-radius: 1rem; width: 150px; height: 40px;" />
+                    <div>
+                        <input type="text" class="form-control" :class="{'is-invalid': hasFormError('captcha')}" v-model="comment.captcha" :placeholder="__('Captcha')" />
+                        <span class="invalid-feedback" v-if="hasFormError('captcha')">{{ firstFormError('captcha') }}</span>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <button type="button"
+                            class="btn btn-primary btn-block"
+                            @click.prevent="submit"
+                            :disabled="loading"
+                    >{{ __('Save') }}</button>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -96,6 +108,26 @@ export default {
             type: Boolean,
             required: false,
             default: true,
+        },
+        captcha: {
+            type: Object,
+            required: false,
+            default: () => null,
+        }
+    },
+
+    data() {
+        return {
+            loading: true,
+            count: 0,
+            comments: [],
+            comment: {
+                comment: null,
+                content: '',
+                name: null,
+                email: null,
+                captcha: null,
+            },
         }
     },
 
@@ -115,20 +147,6 @@ export default {
         });
 
         this.initFromStorage();
-    },
-
-    data() {
-        return {
-            loading: true,
-            count: 0,
-            comments: [],
-            comment: {
-                comment: null,
-                content: '',
-                name: null,
-                email: null,
-            }
-        }
     },
 
     methods: {
@@ -155,7 +173,9 @@ export default {
                 name: this.comment.name,
                 email: this.comment.email,
                 content: this.comment.content,
-                reply: this.comment.comment ? this.comment.comment.id : null
+                reply: this.comment.comment ? this.comment.comment.id : null,
+                captcha: this.captcha ? this.comment.captcha : null,
+                key: this.captcha ? this.captcha.key : null,
             })
                 .then(response => {
                     this.loading = false;
@@ -230,6 +250,10 @@ export default {
                 name: this.comment.name,
                 email: this.comment.email,
             }));
+        },
+
+        getRandomId() {
+            return Math.floor(Math.random() * Math.floor(999999));
         },
     },
 

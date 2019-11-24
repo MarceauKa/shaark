@@ -16,7 +16,6 @@ class CommentController extends Controller
     public function __construct()
     {
         $this->middleware(['auth:api', 'demo'])->only(['moderate', 'delete']);
-
         $this->middleware('can:comments.see')->only('get');
         $this->middleware('can:comments.add')->only('store');
     }

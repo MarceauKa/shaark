@@ -1,7 +1,3 @@
-<div id="network" :class="{'offline': !online}">
-    {{ __('Network is offline') }}
-</div>
-
 <nav class="navbar navbar-expand-md navbar-light mb-3" id="nav">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">

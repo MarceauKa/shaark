@@ -15,6 +15,7 @@
             <story-card :single="true" :story="{{ json_encode(\App\Http\Resources\StoryResource::make($story)) }}"></story-card>
             @can('comments.see')
             <comments :id="{{ $story->post->id }}"
+                      :captcha="{{ json_encode(Captcha::create('default', true)) }}"
                       @can('comments.add')
                       :allow-guest="true"
                       @else

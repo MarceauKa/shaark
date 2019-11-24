@@ -23,11 +23,6 @@ body {
     background-attachment: fixed;
 }
 
-nav.navbar {
-    background-color: rgba(255, 255, 255, .9);
-    box-shadow: $box-shadow;
-}
-
 .list-group {
     background-color: transparent;
     box-shadow: $box-shadow;
@@ -62,30 +57,10 @@ nav.navbar {
     }
 }
 
-#network {
-    width: 100%;
-    background-color: $danger;
-    text-align: center;
-    color: white;
-    font-size: .8rem;
-    line-height: 1rem;
-    transform: translate3d(0, -1rem, 0);
-    transition: transform .2s ease-in-out;
-
-    &.offline {
-        transform: translate3d(0, 0, 0);
-    }
-
-    &:not(.offline) {
-        & + #nav {
-            transform: translate3d(0, -1rem, 0);
-        }
-    }
-}
-
 #nav {
     padding: 1.5rem 1rem;
-    transition: transform .2s ease-in-out;
+    background-color: rgba(255, 255, 255, .9);
+    box-shadow: $box-shadow;
 
     > .container {
         display: flex;
@@ -225,24 +200,47 @@ nav.navbar {
 }
 
 .card-columns {
-    &.column-1 { column-count: 1 }
-    &.column-2 { column-count: 2 }
-    &.column-3 { column-count: 3 }
-    &.column-4 { column-count: 4 }
+    &.column-1 {
+        column-count: 1
+    }
+
+    &.column-2 {
+        column-count: 2
+    }
+
+    &.column-3 {
+        column-count: 3
+    }
+
+    &.column-4 {
+        column-count: 4
+    }
 
     @include media-breakpoint-down(sm) {
-        &.column-2 { column-count: 1 }
-        &.column-3 { column-count: 1 }
-        &.column-4 { column-count: 1 }
+        &.column-2 {
+            column-count: 1
+        }
+        &.column-3 {
+            column-count: 1
+        }
+        &.column-4 {
+            column-count: 1
+        }
     }
 
     @include media-breakpoint-only(md) {
-        &.column-3 { column-count: 2 }
-        &.column-4 { column-count: 2 }
+        &.column-3 {
+            column-count: 2
+        }
+        &.column-4 {
+            column-count: 2
+        }
     }
 
     @include media-breakpoint-only(lg) {
-        &.column-4 { column-count: 3 }
+        &.column-4 {
+            column-count: 3
+        }
     }
 
     &.compact {
@@ -279,5 +277,28 @@ nav.navbar {
         span {
             text-transform: uppercase
         }
+    }
+}
+
+#network {
+    position: fixed;
+    z-index: 1;
+    bottom: -2rem;
+    width: 100%;
+    padding: .5rem 0;
+    background-color: $danger;
+    text-align: center;
+    color: white;
+    font-size: .8rem;
+    line-height: 1rem;
+    transition: bottom .2s ease-in-out;
+
+    &.offline {
+        bottom: 0;
+    }
+
+    i.fa {
+        font-size: .8rem;
+        line-height: 1rem;
     }
 }

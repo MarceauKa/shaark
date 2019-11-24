@@ -13,7 +13,7 @@ Our dependencies with link to their documentation and why we use it.
 - [youtube-dl-php](https://github.com/norkunas/youtube-dl-php) is a bridge to youtube-dl to [save your links](https://github.com/MarceauKa/shaark/blob/dev/documentation/archiving.md) (youtube, soundcloud, ...) as a local copy
 - [laravel-media-library](https://github.com/spatie/laravel-medialibrary) is used to attach images to models and image manipulation
 - [laravel-backup](https://github.com/spatie/laravel-backup) is used for... [backups](https://github.com/MarceauKa/shaark/blob/dev/documentation/backup.md) !
-- [gregwar/captcha](https://github.com/Gregwar/Captcha)
+- [mewebstudio/captcha](https://github.com/mewebstudio/captcha) is used to protect comments with a captcha
 
 ### JS
 

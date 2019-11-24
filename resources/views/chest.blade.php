@@ -13,6 +13,7 @@
             <chest-card :single="true" :chest="{{ json_encode(\App\Http\Resources\ChestResource::make($chest)) }}"></chest-card>
             @can('comments.see')
             <comments :id="{{ $chest->post->id }}"
+                      :captcha="{{ json_encode(Captcha::create('default', true)) }}"
                       @can('comments.add')
                       :allow-guest="true"
                       @else
