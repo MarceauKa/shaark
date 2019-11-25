@@ -14,7 +14,7 @@ use Laravel\Scout\Searchable;
 
 /**
  * @method Builder|Post pinnedFirst()
- * @method Builder|Post withPrivate(bool|User|Request $private)
+ * @method Builder|Post withPrivate(User|Request $private)
  * @method Builder|Post withoutChests()
  */
 class Post extends Model

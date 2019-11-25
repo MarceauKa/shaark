@@ -22,7 +22,7 @@ class CommentController extends Controller
 
     public function get(Request $request, int $id)
     {
-        $post = Post::withPrivate($request)
+        $post = Post::withPrivate($request->user('api'))
             ->findOrFail($id);
 
         $comments = Comment::postIs($id)
