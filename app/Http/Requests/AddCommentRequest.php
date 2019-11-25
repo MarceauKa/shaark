@@ -14,8 +14,8 @@ class AddCommentRequest extends FormRequest
 
     public function authorize(Shaark $shaark)
     {
-        $this->post = Post::withPrivate($this)
-            ->findOrFail($this->route('id'));
+        $this->post = Post::withPrivate($this->user('api'))
+                        ->findOrFail($this->route('id'));
 
         return $shaark->authorizedToAddComments($this);
     }

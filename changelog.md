@@ -1,3 +1,9 @@
+# Unreleased
+
+## Fixed
+
+- Add comment when global privacy is enabled
+
 # 1.2.33
 
 ⚠️ Run migrations when updating
