@@ -1,5 +1,9 @@
 # Unreleased
 
+## Added
+
+- CI build through Github action
+
 ## Fixed
 
 - Add comment when global privacy is enabled
