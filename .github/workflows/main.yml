@@ -1,5 +1,8 @@
 name: CI
-on: [push]
+on:
+  push:
+    paths:
+      - 'tests/Browser/**.php'
 jobs:
   dusk-php:
     runs-on: ubuntu-latest
