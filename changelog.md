@@ -13,6 +13,7 @@
 - Add comment when global privacy is enabled
 - LinkForm test
 - Temp sharing for albums
+- WebParser in test mode
 
 # 1.2.33
 
