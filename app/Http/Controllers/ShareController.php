@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Album;
 use App\Chest;
 use App\Link;
 use App\Share;
@@ -45,6 +46,14 @@ class ShareController extends Controller
             return view('story')->with([
                 'page_title' => sprintf('%s', $post->postable->title),
                 'story' => $post->postable,
+                'post' => $post,
+            ]);
+        }
+
+        if ($post->postable instanceof Album) {
+            return view('album')->with([
+                'page_title' => sprintf('%s', $post->postable->title),
+                'album' => $post->postable,
                 'post' => $post,
             ]);
         }

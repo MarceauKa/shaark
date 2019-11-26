@@ -34,24 +34,54 @@
             <span><i class="fas fa-lock pr-2" v-if="album.is_private"></i>{{ album.date_formated }}</span>
 
             <div class="dropdown">
-                <button class="btn btn-outline-dark btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn btn-outline-dark btn-sm dropdown-toggle"
+                        type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                        dusk="album-card-more"
+                >
                     {{ __('More') }}
                 </button>
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" :href="album.permalink"><i class="fas fa-link fa-fw mr-1"></i> {{ __('Permalink') }}</a>
-                    <a class="dropdown-item" :href="album.url_download" v-if="album.url_download"><i class="fas fa-file-download fa-fw mr-1"></i> {{ __('Download') }}</a>
+                    <a class="dropdown-item"
+                       :href="album.permalink"
+                       dusk="album-card-permalink"
+                    >
+                        <i class="fas fa-link fa-fw mr-1"></i> {{ __('Permalink') }}
+                    </a>
+                    <a class="dropdown-item"
+                       :href="album.url_download"
+                       v-if="album.url_download"
+                       dusk="album-card-download"
+                    >
+                        <i class="fas fa-file-download fa-fw mr-1"></i> {{ __('Download') }}
+                    </a>
 
                     <h6 class="dropdown-header" v-if="album.editable">{{ __('Manage') }}</h6>
 
-                    <a class="dropdown-item" @click="$bus.$emit('share', album)" v-if="album.editable"><i class="fas fa-share-square fa-fw mr-1"></i> {{ __('Temp sharing') }}</a>
-                    <a class="dropdown-item" :href="album.url_edit" v-if="album.editable"><i class="fas fa-pen-alt fa-fw mr-1"></i> {{ __('Edit') }}</a>
+                    <a class="dropdown-item"
+                       @click="$bus.$emit('share', album)"
+                       v-if="album.editable"
+                       dusk="album-card-temp-share"
+                    >
+                        <i class="fas fa-share-square fa-fw mr-1"></i> {{ __('Temp sharing') }}
+                    </a>
+                    <a class="dropdown-item"
+                       :href="album.url_edit"
+                       v-if="album.editable"
+                       dusk="album-card-edit"
+                    >
+                        <i class="fas fa-pen-alt fa-fw mr-1"></i> {{ __('Edit') }}
+                    </a>
 
                     <confirm class="dropdown-item"
                              :text="`<i class='fas fa-trash-alt fa-fw mr-1'></i> ${__('Delete')}`"
                              :text-confirm="`<i class='fas fa-check fa-fw mr-1'></i> ${__('Confirm')}`"
                              @confirmed="remove"
                              v-if="album.editable"
+                             dusk="album-card-remove"
                     ></confirm>
                 </div>
             </div>

@@ -53,10 +53,26 @@
                         <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true" v-if="loading"></span>
                         {{ __('Save') }}
                     </button>
-                    <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+
+                    <button type="button"
+                            class="btn btn-primary dropdown-toggle dropdown-toggle-split"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                            dusk="link-form-save-dropdown"
+                    ></button>
+
                     <div class="dropdown-menu">
-                        <button type="button" class="dropdown-item" @click.prevent="submit('view')">{{ __('Save & View') }}</button>
-                        <button type="button" class="dropdown-item" @click.prevent="submit('new')">{{ __('Save & New') }}</button>
+                        <button type="button"
+                                class="dropdown-item"
+                                @click.prevent="submit('view')"
+                                dusk="link-form-save-view"
+                        >{{ __('Save & View') }}</button>
+                        <button type="button"
+                                class="dropdown-item"
+                                @click.prevent="submit('new')"
+                                dusk="link-form-save-new"
+                        >{{ __('Save & New') }}</button>
                     </div>
                 </div>
                 <button type="button" class="btn btn-outline-primary" @click="openArchive" v-if="link">{{ __('Archive')}}</button>

@@ -32,8 +32,9 @@ class LinkFormTest extends DuskTestCase
                 ->type('.multiselect__input', 'testtag')
                 ->keys('.multiselect__input', '{enter}')
                 ->click('@link-form') // Click away to close "Tags"
-                ->click('@link-form-save')
-                ->visit('/')
+                ->click('@link-form-save-dropdown')
+                ->click('@link-form-save-view')
+                ->waitForText('Custom link', 10)
                 ->assertSee('Custom link')
                 ->assertSee('testtag')
                 ->visitRoute('link.create')
@@ -63,8 +64,9 @@ class LinkFormTest extends DuskTestCase
                 ->type('.multiselect__input', 'newtag')
                 ->keys('.multiselect__input', '{enter}')
                 ->click('@link-form') // Click away to close "Tags"
-                ->click('@link-form-save')
-                ->visit('/')
+                ->click('@link-form-save-dropdown')
+                ->click('@link-form-save-view')
+                ->waitForText('Edited link', 10)
                 ->assertSee('Edited link')
                 ->assertSee('newtag')
                 ->logout()

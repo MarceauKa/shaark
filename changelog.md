@@ -4,9 +4,15 @@
 
 - CI build through Github action
 
+## Changed
+
+- Vue components for tests
+
 ## Fixed
 
 - Add comment when global privacy is enabled
+- LinkForm test
+- Temp sharing for albums
 
 # 1.2.33
 

@@ -24,9 +24,9 @@ class TempSharingTest extends DuskTestCase
                 ->loginAs(1)
                 ->visitRoute('home')
                 ->assertSee($post->postable->title)
-                ->click('.card-footer button#dropdownMenuButton')
+                ->click('@link-card-more')
                 ->assertSee('Temp sharing')
-                ->click('.card-footer div.dropdown-menu a:nth-child(5)')
+                ->click('@link-card-temp-share')
                 ->waitForText('Link expires in')
                 ->press('Generate')
                 ->waitForText('Link generated');
@@ -59,9 +59,9 @@ class TempSharingTest extends DuskTestCase
                 ->loginAs(1)
                 ->visitRoute('home')
                 ->assertSee($post->postable->title)
-                ->click('.card-footer button#dropdownMenuButton')
+                ->click('@chest-card-more')
                 ->assertSee('Temp sharing')
-                ->click('.card-footer div.dropdown-menu a:nth-child(3)')
+                ->click('@chest-card-temp-share')
                 ->waitForText('Link expires in')
                 ->press('Generate')
                 ->waitForText('Link generated');
@@ -94,9 +94,44 @@ class TempSharingTest extends DuskTestCase
                 ->loginAs(1)
                 ->visitRoute('home')
                 ->assertSee($post->postable->title)
-                ->click('.card-footer button#dropdownMenuButton')
+                ->click('@story-card-more')
                 ->assertSee('Temp sharing')
-                ->click('.card-footer div.dropdown-menu a:nth-child(3)')
+                ->click('@story-card-temp-share')
+                ->waitForText('Link expires in')
+                ->press('Generate')
+                ->waitForText('Link generated');
+
+            $share = Share::first();
+
+            $browser
+                ->logout()
+                ->visitRoute('share', [$share->id, $share->token])
+                ->assertSee($post->postable->title);
+
+            $share->expires_at = $share->expires_at->subHour();
+            $share->save();
+
+            $browser
+                ->visitRoute('share', [$share->id, $share->token])
+                ->assertSee('This shared content has expired');
+
+        });
+    }
+
+    /** @test */
+    public function it_can_share_album()
+    {
+        $user = factory(User::class)->create();
+        $post = factory(Post::class)->states('private', 'album')->create();
+
+        $this->browse(function (Browser $browser) use ($user, $post) {
+            $browser
+                ->loginAs(1)
+                ->visitRoute('home')
+                ->assertSee($post->postable->title)
+                ->click('@album-card-more')
+                ->assertSee('Temp sharing')
+                ->click('@album-card-temp-share')
                 ->waitForText('Link expires in')
                 ->press('Generate')
                 ->waitForText('Link generated');
