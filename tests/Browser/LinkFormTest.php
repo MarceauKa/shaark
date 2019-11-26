@@ -23,7 +23,7 @@ class LinkFormTest extends DuskTestCase
                 ->visitRoute('link.create')
                 ->assertSee('URL')
                 ->type('@link-form-url', url()->route('home'))
-                ->waitForText('Retrieving URL informations...')
+                ->waitForText('Retrieving URL informations...', 10)
                 ->waitUntilVueIsNot('parsing', true, '@link-form', 10)
                 ->assertDontSee('Retrieving URL informations...')
                 ->type('@link-form-title', 'Custom link')
@@ -39,7 +39,7 @@ class LinkFormTest extends DuskTestCase
                 ->assertSee('testtag')
                 ->visitRoute('link.create')
                 ->type('@link-form-url', url()->route('home'))
-                ->waitForText('Retrieving URL informations...')
+                ->waitForText('Retrieving URL informations...', 10)
                 ->waitUntilVueIsNot('parsing', true, '@link-form', 10)
                 ->assertSee('The url has already been taken.');
         });

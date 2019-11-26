@@ -3,6 +3,9 @@ on: [push]
 jobs:
   dusk-php:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php: ['7.2', '7.3']
     steps:
       - uses: actions/checkout@v1
       - name: Prepare The Environment
