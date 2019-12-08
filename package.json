@@ -14,16 +14,16 @@
         "@toast-ui/vue-editor": "^1.1.1",
         "axios": "^0.18",
         "babel-runtime": "^6.26.0",
-        "bootstrap": "^4.1.0",
-        "cross-env": "^5.1",
+        "bootstrap": "^4.4.1",
+        "cross-env": "^5.2.1",
         "false": "^0.0.4",
         "filepond": "^4.7.4",
         "jquery": "^3.2",
-        "laravel-mix": "^4.0.7",
+        "laravel-mix": "^4.1.4",
         "lodash": "^4.17.5",
-        "popper.js": "^1.12",
+        "popper.js": "^1.16.0",
         "resolve-url-loader": "3.1.0",
-        "sass": "^1.22.10",
+        "sass": "^1.23.7",
         "sass-loader": "7.*",
         "v-img": "^0.2.0",
         "vue": "^2.5.17",
@@ -33,7 +33,9 @@
         "vue-multiselect": "^2.1.6",
         "vue-template-compiler": "^2.6.10",
         "vue-toasted": "^1.1.27",
-        "vuedraggable": "^2.23.0"
+        "vuedraggable": "^2.23.2",
+        "https-proxy-agent": "^2.2.3",
+        "serialize-javascript": "^2.1.1"
     },
     "dependencies": {
         "@nesk/puphpeteer": "^1.6.0"

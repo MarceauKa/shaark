@@ -1,3 +1,14 @@
+# 1.2.35
+
+## Changed
+
+- Laravel 6.6
+
+## Fixed
+
+- Security update fixing [https-proxy-agent](https://github.com/TooTallNate/node-https-proxy-agent)
+- Security update fixing [serialize-javascript](https://github.com/yahoo/serialize-javascript) 
+
 # 1.2.34
 
 ## Added
