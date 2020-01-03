@@ -1,3 +1,9 @@
+# Unreleased
+
+## Changed
+
+- Laravel 6.9
+
 # 1.2.35
 
 ## Changed
