@@ -4,6 +4,10 @@
 
 - Laravel 6.9
 
+## Fixed
+
+- Content post not loaded in DatabaseSeeder
+
 # 1.2.35
 
 ## Changed
