@@ -8,7 +8,6 @@ Route::get('login/secure/{secure}', 'SecureLoginController@form')->name('login.s
 Route::post('login/secure/{secure}', 'SecureLoginController@check')->name('login.secure.check');
 Route::post('logout', 'LoginController@logout')->name('logout');
 
-Route::get('/', 'BrowseController@index')->name('home');
 Route::get('tag/{tag}', 'BrowseController@tag')->name('tag');
 Route::get('shared/{id}/{token}', 'ShareController@view')->name('share');
 
@@ -65,3 +64,4 @@ Route::group([
     $router->post('settings', 'SettingsController@store');
 });
 
+Route::get('/{wall?}', 'BrowseController@wall')->name('home');

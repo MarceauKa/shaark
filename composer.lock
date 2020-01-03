@@ -1099,16 +1099,16 @@
         },
         {
             "name": "lab404/laravel-auth-checker",
-            "version": "1.5.0",
+            "version": "1.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/404labfr/laravel-auth-checker.git",
-                "reference": "6b9c361f0a64c4ef32ea28270f2aa0a4eb60fed6"
+                "reference": "9a9575a07d8eed08e58a8283da5c75bc62fd963a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/404labfr/laravel-auth-checker/zipball/6b9c361f0a64c4ef32ea28270f2aa0a4eb60fed6",
-                "reference": "6b9c361f0a64c4ef32ea28270f2aa0a4eb60fed6",
+                "url": "https://api.github.com/repos/404labfr/laravel-auth-checker/zipball/9a9575a07d8eed08e58a8283da5c75bc62fd963a",
+                "reference": "9a9575a07d8eed08e58a8283da5c75bc62fd963a",
                 "shasum": ""
             },
             "require": {
@@ -1157,7 +1157,7 @@
                 "plugin",
                 "user"
             ],
-            "time": "2020-01-02T15:15:38+00:00"
+            "time": "2020-01-03T15:58:38+00:00"
         },
         {
             "name": "laravel/framework",

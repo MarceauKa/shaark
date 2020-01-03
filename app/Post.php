@@ -101,6 +101,40 @@ class Post extends Model
         return $query;
     }
 
+    public function scopeWithWallRestrictions(Builder $query, ?array $tags, ?array $cards): Builder
+    {
+        $tags = $tags ?? [];
+        $cards = $cards ?? [];
+
+        // Restrict on tags list
+        if (count($tags) > 0) {
+            $this->scopeWithAllTags($query, $tags);
+        }
+
+        // Restrict on card types
+        if (count($cards) > 0) {
+            $classes = [
+                'link' => 'App\\Link',
+                'chest' => 'App\\Chest',
+                'story' => 'App\\Story',
+                'album' => 'App\\Album',
+            ];
+
+            $types = collect($cards)
+                ->transform(function ($item) use ($classes) {
+                    return array_key_exists($item, $classes) ? $classes[$item] : null;
+                })
+                ->reject(function ($item) {
+                    return is_null($item);
+                })
+                ->toArray();
+
+            $query->whereIn('postable_type', $types);
+        }
+
+        return $query;
+    }
+
     public function scopePinnedFirst(Builder $query): Builder
     {
         return $query->orderByDesc('is_pinned');
@@ -109,11 +143,6 @@ class Post extends Model
     public function scopeWithoutChests(Builder $query): Builder
     {
         return $query->where('postable_type', '!=', Chest::class);
-    }
-
-    public function scopeOnlyLinks(Builder $query): Builder
-    {
-        return $query->where('postable_type', '=', Link::class);
     }
 
     public function scopeLinksWithArchive(Builder $query): Builder

@@ -9,10 +9,37 @@ use App\Post;
 use App\Services\Shaark\Shaark;
 use App\Story;
 use App\Tag;
+use App\Wall;
 use Illuminate\Http\Request;
 
 class BrowseController extends Controller
 {
+    public function wall(Request $request, Shaark $shaark, string $wall = null)
+    {
+        /** @var Wall $wall */
+        $wall = Wall::slugIs($wall)
+            ->withPrivate($request)
+            ->firstOrFail();
+
+        $walls = Wall::withPrivate($request)
+                ->get();
+
+        $posts = Post::with('tags', 'postable')
+            ->withPrivate($request)
+            ->withWallRestrictions($wall->restrict_tags, $wall->restrict_cards)
+            ->paginate(20);
+
+        return view('home')->with([
+            'page_title' => app('shaark')->getName(),
+            'walls' => $walls,
+            'wall' => $wall,
+            'posts' => $posts,
+            'tags' => collect([]),
+            'compact' => $shaark->getCompactCardslist(),
+            'columns_count' => $shaark->getColumnsCount(),
+        ]);
+    }
+
     public function index(Request $request, Shaark $shaark)
     {
         $tags = collect([]);
@@ -45,9 +72,9 @@ class BrowseController extends Controller
     public function link(Request $request, string $hash)
     {
         $link = Link::withPrivate($request)
-                ->with('post.tags')
-                ->hashIdIs($hash)
-                ->firstOrFail();
+            ->with('post.tags')
+            ->hashIdIs($hash)
+            ->firstOrFail();
 
         return view('link')->with([
             'page_title' => sprintf('%s - #%s', $link->title, $link->hash_id),
@@ -103,11 +130,11 @@ class BrowseController extends Controller
         $tag = Tag::named($tag)->firstOrFail();
 
         $posts = Post::withPrivate($request)
-                ->pinnedFirst()
-                ->with('postable', 'tags')
-                ->withAllTags($tag)
-                ->latest(sprintf('%s_at', $shaark->getPostsOrder()))
-                ->paginate(20);
+            ->pinnedFirst()
+            ->with('postable', 'tags')
+            ->withAllTags($tag)
+            ->latest(sprintf('%s_at', $shaark->getPostsOrder()))
+            ->paginate(20);
 
         abort_if($posts->isEmpty(), 404);
 

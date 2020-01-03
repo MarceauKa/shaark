@@ -279,26 +279,3 @@ body {
         }
     }
 }
-
-#network {
-    position: fixed;
-    z-index: 1;
-    bottom: -2rem;
-    width: 100%;
-    padding: .5rem 0;
-    background-color: $danger;
-    text-align: center;
-    color: white;
-    font-size: .8rem;
-    line-height: 1rem;
-    transition: bottom .2s ease-in-out;
-
-    &.offline {
-        bottom: 0;
-    }
-
-    i.fa {
-        font-size: .8rem;
-        line-height: 1rem;
-    }
-}

@@ -7,6 +7,21 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
+        @if($walls->isNotEmpty())
+        <div class="col-12">
+            <div class="nav-wall mb-4">
+                <h1>{{ $wall->title }}</h1>
+                <nav>
+                    @foreach($walls as $item)
+                        @if($wall->slug !== $item->slug)
+                        <a href="{{ route('home', $item->slug) }}">{{ $item->title }}</a>
+                        @endif
+                    @endforeach
+                </nav>
+            </div>
+        </div>
+        @endif
+
         @if($posts->isNotEmpty())
         <div class="col-12">
             <div class="card-columns column-{{ $columns_count }} {{ $compact ? 'compact' : '' }}">

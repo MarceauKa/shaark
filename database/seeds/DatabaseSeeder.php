@@ -1,10 +1,12 @@
 <?php
 
 use App\Chest;
+use App\Wall;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
 {
@@ -19,6 +21,28 @@ class DatabaseSeeder extends Seeder
             'api_token' => 'api-token-secret',
             'is_admin' => 1,
             'created_at' => now()->toDateTimeString(),
+        ]);
+
+        factory(Wall::class)->create([
+            'title' => 'All',
+            'slug' => 'all',
+            'is_default' => true,
+        ]);
+
+        factory(Wall::class)->create([
+            'title' => 'Music',
+            'slug' => 'music',
+            'is_default' => false,
+            'restrict_cards' => ['link'],
+            'restrict_tags' => ['music'],
+        ]);
+
+        factory(Wall::class)->create([
+            'title' => 'Accounts',
+            'slug' => 'accounts',
+            'is_default' => false,
+            'restrict_cards' => ['chest'],
+            'restrict_tags' => ['account'],
         ]);
 
         $items = [

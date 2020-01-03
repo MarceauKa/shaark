@@ -1,5 +1,11 @@
 # Unreleased
 
+⚠️ Run migrations when updating
+
+## Added
+
+- Walls, customizable pages with tags and card type restrictions to provide the best way to browse your content
+
 ## Changed
 
 - Laravel 6.9
@@ -7,6 +13,10 @@
 ## Fixed
 
 - Content post not loaded in DatabaseSeeder
+
+## Removed
+
+- Removed `App\Post` model method `scopeOnlyLinks`
 
 # 1.2.35
 
