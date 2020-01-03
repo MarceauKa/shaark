@@ -56,6 +56,7 @@ class DatabaseSeeder extends Seeder
         foreach ($items as $item) {
             $post = new App\Post(['is_private' => get_class($item) === Chest::class, 'user_id' => 1]);
             $item->post()->save($post);
+            $item->load('post');
         }
 
         $items[0]->post->attachTag('Web');
