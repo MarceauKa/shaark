@@ -108,7 +108,7 @@ class Post extends Model
 
         // Restrict on tags list
         if (count($tags) > 0) {
-            $this->scopeWithAllTags($query, $tags);
+            $this->scopeWithAnyTags($query, $tags);
         }
 
         // Restrict on card types
