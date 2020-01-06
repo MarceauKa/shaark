@@ -58,6 +58,8 @@ Route::group([
 
     $router->get('tags', 'TagsController@view')->name('tags');
 
+    $router->get('walls', 'WallsController@view')->name('walls');
+
     $router->get('archives', 'ArchivesController@view')->name('archives');
 
     $router->get('settings', 'SettingsController@form')->name('settings');

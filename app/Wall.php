@@ -11,11 +11,17 @@ use Illuminate\Http\Request;
 /**
  * @property array $restrict_tags
  * @property array $restrict_cards
+ * @property array $appearance
  * @property bool is_default
  * @property bool is_private
  */
 class Wall extends Model
 {
+    const APPEARANCE_DEFAULT = [
+        'columns' => 2,
+        'show_tags' => true,
+        'compact' => false,
+    ];
     /** @var array $fillable */
     protected $fillable = [
         'title',
@@ -24,6 +30,7 @@ class Wall extends Model
         'is_private',
         'restrict_tags',
         'restrict_cards',
+        'appearance',
     ];
     /** @var array $casts */
     protected $casts = [
@@ -31,6 +38,7 @@ class Wall extends Model
         'is_private' => 'bool',
         'restrict_tags' => 'array',
         'restrict_cards' => 'array',
+        'appearance' => 'array',
     ];
 
     public function user(): BelongsTo
@@ -41,6 +49,15 @@ class Wall extends Model
     public function walls(): HasMany
     {
         return $this->hasMany(Wall::class);
+    }
+
+    public function setAppearanceAttribute($value)
+    {
+        if ($value instanceof Request) {
+            $value = $value->get('appearance', self::APPEARANCE_DEFAULT);
+        }
+
+        $this->attributes['appearance'] = json_encode($value);
     }
 
     public function scopeIsDefault(Builder $query): Builder

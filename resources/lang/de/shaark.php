@@ -19,10 +19,6 @@ return [
         'appearance' => [
             'title' => "Aussehen",
             'is_dark' => "Dark Mode",
-            'home_show_tags' => "Zeige Tags auf der Homepage",
-            'home_show_chests' => "Zeige Truhen auf der Homepage",
-            'compact_cardslist' => "Komprimiere die Liste der Karten",
-            'columns_count' => "Anzahl der angezeigten Spoalten",
             'custom_background' => "Benutzerdefiniertes Hintergrundbild",
             'custom_icon' => "Benutzerdefiniertes Symbol (PNG, 512px)",
         ],

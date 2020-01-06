@@ -24,12 +24,6 @@ class DatabaseSeeder extends Seeder
         ]);
 
         factory(Wall::class)->create([
-            'title' => 'All',
-            'slug' => 'all',
-            'is_default' => true,
-        ]);
-
-        factory(Wall::class)->create([
             'title' => 'Music',
             'slug' => 'music',
             'is_default' => false,

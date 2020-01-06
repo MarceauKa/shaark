@@ -19,10 +19,6 @@ return [
         'appearance' => [
             'title' => 'Appearance',
             'is_dark' => 'Dark mode',
-            'home_show_tags' => 'Show tags on homepage',
-            'home_show_chests' => 'Show chests on homepage',
-            'compact_cardslist' => 'Compact cards list',
-            'columns_count' => 'Number of columns to show',
             'custom_background' => 'Custom background',
             'custom_icon' => 'Custom icon (512x512, .png)',
         ],

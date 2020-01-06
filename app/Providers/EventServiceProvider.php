@@ -22,5 +22,6 @@ class EventServiceProvider extends ServiceProvider
 
         \App\Comment::observe(\App\Observers\CommentObserver::class);
         \App\Tag::observe(\App\Observers\TagObserver::class);
+        \App\Wall::observe(\App\Observers\WallObserver::class);
     }
 }

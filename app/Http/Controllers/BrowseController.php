@@ -22,50 +22,31 @@ class BrowseController extends Controller
             ->firstOrFail();
 
         $walls = Wall::withPrivate($request)
+                ->where('id', '!=', $wall->id)
                 ->get();
 
         $posts = Post::with('tags', 'postable')
             ->withPrivate($request)
             ->withWallRestrictions($wall->restrict_tags, $wall->restrict_cards)
-            ->paginate(20);
-
-        return view('home')->with([
-            'page_title' => app('shaark')->getName(),
-            'walls' => $walls,
-            'wall' => $wall,
-            'posts' => $posts,
-            'tags' => collect([]),
-            'compact' => $shaark->getCompactCardslist(),
-            'columns_count' => $shaark->getColumnsCount(),
-        ]);
-    }
-
-    public function index(Request $request, Shaark $shaark)
-    {
-        $tags = collect([]);
-        $posts = Post::with('tags', 'postable');
-
-        if (false === $shaark->getHomeShowChests()) {
-            $posts->withoutChests();
-        }
-
-        $posts = $posts->withPrivate($request)
-            ->pinnedFirst()
             ->latest(sprintf('%s_at', $shaark->getPostsOrder()))
             ->paginate(20);
 
-        if (true === $shaark->getHomeShowTags()) {
+        $tags = collect([]);
+
+        if ($wall->appearance['show_tags']) {
             $tags = Tag::withPostsFor($request)
                 ->orderBy('posts_count', 'desc')
                 ->get();
         }
 
         return view('home')->with([
-            'page_title' => app('shaark')->getName(),
+            'page_title' => sprintf('%s - %s', $wall->title, app('shaark')->getName()),
+            'walls' => $walls,
+            'wall' => $wall,
             'posts' => $posts,
             'tags' => $tags,
-            'compact' => $shaark->getCompactCardslist(),
-            'columns_count' => $shaark->getColumnsCount(),
+            'compact' => $wall->appearance['compact'],
+            'columns' => $wall->appearance['columns'],
         ]);
     }
 
@@ -147,8 +128,6 @@ class BrowseController extends Controller
             ]),
             'tag' => $tag,
             'posts' => $posts,
-            'compact' => $shaark->getCompactCardslist(),
-            'columns_count' => $shaark->getColumnsCount(),
         ]);
     }
 }

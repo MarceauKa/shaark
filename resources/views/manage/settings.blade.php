@@ -91,40 +91,6 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input"
-                                   name="home_show_tags" id="home_show_tags" {{ old('home_show_tags', $settings['home_show_tags']) ? ' checked' : '' }}>
-                            <label class="custom-control-label" for="home_show_tags">{{ __('shaark.settings.appearance.home_show_tags') }}</label>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input"
-                                   name="home_show_chests" id="home_show_chests" {{ old('home_show_chests', $settings['home_show_chests']) ? ' checked' : '' }}>
-                            <label class="custom-control-label" for="home_show_chests">{{ __('shaark.settings.appearance.home_show_chests') }}</label>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input"
-                                   name="compact_cardslist" id="compact_cardslist" {{ old('compact_cardslist', $settings['compact_cardslist']) ? ' checked' : '' }}>
-                            <label class="custom-control-label" for="compact_cardslist">{{ __('shaark.settings.appearance.compact_cardslist') }}</label>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="name">{{ __('shaark.settings.appearance.columns_count') }}</label>
-                        <input type="number" class="form-control {{ $errors->has('columns_count') ? ' is-invalid' : '' }}" step="1" min="1" max="4"
-                               name="columns_count" id="columns_count" value="{{ old('columns_count', $settings['columns_count']) }}">
-
-                        @error('columns_count')
-                        <span class="invalid-feedback" role="alert">{{ $message }}</span>
-                        @enderror
-                    </div>
-
                     <label for="name">{{ __('shaark.settings.appearance.custom_background') }}</label>
                     <background name="custom_background" :values="{{ $settings['custom_background'] ?? '{type: "none"}' }}"></background>
                     @error('custom_background')

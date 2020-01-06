@@ -42,6 +42,10 @@
     "Tags": "タグ",
     "Tag": "タグ",
     "Tagged": "タグ",
+    "Wall": "Wall",
+    "Walls": "Walls",
+    "Card": "Card",
+    "Cards": "Cards",
     "Link": "ＵＲＬ",
     "Links": "ＵＲＬ",
     "Story": "ストーリー",
@@ -100,6 +104,7 @@
     "Fail": "失敗",
     "Is pinned?": "ピン留めにしますか？",
     "Is private?": "非公開にしますか？",
+    "Is default?": "Is default?",
 
     "Type / to search": "「/」で検索を始める",
     "No result": "検索結果はありません",
@@ -182,6 +187,12 @@
     "Color #:number": "カラーコード #:number",
     "Orientation": "標定",
     "Settings updated!": "設定が更新されました！",
+
+    "Restrict tags": "Restrict tags",
+    "Restrict cards": "Restrict cards",
+    "Columns to show": "Columns to show",
+    "Show tags": "Show tags",
+    "Compact cards list": "Compact cards list",
 
     "No logins": "ログインありません",
     "IP address": "ＩＰアドレス",

@@ -19,10 +19,6 @@ return [
         'appearance' => [
             'title' => 'Apparence',
             'is_dark' => 'Mode sombre',
-            'home_show_tags' => "Afficher les tags sur la page d'accueil",
-            'home_show_chests' => "Afficher les coffres sur la page d'accueil",
-            'compact_cardslist' => "Compacter les listes de carte",
-            'columns_count' => "Nombre de colonnes à afficher",
             'custom_background' => "Fond d'écran personnalisé",
             'custom_icon' => "Icône personnalisé (PNG, 512px)",
         ],

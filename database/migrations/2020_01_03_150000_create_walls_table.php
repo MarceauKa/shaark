@@ -14,6 +14,7 @@ class CreateWallsTable extends Migration
             $table->string('slug')->unique();
             $table->text('restrict_tags')->nullable();
             $table->text('restrict_cards')->nullable();
+            $table->text('appearance')->nullable();
             $table->bigInteger('user_id')->unsigned()->index()->nullable();
             $table->boolean('is_private')->default(false)->index();
             $table->boolean('is_default')->default(false)->index();

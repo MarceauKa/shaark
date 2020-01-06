@@ -42,6 +42,10 @@
     "Tags": "Tags",
     "Tag": "Tag",
     "Tagged": "Tagged",
+    "Wall": "Wall",
+    "Walls": "Walls",
+    "Card": "Card",
+    "Cards": "Cards",
     "Link": "Link",
     "Links": "Links",
     "Story": "Bericht",
@@ -100,6 +104,7 @@
     "Fail": "Scheitern",
     "Is pinned?": "Ist angeheftet?",
     "Is private?": "Ist privater?",
+    "Is default?": "Is default?",
 
     "Type / to search": "Tippe zur Suche",
     "No result": "No result",
@@ -182,6 +187,12 @@
     "Color #:number": "Color #:number",
     "Orientation": "Orientation",
     "Settings updated!": "Einstellungen aktualisiert !",
+
+    "Restrict tags": "Restrict tags",
+    "Restrict cards": "Restrict cards",
+    "Columns to show": "Columns to show",
+    "Show tags": "Show tags",
+    "Compact cards list": "Compact cards list",
 
     "No logins": "Keine Anmeldungen",
     "IP address": "IP-Adresse",

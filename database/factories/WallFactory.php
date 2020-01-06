@@ -13,6 +13,7 @@ $factory->define(Wall::class, function (Faker $faker) {
         'slug' => Str::slug($title),
         'restrict_tags' => [],
         'restrict_cards' => [],
+        'appearance' => Wall::APPEARANCE_DEFAULT,
         'is_default' => false,
     ];
 });

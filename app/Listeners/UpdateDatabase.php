@@ -3,6 +3,7 @@
 namespace App\Listeners;
 
 use App\User;
+use App\Wall;
 use Illuminate\Database\Events\MigrationEnded;
 use Illuminate\Support\Facades\DB;
 
@@ -12,6 +13,7 @@ class UpdateDatabase
     protected $updaters = [
         \AddUserToPostsTable::class => 'addDefaultUserToPosts',
         \AddIsAdminToUsersTable::class => 'setIsAdminToFirstUser',
+        \CreateWallsTable::class => 'createFirstWall',
     ];
 
     public function handle(MigrationEnded $event)
@@ -51,5 +53,20 @@ class UpdateDatabase
         DB::table('users')->update([
             'is_admin' => 1,
         ]);
+    }
+
+    protected function createFirstWall()
+    {
+        if (Wall::count() === 0) {
+            Wall::create([
+                'title' => 'All',
+                'slug' => 'all',
+                'restrict_tags' => [],
+                'restrict_cards' => [],
+                'appearance' => Wall::APPEARANCE_DEFAULT,
+                'is_default' => true,
+                'is_private' => false,
+            ]);
+        }
     }
 }

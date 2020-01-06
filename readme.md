@@ -6,8 +6,7 @@
 
 All of your data can be **private, public or both** and can be browsed by **tags** or **all-in-one search**.
 
-**Shaark** is production ready, inspired by [Shaarli](https://github.com/shaarli/Shaarli) 
-and built with [Laravel](https://github.com/laravel/laravel) and [Vue.js](https://vuejs.org/).
+**Shaark** is production ready, inspired by [Shaarli](https://github.com/shaarli/Shaarli), built with [Laravel](https://github.com/laravel/laravel) and [Vue.js](https://vuejs.org/).
 
 ## Summary
 
@@ -20,7 +19,7 @@ and built with [Laravel](https://github.com/laravel/laravel) and [Vue.js](https:
 - [x] Chests : to save your passwords
 - [x] Albums : to host your pictures
 - [x] Rapid sharing extension and **P**rogressive **W**eb **A**pp 
-- [x] Tagging system, search and RSS feeds
+- [x] Tagging system, walls, search and RSS feeds
 - [x] Private content or entirely private (with temp sharing)
 - [x] Theming (dark mode, background)
 - [x] i18n (🇬🇧, 🇫🇷, 🇩🇪, 🇯🇵)

@@ -8,7 +8,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-12">
-            <div class="card-columns column-{{ $columns_count }} {{ $compact ? 'compact' : '' }}">
+            <div class="card-columns column-2">
                 <div class="card">
                     <div class="card-header"><i class="fas fa-tags"></i> {{ __('Tag') }} &mdash; {{ $tag->name }}</div>
                     <div class="card-body">
@@ -34,9 +34,3 @@
     </div>
 </div>
 @endsection
-<script>
-    import AlbumCard from "../js/components/AlbumCard";
-    export default {
-        components: {AlbumCard}
-    }
-</script>

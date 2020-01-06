@@ -19,10 +19,6 @@ return [
         'appearance' => [
             'title' => '外見',
             'is_dark' => 'ダークモード',
-            'home_show_tags' => 'ホームページにタグを表示する',
-            'home_show_chests' => 'ホームページにチェストを表示する',
-            'compact_cardslist' => 'カードのコンパクト表示',
-            'columns_count' => 'コラム表示数',
             'custom_background' => 'カスタム背景',
             'custom_icon' => 'カスタムアイコン(PNG, 512px)',
         ],

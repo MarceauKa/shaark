@@ -49,6 +49,11 @@ Route::group([
     $router->post('tags/{from}/move/{to}', 'TagsController@move')->name('tags.move');
     $router->put('tags/{from}/rename/{to}', 'TagsController@rename')->name('tags.rename');
 
+    $router->get('walls', 'WallsController@all')->name('walls.all');
+    $router->post('walls', 'WallsController@store')->name('walls.store');
+    $router->put('walls/{id}', 'WallsController@update')->name('walls.update');
+    $router->delete('walls/{id}', 'WallsController@delete')->name('walls.delete');
+
     $router->get('archives', 'ArchivesController@all')->name('archives');
 
     $router->get('features/{type}', 'FeaturesController@check');
