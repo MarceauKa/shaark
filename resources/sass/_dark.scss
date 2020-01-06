@@ -32,6 +32,14 @@ body.dark {
         }
     }
 
+    .nav-wall {
+        @extend .bg-dark;
+
+        h1 {
+            @extend .text-white;
+        }
+    }
+
     .list-group {
         .list-group-item:not(.active) {
             @extend .bg-dark;

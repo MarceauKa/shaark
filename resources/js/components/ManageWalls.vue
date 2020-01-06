@@ -37,7 +37,7 @@
                         <td>{{ listRestrictions(wall.restrict_cards) }}</td>
                         <td>
                             <div class="dropdown">
-                                <button class="btn btn-outline-dark btn-sm dropdown-toggle"
+                                <button class="btn btn-outline-secondary btn-sm dropdown-toggle"
                                         type="button" id="dropdownMenuButton"
                                         data-toggle="dropdown"
                                         aria-haspopup="true"
@@ -228,7 +228,11 @@ export default {
                 slug: '',
                 restrict_tags: [],
                 restrict_cards: [],
-                appearance: [],
+                appearance: {
+                    columns: 2,
+                    show_tags: false,
+                    compact: false,
+                },
                 is_default: false,
                 is_private: false,
             };
