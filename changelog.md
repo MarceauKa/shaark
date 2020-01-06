@@ -1,10 +1,10 @@
-# Unreleased
+# 1.2.36
 
 ⚠️ Run migrations when updating
 
 ## Added
 
-- Walls, customizable pages with tags and card type restrictions to provide the best way to browse your content
+- Walls: customizable pages with tags and card type restrictions to provide the best way to browse your content
 
 ## Changed
 
@@ -16,6 +16,7 @@
 
 ## Removed
 
+- Appearance settings: Show chests on homepage, Show tags on homepage, Number of columns, Compact cards
 - Removed `App\Post` model method `scopeOnlyLinks`
 
 # 1.2.35
