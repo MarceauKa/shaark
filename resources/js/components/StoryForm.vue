@@ -73,11 +73,13 @@ let defaultStory = function () {
     };
 };
 
+import audit from "../mixins/audit";
 import formErrors from "../mixins/formErrors";
 import httpErrors from "../mixins/httpErrors";
 
 export default {
     mixins: [
+        audit,
         formErrors,
         httpErrors,
     ],
@@ -131,6 +133,8 @@ export default {
         if (this.story) {
             this.form = this.story;
         }
+
+        this.startAudit();
     },
 
     methods: {
