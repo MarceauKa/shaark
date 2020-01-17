@@ -1,3 +1,10 @@
+# Unreleased
+
+## Changed
+
+- Laravel 6.11
+- Remove `Faker` from `require-dev` to use seeding in production 
+
 # 1.2.36
 
 ⚠️ Run migrations when updating

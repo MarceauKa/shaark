@@ -42,11 +42,11 @@
         "spatie/valuestore": "^1.2",
         "symfony/dom-crawler": "^4.3",
         "teamtnt/laravel-scout-tntsearch-driver": "^7.2",
-        "symfony/translation": "4.3.8"
+        "symfony/translation": "4.3.8",
+        "fzaninotto/faker": "^1.4"
     },
     "require-dev": {
         "facade/ignition": "^1.4",
-        "fzaninotto/faker": "^1.4",
         "laravel/dusk": "^5.5",
         "mockery/mockery": "^1.0",
         "nunomaduro/collision": "^3.0",
