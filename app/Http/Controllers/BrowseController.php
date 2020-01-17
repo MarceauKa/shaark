@@ -29,7 +29,7 @@ class BrowseController extends Controller
             ->withPrivate($request)
             ->withWallRestrictions($wall->restrict_tags, $wall->restrict_cards)
             ->latest(sprintf('%s_at', $shaark->getPostsOrder()))
-            ->paginate(20);
+            ->simplePaginate(20);
 
         $tags = collect([]);
 
@@ -115,7 +115,7 @@ class BrowseController extends Controller
             ->with('postable', 'tags')
             ->withAllTags($tag)
             ->latest(sprintf('%s_at', $shaark->getPostsOrder()))
-            ->paginate(20);
+            ->simplePaginate(20);
 
         abort_if($posts->isEmpty(), 404);
 

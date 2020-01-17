@@ -71,6 +71,8 @@ class DatabaseSeeder extends Seeder
             ]),
         ];
 
+        #factory(\App\Post::class, 50)->state('link')->create();
+
         foreach ($items as $item) {
             $post = new App\Post(['is_private' => get_class($item) === Chest::class, 'user_id' => 1]);
             $item->post()->save($post);

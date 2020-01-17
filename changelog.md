@@ -3,7 +3,8 @@
 ## Changed
 
 - Laravel 6.11
-- Remove `Faker` from `require-dev` to use seeding in production 
+- Remove `Faker` from `require-dev` to use seeding in production
+- Simplified pagination 
 
 # 1.2.36
 
