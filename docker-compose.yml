@@ -9,7 +9,6 @@ services:
 #      - "./env:/app/.env"
 #    ports:
 #      - "80:80/tcp"
-#      - "443:443/tcp"
     networks:
       - shaark
       - nginx_net
@@ -18,25 +17,7 @@ services:
       options:
         max-size: "10m"
         max-file: "5"
-
-#  postgres:
-#    image: postgres
-#    container_name: postgres_shaark
-#    restart: unless-stopped
-#    volumes:
-#      - /opt/shaark/postgres:/var/lib/postgresql/data
-#    networks:
-#      - shaark
-#    environment:
-#      POSTGRES_PASSWORD: secret
-#      POSTGRES_USER: homestead
-#      POSTGRES_DB: homestead
-#    logging:
-#      driver: "json-file"
-#      options:
-#        max-size: "10m"
-#        max-file: "5"
- 
+        
   mariadb:     
     image: mariadb
     container_name: mariadb_shaark
