@@ -49,13 +49,20 @@
         <div class="card-footer d-flex justify-content-between">
             <div>
                 <div class="btn-group">
-                    <button type="button" class="btn btn-primary" @click.prevent="submit('edit')" :disabled="loading" dusk="link-form-save">
+                    <button type="button"
+                            class="btn btn-primary"
+                            :class="{'btn-danger': hasChanged}"
+                            @click.prevent="submit('edit')"
+                            :disabled="loading"
+                            dusk="link-form-save"
+                    >
                         <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true" v-if="loading"></span>
                         {{ __('Save') }}
                     </button>
 
                     <button type="button"
                             class="btn btn-primary dropdown-toggle dropdown-toggle-split"
+                            :class="{'btn-danger': hasChanged}"
                             data-toggle="dropdown"
                             aria-haspopup="true"
                             aria-expanded="false"
@@ -129,11 +136,13 @@ let defaultLink = function () {
     };
 };
 
+import audit from "../mixins/audit";
 import formErrors from "../mixins/formErrors";
 import httpErrors from "../mixins/httpErrors";
 
 export default {
     mixins: [
+        audit,
         formErrors,
         httpErrors,
     ],
@@ -168,6 +177,8 @@ export default {
         if (this.link) {
             this.form = this.link;
         }
+
+        this.startAudit();
     },
 
     methods: {

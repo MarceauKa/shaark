@@ -46,11 +46,25 @@
 
         <div class="card-footer">
             <div class="btn-group">
-                <button type="button" class="btn btn-primary" @click.prevent="submit('edit')" :disabled="loading" dusk="story-form-save">
+                <button type="button"
+                        class="btn btn-primary"
+                        :class="{'btn-danger': hasChanged}"
+                        @click.prevent="submit('edit')"
+                        :disabled="loading"
+                        dusk="story-form-save"
+                >
                     <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true" v-if="loading"></span>
                     {{ __('Save') }}
                 </button>
-                <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+
+                <button type="button"
+                        class="btn btn-primary dropdown-toggle dropdown-toggle-split"
+                        :class="{'btn-danger': hasChanged}"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                ></button>
+
                 <div class="dropdown-menu">
                     <button type="button" class="dropdown-item" @click.prevent="submit('view')">{{ __('Save & View') }}</button>
                     <button type="button" class="dropdown-item" @click.prevent="submit('new')">{{ __('Save & New') }}</button>

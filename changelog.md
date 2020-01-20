@@ -1,5 +1,9 @@
 # Unreleased
 
+## Added
+
+- Forms will now prevent reloading or leaving the page if changes were made
+
 ## Changed
 
 - Laravel 6.11

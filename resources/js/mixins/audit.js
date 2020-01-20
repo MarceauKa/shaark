@@ -1,7 +1,7 @@
 module.exports = {
     data: function () {
         return {
-            preventUnload: false,
+            hasChanged: false,
             auditForm: null,
         }
     },
@@ -14,13 +14,13 @@ module.exports = {
         },
 
         clearAudit() {
-            this.preventUnload = false;
+            this.hasChanged = false;
             this.auditForm = null;
         },
 
         registerUnloadingPrevention() {
             window.addEventListener('beforeunload', (event) => {
-                if (this.preventUnload === true) {
+                if (this.hasChanged === true) {
                     event.stopPropagation();
                     event.preventDefault();
                     event.returnValue = '';
@@ -33,21 +33,21 @@ module.exports = {
         'form': {
             handler: function (value, old) {
                 let changed = false;
-                const valueComparator = (newValue, originalValue) => {
+                const hasChanged = (newValue, originalValue) => {
                     if (typeof newValue === 'object') {
-                        return true;
+                        return JSON.stringify(newValue) !== JSON.stringify(originalValue);
                     }
-                    
-                    return newValue === originalValue;
+
+                    return newValue !== originalValue;
                 };
 
                 Object.keys(value).forEach((key) => {
-                    if (false === valueComparator(value[key], this.auditForm[key])) {
+                    if (hasChanged(value[key], this.auditForm[key])) {
                         changed = true;
                     }
                 });
 
-                this.preventUnload = changed;
+                this.hasChanged = changed;
             },
             deep: true
         }

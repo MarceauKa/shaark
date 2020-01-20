@@ -97,11 +97,25 @@
         <div class="card-footer d-flex justify-content-between">
             <div>
                 <div class="btn-group">
-                    <button type="button" class="btn btn-primary" @click.prevent="submit('edit')" :disabled="loading" dusk="album-form-save">
+                    <button type="button"
+                            class="btn btn-primary"
+                            :class="{'btn-danger': hasChanged}"
+                            @click.prevent="submit('edit')"
+                            :disabled="loading"
+                            dusk="album-form-save"
+                    >
                         <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true" v-if="loading"></span>
                         {{ __('Save') }}
                     </button>
-                    <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+
+                    <button type="button"
+                            class="btn btn-primary dropdown-toggle dropdown-toggle-split"
+                            :class="{'btn-danger': hasChanged}"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                    ></button>
+
                     <div class="dropdown-menu">
                         <button type="button" class="dropdown-item" @click.prevent="submit('view')">{{ __('Save & View') }}</button>
                         <button type="button" class="dropdown-item" @click.prevent="submit('new')">{{ __('Save & New') }}</button>
@@ -129,6 +143,7 @@ let defaultAlbum = function () {
     };
 };
 
+import audit from "../mixins/audit";
 import formErrors from "../mixins/formErrors";
 import httpErrors from "../mixins/httpErrors";
 import vueFilePond, { setOptions } from 'vue-filepond';
@@ -139,6 +154,7 @@ export default {
     },
 
     mixins: [
+        audit,
         formErrors,
         httpErrors,
     ],
@@ -171,6 +187,8 @@ export default {
             this.form = this.album;
             this.form.uploaded = [];
         }
+
+        this.startAudit();
     },
 
     methods: {
