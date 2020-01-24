@@ -22,36 +22,37 @@
 
         @if($posts->isNotEmpty())
         <div class="col-12">
-            <div class="card-columns column-{{ $columns }} {{ $compact ? 'compact' : '' }}">
-                @if($tags->isNotEmpty())
-                <div class="card">
-                    <div class="card-header">
-                        <i class="fas fa-tags"></i> {{ __('Tags') }}
-                    </div>
-                    <div class="card-body">
-                        <tag-limiter>
-                            @foreach($tags as $tag)
-                                <a href="{{ $tag->url }}" class="btn btn-primary btn-sm mb-1">
-                                    {{ $tag->name }}
-                                    <span class="badge badge-pill badge-light">{{ $tag->posts_count }}</span>
-                                </a>
-                            @endforeach
-                        </tag-limiter>
-                    </div>
-                </div>
-                @endif
-
-                @foreach($posts as $post)
-                    @if($post->postable instanceof \App\Link)
-                        <link-card :single="false" :link="{{ json_encode(\App\Http\Resources\LinkResource::make($post->postable)) }}"></link-card>
-                    @elseif($post->postable instanceof \App\Story)
-                        <story-card :single="false" :story="{{ json_encode(\App\Http\Resources\StoryResource::make($post->postable)) }}"></story-card>
-                    @elseif($post->postable instanceof \App\Chest)
-                        <chest-card :single="false" :chest="{{ json_encode(\App\Http\Resources\ChestResource::make($post->postable)) }}"></chest-card>
-                    @elseif($post->postable instanceof \App\Album)
-                        <album-card :single="false" :album="{{ json_encode(\App\Http\Resources\AlbumResource::make($post->postable)) }}"></album-card>
+            <div class="cards {{ $compact ? 'compact' : '' }}">
+                <masonry :cols="{{ $columns }}" gutter="30">
+                    @if($tags->isNotEmpty())
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-tags"></i> {{ __('Tags') }}
+                            </div>
+                            <div class="card-body">
+                                <tag-limiter>
+                                    @foreach($tags as $tag)
+                                        <a href="{{ $tag->url }}" class="btn btn-primary btn-sm mb-1">
+                                            {{ $tag->name }}
+                                            <span class="badge badge-pill badge-light">{{ $tag->posts_count }}</span>
+                                        </a>
+                                    @endforeach
+                                </tag-limiter>
+                            </div>
+                        </div>
                     @endif
-                @endforeach
+                    @foreach($posts as $post)
+                        @if($post->postable instanceof \App\Link)
+                            <link-card :single="false" :link="{{ json_encode(\App\Http\Resources\LinkResource::make($post->postable)) }}"></link-card>
+                        @elseif($post->postable instanceof \App\Story)
+                            <story-card :single="false" :story="{{ json_encode(\App\Http\Resources\StoryResource::make($post->postable)) }}"></story-card>
+                        @elseif($post->postable instanceof \App\Chest)
+                            <chest-card :single="false" :chest="{{ json_encode(\App\Http\Resources\ChestResource::make($post->postable)) }}"></chest-card>
+                        @elseif($post->postable instanceof \App\Album)
+                            <album-card :single="false" :album="{{ json_encode(\App\Http\Resources\AlbumResource::make($post->postable)) }}"></album-card>
+                        @endif
+                    @endforeach
+                </masonry>
             </div>
 
             {{ $posts->links() }}

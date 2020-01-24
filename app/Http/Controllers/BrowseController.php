@@ -46,7 +46,7 @@ class BrowseController extends Controller
             'posts' => $posts,
             'tags' => $tags,
             'compact' => $wall->appearance['compact'],
-            'columns' => $wall->appearance['columns'],
+            'columns' => $this->getColumnsConfigFor($wall),
         ]);
     }
 
@@ -108,7 +108,9 @@ class BrowseController extends Controller
 
     public function tag(Request $request, Shaark $shaark, string $tag)
     {
-        $tag = Tag::named($tag)->firstOrFail();
+        $tag = Tag::named($tag)
+            ->withCount('posts')
+            ->firstOrFail();
 
         $posts = Post::withPrivate($request)
             ->pinnedFirst()
@@ -129,5 +131,26 @@ class BrowseController extends Controller
             'tag' => $tag,
             'posts' => $posts,
         ]);
+    }
+
+    protected function getColumnsConfigFor(Wall $wall)
+    {
+        $default = $wall->appearance['columns'];
+
+        switch ($default) {
+            case 4:
+                return json_encode(['default' => 4, '1000' => 3, '800' => 2, '450' => 1]);
+                break;
+            case 3:
+                return json_encode(['default' => 3, '800' => 2, '450' => 1]);
+                break;
+            case 2:
+                return json_encode(['default' => 2, '450' => 1]);
+                break;
+            case 1:
+            default:
+                return json_encode(['default' => 1]);
+                break;
+        }
     }
 }

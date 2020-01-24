@@ -127,5 +127,7 @@ class AppServiceProvider extends ServiceProvider
                 return Storage::exists($value);
             }
         );
+
+        return $this;
     }
 }

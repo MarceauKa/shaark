@@ -1,6 +1,7 @@
 <?php
 
 use App\Chest;
+use App\Post;
 use App\Wall;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -70,6 +71,8 @@ class DatabaseSeeder extends Seeder
                 ]
             ]),
         ];
+
+        Post::disableSearchSyncing();
 
         #factory(\App\Post::class, 50)->state('link')->create();
 

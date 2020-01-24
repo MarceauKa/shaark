@@ -6,7 +6,12 @@
 
 ## Changed
 
+- Cards are now displayed with masonry instead of stacked cards from Bootstrap
 - HTTPS will be forced based on `APP_URL` instead of `APP_ENV`
+
+## Fixed
+
+- Posts count for a tag
 
 # 1.2.37
 
