@@ -12,6 +12,7 @@
 ## Fixed
 
 - Posts count for a tag
+- Disable unloading when a new post is submitted
 
 # 1.2.37
 

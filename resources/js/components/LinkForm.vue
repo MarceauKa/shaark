@@ -214,6 +214,7 @@ export default {
                 url: this.link ? this.link.url_update : '/api/link',
                 data: this.form
             }).then(response => {
+                this.clearAudit();
                 this.$toasted.success(this.__('Saved'));
 
                 switch (then) {

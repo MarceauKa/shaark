@@ -160,6 +160,7 @@ export default {
                 url: this.story ? this.story.url_update : '/api/story',
                 data: this.form
             }).then(response => {
+                this.clearAudit();
                 this.$toasted.success(this.__("Saved"));
 
                 switch (then) {

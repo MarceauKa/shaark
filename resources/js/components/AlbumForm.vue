@@ -200,6 +200,7 @@ export default {
                 url: this.album ? this.album.url_update : '/api/album',
                 data: this.form
             }).then(response => {
+                this.clearAudit();
                 this.$toasted.success(this.__('Saved'));
 
                 switch (then) {

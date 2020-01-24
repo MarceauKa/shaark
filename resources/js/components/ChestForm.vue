@@ -109,6 +109,7 @@ export default {
                 url: this.chest ? this.chest.url_update : '/api/chest',
                 data: this.form
             }).then(response => {
+                this.clearAudit();
                 this.$toasted.success(this.__('Saved'));
 
                 switch (then) {
