@@ -1,12 +1,12 @@
 FROM php:7-alpine
-MAINTAINER Pandry <togniand@gmail.com>
+MAINTAINER Shaark contributors <https://github.com/MarceauKa/shaark>
 
 WORKDIR /app
 COPY . /app
 
 RUN apk add --no-cache --update openssl zip unzip oniguruma-dev zlib-dev libpng-dev libzip-dev postgresql-dev && \
         curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
-        docker-php-ext-install pdo mbstring gd exif zip sockets  pdo_mysql   pgsql pdo_pgsql && \
+        docker-php-ext-install pdo mbstring gd exif zip sockets pdo_mysql pgsql pdo_pgsql && \
         cp .env.example .env && \
         \
         sed -i s/DB_HOST=127.0.0.1/DB_HOST=mariadb/ .env && \
@@ -25,7 +25,7 @@ RUN apk add --no-cache --update openssl zip unzip oniguruma-dev zlib-dev libpng-
         php artisan key:generate && \
         php artisan storage:link && \
         php artisan config:cache && \
-        php artisan migrate --seed 
+        php artisan migrate --seed
 
 CMD php artisan serve --host=0.0.0.0 --port=80
 EXPOSE 80
