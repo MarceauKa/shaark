@@ -1,0 +1,60 @@
+version: '2.2'
+services:
+  shaark:
+    image: shaark
+    build: .
+    container_name: shaark
+    restart: unless-stopped
+#    volumes:
+#      - "./env:/app/.env"
+#    ports:
+#      - "80:80/tcp"
+    networks:
+      - shaark
+      - nginx_net
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "5"
+        
+  mariadb:     
+    image: mariadb
+    container_name: mariadb_shaark
+    restart: unless-stopped
+    volumes:
+      - /opt/shaark/mariadb:/var/lib/mysql
+    networks:
+      - shaark
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword9867ow3q459087w980
+      MYSQL_PASSWORD: secret
+      MYSQL_USER: homestead
+      MYSQL_DATABASE: homestead
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "5"
+      
+
+  redis:
+    image: redis
+    container_name: redis_shaark
+    restart: unless-stopped
+    volumes:
+      - /opt/shaark/redis:/data
+    networks:
+      - shaark
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "5"
+
+
+networks:
+  shaark:
+    name: shaark_net
+  nginx_net:
+    name: nginx_net
