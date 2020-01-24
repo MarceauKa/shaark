@@ -1,3 +1,13 @@
+# Unreleased
+
+## Added
+
+- Docker support ([documentation](https://github.com/MarceauKa/shaark/blob/dev/documentation/docker.md), [#63](https://github.com/MarceauKa/shaark/pull/63))
+
+## Changed
+
+- HTTPS will be forced based on `APP_URL` instead of `APP_ENV`
+
 # 1.2.37
 
 ## Added

@@ -19,6 +19,10 @@
 
 ## Installation 
 
+### Installation with Docker
+
+Read our [docker installation documentation](https://github.com/MarceauKa/shaark/blob/dev/documentation/docker.md).
+
 ### Installation with Git
 
 `git clone https://github.com/MarceauKa/shaark && cd shaark`
