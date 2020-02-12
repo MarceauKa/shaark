@@ -1,3 +1,9 @@
+# Unreleased
+
+## Added
+
+- Shaark is now a Web Share Target (only on Android [#65](https://github.com/MarceauKa/shaark/issues/65))
+
 # 1.2.38
 
 ## Added

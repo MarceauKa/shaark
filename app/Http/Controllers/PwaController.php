@@ -30,6 +30,12 @@ class PwaController extends Controller
                     'sizes' => '192x192 512x512',
                 ]
             ],
+            'share_target' => [
+                'action' => route('link.create'),
+                'params' => [
+                    'url' => 'text',
+                ]
+            ],
             'serviceworker' => [
                 'src' => url('serviceworker.js'),
             ],
