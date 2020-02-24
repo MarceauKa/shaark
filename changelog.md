@@ -2,11 +2,12 @@
 
 ## Added
 
-- Shaark is now a Web Share Target (only on Android [#65](https://github.com/MarceauKa/shaark/issues/65))
+- Shaark is now a Web Share Target (Work in progress, only on Android [#65](https://github.com/MarceauKa/shaark/issues/65))
 
 ## Fixed
 
 - WebParser can now return null values ([#66](https://github.com/MarceauKa/shaark/issues/66))
+- Missing french translations for pagination
 
 ## Removed
 
