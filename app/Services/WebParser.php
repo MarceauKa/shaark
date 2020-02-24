@@ -81,7 +81,7 @@ class WebParser
         return $this;
     }
 
-    private function grepTitle(): string
+    private function grepTitle(): ?string
     {
         try {
             $this->title = $this->crawler->filterXPath('//title')->text();
@@ -104,10 +104,10 @@ class WebParser
             unset($e);
         }
 
-        return '';
+        return null;
     }
 
-    private function grepContent(): string
+    private function grepContent(): ?string
     {
         try {
             $this->content = $this->crawler->filterXPath('//meta[@name="description"]')->attr('content');
@@ -130,6 +130,6 @@ class WebParser
             unset($e);
         }
 
-        return '';
+        return null;
     }
 }
