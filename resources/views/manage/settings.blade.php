@@ -77,6 +77,16 @@
                         <span class="text-danger" role="alert">{{ $message }}</span>
                         @enderror
                     </div>
+
+                    <div class="form-group">
+                        <label for="additional_js">{{ __('shaark.settings.general.additional_js') }}</label>
+                        <textarea name="additional_js" id="additional_js"
+                                  class="form-control" placeholder="&lt;script&gt;...&lt;/script&gt;, &lt;script src='...'&gt;&lt;/script&gt;"
+                        >{{ old('additional_js', $settings['additional_js']) }}</textarea>
+                        @error('additional_js')
+                        <span class="text-danger" role="alert">{{ $message }}</span>
+                        @enderror
+                    </div>
                 </div>
             </div>
 

@@ -14,6 +14,7 @@ return [
             'posts_order' => 'Preferred posts order',
             'created' => 'Creation date',
             'updated' => 'Last update date',
+            'additional_js' => 'Additional JS',
         ],
 
         'appearance' => [

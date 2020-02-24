@@ -2,6 +2,7 @@
 
 ## Added
 
+- Ability to add Custom JS ([#64](https://github.com/MarceauKa/shaark/issues/64))
 - Shaark is now a Web Share Target (Work in progress, only on Android [#65](https://github.com/MarceauKa/shaark/issues/65))
 
 ## Fixed

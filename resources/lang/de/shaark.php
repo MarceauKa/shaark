@@ -14,6 +14,7 @@ return [
             'posts_order' => 'Bevorzugte Reihenfolge der Beiträge',
             'created' => 'Erstellungsdatum',
             'updated' => 'Datum des letzten Updates',
+            'additional_js' => 'Zusätzliche JS',
         ],
 
         'appearance' => [

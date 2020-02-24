@@ -14,6 +14,7 @@ return [
             'posts_order' => '優先投稿順',
             'created' => '作成日',
             'updated' => '最終更新日',
+            'additional_js' => 'カスタムJS',
         ],
 
         'appearance' => [

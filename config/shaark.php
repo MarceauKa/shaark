@@ -34,6 +34,10 @@ return [
             'default' => 'created',
             'rules' => ['required', 'in:created,updated'],
         ],
+        'additional_js' => [
+            'default' => null,
+            'rules' => ['nullable'],
+        ],
         'is_dark' => [
             'default' => false,
             'rules' => ['nullable', 'in:on,off']

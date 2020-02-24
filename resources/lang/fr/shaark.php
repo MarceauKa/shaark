@@ -14,6 +14,7 @@ return [
             'posts_order' => 'Ordre des posts',
             'created' => 'Date de création',
             'updated' => 'Date de dernière modification',
+            'additional_js' => 'Javascript personnalisé',
         ],
 
         'appearance' => [
