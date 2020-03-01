@@ -8,6 +8,7 @@
 ## Fixed
 
 - Update migration `UpdateLoginsAndDevicesTable` for compatibility with SQLite ([#68](https://github.com/MarceauKa/shaark/issues/68))
+- Exports columns name are now translated
 
 # 1.2.39
 
