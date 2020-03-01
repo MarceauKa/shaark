@@ -52,7 +52,7 @@ If you make changes to JS, don't compile assets in production, I'll manually com
 
 ### Translation
 
-Shaark is actually available in **English**, **French** and **German**. Feel free to make a pull request to add or update a localization. 
+Shaark is actually available in 🇬🇧, 🇫🇷, 🇩🇪, 🇯🇵. Feel free to make a pull request to add or update a localization. 
 You can see laravel base localizations [on this repo](https://github.com/caouecs/Laravel-lang).
 
 ### Your Shaark
