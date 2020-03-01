@@ -1,3 +1,9 @@
+# Unreleased
+
+## Fixed
+
+- Update migration `UpdateLoginsAndDevicesTable` for compatibility with SQLite ([#68](https://github.com/MarceauKa/shaark/issues/68))
+
 # 1.2.39
 
 ## Added

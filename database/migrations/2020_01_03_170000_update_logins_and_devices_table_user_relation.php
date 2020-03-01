@@ -9,11 +9,11 @@ class UpdateLoginsAndDevicesTableUserRelation extends Migration
     public function up()
     {
         Schema::table('logins', function (Blueprint $table) {
-            $table->string('user_type')->after('user_id');
+            $table->string('user_type')->after('user_id')->nullable();
         });
 
         Schema::table('devices', function (Blueprint $table) {
-            $table->string('user_type')->after('user_id');
+            $table->string('user_type')->after('user_id')->nullable();
         });
     }
 
