@@ -37,7 +37,7 @@ class PwaController extends Controller
                 ]
             ],
             'serviceworker' => [
-                'src' => url('serviceworker.js'),
+                'src' => route('pwa.worker'),
             ],
             'generated' => true,
         ];
