@@ -53,12 +53,7 @@ If you make changes to JS, don't compile assets in production, I'll manually com
 ### Translation
 
 Shaark is actually available in 🇬🇧, 🇫🇷, 🇩🇪, 🇯🇵. Feel free to make a pull request to add or update a localization. 
-You can see laravel base localizations [on this repo](https://github.com/caouecs/Laravel-lang).
-
-### Your Shaark
-
-You host your own Shaark public instance and you want to share it with other users? 
-You can make a pull request to add it to our public listing located at [directory.md](https://github.com/MarceauKa/shaark/blob/dev/directory.md). 
+You can see laravel base localizations [on this repo](https://github.com/caouecs/Laravel-lang). 
 
 ## Security
 
