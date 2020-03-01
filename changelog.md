@@ -1,4 +1,4 @@
-# Unreleased
+# 1.2.40
 
 ## Added
 
