@@ -1,5 +1,9 @@
 # Unreleased
 
+## Changed
+
+- Laravel 6.17
+
 ## Fixed
 
 - Update migration `UpdateLoginsAndDevicesTable` for compatibility with SQLite ([#68](https://github.com/MarceauKa/shaark/issues/68))
