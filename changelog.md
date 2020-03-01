@@ -3,6 +3,7 @@
 ## Changed
 
 - Laravel 6.17
+- Fancy error pages
 
 ## Fixed
 
