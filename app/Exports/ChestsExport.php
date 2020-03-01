@@ -20,10 +20,10 @@ class ChestsExport implements FromCollection, WithMapping, WithHeadings
     {
         return [
             'ID',
-            'Titre',
-            'Contenu',
-            'Tags',
-            'Créé le',
+            __('Title'),
+            __('Content'),
+            __('Tags'),
+            __('Date'),
         ];
     }
 

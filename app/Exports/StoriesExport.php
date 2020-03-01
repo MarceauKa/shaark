@@ -20,12 +20,12 @@ class StoriesExport implements FromCollection, WithMapping, WithHeadings
     {
         return [
             'ID',
-            'Titre',
+            __('Title'),
             'Slug',
-            'Contenu',
-            'Privé ?',
-            'Tags',
-            'Créé le',
+            __('Content'),
+            __('Is private?'),
+            __('Tags'),
+            __('Date'),
         ];
     }
 
@@ -36,7 +36,7 @@ class StoriesExport implements FromCollection, WithMapping, WithHeadings
             $row->title,
             $row->slug,
             $row->content,
-            $row->post->is_private ? 'Oui' : 'Non',
+            $row->post->is_private ? __('Yes') : __('No'),
             $row->post->tags->pluck('name')->implode(', '),
             $row->created_at,
         ];

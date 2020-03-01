@@ -20,13 +20,13 @@ class LinksExport implements FromCollection, WithMapping, WithHeadings
     {
         return [
             'ID',
-            'Titre',
-            'URL',
-            'Contenu',
+            __('Title'),
+            __('URL'),
+            __('Content'),
             'Extra',
-            'Privé ?',
-            'Tags',
-            'Créé le',
+            __('Is private?'),
+            __('Tags'),
+            __('Date'),
         ];
     }
 
@@ -38,7 +38,7 @@ class LinksExport implements FromCollection, WithMapping, WithHeadings
             $row->url,
             $row->content,
             $row->extra,
-            $row->post->is_private ? 'Oui' : 'Non',
+            $row->post->is_private ? __('Yes') : __('No'),
             $row->post->tags->pluck('name')->implode(', '),
             $row->created_at,
         ];
