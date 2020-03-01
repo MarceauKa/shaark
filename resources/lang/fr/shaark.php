@@ -15,6 +15,7 @@ return [
             'created' => 'Date de création',
             'updated' => 'Date de dernière modification',
             'additional_js' => 'Javascript personnalisé',
+            'additional_css' => 'CSS personnalisé',
         ],
 
         'appearance' => [

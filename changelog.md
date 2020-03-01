@@ -1,5 +1,9 @@
 # Unreleased
 
+## Added
+
+- Ability to add Custom CSS ([#67](https://github.com/MarceauKa/shaark/issues/67))
+
 ## Changed
 
 - Laravel 6.17

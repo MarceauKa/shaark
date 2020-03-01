@@ -15,6 +15,7 @@ return [
             'created' => 'Erstellungsdatum',
             'updated' => 'Datum des letzten Updates',
             'additional_js' => 'Zusätzliche JS',
+            'additional_css' => 'Zusätzliche CSS',
         ],
 
         'appearance' => [

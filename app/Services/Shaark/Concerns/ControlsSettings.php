@@ -15,6 +15,7 @@ use Spatie\Valuestore\Valuestore;
  * @method bool getUseDefaultSearch()
  * @method string getPostsOrder()
  * @method string getAdditionalJs()
+ * @method string getAdditionalCss()
  * @method bool getIsDark()
  * @method string getCustomBackground()
  * @method string getCustomIcon()

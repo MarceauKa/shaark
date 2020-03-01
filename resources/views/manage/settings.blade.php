@@ -80,10 +80,20 @@
 
                     <div class="form-group">
                         <label for="additional_js">{{ __('shaark.settings.general.additional_js') }}</label>
-                        <textarea name="additional_js" id="additional_js"
+                        <textarea name="additional_js" id="additional_js" rows="4"
                                   class="form-control" placeholder="&lt;script&gt;...&lt;/script&gt;, &lt;script src='...'&gt;&lt;/script&gt;"
                         >{{ old('additional_js', $settings['additional_js']) }}</textarea>
                         @error('additional_js')
+                        <span class="text-danger" role="alert">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label for="additional_css">{{ __('shaark.settings.general.additional_css') }}</label>
+                        <textarea name="additional_css" id="additional_css" rows="4"
+                                  class="form-control" placeholder="&lt;link href='' rel='stylesheet' /&gt;, &lt;style&gt;&lt;/style&gt;"
+                        >{{ old('additional_css', $settings['additional_css']) }}</textarea>
+                        @error('additional_css')
                         <span class="text-danger" role="alert">{{ $message }}</span>
                         @enderror
                     </div>

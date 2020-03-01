@@ -38,6 +38,10 @@ return [
             'default' => null,
             'rules' => ['nullable'],
         ],
+        'additional_css' => [
+            'default' => null,
+            'rules' => ['nullable'],
+        ],
         'is_dark' => [
             'default' => false,
             'rules' => ['nullable', 'in:on,off']

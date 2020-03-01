@@ -15,6 +15,7 @@ return [
             'created' => '作成日',
             'updated' => '最終更新日',
             'additional_js' => 'カスタムJS',
+            'additional_css' => 'カスタムCSS',
         ],
 
         'appearance' => [

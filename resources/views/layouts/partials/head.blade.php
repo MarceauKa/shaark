@@ -28,3 +28,4 @@
     }
 </style>
 @endif
+@if(app('shaark')->getAdditionalCss()){!! app('shaark')->getAdditionalCss() !!}@endif
