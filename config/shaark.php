@@ -78,6 +78,14 @@ return [
             'default' => '/usr/bin/node',
             'rules' => ['required']
         ],
+        'archive_pdf_width' => [
+            'default' => '1440',
+            'rules' => ['required', 'numeric', 'min:100', 'max:3840']
+        ],
+        'archive_pdf_height' => [
+            'default' => '960',
+            'rules' => ['required', 'numeric', 'min:100', 'max:2160']
+        ],
         'youtube_dl_bin' => [
             'default' => '/usr/bin/youtube-dl',
             'rules' => ['required']
