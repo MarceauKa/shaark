@@ -36,6 +36,8 @@ return [
             'title' => 'アーカイブ中',
             'link_archive_pdf' => 'ＰＤＦアーカイブ (サイトをＰＤＦ化)',
             'node_bin' => 'Node.jsバイナリ',
+            'archive_pdf_width' => 'ページ幅',
+            'archive_pdf_height' => 'ページの高さ',
             'link_archive_media' => 'メディアアーカイブ (Youtube, Soundcloud, ...)',
             'youtube_dl_bin' => 'Youtube-dlバイナリ',
             'python_bin' => 'Pythonバイナリ',

@@ -36,6 +36,8 @@ return [
             'title' => "Archivage",
             'link_archive_pdf' => "Archiver les pages en PDF",
             'node_bin' => "Éxécutable node.js",
+            'archive_pdf_width' => 'Largeur du PDF',
+            'archive_pdf_height' => 'Hauteur du PDF',
             'link_archive_media' => "Archiver les médias (Youtube, Soundcloud, ...)",
             'youtube_dl_bin' => "Éxécutable Youtube-dl",
             'python_bin' => 'Éxécutable Python',

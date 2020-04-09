@@ -37,6 +37,8 @@ return [
             'title' => 'Archiveren',
             'link_archive_pdf' => 'PDF archiveren (Web pagina\'s naar PDF)',
             'node_bin' => 'Node.js binary',
+            'archive_pdf_width' => 'Paginabreedte',
+            'archive_pdf_height' => 'Paginahoogte',
             'link_archive_media' => 'Media archiveren (Youtube, Soundcloud, ...)',
             'youtube_dl_bin' => 'Youtube-dl binary',
             'python_bin' => 'Python binary',
