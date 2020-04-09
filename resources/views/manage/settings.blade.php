@@ -193,6 +193,24 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="archive_pdf_width">{{ __('shaark.settings.archiving.archive_pdf_width') }}</label>
+                        <input type="number" class="form-control {{ $errors->has('archive_pdf_width') ? ' is-invalid' : '' }}" step="1" min="800" max="5000"
+                               name="archive_pdf_width" id="archive_pdf_width" value="{{ old('archive_pdf_width', $settings['archive_pdf_width']) }}">
+                        @error('archive_pdf_width')
+                        <span class="invalid-feedback" role="alert">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label for="archive_pdf_height">{{ __('shaark.settings.archiving.archive_pdf_height') }}</label>
+                        <input type="number" class="form-control {{ $errors->has('archive_pdf_height') ? ' is-invalid' : '' }}" step="1" min="800" max="5000"
+                               name="archive_pdf_height" id="archive_pdf_height" value="{{ old('archive_pdf_height', $settings['archive_pdf_height']) }}">
+                        @error('archive_pdf_height')
+                        <span class="invalid-feedback" role="alert">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
                         <div class="custom-control custom-switch">
                             <input type="checkbox" class="custom-control-input"
                                    name="link_archive_media" id="link_archive_media" {{ old('link_archive_media', $settings['link_archive_media']) ? ' checked' : '' }}>

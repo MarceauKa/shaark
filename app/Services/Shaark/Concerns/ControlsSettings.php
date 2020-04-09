@@ -21,6 +21,8 @@ use Spatie\Valuestore\Valuestore;
  * @method string getCustomIcon()
  * @method bool getLinkArchivePdf()
  * @method string getNodeBin()
+ * @method int getArchivePdfWidth()
+ * @method int getArchivePdfHeight()
  * @method bool getLinkArchiveMedia()
  * @method string getYoutubeDlBin()
  * @method string getPythonBin()

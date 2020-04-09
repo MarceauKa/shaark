@@ -26,8 +26,8 @@ class PuppeteerProvider extends BaseProvider
 
             $page->pdf([
                 'path' => storage_path($filename),
-                'width' => 1440,
-                'height' => 960,
+                'width' => app('shaark')->getArchivePdfWidth(),
+                'height' => app('shaark')->getArchivePdfHeight(),
                 'printBackground' => true,
                 'preferCSSPageSize' => true,
                 'margin' => [
