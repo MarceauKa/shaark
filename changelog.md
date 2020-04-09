@@ -1,3 +1,14 @@
+# 1.2.41
+
+## Added
+
+- Added dutch translation (thanks to [dododedodonl](https://github.com/dododedodonl), [#72](https://github.com/MarceauKa/shaark/pull/72))
+- Ability to configure PDF size (thanks to [dododedodonl](https://github.com/dododedodonl), [#71](https://github.com/MarceauKa/shaark/pull/71))
+
+## Changed
+
+- Laravel 6.18
+
 # 1.2.40
 
 ## Added

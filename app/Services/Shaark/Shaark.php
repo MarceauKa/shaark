@@ -19,7 +19,7 @@ class Shaark
         HandleCustomSettings;
 
     /** @var string VERSION */
-    public const VERSION = '1.2.40';
+    public const VERSION = '1.2.41';
     /** @var Application $app */
     protected $app;
 

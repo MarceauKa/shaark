@@ -22,7 +22,7 @@ All of your data can be **private, public or both** and can be browsed by **tags
 - [x] Tagging system, walls, search and RSS feeds
 - [x] Private content or entirely private (with temp sharing)
 - [x] Theming (dark mode, background)
-- [x] i18n (🇬🇧, 🇫🇷, 🇩🇪, 🇯🇵)
+- [x] i18n (🇬🇧, 🇫🇷, 🇩🇪, 🇯🇵 and 🇳🇱)
 - [x] [Archiving](https://github.com/MarceauKa/shaark/blob/dev/documentation/archiving.md) (as pdf, as media)
 - [x] DB encryption, 2-FA, Multi-users, [backup](https://github.com/MarceauKa/shaark/blob/dev/documentation/backup.md)
 
@@ -52,7 +52,7 @@ If you make changes to JS, don't compile assets in production, I'll manually com
 
 ### Translation
 
-Shaark is actually available in 🇬🇧, 🇫🇷, 🇩🇪, 🇯🇵. Feel free to make a pull request to add or update a localization. 
+Shaark is actually available in 🇬🇧, 🇫🇷, 🇩🇪, 🇯🇵 and 🇳🇱. Feel free to make a pull request to add or update a localization. 
 You can see laravel base localizations [on this repo](https://github.com/caouecs/Laravel-lang). 
 
 ## Security
