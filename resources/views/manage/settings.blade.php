@@ -28,6 +28,7 @@
                             <option value="en"{{ old('locale', $settings['locale']) == 'en' ? ' selected' : '' }}>EN</option>
                             <option value="de"{{ old('locale', $settings['locale']) == 'de' ? ' selected' : '' }}>DE</option>
                             <option value="ja"{{ old('locale', $settings['locale']) == 'ja' ? ' selected' : '' }}>JA</option>
+                            <option value="nl"{{ old('locale', $settings['locale']) == 'nl' ? ' selected' : '' }}>NL</option>
                         </select>
                         @error('locale')
                         <span class="text-danger" role="alert">{{ $message }}</span>
