@@ -76,7 +76,7 @@ class AppServiceProvider extends ServiceProvider
         View::composer(
             'layouts.partials.scripts',
             function (\Illuminate\View\View $view) {
-                $locale = config('app.locale');
+                $locale = app('shaark')->getLocale() ?? 'en';
 
                 if ($locale !== 'en') {
                     $path = resource_path(sprintf('lang/%s.json', $locale));

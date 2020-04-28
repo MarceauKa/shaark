@@ -1,3 +1,9 @@
+# 1.2.42
+
+## Fixed
+
+- Default locale on fresh install ([#75](https://github.com/MarceauKa/shaark/issues/75))
+
 # 1.2.41
 
 ## Added
