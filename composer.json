@@ -27,6 +27,7 @@
         "php": "^7.2",
         "doctrine/dbal": "^2.9",
         "fideloper/proxy": "^4.0",
+        "guzzlehttp/guzzle": "^6.5",
         "hashids/hashids": "^2.0.4|~3.0",
         "lab404/laravel-auth-checker": "^1.4",
         "laravel/framework": "^6.0",

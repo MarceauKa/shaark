@@ -30,6 +30,9 @@ class Kernel extends ConsoleKernel
 
         // Make backup
         $this->scheduleBackup($schedule);
+
+        // Link health checks
+        $this->scheduleLinkHealthChecks($schedule);
     }
 
     protected function scheduleBackup(Schedule $schedule): self
@@ -53,5 +56,16 @@ class Kernel extends ConsoleKernel
         }
 
         return $this;
+    }
+
+    protected function scheduleLinkHealthChecks(Schedule $schedule): self
+    {
+        $shaark = app(Shaark::class);
+
+        if (false === $shaark->getLinkHealthChecksEnabled()) {
+            return $this;
+        }
+
+        $schedule->command('shaark:link_health_check')->everyTenMinutes();
     }
 }

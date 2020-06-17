@@ -387,6 +387,30 @@
                 </div>
             </div>
 
+            <div class="card mt-4" id="links">
+                <div class="card-header">{{ __('shaark.settings.links.title') }}</div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input"
+                                   name="link_health_checks_enabled" id="link_health_checks_enabled" {{ old('link_health_checks_enabled', $settings['link_health_checks_enabled']) ? ' checked' : '' }}>
+                            <label class="custom-control-label" for="link_health_checks_enabled">{{ __('shaark.settings.links.health_checks_enabled') }}</label>
+                        </div>
+                        @error('link_health_checks_enabled')
+                        <span class="text-danger" role="alert">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="name">{{ __('shaark.settings.links.health_checks_age') }}</label>
+                        <input type="number" class="form-control {{ $errors->has('link_health_checks_age') ? ' is-invalid' : '' }}" step="1" min="7" max="365"
+                               name="link_health_checks_age" id="link_health_checks_age" value="{{ old('link_health_checks_age', $settings['link_health_checks_age']) }}">
+                        @error('link_health_checks_age')
+                        <span class="invalid-feedback" role="alert">{{ $message }}</span>
+                        @enderror
+                    </div>
+                </div>
+            </div>
+
             <div class="card mt-4">
                 <div class="card-body">
                     <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>

@@ -25,6 +25,8 @@
     "Whoops, something went wrong on our servers.": "サーバー上にエラーが発生してしまった。",
     "Yes": "はい",
     "No": "いいえ",
+    "Enabled": "有効",
+    "Disabled": "無効",
     "Previous": "前",
     "Next": "次",
 
@@ -240,5 +242,17 @@
     "Source code": "ソースコード",
     "RSS Feed": "ＲＳＳフィード",
     "Atom Feed": "ＡＴＯＭフィード",
-    "All new content of :title": ":titleの最新コンテンツ"
+    "All new content of :title": ":titleの最新コンテンツ",
+
+    "Total": "合計",
+    "Health Checks": "健康チェック",
+    "Pending Checks": "チェック待ち",
+    "Healthy (200)": "健康（２００）",
+    "Dead (4xx)": "ＵＲＬ切れ（４xx）",
+    "Other (3xx, 5xx)": "他（３xx、５xx）",
+    "Dead Links": "切れたＵＲＬ",
+    "No dead links found": "切れたＵＲＬはありません",
+    "Other-status Links": "他ステータスのＵＲＬ",
+    "No other-status links found": "他ステータスのＵＲＬはありません",
+    "Last Checked": "最後のチェック"
 }

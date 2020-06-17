@@ -76,7 +76,13 @@ return [
             'disabled' => 'Disabled',
             'whitelist' => 'White-listing',
             'all' => 'All',
-        ]
+        ],
+
+        'links' => [
+            'title' => 'Link Health Checks',
+            'health_checks_enabled' => 'Enable health checks',
+            'health_checks_age' => 'Number of days between checks for each link',
+        ],
     ],
 
     // Mails

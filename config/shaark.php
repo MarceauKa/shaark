@@ -142,5 +142,13 @@ return [
             'default' => 'whitelist',
             'rules' => ['nullable', 'in:disabled,whitelist,all']
         ],
+        'link_health_checks_enabled' => [
+            'default' => false,
+            'rules' => ['nullable', 'in:on,off']
+        ],
+        'link_health_checks_age' => [
+            'default' => '7',
+            'rules' => ['required', 'numeric', 'min:7', 'max:365']
+        ],
     ],
 ];

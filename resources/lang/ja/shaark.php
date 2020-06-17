@@ -75,7 +75,13 @@ return [
             'disabled' => '無効',
             'whitelist' => 'ホワイトリスト',
             'all' => 'すべて',
-        ]
+        ],
+
+        'links' => [
+            'title' => 'ＵＲＬの健康チェック',
+            'health_checks_enabled' => '健康チェックを有効にしますか？',
+            'health_checks_age' => '各ＵＲＬの次のチェックを行うまで何日待ちますか？',
+        ],
     ],
 
     // Mails

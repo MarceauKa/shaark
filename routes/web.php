@@ -60,6 +60,11 @@ Route::group([
 
     $router->get('walls', 'WallsController@view')->name('walls');
 
+    $router->get('links', 'LinksController@view')->name('links');
+    $router->post('links', 'LinksController@store');
+    $router->get('links/dead', 'LinksController@viewDead')->name('links.dead.view');
+    $router->get('links/other', 'LinksController@viewOther')->name('links.other.view');
+
     $router->get('archives', 'ArchivesController@view')->name('archives');
 
     $router->get('settings', 'SettingsController@form')->name('settings');
