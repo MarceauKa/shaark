@@ -1,3 +1,9 @@
+# Unreleased
+
+## Changed
+
+- `composer.lock` and `package-lock.json` are no longer under git
+
 # 1.2.42
 
 ## Fixed
