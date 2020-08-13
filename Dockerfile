@@ -4,19 +4,13 @@ MAINTAINER Shaark contributors <https://github.com/MarceauKa/shaark>
 WORKDIR /app
 COPY . /app
 
-RUN apk add --no-cache --update openssl zip unzip oniguruma-dev zlib-dev libpng-dev libzip-dev postgresql-dev && \
+RUN apk add --update --no-cache gmp gmp-dev \
+    && docker-php-ext-install gmp bcmath
+
+RUN apk add --no-cache --update bash openssl zip unzip oniguruma-dev zlib-dev libpng-dev libzip-dev postgresql-dev && \
+        cp .env.example .env && \
         curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
         docker-php-ext-install pdo mbstring gd exif zip sockets pdo_mysql pgsql pdo_pgsql && \
-        cp .env.example .env && \
-        \
-        sed -i s/DB_HOST=127.0.0.1/DB_HOST=mariadb/ .env && \
-        sed -i s/REDIS_HOST=127.0.0.1/REDIS_HOST=redis/ .env && \
-        sed -i s/APP_ENV=local/APP_ENV=production/ .env && \
-        sed -i s/APP_DEBUG=true/APP_DEBUG=false/ .env && \
-        sed -i s/CACHE_DRIVER=file/CACHE_DRIVER=redis/ .env && \
-        sed -i s/QUEUE_CONNECTION=sync/QUEUE_CONNECTION=redis/ .env && \
-        sed -i s/SESSION_DRIVER=file/SESSION_DRIVER=redis/ .env && \
-        sed -i s/REDIS_HOST=127.0.0.1/REDIS_HOST=redis/ .env && \
         \
         composer install --no-dev -o && \
         php artisan optimize && \
@@ -24,8 +18,19 @@ RUN apk add --no-cache --update openssl zip unzip oniguruma-dev zlib-dev libpng-
         \
         php artisan key:generate && \
         php artisan storage:link && \
-        php artisan config:cache && \
-        php artisan migrate --seed
+        php artisan config:cache
 
-CMD php artisan serve --host=0.0.0.0 --port=80
+ENV \
+  DB_HOST="mariadb" \
+  REDIS_HOST="redis" \
+  APP_ENV="production" \
+  APP_DEBUG="false" \
+  APP_URL="http://localhost" \
+  APP_MIGRATE_DB="true" \
+  CACHE_DRIVER="redis" \
+  QUEUE_CONNECTION="redis" \
+  SESSION_DRIVER="redis" \
+  REDIS_HOST="redis"
+
+ENTRYPOINT ["./app/run.sh"]
 EXPOSE 80
