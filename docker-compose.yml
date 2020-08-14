@@ -3,11 +3,10 @@ services:
   shaark:
     image: shaark
     build: .
-    container_name: shaark
     restart: unless-stopped
     ports:
-      - target: ${SHARK_PORT:-80}
-        published: ${SHARK_PORT:-80}
+      - target: ${SHAARK_PORT:-80}
+        published: ${SHAARK_PORT:-80}
         protocol: tcp
         mode: host
     depends_on:
@@ -19,7 +18,6 @@ services:
       APP_ENV: "production"
       APP_DEBUG: ${SHAARK_DEBUG:-false}
       APP_URL: ${SHAARK_URL:-http://localhost}
-      DB_ROOT_PASSWORD: ${SHAARK_MYSQL_ROOT_PASSWORD:-rootpassword9867ow3q459087w980}
       DB_PASSWORD: ${SHAARK_DATABASE_PASSWORD:-secret}
       DB_USER: ${SHAARK_DATABASE_USER:-homestead}
       DB_DATABASE: ${SHAARK_DATABASE_NAME:-homestead}
@@ -31,10 +29,9 @@ services:
 
   mariadb:
     image: mariadb
-    container_name: mariadb_shaark
     restart: unless-stopped
     volumes:
-      - shaark_mariadb:/var/lib/mysql
+      - mariadb:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: ${SHAARK_MYSQL_ROOT_PASSWORD:-rootpassword9867ow3q459087w980}
       MYSQL_PASSWORD: ${SHAARK_DATABASE_PASSWORD:-secret}
@@ -48,10 +45,9 @@ services:
 
   redis:
     image: redis
-    container_name: redis_shaark
     restart: unless-stopped
     volumes:
-      - shaark_redis:/data
+      - redis:/data
     logging:
       driver: "json-file"
       options:
@@ -59,5 +55,5 @@ services:
         max-file: "5"
 
 volumes:
-  shaark_redis: {}
-  shaark_mariadb: {}
+  redis: {}
+  mariadb: {}

@@ -30,7 +30,9 @@ ENV \
   CACHE_DRIVER="redis" \
   QUEUE_CONNECTION="redis" \
   SESSION_DRIVER="redis" \
-  REDIS_HOST="redis"
+  REDIS_HOST="redis" \
+  DB_USER=homestead \
+  DB_PASSWORD=secret \
+  DB_DATABASE=homestead 
 
-ENTRYPOINT ["./app/run.sh"]
 EXPOSE 80
