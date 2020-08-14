@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   shaark:
-    image: shaark
+    image: shaark:${SHAARK_IMAGE_TAG:-latest}
     build: .
     restart: unless-stopped
     ports:
@@ -21,6 +21,8 @@ services:
       DB_PASSWORD: ${SHAARK_DATABASE_PASSWORD:-secret}
       DB_USER: ${SHAARK_DATABASE_USER:-homestead}
       DB_DATABASE: ${SHAARK_DATABASE_NAME:-homestead}
+    volumes:
+      - archives:/app/storage/app/archives
     logging:
       driver: "json-file"
       options:
@@ -57,3 +59,4 @@ services:
 volumes:
   redis: {}
   mariadb: {}
+  archives: {}
