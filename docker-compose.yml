@@ -5,7 +5,7 @@ services:
     build: .
     restart: unless-stopped
     ports:
-      - target: ${SHAARK_PORT:-80}
+      - target: 80
         published: ${SHAARK_PORT:-80}
         protocol: tcp
         mode: host
