@@ -17,8 +17,7 @@ RUN apk add --no-cache --update bash openssl zip unzip oniguruma-dev zlib-dev li
         php artisan view:clear && \
         \
         php artisan key:generate && \
-        php artisan storage:link && \
-        php artisan config:cache
+        php artisan storage:link
 
 ENV \
   DB_HOST="mariadb" \
@@ -30,9 +29,7 @@ ENV \
   CACHE_DRIVER="redis" \
   QUEUE_CONNECTION="redis" \
   SESSION_DRIVER="redis" \
-  REDIS_HOST="redis" \
-  DB_USER=homestead \
-  DB_PASSWORD=secret \
-  DB_DATABASE=homestead 
+  REDIS_HOST="redis" 
 
+ENTRYPOINT [ "./app/entrypoint-shaark.sh" ]
 EXPOSE 80

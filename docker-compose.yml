@@ -12,7 +12,7 @@ services:
     depends_on:
       - mariadb
       - redis
-    entrypoint: ['./app/wait-for-it.sh', 'mariadb:3306', '-t', '30', '--', './app/run.sh'] 
+    entrypoint: ['./app/wait-for-it.sh', 'mariadb:3306', '-t', '30', '--', './app/entrypoint-shaark.sh'] 
     environment:
       APP_MIGRATE_DB: ${SHAARK_MIGRATE_DB:-false}
       APP_ENV: "production"
