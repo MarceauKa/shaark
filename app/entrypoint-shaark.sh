@@ -16,4 +16,4 @@ elif [ "${APP_MIGRATE_DB}" = 'true' ]; then
 else
   echo "Database migration skipped."
 fi
-php artisan serve --host=0.0.0.0 --port=80
+php artisan serve --host=0.0.0.0 --port=8080
