@@ -6,6 +6,7 @@ COPY . /app
 
 RUN apk add --no-cache bash openssl zip unzip oniguruma-dev zlib-dev libpng-dev libzip-dev postgresql-dev gmp gmp-dev nodejs npm python3 git libcap
 
+# 
 RUN setcap cap_net_raw+eip /app/app/entrypoint-shaark.sh && \
     setcap cap_sys_admin+eip /app/app/entrypoint-shaark.sh
 
@@ -45,6 +46,11 @@ RUN addgroup -S pptruser && adduser -S -g pptruser pptruser \
     && chown -R pptruser:pptruser /home/pptruser \
     && chown -R pptruser:pptruser /app
 
+# Install youtube-dl binary
+RUN curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/bin/youtube-dl && \
+    chmod a+rx /usr/bin/youtube-dl
+
+# Make sure python binary is python3
 RUN if [ ! -e /usr/bin/python ]; then ln -sf /usr/bin/python3 /usr/bin/python; fi
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
