@@ -2,11 +2,13 @@ version: '3.7'
 services:
   shaark:
     image: shaark:${SHAARK_IMAGE_TAG:-latest}
-    build: .
+    build:
+      context: ./
+      dockerfile: Dockerfile.shaark
     restart: unless-stopped
     ports:
-      - target: 8080
-        published: ${SHAARK_PORT:-80}
+      - target: 80
+        published: ${SHAARK_PORT:-8080}
         protocol: tcp
         mode: host
     depends_on:
@@ -18,11 +20,13 @@ services:
       APP_ENV: "production"
       APP_DEBUG: ${SHAARK_DEBUG:-false}
       APP_URL: ${SHAARK_URL:-http://localhost}
+      APP_ADMIN_PASSWORD: ${SHAARK_ADMIN_PASSWORD:-secret}
       DB_PASSWORD: ${SHAARK_DATABASE_PASSWORD:-secret}
       DB_USER: ${SHAARK_DATABASE_USER:-homestead}
       DB_DATABASE: ${SHAARK_DATABASE_NAME:-homestead}
     volumes:
       - archives:/app/storage/app/archives
+      - backups:/app/storage/app/backups
     logging:
       driver: "json-file"
       options:
@@ -35,7 +39,7 @@ services:
     volumes:
       - mariadb:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: ${SHAARK_MYSQL_ROOT_PASSWORD:-rootpassword9867ow3q459087w980}
+      MYSQL_RANDOM_ROOT_PASSWORD: 'true'
       MYSQL_PASSWORD: ${SHAARK_DATABASE_PASSWORD:-secret}
       MYSQL_USER: ${SHAARK_DATABASE_USER:-homestead}
       MYSQL_DATABASE: ${SHAARK_DATABASE_NAME:-homestead}
@@ -57,6 +61,7 @@ services:
         max-file: "5"
 
 volumes:
-  redis: {}
-  mariadb: {}
-  archives: {}
+  redis:
+  mariadb:
+  archives:
+  backups:
