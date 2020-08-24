@@ -22,7 +22,8 @@ RUN apk add --no-cache \
       libcap \
       mariadb-client \
       nodejs \
-      npm
+      npm \
+      busybox-suid
 
 # Set inheritied capabilities on entrypoint
 RUN setcap cap_net_raw+eip /app/app/entrypoint-shaark.sh && \
@@ -73,7 +74,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
     docker-php-ext-install pdo mbstring gd exif zip sockets pdo_mysql pgsql pdo_pgsql gmp bcmath
 
 # Configure Backups cron
-RUN crontab app/crontab
+RUN crontab -u shaarkuser app/crontab
 
 # Run everything after as non-privileged user.
 USER shaarkuser

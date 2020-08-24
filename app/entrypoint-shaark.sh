@@ -18,9 +18,10 @@ fi
 
 if [ "${APP_DEBUG}" = 'true' ]; then
     echo "Debugging enabled: creating verbose logs at /app/storage/logs/"
-    php artisan serve --host=0.0.0.0 --port=80 -vvv >> storage/logs/artisan_serve.log &
     php artisan queue:work >> storage/logs/artisan_queue.log &
+    php artisan serve --host=0.0.0.0 --port=80 -vvv >> storage/logs/artisan_serve.log
 else
-    php artisan serve --host=0.0.0.0 --port=80 &
+    echo "Starting Shaark!"
     php artisan queue:work &
+    php artisan serve --host=0.0.0.0 --port=80
 fi
