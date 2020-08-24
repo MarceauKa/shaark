@@ -1,0 +1,93 @@
+FROM php:alpine
+MAINTAINER Shaark contributors <https://github.com/MarceauKa/shaark>
+
+WORKDIR /app
+COPY . /app
+
+# Install packages needed for shaark
+RUN apk add --no-cache \
+      bash \
+      openssl \
+      zip \
+      unzip \
+      oniguruma-dev \
+      zlib-dev \
+      libpng-dev \
+      libzip-dev \
+      postgresql-dev \
+      gmp \
+      gmp-dev \
+      python3 \
+      git \
+      libcap \
+      mariadb-client \
+      nodejs \
+      npm \
+      busybox-suid
+
+# Set inheritied capabilities on entrypoint
+RUN setcap cap_net_raw+eip /app/app/entrypoint-shaark.sh && \
+    setcap cap_sys_admin+eip /app/app/entrypoint-shaark.sh && \
+    setcap cap_net_bind_service=+ep `which php`
+
+# Installs latest Chromium (83) package.
+RUN apk add --no-cache \
+      chromium \
+      nss \
+      freetype \
+      freetype-dev \
+      harfbuzz \
+      ca-certificates \
+      ttf-freefont
+
+# Set environment variables
+ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
+    PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser \
+    DB_HOST="mariadb" \
+    REDIS_HOST="redis" \
+    APP_ENV="production" \
+    APP_DEBUG="false" \
+    APP_MIGRATE_DB="true" \
+    CACHE_DRIVER="redis" \
+    QUEUE_CONNECTION="redis" \
+    SESSION_DRIVER="redis" \
+    REDIS_HOST="redis" 
+
+# Puppeteer v3.1.0 works with Chromium 83.
+RUN npm install puppeteer@3.1.0
+
+# Add user so we don't have to run everything as root
+RUN addgroup -S shaark && adduser -S -G shaark shaarkuser \
+    && mkdir -p /home/shaarkuser/Downloads \
+    && chown -R shaarkuser:shaark /home/shaarkuser \
+    && chown -R shaarkuser:shaark /app
+
+# Install youtube-dl binary
+RUN curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/bin/youtube-dl && \
+    chmod a+rx /usr/bin/youtube-dl
+
+# Make sure python binary is python3
+RUN if [ ! -e /usr/bin/python ]; then ln -sf /usr/bin/python3 /usr/bin/python; fi
+
+# Install composer and php extensions
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
+    docker-php-ext-install pdo mbstring gd exif zip sockets pdo_mysql pgsql pdo_pgsql gmp bcmath
+
+# Configure Backups cron
+RUN crontab -u shaarkuser app/crontab
+
+# Run everything after as non-privileged user.
+USER shaarkuser
+
+RUN composer install --no-dev -o
+
+RUN cp .env.example .env && \
+    \
+    php artisan optimize && \
+    php artisan view:clear && \
+    \
+    php artisan key:generate && \
+    php artisan storage:link
+
+EXPOSE 80
+ENTRYPOINT [ "app/entrypoint-shaark.sh" ]
