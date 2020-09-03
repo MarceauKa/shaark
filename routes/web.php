@@ -64,6 +64,7 @@ Route::group([
     $router->post('links', 'LinksController@store');
     $router->get('links/dead', 'LinksController@viewDead')->name('links.dead.view');
     $router->get('links/other', 'LinksController@viewOther')->name('links.other.view');
+    $router->get('links/disabled', 'LinksController@viewDisabled')->name('links.disabled.view');
 
     $router->get('archives', 'ArchivesController@view')->name('archives');
 

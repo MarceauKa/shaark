@@ -14,7 +14,8 @@ class AddHealthChecksToLinksTable extends Migration
     public function up()
     {
         Schema::table('links', function (Blueprint $table) {
-            $table->unsignedSmallInteger('http_status')->after('url')->nullable();
+            $table->boolean('is_health_check_enabled')->after('url')->default(true);
+            $table->unsignedSmallInteger('http_status')->after('is_health_check_enabled')->nullable();
             $table->timestamp('http_checked_at')->after('http_status')->nullable();
 
             $table->index('http_status');
@@ -30,6 +31,7 @@ class AddHealthChecksToLinksTable extends Migration
     {
         Schema::table('links', function (Blueprint $table) {
             $table->dropColumn([
+                'is_health_check_enabled',
                 'http_status',
                 'http_checked_at',
             ]);

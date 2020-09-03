@@ -20,17 +20,16 @@ class LinkHealthChecks extends Command
 
     public function handle()
     {
-        $check_all_links = $this->option('all');
-
-        $links = Link::where('http_checked_at', '<', now()->subDays(app(Shaark::class)->getLinkHealthChecksAge()))
-            ->orWhereNull('http_checked_at')
-            ->orderBy('http_checked_at', 'ASC');
-
-        if (! $check_all_links) {
-            $links->limit(20);
-        }
-
-        $links->get()
+        Link::where('is_health_check_enabled', 1)
+            ->where(function ($query) {
+                return $query->where('http_checked_at', '<', now()->subDays(app(Shaark::class)->getLinkHealthChecksAge()))
+                    ->orWhereNull('http_checked_at');
+            })
+            ->orderBy('http_checked_at', 'ASC')
+            ->when(! $this->option('all'), function($query) {
+                return $query->limit(20);
+            })
+            ->get()
             ->each(function (Link $link) {
                 try {
                     $response = (new Client())->request('GET', $link->getUrlAttribute(), [
@@ -43,7 +42,7 @@ class LinkHealthChecks extends Command
 
                     $link->http_status = $response->getStatusCode();
                 } catch (RequestException $exception) {
-                    // Might happen when the domain as expired
+                    // Might happen when the domain has expired
                     $link->http_status = 500;
                 } finally {
                     $link->http_checked_at = now();

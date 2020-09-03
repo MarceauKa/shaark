@@ -18,16 +18,9 @@ class LinksController extends Controller
 
     public function view()
     {
-        $stats = new HealthCheckStats();
-
         return view('manage.links')->with([
             'page_title' => __('Links'),
-            'num_total' => $stats->countTotal(),
-            'health_checks_enabled' => app(Shaark::class)->getLinkHealthChecksEnabled(),
-            'num_pending' => $stats->countPending(),
-            'num_healthy' => $stats->countHealthy(),
-            'num_other' => $stats->countOther(),
-            'num_dead' => $stats->countDead(),
+            'stats' => new HealthCheckStats(),
         ]);
     }
 
@@ -35,6 +28,7 @@ class LinksController extends Controller
     {
         return view('manage.links_dead')->with([
             'page_title' => __('Dead Links'),
+            'stats' => new HealthCheckStats(),
             'dead_links' => Link::whereBetween('http_status', [400, 499])->orderBy('http_checked_at', 'DESC')->paginate(10),
         ]);
     }
@@ -43,9 +37,19 @@ class LinksController extends Controller
     {
         return view('manage.links_other')->with([
             'page_title' => __('Other Status Links'),
+            'stats' => new HealthCheckStats(),
             'other_links' => Link::whereBetween('http_status', [300, 399])
                 ->orWhereBetween('http_status', [500, 599])
                 ->orderBy('http_checked_at', 'DESC')->paginate(10),
+        ]);
+    }
+
+    public function viewDisabled()
+    {
+        return view('manage.links_disabled')->with([
+            'page_title' => __('Disabled Links'),
+            'stats' => new HealthCheckStats(),
+            'disabled_links' => Link::where('is_health_check_enabled', 0)->paginate(10),
         ]);
     }
 }

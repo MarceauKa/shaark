@@ -13,6 +13,7 @@ class LinkResource extends JsonResource
             'title' => $this->title,
             'content' => $this->content,
             'url' => $this->url,
+            'is_health_check_enabled' => $this->is_health_check_enabled,
             'http_status' => $this->getStatusText($this->http_status),
             'http_status_color' => $this->getStatusColor($this->http_status),
             'http_checked_at' => $this->http_checked_at,

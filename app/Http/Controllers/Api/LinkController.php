@@ -41,6 +41,7 @@ class LinkController extends Controller
             'title',
             'content',
             'url',
+            'is_health_check_enabled',
         ])->toArray());
 
         $link->updatePreview();
@@ -69,7 +70,7 @@ class LinkController extends Controller
         $link = Link::findOrFail($id);
         $data = collect($request->validated());
 
-        $link->fill($data->only('title', 'content', 'url')->toArray());
+        $link->fill($data->only('title', 'content', 'url', 'is_health_check_enabled')->toArray());
         $link->updatePreview();
 
         $link->post->is_pinned = $data->get('is_pinned', $link->post->is_pinned);

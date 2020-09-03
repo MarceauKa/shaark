@@ -18,6 +18,7 @@ class Link extends Model
         'preview',
         'archive',
         'url',
+        'is_health_check_enabled',
     ];
     protected $appends = [
         'permalink',

@@ -16,7 +16,7 @@
                             ><i class="fas fa-fw fa-cogs mr-1"></i> {{ __('Settings') }}
                             </a>
                             <a href="{{ route('manage.links') }}"
-                               class="list-group-item list-group-item-action{{ request()->is('manage/links') ? ' active' : '' }}"
+                               class="list-group-item list-group-item-action{{ request()->is('manage/links', 'manage/links/*') ? ' active' : '' }}"
                             ><i class="fas fa-fw fa-link mr-1"></i> {{ __('Links') }}</a>
                             <a href="{{ route('manage.walls') }}"
                                class="list-group-item list-group-item-action{{ request()->is('manage/walls') ? ' active' : '' }}"

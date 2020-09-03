@@ -27,6 +27,11 @@ class HealthCheckStats
         ];
     }
 
+    public function isHealthCheckEnabled()
+    {
+        return app(Shaark::class)->getLinkHealthChecksEnabled();
+    }
+
     public function countTotal()
     {
         return $this->stats->sum('num_count');
@@ -59,6 +64,13 @@ class HealthCheckStats
         return \DB::table('links')
             ->where('http_checked_at', '<', now()->subDays(app(Shaark::class)->getLinkHealthChecksAge()))
             ->orWhereNull('http_checked_at')
+            ->count();
+    }
+
+    public function countDisabled()
+    {
+        return \DB::table('links')
+            ->where('is_health_check_enabled', 0)
             ->count();
     }
 }
