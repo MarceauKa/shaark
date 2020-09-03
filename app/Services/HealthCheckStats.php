@@ -62,8 +62,11 @@ class HealthCheckStats
     public function countPending()
     {
         return \DB::table('links')
-            ->where('http_checked_at', '<', now()->subDays(app(Shaark::class)->getLinkHealthChecksAge()))
-            ->orWhereNull('http_checked_at')
+            ->where('is_health_check_enabled', 1)
+            ->where(function ($query) {
+                return $query->where('http_checked_at', '<', now()->subDays(app(Shaark::class)->getLinkHealthChecksAge()))
+                    ->orWhereNull('http_checked_at');
+            })
             ->count();
     }
 
