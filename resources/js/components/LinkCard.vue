@@ -14,6 +14,11 @@
             <p class="card-text mt-1" v-if="link.tags.length > 0">
                 <a v-for="tag in link.tags" class="badge badge-secondary mr-1" :href="`/tag/${tag}`">{{ tag }}</a>
             </p>
+
+            <p v-if="link.http_status">
+                <span class="badge" :class="'badge-' + link.http_status_color">{{ __(link.http_status) }}</span>
+                <small class="text-muted">{{ __('Last Checked') }}: {{ link.http_checked_at }}</small>
+            </p>
         </div>
 
         <div class="card-footer d-flex justify-content-between">

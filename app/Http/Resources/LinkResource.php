@@ -13,6 +13,9 @@ class LinkResource extends JsonResource
             'title' => $this->title,
             'content' => $this->content,
             'url' => $this->url,
+            'http_status' => $this->getStatusText($this->http_status),
+            'http_status_color' => $this->getStatusColor($this->http_status),
+            'http_checked_at' => $this->http_checked_at,
             'permalink' => $this->permalink,
             'is_private' => $this->post->is_private,
             'is_pinned' => $this->post->is_pinned,
@@ -32,5 +35,35 @@ class LinkResource extends JsonResource
                'url_download' => route('link.archive.download', $this->id),
             ])
         ];
+    }
+
+    public function getStatusText($status)
+    {
+        if (is_null($status)) {
+            return null;
+        }
+
+        if ($status == 200) {
+            return 'Healthy (200)';
+        }
+
+        if (400 <= $status and $status <= 499) {
+            return 'Dead (4xx)';
+        }
+
+        return 'Other (3xx, 5xx)';
+    }
+
+    public function getStatusColor($status)
+    {
+        if ($status == 200) {
+            return 'success';
+        }
+
+        if (400 <= $status and $status <= 499) {
+            return 'danger';
+        }
+
+        return 'warning';
     }
 }
