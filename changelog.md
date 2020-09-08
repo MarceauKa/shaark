@@ -10,6 +10,7 @@
 
 ## Changed
 
+- Tag layout: new heading, 1 column on small screens ([#80](https://github.com/MarceauKa/shaark/issues/80))
 - Dependencies update
 
 # 1.2.42
