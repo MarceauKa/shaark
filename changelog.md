@@ -11,6 +11,7 @@
 ## Changed
 
 - Tag layout: new heading, 1 column on small screens ([#80](https://github.com/MarceauKa/shaark/issues/80))
+- Confirm button with a duration of 2 seconds instead of .5 second ([#81](https://github.com/MarceauKa/shaark/issues/81))
 - Dependencies update
 
 # 1.2.42

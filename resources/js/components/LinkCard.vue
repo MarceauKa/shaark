@@ -8,7 +8,7 @@
                 <a :href="link.url" class="small text-muted">{{ displayUrl }}</a>
             </h5>
 
-            <div :class="`alert alert-${link.http_status_color} d-flex justify-content-between align-items-center`"
+            <div :class="`alert alert-${link.http_status_color} d-flex flex-column flex-lg-row justify-content-between align-items-center`"
                  role="alert" v-if="link.http_status >= 300">
                 <span>{{ __('This link seems to be broken') }} ({{ link.http_status }})</span>
                 <small v-if="link.http_checked_at_formated">{{ link.http_checked_at_formated }}</small>
