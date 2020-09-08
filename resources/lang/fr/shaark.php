@@ -75,7 +75,13 @@ return [
             'disabled' => 'Désactivé',
             'whitelist' => 'Liste blanche',
             'all' => 'Tous',
-        ]
+        ],
+
+        'links' => [
+            'title' => 'Surveillance de la santé des liens',
+            'health_checks_enabled' => 'Activer la surveillance',
+            'health_checks_age' => 'Nombre de jour entre chaque vérification',
+        ],
     ],
 
     // Mails

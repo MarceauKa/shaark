@@ -76,7 +76,13 @@ return [
             'disabled' => 'Uitgeschakeld',
             'whitelist' => 'White-listing',
             'all' => 'Allemaal',
-        ]
+        ],
+
+        'links' => [
+            'title' => 'Link Health Checks',
+            'health_checks_enabled' => 'Schakel gezondheidscontroles in',
+            'health_checks_age' => 'Aantal dagen tussen controles voor elke link',
+        ],
     ],
 
     // Mails

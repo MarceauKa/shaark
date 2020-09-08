@@ -3,9 +3,16 @@
         <div class="card-body">
             <h5 class="card-title">
                 <i class="fas fa-thumbtack fa-sm pr-1" v-if="link.is_pinned && !single"></i>
-                <span>{{ __('Link') }}</span> &mdash; <a :href="link.permalink">{{ link.title }}</a><br>
+                <span>{{ __('Link') }}</span> &mdash;
+                <a :href="link.permalink" :title="link.title">{{ link.title }}</a><br>
                 <a :href="link.url" class="small text-muted">{{ displayUrl }}</a>
             </h5>
+
+            <div :class="`alert alert-${link.http_status_color} d-flex justify-content-between align-items-center`"
+                 role="alert" v-if="link.http_status >= 300">
+                <span>{{ __('This link seems to be broken') }} ({{ link.http_status }})</span>
+                <small v-if="link.http_checked_at_formated">{{ link.http_checked_at_formated }}</small>
+            </div>
 
             <p class="card-content" v-html="link.content"></p>
 
@@ -14,15 +21,12 @@
             <p class="card-text mt-1" v-if="link.tags.length > 0">
                 <a v-for="tag in link.tags" class="badge badge-secondary mr-1" :href="`/tag/${tag}`">{{ tag }}</a>
             </p>
-
-            <p v-if="link.http_status">
-                <span class="badge" :class="'badge-' + link.http_status_color">{{ __(link.http_status) }}</span>
-                <small class="text-muted">{{ __('Last Checked') }}: {{ link.http_checked_at }}</small>
-            </p>
         </div>
 
-        <div class="card-footer d-flex justify-content-between">
-            <span><i class="fas fa-lock pr-2" v-if="link.is_private"></i>{{ link.date_formated }}</span>
+        <div class="card-footer d-flex justify-content-between align-items-center">
+            <span>
+                <i class="fas fa-lock pr-2" v-if="link.is_private"></i> {{ link.date_formated }}
+            </span>
 
             <div class="dropdown">
                 <button class="btn btn-outline-dark btn-sm dropdown-toggle"

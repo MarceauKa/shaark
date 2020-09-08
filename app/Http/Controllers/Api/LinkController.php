@@ -27,7 +27,7 @@ class LinkController extends Controller
         $parser = WebParser::parse($request->get('url'));
 
         return response()->json([
-            'title' => $parser->title,
+            'title'   => $parser->title,
             'content' => $parser->content,
         ]);
     }
@@ -41,7 +41,7 @@ class LinkController extends Controller
             'title',
             'content',
             'url',
-            'is_health_check_enabled',
+            'is_watched',
         ])->toArray());
 
         $link->updatePreview();
@@ -59,7 +59,7 @@ class LinkController extends Controller
         $post->save();
 
         return response()->json([
-            'post' => new PostResource($post),
+            'post'   => new PostResource($post),
             'status' => 'created',
         ]);
     }
@@ -70,7 +70,12 @@ class LinkController extends Controller
         $link = Link::findOrFail($id);
         $data = collect($request->validated());
 
-        $link->fill($data->only('title', 'content', 'url', 'is_health_check_enabled')->toArray());
+        $link->fill($data->only([
+            'title',
+            'content',
+            'url',
+            'is_watched'
+        ])->toArray());
         $link->updatePreview();
 
         $link->post->is_pinned = $data->get('is_pinned', $link->post->is_pinned);
@@ -85,7 +90,7 @@ class LinkController extends Controller
         $link->post->save();
 
         return response()->json([
-            'post' => new PostResource($link->post),
+            'post'   => new PostResource($link->post),
             'status' => 'updated',
         ]);
     }
@@ -103,7 +108,7 @@ class LinkController extends Controller
         $link->post->delete();
 
         return response()->json([
-            'id' => $link->id,
+            'id'     => $link->id,
             'status' => 'deleted',
         ]);
     }

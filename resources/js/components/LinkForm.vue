@@ -42,8 +42,8 @@
                 <div class="col-12 col-md-4">
                     <div class="form-group">
                         <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="is_health_check_enabled" v-model="form.is_health_check_enabled" :disabled="loading">
-                            <label class="custom-control-label" for="is_health_check_enabled" dusk="link-is_health_check_enabled">{{ __('Enable Health Check?') }}</label>
+                            <input type="checkbox" class="custom-control-input" id="is_watched" v-model="form.is_watched" :disabled="loading">
+                            <label class="custom-control-label" for="is_watched" dusk="link-is-watched">{{ __("Monitor link's health?") }}</label>
                         </div>
                     </div>
                 </div>
@@ -139,7 +139,7 @@ let defaultLink = function () {
         url: null,
         title: null,
         content: null,
-        is_health_check_enabled: true,
+        is_watched: false,
         is_private: false,
         is_pinned: false,
         tags: []

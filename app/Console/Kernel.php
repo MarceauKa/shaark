@@ -12,27 +12,24 @@ class Kernel extends ConsoleKernel
 {
     protected function commands()
     {
-        $this->load(__DIR__ . '/Commands');
+        $this->load(__DIR__.'/Commands');
     }
 
     protected function schedule(Schedule $schedule)
     {
         // Reset Demo
-        $schedule->command(ResetForDemo::class)
-            ->when(function () {
-                return config('shaark.demo');
-            })
-            ->hourly();
+        $schedule->command(ResetForDemo::class)->when(function () {
+            return config('shaark.demo');
+        })->hourly();
 
         // Clean files
-        $schedule->command(CleanFiles::class)
-            ->hourly();
+        $schedule->command(CleanFiles::class)->hourly();
 
         // Make backup
         $this->scheduleBackup($schedule);
 
         // Link health checks
-        $this->scheduleLinkHealthChecks($schedule);
+        $this->scheduleLinksWatcher($schedule);
     }
 
     protected function scheduleBackup(Schedule $schedule): self
@@ -58,14 +55,14 @@ class Kernel extends ConsoleKernel
         return $this;
     }
 
-    protected function scheduleLinkHealthChecks(Schedule $schedule): self
+    protected function scheduleLinksWatcher(Schedule $schedule): self
     {
         $shaark = app(Shaark::class);
 
-        if (false === $shaark->getLinkHealthChecksEnabled()) {
-            return $this;
+        if (true === $shaark->getLinkHealthChecksEnabled()) {
+            $schedule->command('shaark:watch-links')->hourly();
         }
 
-        $schedule->command('shaark:link_health_check')->everyTenMinutes();
+        return $this;
     }
 }

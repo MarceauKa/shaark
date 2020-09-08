@@ -7,7 +7,7 @@ use App\Link;
 use App\Services\Shaark\Shaark;
 use Illuminate\Support\Facades\Cache;
 
-class LinksHealth extends Controller
+class LinksHealthController extends Controller
 {
     public function __construct()
     {

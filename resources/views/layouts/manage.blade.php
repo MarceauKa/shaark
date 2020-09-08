@@ -13,11 +13,10 @@
                         <div class="list-group">
                             <a href="{{ route('manage.settings') }}"
                                class="list-group-item list-group-item-action{{ request()->is('manage/settings') ? ' active' : '' }}"
-                            ><i class="fas fa-fw fa-cogs mr-1"></i> {{ __('Settings') }}
-                            </a>
-                            <a href="{{ route('manage.links') }}"
-                               class="list-group-item list-group-item-action{{ request()->is('manage/links', 'manage/links/*') ? ' active' : '' }}"
-                            ><i class="fas fa-fw fa-link mr-1"></i> {{ __('Links') }}</a>
+                            ><i class="fas fa-fw fa-cogs mr-1"></i> {{ __('Settings') }}</a>
+                            <a href="{{ route('manage.links-health') }}"
+                               class="list-group-item list-group-item-action{{ request()->is('manage/links-health') ? ' active' : '' }}"
+                            ><i class="fas fa-fw fa-heartbeat mr-1"></i> {{ __('Links health') }}</a>
                             <a href="{{ route('manage.walls') }}"
                                class="list-group-item list-group-item-action{{ request()->is('manage/walls') ? ' active' : '' }}"
                             ><i class="fas fa-fw fa-bookmark mr-1"></i> {{ __('Walls') }}</a>
@@ -35,6 +34,7 @@
                             ><i class="fas fa-fw fa-cloud-download-alt mr-1"></i> {{ __('Export') }}</a>
                         </div>
                     </div>
+
                     <div class="col-12 col-md-8">
                         @yield('content')
                     </div>

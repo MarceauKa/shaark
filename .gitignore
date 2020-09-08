@@ -8,9 +8,7 @@
 /vendor
 .env
 .phpunit.result.cache
-composer.lock
 Homestead.json
 Homestead.yaml
 npm-debug.log
-package-lock.json
 yarn-error.log

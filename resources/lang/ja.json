@@ -25,8 +25,6 @@
     "Whoops, something went wrong on our servers.": "サーバー上にエラーが発生してしまった。",
     "Yes": "はい",
     "No": "いいえ",
-    "Enabled": "有効",
-    "Disabled": "無効",
     "Previous": "前",
     "Next": "次",
 
@@ -244,17 +242,16 @@
     "Atom Feed": "ＡＴＯＭフィード",
     "All new content of :title": ":titleの最新コンテンツ",
 
-    "Total": "合計",
-    "Health Checks": "健康チェック",
-    "Pending Checks": "チェック待ち",
-    "Healthy (200)": "健康（２００）",
-    "Dead (4xx)": "ＵＲＬ切れ（４xx）",
-    "Other (3xx, 5xx)": "他（３xx、５xx）",
-    "Dead Links": "切れたＵＲＬ",
-    "Disabled Links": "健康チェック無効のＵＲＬ",
-    "No dead links found": "切れたＵＲＬはありません",
-    "Other-status Links": "他ステータスのＵＲＬ",
-    "No other-status links found": "他ステータスのＵＲＬはありません",
-    "Last Checked": "最後のチェック",
-    "Enable Health Check?": "健康チェックを有効しますか？"
+    "Links health": "健康をリンク",
+    "Links watched": "視聴したリンク",
+    "Links not watched": "視聴されなかったリンク",
+    "Live (2xx)": "ライブ（2xx）",
+    "Redirect (3xx)": "リダイレクト（3xx）",
+    "Dead (4xx)": "デッド（4xx）",
+    "Error (5xx)": "エラー（5xx）",
+    "Health checks for links are disabled": "リンクのヘルスチェックが無効になっています",
+    "This link seems to be broken": "このリンクは壊れているようです",
+    "Monitor link's health?": "リンクの状態を監視しますか？",
+    "No problem found": "問題は見つかりませんでした",
+    "Last checked": "最後のチェック"
 }

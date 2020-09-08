@@ -60,11 +60,7 @@ Route::group([
 
     $router->get('walls', 'WallsController@view')->name('walls');
 
-    $router->get('links', 'LinksController@view')->name('links');
-    $router->post('links', 'LinksController@store');
-    $router->get('links/dead', 'LinksController@viewDead')->name('links.dead.view');
-    $router->get('links/other', 'LinksController@viewOther')->name('links.other.view');
-    $router->get('links/disabled', 'LinksController@viewDisabled')->name('links.disabled.view');
+    $router->get('links-health', 'LinksHealthController@view')->name('links-health');
 
     $router->get('archives', 'ArchivesController@view')->name('archives');
 

@@ -27,7 +27,7 @@ class StoreLinkRequest extends FormRequest
                 'required',
                 'url',
             ],
-            'is_health_check_enabled' => [
+            'is_watched' => [
                 'nullable',
             ],
             'is_private' => [

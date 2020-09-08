@@ -21,18 +21,18 @@
                     <tbody>
                     <tr v-for="archive in archives">
                         <td class="align-middle">
-                        <span v-if="['pdf'].indexOf(archive.extension) !== -1">
-                            <i class="fas fa-file-pdf mr-1"></i>
-                        </span>
-                            <span v-else-if="['mp4', 'webm', 'mpeg', 'avi', 'mkv'].indexOf(archive.extension) !== -1">
-                            <i class="fas fa-file-video mr-1"></i>
-                        </span>
-                            <span v-else-if="['mp3', 'wav', 'flac'].indexOf(archive.extension) !== -1">
-                            <i class="fas fa-file-audio mr-1"></i>
-                        </span>
-                            <span v-else>
-                            <i class="fas fa-file mr-1"></i>
-                        </span>
+                            <span v-if="['pdf'].indexOf(archive.extension) !== -1">
+                                <i class="fas fa-file-pdf mr-1"></i>
+                            </span>
+                                <span v-else-if="['mp4', 'webm', 'mpeg', 'avi', 'mkv'].indexOf(archive.extension) !== -1">
+                                <i class="fas fa-file-video mr-1"></i>
+                            </span>
+                                <span v-else-if="['mp3', 'wav', 'flac'].indexOf(archive.extension) !== -1">
+                                <i class="fas fa-file-audio mr-1"></i>
+                            </span>
+                                <span v-else>
+                                <i class="fas fa-file mr-1"></i>
+                            </span>
 
                             <a :href="archive.permalink">
                                 {{ archive.title.substr(0, 40) }}

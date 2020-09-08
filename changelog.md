@@ -1,9 +1,12 @@
 # Unreleased
 
+## Added
+
+- Health checks for links (thanks to [wyred](https://github.com/wyred), [#79](https://github.com/MarceauKa/shaark/pull/79))
+
 ## Changed
 
 - Dependencies update
-- `composer.lock` and `package-lock.json` are no longer under git
 
 # 1.2.42
 
