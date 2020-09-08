@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Services\Shaark\Shaark;
+use GuzzleHttp\Client;
 use Illuminate\Support\Carbon;
 
 class UpdateChecker
@@ -14,10 +15,28 @@ class UpdateChecker
 
     private function __construct()
     {
+        $body = null;
+
         try {
-            $feed = simplexml_load_file(self::FEED_URL);
+            $response = (new Client())->request('GET', self::FEED_URL, [
+                'headers'     => [
+                    'User-Agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36',
+                ],
+                'http_errors' => false,
+                'timeout'     => 5,
+            ]);
+
+            $body = $response->getBody()->getContents();
         } catch (\Exception $e) {
             unset($e);
+            return;
+        }
+
+        try {
+            $feed = simplexml_load_string($body);
+        } catch (\Exception $e) {
+            unset($e);
+            return;
         }
 
         if ($feed instanceof \SimpleXMLElement) {

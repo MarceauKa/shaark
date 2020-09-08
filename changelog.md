@@ -4,6 +4,10 @@
 
 - Health checks for links (thanks to [wyred](https://github.com/wyred), [#79](https://github.com/MarceauKa/shaark/pull/79))
 
+## Fixed
+
+- Update checker now fails silently when Github.com is down ([#82](https://github.com/MarceauKa/shaark/issues/82)) 
+
 ## Changed
 
 - Dependencies update
