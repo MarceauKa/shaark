@@ -14,7 +14,7 @@ All of your data can be **private, public or both** and can be browsed by **tags
 
 ## Features
 
-- [x] Links : to keep your bookmarks
+- [x] Links : to keep your bookmarks (with health-checks)
 - [x] Stories : posts with markdown flavored content
 - [x] Chests : to save your passwords
 - [x] Albums : to host your pictures
