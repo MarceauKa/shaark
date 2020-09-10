@@ -1,60 +1,65 @@
-version: '2.2'
+version: '3.7'
 services:
   shaark:
-    image: shaark
-    build: .
-    container_name: shaark
+    image: shaark:${SHAARK_IMAGE_TAG:-latest}
+    build:
+      context: ./
+      dockerfile: Dockerfile.shaark
     restart: unless-stopped
-#    volumes:
-#      - "./env:/app/.env"
-#    ports:
-#      - "80:80/tcp"
-    networks:
-      - shaark
-      - nginx_net
+    ports:
+      - target: 80
+        published: ${SHAARK_PORT:-8080}
+        protocol: tcp
+        mode: host
+    depends_on:
+      - mariadb
+      - redis
+    entrypoint: ['./app/wait-for-it.sh', 'mariadb:3306', '-t', '30', '--', './app/entrypoint-shaark.sh'] 
+    environment:
+      APP_MIGRATE_DB: ${SHAARK_MIGRATE_DB:-false}
+      APP_ENV: "production"
+      APP_DEBUG: ${SHAARK_DEBUG:-false}
+      APP_URL: ${SHAARK_URL:-http://localhost}
+      APP_ADMIN_PASSWORD: ${SHAARK_ADMIN_PASSWORD:-secret}
+      DB_PASSWORD: ${SHAARK_DATABASE_PASSWORD:-secret}
+      DB_USER: ${SHAARK_DATABASE_USER:-homestead}
+      DB_DATABASE: ${SHAARK_DATABASE_NAME:-homestead}
+    volumes:
+      - storage:/app/storage
     logging:
       driver: "json-file"
       options:
         max-size: "10m"
         max-file: "5"
-        
-  mariadb:     
+
+  mariadb:
     image: mariadb
-    container_name: mariadb_shaark
     restart: unless-stopped
     volumes:
-      - /opt/shaark/mariadb:/var/lib/mysql
-    networks:
-      - shaark
+      - mariadb:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: rootpassword9867ow3q459087w980
-      MYSQL_PASSWORD: secret
-      MYSQL_USER: homestead
-      MYSQL_DATABASE: homestead
+      MYSQL_RANDOM_ROOT_PASSWORD: 'true'
+      MYSQL_PASSWORD: ${SHAARK_DATABASE_PASSWORD:-secret}
+      MYSQL_USER: ${SHAARK_DATABASE_USER:-homestead}
+      MYSQL_DATABASE: ${SHAARK_DATABASE_NAME:-homestead}
     logging:
       driver: "json-file"
       options:
         max-size: "10m"
         max-file: "5"
-      
 
   redis:
     image: redis
-    container_name: redis_shaark
     restart: unless-stopped
     volumes:
-      - /opt/shaark/redis:/data
-    networks:
-      - shaark
+      - redis:/data
     logging:
       driver: "json-file"
       options:
         max-size: "10m"
         max-file: "5"
 
-
-networks:
-  shaark:
-    name: shaark_net
-  nginx_net:
-    name: nginx_net
+volumes:
+  redis:
+  mariadb:
+  storage:
