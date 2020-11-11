@@ -47,7 +47,7 @@ Once created, run `php artisan key:generate` to generate a unique key for you ap
 
 ### Migrations
 
-Default user is `admin@example.com` with password `secret`.
+Default user is `shaark@example.com` with password `secret`.
 
 - With install command:
 `php artisan shaark:install`

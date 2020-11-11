@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('users')->insert([
             'name' => 'Admin',
-            'email' => 'admin@example.com',
+            'email' => 'shaark@example.com',
             'password' => Hash::make('secret'),
             'api_token' => 'api-token-secret',
             'is_admin' => 1,
@@ -65,7 +65,7 @@ class DatabaseSeeder extends Seeder
                 'title' => config('app.name'),
                 'content' => [
                     ['type' => 'url', 'name' => 'URL', 'value' => route('login')],
-                    ['type' => 'text', 'name' => 'Email', 'value' => 'admin@example.com'],
+                    ['type' => 'text', 'name' => 'Email', 'value' => 'shaark@example.com'],
                     ['type' => 'password', 'name' => 'Mot de passe', 'value' => Str::random(12)],
                     ['type' => 'code', 'name' => 'Code', 'value' => "<?php print \"Hello world\"; ?>"],
                 ]

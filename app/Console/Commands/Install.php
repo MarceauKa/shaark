@@ -30,7 +30,7 @@ class Install extends Command
         }
 
         $name = $this->ask('User name?', 'Admin');
-        $email = $this->ask('User email?', 'admin@example.com');
+        $email = $this->ask('User email?', 'shaark@example.com');
         $pass = $this->ask('User pass?', 'secret');
 
         $user = \App\User::count() ? \App\User::first() : new \App\User();

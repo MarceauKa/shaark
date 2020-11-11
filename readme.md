@@ -30,7 +30,7 @@ All of your data can be **private, public or both** and can be browsed by **tags
 
 ![Homepage](/resources/screenshots/home.jpg?raw=true "Homepage")
 
-A public demo is available at [https://shaark.mka.ovh](https://shaark.mka.ovh). Credentials are **admin@example.com** and **secret**. 
+A public demo is available at [https://shaark.mka.ovh](https://shaark.mka.ovh). Credentials are **shaark@example.com** and **secret**. 
 This demo is resetted hourly.
 
 ## Documentation

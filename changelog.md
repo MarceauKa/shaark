@@ -1,6 +1,9 @@
 # Unreleased
 
-## Changed Laravel 6.20
+## Changed
+
+- Default user email is now `shaark@example.com`
+- Laravel 6.20
 
 # 1.2.43
 
