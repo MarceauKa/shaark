@@ -34,7 +34,7 @@
         </div>
 
         <div class="card-footer" v-if="creating || editing">
-            <user-form :user="editing" @submited="formSubmited()"></user-form>
+            <user-form :editing="editing" @submited="formSubmited()"></user-form>
         </div>
     </div>
 </template>
@@ -93,7 +93,7 @@ export default {
 
         edit(user) {
             this.creating = false;
-            this.editing = user;
+            this.editing = { ...user };
         },
 
         formSubmited() {

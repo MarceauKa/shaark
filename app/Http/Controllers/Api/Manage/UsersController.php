@@ -80,9 +80,9 @@ class UsersController extends Controller
         $admin = User::isAdmin()->first();
 
         if ($admin) {
-            Post::where('user_id', $id)->update('user_id', $admin->id);
+            Post::where('user_id', $id)->update(['user_id' => $admin->id]);
         } else {
-            Post::where('user_id', $id)->update('user_id', null);
+            Post::where('user_id', $id)->update(['user_id' => null]);
         }
 
         return response()->json([

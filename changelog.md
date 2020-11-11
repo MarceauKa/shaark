@@ -1,5 +1,9 @@
 # Unreleased
 
+## Fixed
+
+- Create and delete users ([#77](https://github.com/MarceauKa/shaark/issues/77), [#87](https://github.com/MarceauKa/shaark/issues/87))
+
 ## Changed
 
 - Default user email is now `shaark@example.com`
