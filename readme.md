@@ -8,6 +8,8 @@ All of your data can be **private, public or both** and can be browsed by **tags
 
 **Shaark** is production ready, inspired by [Shaarli](https://github.com/shaarli/Shaarli), built with [Laravel](https://github.com/laravel/laravel) and [Vue.js](https://vuejs.org/).
 
+📌 [Roadmap for the next version](https://github.com/MarceauKa/shaark/issues/96) is available, we'll like to hear your feedback!
+
 ## Summary
 
 [Features](#features) / [Demo](#demo) / [Documentation](#documentation) / [Contribute](#contribute) / [Security](#security) / [Tests](#tests) / [Licence](#licence)
