@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Lab404\AuthChecker\Models\Login as BaseLogin;
 

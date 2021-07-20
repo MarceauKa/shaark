@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use App\Concerns\Models\Postable;
 use App\Services\Shaark\Shaark;

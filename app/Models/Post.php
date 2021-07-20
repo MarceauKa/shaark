@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use App\Concerns\Models\HasTags;
 use Illuminate\Database\Eloquent\Builder;
