@@ -8,15 +8,13 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-12">
-            <div class="cards">
-                <masonry :cols="2" :gutter="30">
-                    <div class="card mb-4">
-                        <div class="card-header"><i class="fas fa-tags"></i> {{ __('Tag') }} &mdash; {{ $tag->name }}</div>
-                        <div class="card-body">
-                            {{ $tag->posts_count }} {{ Str::plural('élément', $tag->posts_count) }}
-                        </div>
-                    </div>
+            <div class="nav-wall d-flex justify-content-between align-items-center mb-4">
+                <h1 class="text-uppercase">{{ $tag->name }}</h1>
+                <span class="badge badge-secondary">{{ $tag->posts_count }}</span>
+            </div>
 
+            <div class="cards">
+                <masonry :cols="{default: 2, 700: 1}" :gutter="30">
                     @foreach($posts as $post)
                         @if($post->postable instanceof \App\Link)
                             <link-card :single="false" :link="{{ json_encode(\App\Http\Resources\LinkResource::make($post->postable)) }}"></link-card>

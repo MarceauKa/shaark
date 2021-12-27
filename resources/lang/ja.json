@@ -240,5 +240,18 @@
     "Source code": "ソースコード",
     "RSS Feed": "ＲＳＳフィード",
     "Atom Feed": "ＡＴＯＭフィード",
-    "All new content of :title": ":titleの最新コンテンツ"
+    "All new content of :title": ":titleの最新コンテンツ",
+
+    "Links health": "健康をリンク",
+    "Links watched": "視聴したリンク",
+    "Links not watched": "視聴されなかったリンク",
+    "Live (2xx)": "ライブ（2xx）",
+    "Redirect (3xx)": "リダイレクト（3xx）",
+    "Dead (4xx)": "デッド（4xx）",
+    "Error (5xx)": "エラー（5xx）",
+    "Health checks for links are disabled": "リンクのヘルスチェックが無効になっています",
+    "This link seems to be broken": "このリンクは壊れているようです",
+    "Monitor link's health?": "リンクの状態を監視しますか？",
+    "No problem found": "問題は見つかりませんでした",
+    "Last checked": "最後のチェック"
 }

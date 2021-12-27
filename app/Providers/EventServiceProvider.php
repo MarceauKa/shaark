@@ -11,6 +11,9 @@ class EventServiceProvider extends ServiceProvider
         \App\Events\LinkArchiveRequested::class => [
             \App\Listeners\MakeLinkArchive::class
         ],
+        \App\Events\LinkHealthCheck::class => [
+            \App\Listeners\CheckLinkHealth::class
+        ],
         \Illuminate\Database\Events\MigrationEnded::class => [
             \App\Listeners\UpdateDatabase::class
         ],

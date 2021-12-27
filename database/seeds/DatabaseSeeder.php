@@ -65,7 +65,7 @@ class DatabaseSeeder extends Seeder
                 'title' => config('app.name'),
                 'content' => [
                     ['type' => 'url', 'name' => 'URL', 'value' => route('login')],
-                    ['type' => 'text', 'name' => 'Email', 'value' => 'admin@example.com'],
+                    ['type' => 'text', 'name' => 'Email', 'value' => 'shaark@example.com'],
                     ['type' => 'password', 'name' => 'Mot de passe', 'value' => Str::random(12)],
                     ['type' => 'code', 'name' => 'Code', 'value' => "<?php print \"Hello world\"; ?>"],
                 ]

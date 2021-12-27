@@ -264,5 +264,18 @@
     "Source code": "Broncode",
     "RSS Feed": "RSS Feed",
     "Atom Feed": "Atom Feed",
-    "All new content of :title": "Alle nieuwe inhoud van :title"
+    "All new content of :title": "Alle nieuwe inhoud van :title",
+
+    "Links health": "Verbindt gezondheid",
+    "Links watched": "Links bekeken",
+    "Links not watched": "Links niet bekeken",
+    "Live (2xx)": "Live (2xx)",
+    "Redirect (3xx)": "Omleiding (3xx)",
+    "Dead (4xx)": "Dood (4xx)",
+    "Error (5xx)": "Fout (5xx)",
+    "Health checks for links are disabled": "Statuscontroles voor koppelingen zijn uitgeschakeld",
+    "This link seems to be broken": "Deze link lijkt te zijn verbroken",
+    "Monitor link's health?": "Link's gezondheid bewaken?",
+    "No problem found": "Geen probleem gevonden",
+    "Last checked": "Laatst gecontroleerd"
 }

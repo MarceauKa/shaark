@@ -240,5 +240,18 @@
     "Source code": "Quellcode",
     "RSS Feed": "RSS Feed",
     "Atom Feed": "Atom Feed",
-    "All new content of :title": "Alle neuen Inhalte von :title"
+    "All new content of :title": "Alle neuen Inhalte von :title",
+
+    "Links health": "Links Gesundheit",
+    "Links watched": "Links gesehen",
+    "Links not watched": "Links nicht gesehen",
+    "Live (2xx)": "Live (2xx)",
+    "Redirect (3xx)": "Weiterleiten (3xx)",
+    "Dead (4xx)": "Tot (4xx)",
+    "Error (5xx)": "Fehler (5xx)",
+    "Health checks for links are disabled": "Integritätsprüfungen für Links sind deaktiviert",
+    "This link seems to be broken": "Dieser Link scheint unterbrochen zu sein",
+    "Monitor link's health?": "Link Gesundheit überwachen?",
+    "No problem found": "Kein Problem gefunden",
+    "Last checked": "Zuletzt überprüft"
 }

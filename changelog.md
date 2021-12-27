@@ -1,9 +1,29 @@
-# Unreleased
+# 1.2.44
+
+## Fixed
+
+- Create and delete users ([#77](https://github.com/MarceauKa/shaark/issues/77), [#87](https://github.com/MarceauKa/shaark/issues/87))
 
 ## Changed
 
+- Default user email is now `shaark@example.com`
+- Laravel 6.20
+
+# 1.2.43
+
+## Added
+
+- Health checks for links (thanks to [wyred](https://github.com/wyred), [#79](https://github.com/MarceauKa/shaark/pull/79))
+
+## Fixed
+
+- Update checker now fails silently when Github.com is down ([#82](https://github.com/MarceauKa/shaark/issues/82)) 
+
+## Changed
+
+- Tag layout: new heading, 1 column on small screens ([#80](https://github.com/MarceauKa/shaark/issues/80))
+- Confirm button with a duration of 2 seconds instead of .5 second ([#81](https://github.com/MarceauKa/shaark/issues/81))
 - Dependencies update
-- `composer.lock` and `package-lock.json` are no longer under git
 
 # 1.2.42
 

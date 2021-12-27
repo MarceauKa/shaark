@@ -21,7 +21,7 @@
             </div>
 
             <div class="row">
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-md-4">
                     <div class="form-group">
                         <div class="custom-control custom-switch">
                             <input type="checkbox" class="custom-control-input" id="is_private" v-model="form.is_private" :disabled="loading">
@@ -30,11 +30,20 @@
                     </div>
                 </div>
 
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-md-4">
                     <div class="form-group">
                         <div class="custom-control custom-switch">
                             <input type="checkbox" class="custom-control-input" id="is_pinned" v-model="form.is_pinned" :disabled="loading">
                             <label class="custom-control-label" for="is_pinned" dusk="link-form-pinned">{{ __('Is pinned?') }}</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <div class="form-group">
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input" id="is_watched" v-model="form.is_watched" :disabled="loading">
+                            <label class="custom-control-label" for="is_watched" dusk="link-is-watched">{{ __("Monitor link's health?") }}</label>
                         </div>
                     </div>
                 </div>
@@ -130,6 +139,7 @@ let defaultLink = function () {
         url: null,
         title: null,
         content: null,
+        is_watched: false,
         is_private: false,
         is_pinned: false,
         tags: []

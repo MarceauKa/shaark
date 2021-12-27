@@ -70,9 +70,9 @@ export default {
     ],
 
     props: {
-        user: {
+        editing: {
             type: Object|Boolean,
-            required: false,
+            required: true,
             default: false,
         }
     },
@@ -85,23 +85,24 @@ export default {
     },
 
     mounted() {
-        if (this.user) {
-            this.setUser(this.user);
+        if (this.editing !== false) {
+            this.setUser(this.editing);
         }
     },
 
     methods: {
         submit() {
             this.loading = true;
+            let editing = this.editing !== false;
 
             axios.request({
-                method: this.user ? 'PUT' : 'POST',
-                url: this.user ? this.user.url_update : '/api/manage/users',
+                method: editing ? 'PUT' : 'POST',
+                url: editing ? this.editing.url_update : '/api/manage/users',
                 data: this.form
             }).then(response => {
                 this.$toasted.success(this.__("Saved"));
 
-                if (this.user) {
+                if (this.editing) {
                     this.loading = false;
                 } else {
                     this.form = defaultUser();
@@ -110,6 +111,7 @@ export default {
                 this.resetFormError();
                 this.$emit('submited');
             }).catch(error => {
+              console.log(error)
                 if (error.response.data.status === 'error') {
                     this.$toasted.error(error.response.data.message);
                 } else {
@@ -134,7 +136,7 @@ export default {
     },
 
     watch: {
-        user: function (value) {
+        editing(value) {
             this.setUser(value);
         }
     }

@@ -26,7 +26,7 @@ export default {
         duration: {
             type: Number,
             required: false,
-            default: 500,
+            default: 2000,
         },
         href: {
             type: String | null,

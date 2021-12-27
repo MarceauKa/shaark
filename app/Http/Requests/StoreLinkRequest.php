@@ -27,6 +27,9 @@ class StoreLinkRequest extends FormRequest
                 'required',
                 'url',
             ],
+            'is_watched' => [
+                'nullable',
+            ],
             'is_private' => [
                 'nullable',
             ],

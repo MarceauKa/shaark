@@ -39,6 +39,8 @@ use Spatie\Valuestore\Valuestore;
  * @method bool getCommentsGuestAdd()
  * @method bool getCommentsModeration()
  * @method bool getCommentsNotification()
+ * @method bool getLinkHealthChecksEnabled()
+ * @method int getLinkHealthChecksAge()
  */
 trait ControlsSettings
 {
@@ -65,7 +67,7 @@ trait ControlsSettings
             collect($this->getSettingsConfig())
                 ->transform(function ($item, $key) {
                     return [
-                        'key' => $key,
+                        'key'     => $key,
                         'default' => $item['default'],
                     ];
                 })

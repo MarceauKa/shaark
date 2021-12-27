@@ -75,7 +75,13 @@ return [
             'disabled' => 'Behindert',
             'whitelist' => 'Whitelisting',
             'all' => 'Alle',
-        ]
+        ],
+
+        'links' => [
+            'title' => 'Gesundheitsprüfungen verknüpfen',
+            'health_checks_enabled' => 'Aktivieren Sie die Integritätsprüfungen',
+            'health_checks_age' => 'Anzahl der Tage zwischen den Überprüfungen für jeden Link',
+        ],
     ],
 
     // Mails

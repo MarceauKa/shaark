@@ -240,5 +240,18 @@
     "Source code": "Code source",
     "RSS Feed": "Flux RSS",
     "Atom Feed": "Flux Atom",
-    "All new content of :title": "Nouveau contenu de :title"
+    "All new content of :title": "Nouveau contenu de :title",
+
+    "Links health": "Santé des liens",
+    "Links watched": "Liens surveillés",
+    "Links not watched": "Liens non surveillés",
+    "Live (2xx)": "En ligne (2xx)",
+    "Redirect (3xx)": "Redirigé (3xx)",
+    "Dead (4xx)": "Mort (4xx)",
+    "Error (5xx)": "Erreur (5xx)",
+    "Health checks for links are disabled": "La surveillance de la santé des liens est désactivée",
+    "This link seems to be broken": "Ce lien semble cassé",
+    "Monitor link's health?": "Surveiller ce lien ?",
+    "No problem found": "Aucun problème détecté",
+    "Last checked": "Dernière vérification"
 }

@@ -58,6 +58,8 @@ Route::group([
 
     $router->get('features/{type}', 'FeaturesController@check');
 
+    $router->get('links-health/{type}', 'LinksHealthController@get');
+
     $router->get('users', 'UsersController@all')->name('users.all');
     $router->post('users', 'UsersController@store')->name('users.store');
     $router->get('users/{id}', 'UsersController@get')->name('users.get');
