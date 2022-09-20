@@ -15,7 +15,7 @@ trait HasTags
 {
     public function tags(): MorphToMany
     {
-        return $this->morphToMany('App\Tag', 'taggable');
+        return $this->morphToMany('App\Models\Tag', 'taggable');
     }
 
     /**

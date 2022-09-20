@@ -4,6 +4,7 @@ namespace App\Services\LinkArchive;
 
 use YoutubeDl\Entity\Video;
 use YoutubeDl\Exception\ExecutableNotFoundException;
+use YoutubeDl\Options;
 use YoutubeDl\YoutubeDl;
 
 class YoutubeDlProvider extends BaseProvider
@@ -17,17 +18,10 @@ class YoutubeDlProvider extends BaseProvider
         }
 
         try {
-            $dl = new YoutubeDl([
-                'format' => 'best',
-                'restrict-filenames' => true,
-                'max-downloads' => 1,
-                'no-check-certificate' => true,
-                'output' => md5($this->url) . '.%(ext)s',
-            ]);
+            $dl = new YoutubeDl();
 
             $dl->setPythonPath(app('shaark')->getPythonBin());
             $dl->setBinPath(app('shaark')->getYoutubeDlBin());
-            $dl->setDownloadPath($path);
 
             /*$dl->onProgress(function ($progress) {
                 $percentage = $progress['percentage'];
@@ -35,7 +29,14 @@ class YoutubeDlProvider extends BaseProvider
                 logger()->debug("Percentage: $percentage; Size: $size");
             });*/
 
-            $result = $dl->download($this->url);
+            $result = $dl->download(Options::create()
+                ->format('best')
+                ->restrictFileNames(true)
+                ->maxDownloads(1)
+                ->noCheckCertificate(true)
+                ->output(md5($this->url) . '.%(ext)s')
+                ->downloadPath($path)
+                ->url($this->url));
 
             if (false === $result instanceof Video) {
                 return null;
@@ -61,16 +62,16 @@ class YoutubeDlProvider extends BaseProvider
     public static function test(string $url): bool
     {
         try {
-            $dl = new YoutubeDl([
-                'skip-download' => true,
-                'restrict-filenames' => true,
-                'max-downloads' => 1,
-                'no-check-certificate' => true
-            ]);
+            $dl = new YoutubeDl();
 
             $dl->setBinPath(app('shaark')->getYoutubeDlBin());
-            $dl->setDownloadPath(storage_path('app/archives'));
-            $result = $dl->download($url);
+            $result = $dl->download(Options::create()
+                ->skipDownload(true)
+                ->restrictFileNames(true)
+                ->maxDownloads(1)
+                ->noCheckCertificate(true)
+                ->downloadPath(storage_path('app/archives'))
+                ->url($url));
 
             if (false === $result instanceof Video) {
                 return false;

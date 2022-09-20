@@ -40,7 +40,7 @@
         "predis/predis": "^1.1",
         "spatie/browsershot": "^3.57",
         "spatie/laravel-backup": "^8.0",
-        "spatie/laravel-medialibrary": "^9.6",
+        "spatie/laravel-medialibrary": "^10.5",
         "spatie/valuestore": "^1.2",
         "symfony/dom-crawler": "^4.3",
         "teamtnt/laravel-scout-tntsearch-driver": "^11.5"
