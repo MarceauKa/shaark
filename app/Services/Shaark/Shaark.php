@@ -6,7 +6,7 @@ use App\Services\Shaark\Concerns\ControlsComments;
 use App\Services\Shaark\Concerns\ControlsGlobalPrivacy;
 use App\Services\Shaark\Concerns\ControlsSettings;
 use App\Services\Shaark\Concerns\HandleCustomSettings;
-use App\User;
+use App\Models\User;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Str;
 use Spatie\Valuestore\Valuestore;

@@ -7,7 +7,7 @@ use App\Notifications\CheckEmail;
 use App\Services\LinkArchive\LinkArchive;
 use App\Services\LinkArchive\YoutubeDlProvider;
 use App\Services\Shaark\Shaark;
-use App\User;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Storage;

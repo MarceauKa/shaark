@@ -2,7 +2,7 @@
 
 namespace App\Concerns\Models;
 
-use App\Tag;
+use App\Models\Tag;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Support\Collection;

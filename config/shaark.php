@@ -87,7 +87,7 @@ return [
             'rules' => ['required', 'numeric', 'min:100', 'max:2160']
         ],
         'youtube_dl_bin' => [
-            'default' => '/usr/bin/youtube-dl',
+            'default' => '/usr/bin/yt-dlp',
             'rules' => ['required']
         ],
         'python_bin' => [
