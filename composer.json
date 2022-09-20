@@ -38,6 +38,7 @@
         "mews/captcha": "^3.2",
         "norkunas/youtube-dl-php": "^2.0",
         "predis/predis": "^1.1",
+        "spatie/browsershot": "^3.57",
         "spatie/laravel-backup": "^8.0",
         "spatie/laravel-medialibrary": "^9.6",
         "spatie/valuestore": "^1.2",
