@@ -41,6 +41,7 @@
     "dependencies": {
         "codemirror": "^5.42.2",
         "highlight.js": "^11.6.0",
+        "puppeteer": "^18.0.3",
         "webpack": "^5.74.0"
     }
 }

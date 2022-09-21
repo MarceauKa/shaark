@@ -13,6 +13,7 @@ class BrowsershotProvider extends BaseProvider
 
         try {
             Browsershot::url($this->url)->width(app('shaark')->getArchivePdfWidth())
+                ->setChromePath("/usr/bin/chromium-browser")
                 ->height(app('shaark')->getArchivePdfHeight())
                 ->showBackground()->margins(0,0,0,0)->fullPage()->savePdf($filename);
         } catch (\Exception $e) {

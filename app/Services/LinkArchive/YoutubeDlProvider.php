@@ -3,6 +3,7 @@
 namespace App\Services\LinkArchive;
 
 use YoutubeDl\Entity\Video;
+use YoutubeDl\Entity\VideoCollection;
 use YoutubeDl\Exception\ExecutableNotFoundException;
 use YoutubeDl\Options;
 use YoutubeDl\YoutubeDl;
@@ -38,7 +39,7 @@ class YoutubeDlProvider extends BaseProvider
                 ->downloadPath($path)
                 ->url($this->url));
 
-            if (false === $result instanceof Video) {
+            if (false === $result instanceof VideoCollection && $result->count() >= 1) {
                 return null;
             }
 
@@ -64,7 +65,9 @@ class YoutubeDlProvider extends BaseProvider
         try {
             $dl = new YoutubeDl();
 
+            $dl->setPythonPath(app('shaark')->getPythonBin());
             $dl->setBinPath(app('shaark')->getYoutubeDlBin());
+
             $result = $dl->download(Options::create()
                 ->skipDownload(true)
                 ->restrictFileNames(true)
@@ -73,7 +76,7 @@ class YoutubeDlProvider extends BaseProvider
                 ->downloadPath(storage_path('app/archives'))
                 ->url($url));
 
-            if (false === $result instanceof Video) {
+            if (false === $result instanceof VideoCollection && $result->count() >= 1) {
                 return false;
             }
         } catch (ExecutableNotFoundException $e) {
