@@ -4,7 +4,6 @@ mix.js('resources/js/app.js', 'public/js').vue()
     .extract([
         'axios',
         'bootstrap',
-        'codemirror',
         'highlight.js',
         'jquery',
         'lodash',
