@@ -17,7 +17,7 @@ class BrowsershotProvider extends BaseProvider
                 ->setNodeBinary(app('shaark')->getNodeBin())
                 ->height(app('shaark')->getArchivePdfHeight())
                 ->noSandbox()
-                ->showBackground()->margins(0,0,0,0)->fullPage()->savePdf($filename);
+                ->showBackground()->margins(0,0,0,0)->fullPage()->waitUntilNetworkIdle()->savePdf($filename);
         } catch (\Exception $e) {
             throw new \RuntimeException("Unable to create link pdf archive", 0, $e);
         }
