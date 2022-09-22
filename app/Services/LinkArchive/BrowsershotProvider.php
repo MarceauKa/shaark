@@ -13,7 +13,7 @@ class BrowsershotProvider extends BaseProvider
 
         try {
             Browsershot::url($this->url)->width(app('shaark')->getArchivePdfWidth())
-                ->setChromePath("/usr/bin/chromium-browser")
+                ->setChromePath(app('shaark')->getChromiumBin())
                 ->setNodeBinary(app('shaark')->getNodeBin())
                 ->height(app('shaark')->getArchivePdfHeight())
                 ->noSandbox()

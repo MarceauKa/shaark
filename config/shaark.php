@@ -94,6 +94,10 @@ return [
             'default' => '/usr/bin/python',
             'rules' => ['required']
         ],
+        "chromium_bin" => [
+          "default" => '/usr/bin/chromium-browser',
+          "rules" => ['required']
+        ],
         'backup_enabled' => [
             'default' => false,
             'rules' => ['nullable', 'in:on,off']
