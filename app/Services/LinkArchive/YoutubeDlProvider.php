@@ -44,7 +44,7 @@ class YoutubeDlProvider extends BaseProvider
             }
 
             logger()->debug('Link media archive', $result->toArray());
-            return $result->getFilename();
+            return $result->getVideos()[0]->getFilename();
         } catch (ExecutableNotFoundException $e) {
             throw new \RuntimeException("Unable to create link media archive", 0, $e);
         }
