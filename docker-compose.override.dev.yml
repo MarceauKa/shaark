@@ -1,0 +1,15 @@
+version: '3.7'
+services:
+
+  shaark:
+    environment:
+      APP_ENV: "dev"
+      APP_DEBUG: "true"
+      APP_MIGRATE_DB: ${SHAARK_MIGRATE_DB:-true}
+
+  mariadb:
+    ports:
+      - target: 3306
+        published: 3306
+        protocol: tcp
+        mode: host

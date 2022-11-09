@@ -59,14 +59,14 @@ class FeaturesController extends Controller
             return $this->sendError(__('Your node path is unreachable: :path', ['path' => $exec]));
         }
 
-        $dir = base_path('node_modules/puppeteer/.local-chromium');
+        $dir = base_path('vendor/spatie/browsershot');
 
         if (false === is_dir($dir)) {
-            return $this->sendError(__('Puppeteer dependencies not installed, run `npm install @nesk/puphpeteer --no-save`'));
+            return $this->sendError(__('Puppeteer dependencies not installed, run `composer require spatie/browsershot`'));
         }
 
         try {
-            $name = LinkArchive::archive(url()->route('home'), 'pdf');
+            $name = LinkArchive::archive('http://example.com', 'pdf');
         } catch (\Exception $e) {
             return $this->sendError(__('Unable to create archive, error is: :message', ['message' => $e->getMessage()]));
         }

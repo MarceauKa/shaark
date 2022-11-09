@@ -17,8 +17,8 @@ class DatabaseSeeder extends Seeder
 
         DB::table('users')->insert([
             'name' => 'Admin',
-            'email' => 'shaark@example.com',
-            'password' => Hash::make('secret'),
+            'email' => 'admin@example.com',
+            'password' => Hash::make(env('APP_ADMIN_PASSWORD', 'secret')),
             'api_token' => 'api-token-secret',
             'is_admin' => 1,
             'created_at' => now()->toDateTimeString(),
