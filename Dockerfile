@@ -1,10 +1,10 @@
 FROM alpine
 
 RUN apk update && apk upgrade \
-    && apk add --no-cache php8 php8-mbstring php8-xml php8-pdo php8-mysqli php8-bcmath php8-ctype php8-zip \
-    php8-imap php8-curl php8-json php8-gettext php8-gd php8-session php8-snmp php8-pdo_mysql php8-tokenizer \
-    php8-openssl php8-sockets php8-fileinfo php8-dom php8-exif php8-simplexml php8-xmlwriter php8-xmlreader\
-    php8-sqlite3 php8-pdo_sqlite php8-pcntl composer nodejs php8-apache2 apache2 npm git python3 ca-certificates \
+    && apk add --no-cache php82 php82-mbstring php82-xml php82-pdo php82-mysqli php82-bcmath php82-ctype php82-zip \
+    php82-imap php82-curl php82-json php82-gettext php82-gd php82-session php82-snmp php82-pdo_mysql php82-tokenizer \
+    php82-openssl php82-sockets php82-fileinfo php82-dom php82-exif php82-simplexml php82-xmlwriter php82-xmlreader\
+    php82-sqlite3 php82-pdo_sqlite php82-pcntl php82-gd php82-iconv php82-phar composer nodejs php82-apache2 apache2 npm git python3 ca-certificates \
     curl ffmpeg chromium ttf-freefont font-noto-emoji  \
     && curl -Lo /usr/bin/yt-dlp https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp \
     && chmod a+rx /usr/bin/yt-dlp \
@@ -33,8 +33,8 @@ RUN find . -type f -exec chmod 664 {} \; \
     && npm install  \
     && chmod -R a+x node_modules  \
     && npm run production  \
-    && php8 artisan optimize \
-    && php8 artisan view:clear \
+    && php artisan optimize \
+    && php artisan view:clear \
     && adduser -D chrome
 
 ENTRYPOINT ["/entrypoint.sh"]
