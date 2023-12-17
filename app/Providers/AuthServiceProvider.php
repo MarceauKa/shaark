@@ -14,7 +14,6 @@ class AuthServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        $this->registerPolicies();
 
         Gate::define('restricted', function (?User $user) {
             if (app('shaark')->getIsPrivate() === false) {
